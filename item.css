@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🎛️ לוח בקרה מוגן לדף נכס (item) - סרגל פלס כמו בדף דירות!
+   🎛️ לוח בקרה מוגן לדף נכס (item) - סרגל פלס + וידאו COMING SOON
    ========================================================================== */
 :root {
     --מיקום-לוגו-אופקי: -539px; 
@@ -13,6 +13,11 @@
     --כותרת-אמצע-צבע: #875b33;           
     --כותרת-אמצע-צל: 1px 1px 3px rgba(0, 0, 0, 0.15); 
     --כותרת-אמצע-אנכי: 7px; 
+
+    /* 🎬 פאנל ניהול לווידאו COMING SOON */
+    --גודל-וידאו-בקרוב: 442.3px;           /* רוחב הנגן */
+    --מרחק-וידאו-מלמעלה: -50px;          /* מרחק משורת הסרגל */
+    --הזזה-אופקית-וידאו: 0px;           /* ימינה/שמאלה (פלוס/מינוס) */
 }
 /* ========================================================================== */
 
@@ -47,9 +52,36 @@ body.sidebar-open #menu-close-btn:hover {
     background-color: #ffffff !important; color: #875b33 !important; transform: scale(1.12) !important; box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important;
 }
 
-/* 🎯 אלמנטים של הדף - זה החלק שמעלים את מועדון המשקיעים ושומר את הלוגו בצד שמאל! */
+/* 🎯 אלמנטים של הדף */
 body .header-left-link { display: none !important; }
 body .logo-container { transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important; transform-origin: center !important; }
 body .header-container::after {
     content: var(--כותרת-אמצע-טקסט) !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; font-family: 'Heebo', sans-serif !important; font-size: var(--כותרת-אמצע-גודל) !important; font-weight: var(--כותרת-אמצע-עובי) !important; color: var(--כותרת-אמצע-צבע) !important; text-shadow: var(--כותרת-אמצע-צל) !important; white-space: nowrap !important; pointer-events: none !important; 
+}
+
+/* 🎥 עיצוב נקי לחלוטין לנגן הווידאו - אפס קווים שחורים והבהובים */
+.coming-soon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: var(--מרחק-וידאו-מלמעלה);
+    transform: translateX(var(--הזזה-אופקית-וידאו));
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: hidden !important; /* חותך קווים זולגים בקצוות */
+}
+
+.coming-soon-wrapper video {
+    width: var(--גודל-וידאו-בקרוב);
+    max-width: 90vw;
+    height: auto;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    object-fit: cover !important; /* מעלים רווחים שחורים פנימיים */
+    mix-blend-mode: multiply !important; /* ממזג את הרקע הלבן של הווידאו באופן חלק עם העמוד */
 }
