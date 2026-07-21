@@ -9,6 +9,7 @@ export default defineConfig({
         israelInvestments: resolve(__dirname, 'israelInvestments.html'),
         apartments: resolve(__dirname, 'apartments.html'),
         item: resolve(__dirname, 'item.html'),
+        properties: resolve(__dirname, 'properties.html'), // הוספנו אם יש קובץ כזה
       },
     },
   },
