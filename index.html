@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="homepage.css">
-    <link rel="stylesheet" href="nextSection.css">
-    <link rel="stylesheet" href="shortcuts-design.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./homepage.css">
+    <link rel="stylesheet" href="./nextSection.css">
+    <link rel="stylesheet" href="./shortcuts-design.css">
     
     <style>
         /* ==========================================================================
@@ -49,7 +49,7 @@
             flex-direction: column !important;
             align-items: flex-start !important;
             position: relative !important;
-            margin-top: var(--ניהול-גובה-הכותרת-מלמעלה) !important;  
+            margin-top: var(--ניהול-גובה-הכותרת-מלמעלה) !important; 
             
             margin-right: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה)) !important;
             margin-left: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה)) !important;
@@ -191,13 +191,14 @@
         @media (max-width: 768px) {
             .main-carousel-arrow, .carousel-fade-overlay { display: none !important; }
         }
+        
         /* 🏢 עיצוב לוגו הקבלן במיקום חופשי בצד שמאל של הכרטיסייה */
         .developer-logo {
             position: absolute !important;
-            left: var(--ניהול-לוגו-שמאלה, 18px) !important;          /* מרחק מהקצה השמאלי */
-            top: var(--ניהול-לוגו-מרחק-מלמעלה, 3px) !important;     /* מרחק מלמעלה של שורת המחיר */
-            width: var(--ניהול-רוחב-לוגו-קבלן, 70.2px) !important;      /* רוחב הלוגו */
-            height: var(--ניהול-גובה-לוגו-קבלן, 30px) !important;     /* גובה הלוגו */
+            left: var(--ניהול-לוגו-שמאלה, 18px) !important;
+            top: var(--ניהול-לוגו-מרחק-מלמעלה, 3px) !important;
+            width: var(--ניהול-רוחב-לוגו-קבלן, 70.2px) !important;
+            height: var(--ניהול-גובה-לוגו-קבלן, 30px) !important;
             object-fit: contain !important;
             display: block !important;
         }
@@ -208,7 +209,7 @@
     <div id="header-placeholder"></div>
 
     <div class="homepage-container">
-        <img src="/photo1.svg" alt="תמונה מרכזית" class="main-photo">
+        <img src="./photo1.svg" alt="תמונה מרכזית" class="main-photo">
         
         <h1 class="hero-title">בואו נתחיל להשקיע חכם<span class="zillow-dot"></span></h1>
         <h2 class="hero-subtitle">היכן הנכם מעוניינים להשקיע?</h2>
@@ -219,220 +220,211 @@
         </div>
     </div>
 
-<main class="content">
-    <div style="text-align: center; margin-top: -155px; margin-bottom: 80px; width: 100%;">
-        <img src="/home.svg" alt="תמונת הבית" 
-             style="width: 470px;          
-                    height: 300px;        
-                    object-fit: contain;  
-                    max-width: 100%; 
-                    display: inline-block;">
-    </div>
-    
-    <div class="pro-search-wrapper">
-        <input type="radio" id="tab-free" name="search-mode" checked hidden>
-        <input type="radio" id="tab-ai" name="search-mode" hidden>
+    <main class="content">
+        <div style="text-align: center; margin-top: -155px; margin-bottom: 80px; width: 100%;">
+            <img src="./home.svg" alt="תמונת הבית" 
+                 style="width: 470px;          
+                        height: 300px;        
+                        object-fit: contain;  
+                        max-width: 100%; 
+                        display: inline-block;">
+        </div>
+        
+        <div class="pro-search-wrapper">
+            <input type="radio" id="tab-free" name="search-mode" checked hidden>
+            <input type="radio" id="tab-ai" name="search-mode" hidden>
 
-        <div class="search-tabs-container">
-            <label for="tab-free" class="search-tab-label free-label">חיפוש חופשי</label>
-            <label for="tab-ai" class="search-tab-label ai-label">חיפוש עם AI</label>
+            <div class="search-tabs-container">
+                <label for="tab-free" class="search-tab-label free-label">חיפוש חופשי</label>
+                <label for="tab-ai" class="search-tab-label ai-label">חיפוש עם AI</label>
 
-            <div class="search-tab-slider">
-                <div class="shine-beam"></div>
+                <div class="search-tab-slider">
+                    <div class="shine-beam"></div>
+                </div>
+            </div>
+
+            <div class="pro-search-container">
+                <input type="text" class="pro-search-input" placeholder="חפשו עיר, שכונה, כתובת...">
+                <button type="button" class="pro-search-btn" aria-label="חיפוש">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="pro-search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="ai-suggestions-panel">
+                <span class="suggestions-title">למשל:</span>
+                <div class="suggestions-tags">
+                    <button type="button" class="suggestion-tag" onclick="autoTypeSearch('דירת גן 4 חדרים בבאר שבע')">דירת גן 4 חדרים בבאר שבע</button>
+                    <button type="button" class="suggestion-tag" onclick="autoTypeSearch('דירת 5 חדרים עם מרפסת סוכה')">דירת 5 חדרים עם מרפסת סוכה</button>
+                    <button type="button" class="suggestion-tag" onclick="autoTypeSearch('קרקע מופשרת בגבעתיים')">קרקע מופשרת בגבעתיים</button>
+                </div>
             </div>
         </div>
 
-        <div class="pro-search-container">
-            <input type="text" class="pro-search-input" placeholder="חפשו עיר, שכונה, כתובת...">
-            <button type="button" class="pro-search-btn" aria-label="חיפוש">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="pro-search-icon">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
-        </div>
-
-        <div class="ai-suggestions-panel">
-            <span class="suggestions-title">למשל:</span>
-            <div class="suggestions-tags">
-                <button type="button" class="suggestion-tag" onclick="autoTypeSearch('דירת גן 4 חדרים בבאר שבע')">דירת גן 4 חדרים בבאר שבע</button>
-                <button type="button" class="suggestion-tag" onclick="autoTypeSearch('דירת 5 חדרים עם מרפסת סוכה')">דירת 5 חדרים עם מרפסת סוכה</button>
-                <button type="button" class="suggestion-tag" onclick="autoTypeSearch('קרקע מופשרת בגבעתיים')">קרקע מופשרת בגבעתיים   </button>
+        <div class="investments-wrapper">
+            <h2 class="investments-title-inline">מגוון השקעות חכמות</h2>
+            
+            <div class="carousel-outer">
+                <button class="main-carousel-arrow next-main-arrow" id="scroll-right-btn">
+                    <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                        <path d="M1 1L9 9L1 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <div class="carousel-fade-overlay carousel-fade-right" id="fade-right"></div>
+                <div class="carousel-fade-overlay carousel-fade-left" id="fade-left"></div>
+                
+                <div id="property-card-demo-container"></div>
+                
+                <button class="main-carousel-arrow prev-main-arrow" id="scroll-left-btn">
+                    <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                        <path d="M9 1L1 9L9 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
-        </div>
-    </div>
 
-    <div class="investments-wrapper">
-        <h2 class="investments-title-inline">מגוון השקעות חכמות</h2>
-        
-        <div class="carousel-outer">
-            <button class="main-carousel-arrow next-main-arrow" id="scroll-right-btn">
-                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
-                    <path d="M1 1L9 9L1 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            
-            <div class="carousel-fade-overlay carousel-fade-right" id="fade-right"></div>
-            <div class="carousel-fade-overlay carousel-fade-left" id="fade-left"></div>
-            
-            <div id="property-card-demo-container"></div>
-            
-            <button class="main-carousel-arrow prev-main-arrow" id="scroll-left-btn">
-                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
-                    <path d="M9 1L1 9L9 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <span class="view-all-investments">לכל ההשקעות</span>
         </div>
 
-        <span class="view-all-investments">לכל ההשקעות</span>
-    </div>
+        <div class="investments-wrapper" style="margin-top: 50px !important;">
+            <h2 class="investments-title-inline">מגוון פרוייקטים להשקעה</h2>
+            
+            <div class="carousel-outer">
+                <button class="main-carousel-arrow next-main-arrow" id="scroll-right-btn-2">
+                    <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                        <path d="M1 1L9 9L1 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <div class="carousel-fade-overlay carousel-fade-right" id="fade-right-2"></div>
+                <div class="carousel-fade-overlay carousel-fade-left" id="fade-left-2"></div>
+                
+                <div id="projects-card-demo-container"></div>
+                
+                <button class="main-carousel-arrow prev-main-arrow" id="scroll-left-btn-2">
+                    <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                        <path d="M9 1L1 9L9 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
 
-    <div class="investments-wrapper" style="margin-top: 50px !important;">
-        <h2 class="investments-title-inline">מגוון פרוייקטים להשקעה</h2>
-        
-        <div class="carousel-outer">
-            <button class="main-carousel-arrow next-main-arrow" id="scroll-right-btn-2">
-                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
-                    <path d="M1 1L9 9L1 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            
-            <div class="carousel-fade-overlay carousel-fade-right" id="fade-right-2"></div>
-            <div class="carousel-fade-overlay carousel-fade-left" id="fade-left-2"></div>
-            
-            <div id="projects-card-demo-container"></div>
-            
-            <button class="main-carousel-arrow prev-main-arrow" id="scroll-left-btn-2">
-                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
-                    <path d="M9 1L1 9L9 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <span class="view-all-investments">לכל ההשקעות</span>
         </div>
 
-        <span class="view-all-investments">לכל ההשקעות</span>
-    </div>
-<div id="next-section-container"></div>
-<div id="new-shortcuts-container"></div>
-<div id="new-shortcuts-container-2"></div> 
-<div id="new-shortcuts-container-3"></div>
+        <div id="next-section-container"></div>
+        <div id="new-shortcuts-container"></div>
+        <div id="new-shortcuts-container-2"></div> 
+        <div id="new-shortcuts-container-3"></div>
+    </main>
 
-</main>
+    <!-- ✅ 1. טעינת הסקריפטים (פעם אחת בלבד!) -->
+    <script type="module" src="./header.js"></script>
+    <script type="module" src="./propertyCard.js"></script>
+    <script type="module" src="./nextSection.js"></script>
+    <script type="module" src="./shortcuts-logic.js"></script>
+    <script type="module" src="./shortcuts-logic-2.js"></script>
+    <script type="module" src="./shortcuts-logic-3.js"></script>
 
-    <script src="header.js"></script>
-    <script src="propertyCard.js"></script>
-    <script src="nextSection.js"></script>
-    <script src="shortcuts-logic.js"></script>
-    <script src="shortcuts-logic-2.js"></script>
-    <script src="shortcuts-logic-3.js"></script>
+    <!-- ✅ 2. לוגיקה מקומית (הקלדה אוטומטית, גלילה מהירה וקרוסלות) -->
+    <script type="module">
+        let currentTypingAnimation = null;
 
-    <script>
-    let currentTypingAnimation = null;
+        window.autoTypeSearch = function(textToType) {
+            const searchInput = document.querySelector('.pro-search-input');
+            if (!searchInput) return;
 
-    function autoTypeSearch(textToType) {
-        const searchInput = document.querySelector('.pro-search-input');
-        if (!searchInput) return;
+            clearInterval(currentTypingAnimation);
+            searchInput.value = ''; 
+            searchInput.focus(); 
 
-        clearInterval(currentTypingAnimation);
-        searchInput.value = ''; 
-        searchInput.focus(); 
+            let characterIndex = 0;
+            currentTypingAnimation = setInterval(() => {
+                if (characterIndex < textToType.length) {
+                    searchInput.value += textToType.charAt(characterIndex);
+                    characterIndex++;
+                } else {
+                    clearInterval(currentTypingAnimation);
+                }
+            }, 14); 
+        };
 
-        let characterIndex = 0;
-        currentTypingAnimation = setInterval(() => {
-            if (characterIndex < textToType.length) {
-                searchInput.value += textToType.charAt(characterIndex);
-                characterIndex++;
-            } else {
-                clearInterval(currentTypingAnimation);
-            }
-        }, 14); 
-    }
-
-    // =====================================================
-    // 🔥 מנגנון גלילה מהיר וחלק במיוחד (Custom Fast Scroll Animation)
-    // =====================================================
-    function fastScroll(container, distance) {
-        const start = container.scrollLeft;
-        const target = start + distance;
-        const duration = 200; // ⚡ מהיר במיוחד (חצי מהזמן של הדפדפן)
-        const startTime = performance.now();
-        
-        function animate(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out quad
-            const ease = progress * (2 - progress); 
-            container.scrollLeft = start + (target - start) * ease;
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-
-    // פונקציית ניווט חכמה ומבודדת לכל קרוסלה
-    function setupCarousel(containerId, leftBtnId, rightBtnId, fadeLeftId, fadeRightId) {
-        const container = document.getElementById(containerId);
-        const leftBtn = document.getElementById(leftBtnId);
-        const rightBtn = document.getElementById(rightBtnId);
-        const fLeft = document.getElementById(fadeLeftId);
-        const fRight = document.getElementById(fadeRightId);
-        
-        if (!container) return;
-
-        const getVal = (varName) => parseInt(getComputedStyle(document.documentElement).getPropertyValue(varName)) || 300;
-
-        function updateArrows() {
-            const scrollLeft = container.scrollLeft;
-            const scrollWidth = container.scrollWidth;
-            const clientWidth = container.clientWidth;
-            const absScrollLeft = Math.abs(scrollLeft);
+        function fastScroll(container, distance) {
+            const start = container.scrollLeft;
+            const target = start + distance;
+            const duration = 200;
+            const startTime = performance.now();
             
-            if (absScrollLeft < 3) {
-                if(rightBtn) rightBtn.classList.add('hidden');
-                if(fRight) fRight.classList.add('hidden');
-            } else {
-                if(rightBtn) rightBtn.classList.remove('hidden');
-                if(fRight) fRight.classList.remove('hidden');
+            function animate(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = progress * (2 - progress); 
+                container.scrollLeft = start + (target - start) * ease;
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function setupCarousel(containerId, leftBtnId, rightBtnId, fadeLeftId, fadeRightId) {
+            const container = document.getElementById(containerId);
+            const leftBtn = document.getElementById(leftBtnId);
+            const rightBtn = document.getElementById(rightBtnId);
+            const fLeft = document.getElementById(fadeLeftId);
+            const fRight = document.getElementById(fadeRightId);
+            
+            if (!container) return;
+
+            const getVal = (varName) => parseInt(getComputedStyle(document.documentElement).getPropertyValue(varName)) || 300;
+
+            function updateArrows() {
+                const scrollLeft = container.scrollLeft;
+                const scrollWidth = container.scrollWidth;
+                const clientWidth = container.clientWidth;
+                const absScrollLeft = Math.abs(scrollLeft);
+                
+                if (absScrollLeft < 3) {
+                    if(rightBtn) rightBtn.classList.add('hidden');
+                    if(fRight) fRight.classList.add('hidden');
+                } else {
+                    if(rightBtn) rightBtn.classList.remove('hidden');
+                    if(fRight) fRight.classList.remove('hidden');
+                }
+                
+                if (absScrollLeft + clientWidth >= scrollWidth - 3) {
+                    if(leftBtn) leftBtn.classList.add('hidden');
+                    if(fLeft) fLeft.classList.add('hidden');
+                } else {
+                    if(leftBtn) leftBtn.classList.remove('hidden');
+                    if(fLeft) fLeft.classList.remove('hidden');
+                }
+            }
+
+            container.addEventListener('scroll', updateArrows);
+            setTimeout(updateArrows, 200);
+            setTimeout(updateArrows, 600);
+
+            if(leftBtn) {
+                leftBtn.addEventListener('click', () => {
+                    const scrollAmount = getVal('--ניהול-גודל-הכרטיסיות') + getVal('--ניהול-מרחק-בין-הכרטיסיות');
+                    fastScroll(container, -scrollAmount);
+                });
             }
             
-            if (absScrollLeft + clientWidth >= scrollWidth - 3) {
-                if(leftBtn) leftBtn.classList.add('hidden');
-                if(fLeft) fLeft.classList.add('hidden');
-            } else {
-                if(leftBtn) leftBtn.classList.remove('hidden');
-                if(fLeft) fLeft.classList.remove('hidden');
+            if(rightBtn) {
+                rightBtn.addEventListener('click', () => {
+                    const scrollAmount = getVal('--ניהול-גודל-הכרטיסיות') + getVal('--ניהול-מרחק-בין-הכרטיסיות');
+                    fastScroll(container, scrollAmount);
+                });
             }
         }
 
-        container.addEventListener('scroll', updateArrows);
-        // בדיקה חוזרת קצרה כדי לוודא שהכרטיסיות נטענו מה-JS
-        setTimeout(updateArrows, 200);
-        setTimeout(updateArrows, 600);
-
-        if(leftBtn) {
-            leftBtn.addEventListener('click', () => {
-                const scrollAmount = getVal('--ניהול-גודל-הכרטיסיות') + getVal('--ניהול-מרחק-בין-הכרטיסיות');
-                fastScroll(container, -scrollAmount); // ⚡ שמאלה מהיר
-            });
-        }
-        
-        if(rightBtn) {
-            rightBtn.addEventListener('click', () => {
-                const scrollAmount = getVal('--ניהול-גודל-הכרטיסיות') + getVal('--ניהול-מרחק-בין-הכרטיסיות');
-                fastScroll(container, scrollAmount); // ⚡ ימינה מהיר
-            });
-        }
-    }
-
-    // הפעלת קרוסלה 1 ו-2 בנפרד
-    setupCarousel('property-card-demo-container', 'scroll-left-btn', 'scroll-right-btn', 'fade-left', 'fade-right');
-    setupCarousel('projects-card-demo-container', 'scroll-left-btn-2', 'scroll-right-btn-2', 'fade-left-2', 'fade-right-2');
+        window.addEventListener('load', () => {
+            setupCarousel('property-card-demo-container', 'scroll-left-btn', 'scroll-right-btn', 'fade-left', 'fade-right');
+            setupCarousel('projects-card-demo-container', 'scroll-left-btn-2', 'scroll-right-btn-2', 'fade-left-2', 'fade-right-2');
+        });
     </script>
-<script type="module" src="/header.js"></script>
-<script type="module" src="/propertyCard.js"></script>
-<script type="module" src="/nextSection.js"></script>
-<script type="module" src="/shortcuts-logic.js"></script>
-<script type="module" src="/shortcuts-logic-2.js"></script>
-<script type="module" src="/shortcuts-logic-3.js"></script>
 </body>
 </html>
