@@ -1,0 +1,243 @@
+/* ==========================================================================
+   🎛️ לוח בקרה מוגן - אפס השפעה על שאר הסרגל!
+   ========================================================================== */
+:root {
+    --מיקום-לוגו-אופקי: -539px; 
+    --מיקום-לוגו-אנכי: 7px;     
+    --גודל-לוגו-קנה-מידה: 0.77;    
+
+    --כותרת-אמצע-טקסט: "השקעות בארץ";
+    --כותרת-אמצע-גודל: 26px;             
+    --כותרת-אמצע-עובי: 200;              
+    --כותרת-אמצע-צבע: #875b33;           
+    --כותרת-אמצע-צל: 1px 1px 3px rgba(0, 0, 0, 0.15); 
+    --כותרת-אמצע-אנכי: 7px; 
+
+    --קוביות-מרחק-מלמעלה: 32px;     
+    --קובייה-רוחב: 350px;            
+    --קובייה-גובה: 350px;            
+    --תמונה-גובה-סיום: 172px;        
+
+    --קובייה-צל-רגיל: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04); 
+    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                            
+
+    --טקסט-קובייה-גודל: 22.5px;         
+    --טקסט-קובייה-עובי: 400;            
+    --טקסט-קובייה-צבע: #2b2b2b;         
+    --טקסט-קובייה-אנכי: -32px; 
+
+    /* 🔘 🔥 לוח בקרה כפתור - מלבן ישר עם צל היקפי מעודן ועדין בהרבה */
+    --כפתור-צבע-בסיס: #004ce6;        
+    --כפתור-צבע-ריחוף: #003ecb;       
+    --כפתור-טקסט-צבע: #ffffff;        
+    --כפתור-רוחב: 135px;              
+    --כפתור-רדיוס-חדש: 0px;           /* 📐 מלבן ישר לחלוטין כמו סרגל */
+    
+    /* 🌗 🔥 התיקון! צל הרבה יותר עדין, רך ומקצועי שמקיף בקטנה את כל הצדדים */
+    --כפתור-צל-סביב: 0 3px 8px rgba(0, 0, 0, 0.09), 0 0 4px rgba(0, 0, 0, 0.04); 
+    --כפתור-צל-ריחוף: 0 5px 12px rgba(0, 0, 0, 0.14), 0 0 5px rgba(0, 0, 0, 0.06);
+}
+/* ========================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff !important;
+    font-family: 'Heebo', sans-serif;
+}
+
+/* ==========================================================================
+   🛡️ שחזור חסינות אבסולוטית מלאה לסרגל המקורי - נעול פלס!
+   ========================================================================== */
+
+body .hamburger-btn {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translateY(-50%) scale(1) !important;
+}
+
+body .side-menu {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(60px) !important;
+}
+
+body .profile-click-box, body .profile-icon-1, 
+body .love-click-box, body .love-icon-1, 
+body .bell-click-box, body .bell-icon-1 {
+    transform: translateX(-55px) scale(1) !important;
+}
+body .profile-icon-2, body .love-icon-2, body .bell-icon-2 {
+    transform: translateX(-55px) scale(1) !important;
+    opacity: 0 !important;
+}
+
+body .profile-click-box:hover ~ .profile-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:hover ~ .profile-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:active ~ .profile-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body .love-click-box:hover ~ .love-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:hover ~ .love-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:active ~ .love-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body .bell-click-box:hover ~ .bell-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:hover ~ .bell-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:active ~ .bell-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body.sidebar-open .side-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 280px !important;
+    height: 100vh !important;
+    background: #ffffff !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transform: translateX(0) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 70px 20px 20px 20px !important;
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; 
+    z-index: 100000 !important;
+}
+
+body.sidebar-open #menu-close-btn {
+    display: flex !important; 
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 38px !important;
+    height: 38px !important;
+    background-color: #f4f4f5 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    color: #8c8c8c !important;
+    cursor: pointer !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+    z-index: 100002 !important;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+body.sidebar-open #menu-close-btn:hover {
+    background-color: #ffffff !important;
+    color: #875b33 !important;
+    transform: scale(1.12) !important;
+    box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important;
+}
+
+/* ==========================================================================
+   🎯 ניהול לוגו, כותרת אמצע ותוכן הדף
+   ========================================================================== */
+
+body .header-left-link {
+    display: none !important;
+}
+
+body .logo-container {
+    transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important;
+    transform-origin: center !important; 
+}
+
+body .header-container::after {
+    content: var(--כותרת-אמצע-טקסט) !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; 
+    font-family: 'Heebo', sans-serif !important;
+    font-size: var(--כותרת-אמצע-גודל) !important;
+    font-weight: var(--כותרת-אמצע-עובי) !important;
+    color: var(--כותרת-אמצע-צבע) !important;
+    text-shadow: var(--כותרת-אמצע-צל) !important;
+    white-space: nowrap !important; 
+    pointer-events: none !important; 
+}
+
+.main-page-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-size: 22.5px; font-weight: 200; color: #555555; text-align: center; letter-spacing: 0.5px;        
+}
+
+#israel-investments-page {
+    max-width: 1200px; margin: 0 auto; padding-top: 110px; padding-bottom: 60px; text-align: center;
+}
+
+/* ==========================================================================
+   🧱 עיצוב שורת הריבועים (הכרטיסיות החדשות)
+   ========================================================================== */
+.investments-grid {
+    display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: var(--קוביות-מרחק-מלמעלה); direction: rtl; 
+}
+
+.investment-box {
+    width: var(--קובייה-רוחב) !important;
+    height: var(--קובייה-גובה) !important;
+    background-color: #ffffff !important;
+    border-radius: 0px !important; 
+    box-shadow: var(--קובייה-צל-רגיל) !important; 
+    border: 1px solid #ededed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.investment-box:hover { transform: translateY(-4px); box-shadow: var(--קובייה-צל-ריחוף) !important; }
+
+.box-image-wrapper { width: 100% !important; height: var(--תמונה-גובה-סיום) !important; overflow: hidden; margin: 0; padding: 0; }
+.box-image { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+
+.box-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; 
+    flex-grow: 1; 
+    padding-bottom: 35px; 
+}
+
+.box-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-size: var(--טקסט-קובייה-גודל) !important; 
+    font-weight: var(--טקסט-קובייה-עובי) !important;
+    color: var(--טקסט-קובייה-צבע) !important;
+    margin: 0 !important; 
+    text-align: center;
+    transform: translateY(var(--טקסט-קובייה-אנכי)) !important; 
+}
+
+/* 🔘 כפתור מלבני, ישר, מיושר פלס עם צל היקפי עדין ונקי מסביב */
+.wood-button {
+    font-family: 'Heebo', sans-serif !important;
+    background-color: var(--כפתור-צבע-בסיס) !important;
+    color: var(--כפתור-טקסט-צבע) !important;
+    border: none !important;
+    width: var(--כפתור-רוחב) !important; 
+    height: 42px !important; 
+    display: inline-flex !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-radius: var(--כפתור-רדיוס-חדש) !important; 
+    box-shadow: var(--כפתור-צל-סביב) !important; 
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease !important;
+}
+
+.wood-button:hover {
+    background-color: var(--כפתור-צבע-ריחוף) !important;
+    box-shadow: var(--כפתור-צל-ריחוף) !important;
+}
+
+.wood-button:active {
+    transform: translateY(1.5px) !important; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}

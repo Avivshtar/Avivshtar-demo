@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השקעות בארץ - דירות</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="apartments.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main id="apartments-page">
+        
+        <section class="welcome-section">
+            <h1 class="main-page-title">דירות</h1>
+        </section>
+
+      <div class="investments-grid">
+            
+            <div class="investment-box">
+                <div class="box-image-wrapper">
+                    <img src="hi4.png" alt="דירות" class="box-image">
+                </div>
+                <div class="box-content">
+                    <h2 class="box-title">דירות</h2>
+                    <button class="wood-button" onclick="location.href='properties.html'">התחילו</button>
+                </div>
+            </div>
+
+            <div class="investment-box">
+                <div class="box-image-wrapper">
+                    <img src="hi5.png" alt="דירות PRE-SALE" class="box-image">
+                </div>
+                <div class="box-content">
+                    <h2 class="box-title">דירות PRE-SALE</h2>
+                    <button class="wood-button">התחילו</button>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+    </main>
+
+    <script src="header.js"></script>
+
+    <script>
+        document.body.classList.add('scrolled-to-search');
+        window.addEventListener('scroll', (e) => {
+            if (!document.body.classList.contains('scrolled-to-search')) {
+                document.body.classList.add('scrolled-to-search');
+            }
+        }, true);
+    </script>
+</body>
+</html>

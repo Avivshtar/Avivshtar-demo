@@ -1,0 +1,201 @@
+/* ================== אזור כרטיסיית המידע (Google notched design) ================== */
+
+.google-card-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    direction: rtl; 
+    
+    /* 🔥 משתנה לניהול עומק המגרעת (עד כמה היא נכנסת פנימה) 🔥 */
+    /* שנה את הערך הזה כדי לשלוט בגודל המגרעת! למשל: 150px, 50px */
+    --notch-depth: 100px; 
+    
+    position: relative;
+    box-sizing: border-box;
+}
+
+.google-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 24px; /* פינות עגולות ויפות */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08); /* צל עדין ויוקרתי */
+    overflow: hidden; /* שומר שהתמונה לא בורחת מהפינות המעוגלות */
+    min-height: 450px;
+    
+    /* כדי שהמגרעת תוכל להיווצר עליה */
+    position: relative; 
+    z-index: 2;
+}
+
+/* 🔥 יצירת המגרעת הפיזית (The Notch) ש"חותכת" את התבנית כולה 🔥 */
+.google-card-notched {
+    /* המגרעת עצמה היא קונטיינר נוסף מאחורי ה-card */
+    position: absolute;
+    bottom: -1px; /* כדי להתחבר מושלם עם הבוקס-שאדו */
+    left: 20px; /* יישור עם הפדינג של ה-wrapper */
+    width: calc(100% - 40px); /* רוחב ה-card פחות הפדינג */
+    height: 100%; /* תופס את כל הגובה כדי לייצר קשר פנימי */
+    z-index: 1; /* יושב מאחורי ה-card כדי "לחתוך" אותה */
+}
+
+/* 📐 טריק לעיקול הפוך ומורכב מלמעלה כדי לייצר את החיתוך בתבנית */
+.google-card-notched::before {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--notch-depth) + 32px); /* מעל החלק הלבן עם הפינה המעוגלת */
+    left: 0;
+    width: 32px;
+    height: 32px;
+    /* חותך את הרקע ככה שרק הפינה השמאלית-תחתונה תהיה לבנה */
+    background: radial-gradient(circle at top right, transparent 31.5px, #ffffff 32px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 📐 טריק לעיקול הפוך ומורכב מימין כדי לייצר את החיתוך בתבנית */
+.google-card-notched::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: calc(32px + ( ( (100% - 200px) / 2 ) ) ); /* ממוקם מימין לחלק הלבן */
+    width: 32px;
+    height: 32px;
+    background: radial-gradient(circle at top right, transparent 31.5px, #ffffff 32px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ================== צד ימין (טקסט) ================== */
+.google-card-text {
+    flex: 1; /* לוקח 50% מהמקום */
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.google-card-title {
+    font-family: 'Heebo', system-ui, sans-serif;
+    font-size: 52px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.google-card-desc {
+    font-family: 'Heebo', system-ui, sans-serif;
+    font-size: 19px;
+    color: #5f6368;
+    line-height: 1.6;
+    margin: 0 0 45px 0;
+    max-width: 95%;
+}
+
+.google-card-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 עמודות של קישורים */
+    gap: 20px;
+}
+
+.google-card-links a {
+    font-family: 'Heebo', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a73e8; /* כחול גוגל נקי */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.google-card-links a:hover {
+    color: #174ea6;
+    text-decoration: underline;
+}
+
+/* ================== צד שמאל (תמונה בנפרד מהמגרעת) ================== */
+.google-card-image-container {
+    flex: 1; /* לוקח את ה-50% הנותרים */
+    position: relative;
+    border-radius: 0; /* כדי שיתחבר עם המגרעת */
+}
+
+.google-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* 🔥 החלק של הכפתור בתוך המגרעת הפיזית - לגמרי מחוץ לתמונה ומחוץ לזרימת הטקסט! 🔥 */
+.google-card-floating-wrapper {
+    position: absolute;
+    bottom: -1px; /* יישור עם הבוקס שאדו */
+    left: 20px; /* יישור עם הפדינג של ה-wrapper */
+    
+    /* החלק הלבן שתופס את המגרעת ומשמש פלטפורמה לכפתור */
+    width: calc(32px + ( ( (100% - 200px) / 2 ) ) ); /* גודל דינמי לפי עומק המגרעת */
+    height: calc(var(--notch-depth) + 32px); /* הגובה כולל עומק המגרעת והפינה המעוגלת */
+    
+    background: #ffffff; /* חייב להיות בצבע הרקע של הכרטיסייה */
+    border-top-right-radius: 32px; /* מעגל את הפינה הפנימית של הלבן */
+    
+    display: flex;
+    align-items: center; /* ממרכז את הכפתור אנכית בתוך המגרעת */
+    padding-left: 32px; /* פדינג לכפתור מהקצה הלבן */
+    box-sizing: border-box;
+    
+    z-index: 3; /* יושב לפני הכל */
+}
+
+/* ================== הכפתור עצמו ================== */
+.google-card-floating-btn {
+    background-color: #1a73e8;
+    color: #ffffff;
+    font-family: 'Heebo', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.google-card-floating-btn:hover {
+    background-color: #1557b0;
+    transform: translateY(-2px); 
+}
+
+.google-card-floating-btn svg {
+    /* כיוון שהאתר שלנו ב-RTL, אנחנו הופכים את החץ שמאלה */
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.google-card-floating-btn:hover svg {
+    transform: rotate(180deg) translateX(4px); 
+}
+
+/* ================== התאמה למובייל ================== */
+@media (max-width: 900px) {
+    .google-card-wrapper {
+        --notch-depth: 60px; /* מקטינים את המגרעת במובייל כדי שלא תתפוס חצי מסך */
+    }
+    .google-card {
+        flex-direction: column; 
+    }
+    .google-card-text {
+        padding: 40px 25px;
+    }
+    .google-card-links {
+        grid-template-columns: 1fr 1fr; 
+    }
+    .google-card-image-container {
+        min-height: 350px;
+    }
+}

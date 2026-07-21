@@ -1,0 +1,263 @@
+/* ==========================================================================
+   🎛️ פאנל ניהול מרכזי - מיקומים, גבהים ואנימציות
+   ========================================================================== */
+:root {
+    --מיקום-לוגו-אופקי: -539px; 
+    --מיקום-לוגו-אנכי: 7px;     
+    --גודל-לוגו-קנה-מידה: 0.77;    
+
+    --כותרת-אמצע-טקסט: ""; 
+    --כותרת-אמצע-גודל: 26px;             
+    --כותרת-אמצע-עובי: 200;              
+    --כותרת-אמצע-צבע: #875b33;           
+    --כותרת-אמצע-צל: 1px 1px 3px rgba(0, 0, 0, 0.15); 
+    --כותרת-אמצע-אנכי: 7px; 
+
+    --סרגל-סינונים-רוחב: 790px;          
+    --סרגל-סינונים-גובה: 60px;           
+    --סרגל-סינונים-מרחק-מלמעלה: 25px;    
+    --אייקון-חיפוש-הזזה-ימינה: 4px; 
+
+    --כרטיסיה-רוחב: 250px;                
+    --כרטיסיה-גובה: 385px;                
+    --כרטיסיות-מרווח-צדדי: 32px;         
+    --כרטיסיות-מרווח-אנכי: 35px;         
+
+    --מפה-מיקום-אופקי: 0px;              
+    --מפה-מיקום-אנכי: 70px;              
+    --מפה-גובה: calc(100vh - var(--מפה-מיקום-אנכי)); 
+    --מפה-רדיוס: 16px;                   
+    --צבע-סיכה-חום-בהיר: #bda082; 
+
+    /* ==========================================================================
+       🗺️ [שלט 1] - מצב רגיל (המפה פתוחה לרווחה)
+       ========================================================================== */
+    --מפה-רוחב: 32%;                     
+    
+    --חיפוש-מיקום-אופקי: 218px;          
+    --חיפוש-מיקום-אנכי: -350px;          
+
+    --סינונים-מיקום-אופקי: 218px;         
+    --סינונים-מיקום-אנכי: -350px;         
+
+    --כרטיסיות-מיקום-אופקי: 213px;       
+    --כרטיסיות-מיקום-אנכי: -300px;        
+
+    /* ==========================================================================
+       ⚡ [שלט 2] - מצב מכווץ (המפה נכנסת שמאלה)
+       ========================================================================== */
+    --מפה-רוחב-מכווץ-px: 180px;          
+    
+    --חיפוש-מיקום-אופקי-מכווץ: 100px;      
+    --חיפוש-מיקום-אנכי-מכווץ: -350px;    
+
+    --סינונים-מיקום-אופקי-מכווץ: 100px;     
+    --סינונים-מיקום-אנכי-מכווץ: -350px;     
+
+    --כרטיסיות-מיקום-אופקי-מכווץ: 100px;    
+    --כרטיסיות-מיקום-אנכי-מכווץ: -300px;    
+
+    /* 🔥 שתי השורות החדשות שלך לגודל הכרטיסיות במצב מכווץ! */
+    --כרטיסיה-רוחב-מכווץ: 300px; 
+    --כרטיסיה-גובה-מכווץ: 400px;
+
+}
+/* ========================================================================== */
+
+body { margin: 0; padding: 0; background-color: #ffffff !important; font-family: 'Heebo', sans-serif; overflow-x: hidden !important; }
+
+/* הגנת סרגל צד מקורי */
+body .hamburger-btn { display: flex !important; opacity: 1 !important; transform: translateY(-50%) scale(1) !important; }
+body .side-menu { opacity: 0 !important; pointer-events: none !important; transform: translateX(60px) !important; }
+body .profile-click-box, body .profile-icon-1, body .love-click-box, body .love-icon-1, body .bell-click-box, body .bell-icon-1 { transform: translateX(-55px) scale(1) !important; }
+body .profile-icon-2, body .love-icon-2, body .bell-icon-2 { transform: translateX(-55px) scale(1) !important; opacity: 0 !important; }
+body .profile-click-box:hover ~ .profile-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:hover ~ .profile-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:active ~ .profile-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+body .love-click-box:hover ~ .love-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:hover ~ .love-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:active ~ .love-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+body .bell-click-box:hover ~ .bell-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:hover ~ .bell-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:active ~ .bell-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+body.sidebar-open .side-menu { position: fixed !important; top: 0 !important; right: 0 !important; width: 280px !important; height: 100vh !important; background: #ffffff !important; opacity: 1 !important; pointer-events: all !important; transform: translateX(0) !important; display: flex !important; flex-direction: column !important; padding: 70px 20px 20px 20px !important; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; z-index: 100000 !important; }
+body.sidebar-open #menu-close-btn { display: flex !important; position: absolute !important; top: 20px !important; left: 20px !important; width: 38px !important; height: 38px !important; background-color: #f4f4f5 !important; border: none !important; border-radius: 50% !important; color: #8c8c8c !important; cursor: pointer !important; align-items: center !important; justify-content: center !important; padding: 0 !important; margin: 0 !important; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important; z-index: 100002 !important; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important; }
+body.sidebar-open #menu-close-btn:hover { background-color: #ffffff !important; color: #875b33 !important; transform: scale(1.12) !important; box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important; }
+
+/* באנר */
+body .header-left-link { display: none !important; }
+body .logo-container { transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important; transform-origin: center !important; }
+body .header-container::after { content: var(--כותרת-אמצע-טקסט) !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; font-family: 'Heebo', sans-serif !important; font-size: var(--כותרת-אמצע-גודל) !important; font-weight: var(--כותרת-אמצע-עובי) !important; color: var(--כותרת-אמצע-צבע) !important; text-shadow: var(--כותרת-אמצע-צל) !important; white-space: nowrap !important; pointer-events: none !important; }
+.properties-banner-container { width: 100% !important; height: 380px !important; overflow: hidden !important; position: relative !important; margin: 0; padding: 0; }
+.properties-banner-img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; }
+#properties-page { max-width: 1200px; margin: 0 auto; padding-top: 0px; padding-bottom: 60px; text-align: center; position: relative !important; }
+
+/* שורת חיפוש */
+.pro-search-wrapper { 
+    width: 100%; max-width: 526px; margin-left: auto; margin-right: auto; direction: rtl; margin-top: 80px !important; margin-bottom: 40px; position: relative; 
+    top: var(--חיפוש-מיקום-אנכי) !important; 
+    left: var(--חיפוש-מיקום-אופקי) !important; 
+    transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1), top 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important; 
+}
+.pro-search-wrapper:hover { transform: translateY(-5px); }
+.search-tabs-container { position: relative; display: flex; margin: 0 auto -1px auto; width: 222px; z-index: 6; background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #d1d1d1; border-bottom: none; border-top-left-radius: 24px; border-top-right-radius: 24px; padding: 4px; transition: border-color 0.3s ease; }
+.search-tabs-container::after { content: ''; position: absolute; left: 50%; top: 10px; bottom: 10px; width: 1px; border-left: 1px dotted rgba(0, 0, 0, 0.15); z-index: 1; pointer-events: none; }
+.search-tab-slider { position: absolute; right: 4px; top: 4px; bottom: 4px; width: 105px; background: linear-gradient(135deg, #e4e4e7, #f4f4f5); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 40px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1); z-index: 2; overflow: hidden; transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+@keyframes activeShine { 0% { transform: translateX(180%) skewX(-25deg); } 100% { transform: translateX(-180%) skewX(-25deg); } }
+.shine-beam { position: absolute; top: 0; left: 0; width: 45%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); animation: activeShine 3.2s infinite ease-in-out; pointer-events: none; }
+.search-tab-label { position: relative; width: 105px; height: 36px; font-family: 'Heebo', system-ui, sans-serif; font-size: 13.5px; font-weight: 500; color: #444444; cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center; transition: color 0.25s ease, font-weight 0.25s ease; user-select: none; }
+#tab-ai:checked ~ .search-tabs-container .search-tab-slider { transform: translateX(-105px); }
+#tab-free:checked ~ .search-tabs-container .free-label { color: #000000; font-weight: 700; }
+#tab-ai:checked ~ .search-tabs-container .ai-label { color: #000000; font-weight: 700; }
+.pro-search-container { display: flex; align-items: center; justify-content: space-between; width: 100%; background-color: #ffffff; border: 1px solid #d1d1d1; border-radius: 50px !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03); padding: 6px 10px 6px 20px; position: relative; z-index: 5; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.pro-search-wrapper:hover .pro-search-container, .pro-search-wrapper:focus-within .pro-search-container { border-color: #9c9c9c; }
+.pro-search-input { flex-grow: 1; background: transparent !important; border: none !important; outline: none !important; text-align: right; color: #1a1a1a; font-family: 'Heebo', system-ui, sans-serif; font-size: 17px; font-weight: 500; padding: 10px 15px; }
+.pro-search-input::placeholder { color: #7c7c7c; font-weight: 500; }
+.pro-search-btn { background: transparent !important; border: none !important; outline: none !important; padding: 8px; cursor: pointer; color: #606060; display: flex; align-items: center; justify-content: center; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+.pro-search-btn:hover { color: #a8a8a8; transform: scale(1.18); }
+.pro-search-icon { width: 20px; height: 20px; display: block; }
+
+/* פאנל ה-AI - תוקן עם !important כדי שייפתח בטוח */
+.ai-suggestions-panel { 
+    max-height: 0 !important; opacity: 0 !important; overflow: hidden !important; pointer-events: none !important; padding: 0 28px !important;
+    width: 650px !important; position: relative !important; right: auto !important; top: auto !important; margin-right: -62px !important; margin-left: -62px !important; margin-top: 0px !important; background: #ffffff !important; border: 1px solid transparent !important; border-radius: 40px !important; box-shadow: none !important; z-index: 4 !important; 
+    transition: max-height 0.38s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, margin-top 0.35s ease, border-color 0.3s ease, padding 0.38s ease, box-shadow 0.3s ease !important; 
+}
+#tab-ai:checked ~ .ai-suggestions-panel { 
+    max-height: 250px !important; opacity: 1 !important; pointer-events: all !important; padding: 38px 28px 20px 28px !important; margin-top: -22px !important; border-color: #d1d1d1 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05) !important; 
+}
+#tab-ai:checked ~ .ai-suggestions-panel:hover, .pro-search-wrapper:hover #tab-ai:checked ~ .ai-suggestions-panel { border-color: #9c9c9c !important; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important; }
+.suggestions-title { display: block; font-size: 13px; color: #555555; font-weight: 600; margin-bottom: 12px; text-align: right; padding-right: 8px; }
+.suggestions-tags { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; }
+.suggestion-tag { background: rgba(255, 255, 255, 0.85) !important; border: 1px solid #e4e4e7 !important; border-radius: 30px; padding: 8px 10px; font-family: 'Heebo', system-ui, sans-serif; font-size: 11.5px; color: #222222; font-weight: 600; cursor: pointer; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.suggestion-tag:hover { background: #ffffff !important; border-color: #888888 !important; color: #000000; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
+.suggestion-tag:active { transform: scale(0.95) translateY(0); }
+
+/* סרגל סינונים */
+.custom-filter-wrapper { 
+    width: 100%; max-width: var(--סרגל-סינונים-רוחב) !important; margin-left: auto; margin-right: auto; direction: rtl; margin-top: var(--סרגל-סינונים-מרחק-מלמעלה) !important; position: relative; 
+    top: var(--סינונים-מיקום-אנכי) !important; 
+    left: var(--סינונים-מיקום-אופקי) !important; 
+    transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1), top 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s ease !important; 
+}
+.custom-filter-wrapper:hover { transform: translateY(-3px); }
+.custom-filter-bar { display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #d1d1d1 !important; border-radius: 50px !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02) !important; height: var(--סרגל-סינונים-גובה) !important; padding: 0 10px 0 16px !important; }
+.custom-filter-bar:hover { border-color: #9c9c9c !important; }
+.custom-filter-segment { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 4px !important; cursor: pointer !important; height: 100% !important; flex: 1 !important; text-align: center !important; user-select: none !important; }
+.custom-filter-text { font-family: 'Heebo', sans-serif !important; font-size: 16px !important; font-weight: 200 !important; color: #444444 !important; margin: 0 !important; line-height: 1.2 !important; transition: color 0.2s ease !important; }
+.custom-filter-segment:hover .custom-filter-text { color: #875b33 !important; }
+.custom-dropdown-circle { width: 17px !important; height: 16px !important; border-radius: 50% !important; border: 1px solid #dddddd !important; background-color: #fbfbfb !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: all 0.2s ease !important; }
+.custom-filter-segment:hover .custom-dropdown-circle { border-color: #875b33 !important; background-color: #fdfaf7 !important; }
+.custom-dropdown-circle svg { width: 11px !important; height: 11px !important; fill: #555555 !important; transition: fill 0.2s ease !important; }
+.custom-filter-segment:hover .custom-dropdown-circle svg { fill: #875b33 !important; }
+.custom-filter-divider { width: 1px !important; height: 24px !important; background-color: #e4e4e7 !important; flex-shrink: 0 !important; }
+.custom-diagonal-line { font-family: 'Heebo', sans-serif !important; font-size: 21px !important; color: #cccccc !important; font-weight: 300 !important; margin: 0 15px 0 10px !important; user-select: none !important; flex-shrink: 0 !important; }
+.custom-filter-search-btn { background: transparent !important; border: none !important; outline: none !important; padding: 5px !important; cursor: pointer !important; color: #555555 !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; margin-left: var(--אייקון-חיפוש-הזזה-ימינה) !important; transition: all 0.22s ease !important; }
+.custom-filter-search-btn:hover { color: #875b33 !important; transform: scale(1.15) rotate(-4deg) !important; }
+.custom-filter-search-btn svg { width: 19px !important; height: 19px !important; display: block !important; }
+
+/* 🗺️ מכולת המפה */
+#map-wrapper-section {
+    width: var(--מפה-רוחב) !important; height: var(--מפה-גובה) !important; position: fixed !important; top: var(--מפה-מיקום-אנכי) !important; left: var(--מפה-מיקום-אופקי) !important; right: auto !important; z-index: 100 !important; box-sizing: border-box !important;
+    overflow: visible !important; 
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; border-bottom: none !important;
+}
+
+#map-container {
+    width: 100% !important; height: 100% !important; border-radius: 0px var(--מפה-רדיוס) 0px 0px !important; border: 1px solid #e4e4e7 !important; border-left: none !important; box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.05) !important; background-color: #f5f5f5 !important; position: relative !important; overflow: hidden !important; 
+}
+
+/* 🃏 כרטיסיות נדל"ן */
+.regular-cards-section {
+    width: fit-content !important; margin: 0 auto !important; box-sizing: border-box !important; position: relative !important; 
+    top: var(--כרטיסיות-מיקום-אנכי) !important;
+    left: var(--כרטיסיות-מיקום-אופקי) !important; 
+    transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1), top 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.regular-cards-grid { display: grid !important; grid-template-columns: repeat(3, var(--כרטיסיה-רוחב)) !important; gap: var(--כרטיסיות-מרווח-אנכי) var(--כרטיסיות-מרווח-צדדי) !important; justify-content: center !important; width: fit-content !important; margin: 0 auto !important; direction: rtl !important; }
+.leaflet-tile-container img { transition: none !important; animation: none !important; max-width: none !important; max-height: none !important; }
+.custom-map-marker-container { background: none !important; border: none !important; }
+.premium-brown-pin { width: 26px !important; height: 26px !important; border-radius: 50% 50% 50% 0% !important; background: var(--צבע-סיכה-חום-בהיר) !important; position: absolute !important; transform: rotate(-45deg) !important; left: 50% !important; top: 50% !important; margin-left: -13px !important; margin-top: -13px !important; border: 2px solid #ffffff !important; box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.25) !important; }
+.premium-brown-pin::after { content: '' !important; width: 10px !important; height: 10px !important; border-radius: 50% !important; background: #ffffff !important; position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; }
+.premium-brown-pin:hover { transform: rotate(-45deg) scale(1.1) !important; background: #a88a6c !important; box-shadow: -3px 6px 14px rgba(0, 0, 0, 0.35) !important; transition: all 0.2s ease !important; }
+.leaflet-control-zoom { background: transparent !important; border: none !important; box-shadow: none !important; display: flex !important; flex-direction: row !important; gap: 8px !important; }
+.leaflet-control-zoom-in, .leaflet-control-zoom-out { background: rgba(255, 255, 255, 0.9) !important; color: #333 !important; border-radius: 8px !important; border: 1px solid rgba(0, 0, 0, 0.05) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; width: 30px !important; height: 30px !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: all 0.2s ease !important; margin: 0 !important; }
+.leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover { background: #ffffff !important; transform: scale(1.05) !important; }
+
+/* ==========================================================================
+   🔘 כפתור ה-Toggle זכוכית (50x50, אייקון 26, אפור -> חום, טשטוש חזק)
+   ========================================================================== */
+#map-toggle-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    width: 50px !important;    
+    height: 50px !important;   
+    right: -25px !important; 
+    
+    /* 🔥 שקיפות מקסימלית (רואים הכל מאחורה) */
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(6px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(6px) saturate(140%) !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 99999 !important; 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+#map-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-50%) scale(1.05) !important; 
+}
+
+#map-toggle-btn:active {
+    transform: translateY(-50%) scale(0.95) !important; 
+}
+
+/* החץ הפנימי */
+#map-toggle-btn svg { 
+    width: 26px !important; 
+    height: 26px !important; 
+    stroke-width: 0.9px !important; 
+    color: #555555 !important; /* אפור עדין במצב רגיל */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease !important; 
+}
+#map-toggle-btn svg polyline { stroke-width: 0.9px !important; }
+
+/* מעבר צבע לחום עשיר בריחוף */
+#map-toggle-btn:hover svg {
+    color: #875b33 !important; 
+}
+
+/* ==========================================================================
+   ⚡ מצב פעיל (Collapsed State) - הזרקת נתונים
+   ========================================================================== */
+body.map-is-collapsed {
+    --מפה-רוחב: var(--מפה-רוחב-מכווץ-px) !important; 
+    
+    --חיפוש-מיקום-אופקי: var(--חיפוש-מיקום-אופקי-מכווץ) !important;
+    --חיפוש-מיקום-אנכי: var(--חיפוש-מיקום-אנכי-מכווץ) !important;
+
+    --סינונים-מיקום-אופקי: var(--סינונים-מיקום-אופקי-מכווץ) !important;
+    --סינונים-מיקום-אנכי: var(--סינונים-מיקום-אנכי-מכווץ) !important;
+
+    --כרטיסיות-מיקום-אופקי: var(--כרטיסיות-מיקום-אופקי-מכווץ) !important;
+    --כרטיסיות-מיקום-אנכי: var(--כרטיסיות-מיקום-אנכי-מכווץ) !important;
+
+    /* 🔥 מכריח את הכרטיסיות לקבל את הגדלים החדשים מהשלט! */
+    --כרטיסיה-רוחב: var(--כרטיסיה-רוחב-מכווץ) !important;
+    --כרטיסיה-גובה: var(--כרטיסיה-גובה-מכווץ) !important;
+}
+body.map-is-collapsed #map-toggle-btn svg {
+    transform: rotate(180deg) !important;
+}

@@ -1,0 +1,92 @@
+/* ==========================================================================
+   🎛️ לוח בקרה בלעדי למפה - שנה רק פה והכל ישתנה אוטומטית!
+   ========================================================================== */
+:root {
+    --מפה-רוחב: 44%;                     /* ↔️ כמה אחוז מהמסך משמאל היא תתפוס */
+    --מפה-גובה: 795px;                   /* ↕️ גובה המפה */
+    --מפה-מיקום-אנכי: -570px;            /* ↕️ יישור אנכי מול הכרטיסיות */
+    --מפה-מיקום-אופקי: ,-230px;             /* ↔️ מרחק מהקיר השמאלי של המסך */
+    --מפה-רדיוס: 16px;                   /* 📐 עיגול פינות יוקרתי למפה */
+
+    /* 🎨 צבע חום בהיר מטאלי יוקרתי לסיכות הנדל"ן שלך */
+    --צבע-סיכה-חום-בהיר: #bda082; 
+}
+
+#map-wrapper-section {
+    width: var(--מפה-רוחב) !important;
+    height: var(--מפה-גובה) !important;
+    position: relative !important;
+    float: left !important;              
+    top: var(--מפה-מיקום-אנכי) !important;
+    left: var(--מפה-מיקום-אופקי) !important;
+    z-index: 10 !important;
+    box-sizing: border-box !important;
+}
+
+#map-container {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: var(--מפה-רדיוס) !important;
+    border: 1px solid #e4e4e7 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    background-color: #f5f5f5 !important;
+}
+
+/* ==========================================================================
+   🃏 🔲 עיצוב וקטורי של סיכת הנדל"ן הפרימיום בחום בהיר
+   ========================================================================== */
+.custom-map-marker-container {
+    background: none !important;
+    border: none !important;
+}
+
+.premium-brown-pin {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 50% 50% 50% 0% !important;
+    background: var(--צבע-סיכה-חום-בהיר) !important;
+    position: absolute !important;
+    transform: rotate(-45deg) !important;
+    left: 50% !important;
+    top: 50% !important;
+    margin-left: -13px !important;
+    margin-top: -13px !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+.premium-brown-pin::after {
+    content: '' !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.premium-brown-pin:hover {
+    transform: rotate(-45deg) scale(1.1) !important;
+    background: #a88a6c !important; 
+    box-shadow: -3px 6px 14px rgba(0, 0, 0, 0.35) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* עיצוב נקי של כפתורי הזום */
+.leaflet-control-zoom {
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    margin-left: 20px !important;
+    margin-bottom: 20px !important;
+}
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #333 !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

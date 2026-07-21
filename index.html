@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avivshtar - Demo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="nextSection.css">
+    <link rel="stylesheet" href="shortcuts-design.css">
+    
+    <style>
+        /* ==========================================================================
+           🎛️ פאנל ניהול מרכזי - שנה רק את הערכים פה והכל ישתנה אוטומטית!
+           ========================================================================== */
+        :root {
+            /* ↕️ 1. גובה הכרטיסיות (מקסימום גובה) */
+            --ניהול-גובה-הכרטיסיות: 385px;
+            
+            /* ↔️ 2. גודל (רוחב) הכרטיסיות */
+            --ניהול-גודל-הכרטיסיות: 300px;
+            
+            /* 📏 3. מרחק בין כרטיסייה לכרטיסייה */
+            --ניהול-מרחק-בין-הכרטיסיות: 24px;
+            
+            /* 🔝 4. גובה הכותרת מלמעלה (מרחק משורת החיפוש) */
+            --ניהול-גובה-הכותרת-מלמעלה: -45px;
+            
+            /* ⏩ 5. ימינה הכותרת */
+            --ניהול-ימינה-הכותרת: 0px; 
+            
+            /* 🔘 6. גודל כפתורי הגלילה (החצים הצידיים הגדולים) */
+            --ניהול-גודל-כפתורי-הגלילה: 32px; 
+
+            /* 🖥️ 7. כמה כרטיסיות מוצגות (תוספת רוחב הצידה) */
+            --ניהול-תוספת-רוחב-הצידה: 150px;
+        }
+        /* ========================================================================== */
+
+        /* עיצוב מבודד לחלוטין לאזורי הקרוסלות - אפס השפעה על שאר האתר */
+        .investments-wrapper {
+            direction: rtl !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            position: relative !important;
+            margin-top: var(--ניהול-גובה-הכותרת-מלמעלה) !important;  
+            
+            margin-right: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה)) !important;
+            margin-left: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה)) !important;
+            width: calc(100% + (2 * var(--ניהול-תוספת-רוחב-הצידה))) !important;
+        }
+
+        /* כותרות המקטעים */
+        .investments-title-inline {
+            text-align: right !important;
+            font-family: 'Heebo', sans-serif !important;
+            font-size: 21px !important;            
+            font-weight: 300 !important;           
+            color: #555555 !important;             
+            margin: 0 0 20px 0 !important;
+            display: block !important;
+            transform: translateX(var(--ניהול-ימינה-הכותרת)) !important;
+        }
+
+        /* עיצוב כפתור הטקסט "לכל ההשקעות" למטה בצד שמאל */
+        .view-all-investments {
+            align-self: flex-end !important; 
+            font-family: 'Heebo', sans-serif !important;
+            font-size: 14px !important; 
+            font-weight: 300 !important; 
+            color: #555555 !important; 
+            text-decoration: none !important; 
+            margin-top: 15px !important; 
+            margin-left: 20px !important; 
+            cursor: pointer !important;
+            user-select: none !important;
+            transition: text-decoration 0.2s ease !important;
+        }
+        .view-all-investments:hover {
+            text-decoration: underline !important; 
+        }
+
+        /* מעטפת הקרוסלה הכללית */
+        .carousel-outer {
+            position: relative !important;
+            width: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* שכבות ה-Fade הלבנות בקצוות הצידיים של הקרוסלות */
+        .carousel-fade-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: 70px !important; 
+            pointer-events: none !important; 
+            z-index: 8 !important; 
+            transition: opacity 0.3s ease, visibility 0.3s ease !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        .carousel-fade-right {
+            right: 0 !important;
+            background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%) !important;
+        }
+        .carousel-fade-left {
+            left: 0 !important;
+            background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%) !important;
+        }
+        .carousel-fade-overlay.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+
+        #property-card-demo-container, #projects-card-demo-container {
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: row !important; 
+            justify-content: flex-start !important; 
+            overflow-x: auto !important; 
+            overflow-y: hidden !important;
+            padding-bottom: 25px !important; 
+            padding-top: 10px !important;
+            
+            gap: var(--ניהול-מרחק-בין-הכרטיסיות) !important; 
+            
+            -ms-overflow-style: none !important;  
+            scrollbar-width: none !important;  
+        }
+        #property-card-demo-container::-webkit-scrollbar, #projects-card-demo-container::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        #property-card-demo-container .property-card, #projects-card-demo-container .property-card {
+            flex-shrink: 0 !important; 
+            margin: 0 !important; 
+            width: var(--ניהול-גודל-הכרטיסיות) !important;  
+            max-height: var(--ניהול-גובה-הכרטיסיות) !important; 
+        }
+
+        /* כפתורי הגלילה - סגנון זכוכית */
+        .main-carousel-arrow {
+            position: absolute !important;
+            top: 45% !important;
+            transform: translateY(-50%) !important;
+            background: rgba(255, 255, 255, 0.65) !important; 
+            backdrop-filter: blur(3px) !important;
+            border: none !important;
+            
+            width: var(--ניהול-גודל-כפתורי-הגלילה) !important;  
+            height: var(--ניהול-גודל-כפתורי-הגלילה) !important; 
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            z-index: 10 !important; 
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #333 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+            
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+        
+        .main-carousel-arrow:hover {
+            background: rgba(255, 255, 255, 0.85) !important; 
+            transform: translateY(-50%) scale(1.08) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important; 
+        }
+        
+        .main-carousel-arrow:active {
+            transform: translateY(-50%) scale(0.96) !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .next-main-arrow { right: -12px !important; } 
+        .prev-main-arrow { left: -12px !important; }  
+        
+        .main-carousel-arrow.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .main-carousel-arrow, .carousel-fade-overlay { display: none !important; }
+        }
+        /* 🏢 עיצוב לוגו הקבלן במיקום חופשי בצד שמאל של הכרטיסייה */
+        .developer-logo {
+            position: absolute !important;
+            left: var(--ניהול-לוגו-שמאלה, 18px) !important;          /* מרחק מהקצה השמאלי */
+            top: var(--ניהול-לוגו-מרחק-מלמעלה, 3px) !important;     /* מרחק מלמעלה של שורת המחיר */
+            width: var(--ניהול-רוחב-לוגו-קבלן, 70.2px) !important;      /* רוחב הלוגו */
+            height: var(--ניהול-גובה-לוגו-קבלן, 30px) !important;     /* גובה הלוגו */
+            object-fit: contain !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="homepage-container">
+        <img src="photo1.svg" alt="תמונה מרכזית" class="main-photo">
+        
+        <h1 class="hero-title">בואו נתחיל להשקיע חכם<span class="zillow-dot"></span></h1>
+        <h2 class="hero-subtitle">היכן הנכם מעוניינים להשקיע?</h2>
+
+        <div class="hero-buttons-container">
+            <button class="glass-btn">השקעות בארץ</button>
+            <button class="glass-btn">השקעות בחו"ל</button>
+        </div>
+    </div>
+
+<main class="content">
+    <div style="text-align: center; margin-top: -155px; margin-bottom: 80px; width: 100%;">
+        <img src="home.svg" alt="תמונת הבית" 
+             style="width: 470px;          
+                    height: 300px;        
+                    object-fit: contain;  
+                    max-width: 100%; 
+                    display: inline-block;">
+    </div>
+    
+    <div class="pro-search-wrapper">
+        <input type="radio" id="tab-free" name="search-mode" checked hidden>
+        <input type="radio" id="tab-ai" name="search-mode" hidden>
+
+        <div class="search-tabs-container">
+            <label for="tab-free" class="search-tab-label free-label">חיפוש חופשי</label>
+            <label for="tab-ai" class="search-tab-label ai-label">חיפוש עם AI</label>
+
+            <div class="search-tab-slider">
+                <div class="shine-beam"></div>
+            </div>
+        </div>
+
+        <div class="pro-search-container">
+            <input type="text" class="pro-search-input" placeholder="חפשו עיר, שכונה, כתובת...">
+            <button type="button" class="pro-search-btn" aria-label="חיפוש">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="pro-search-icon">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="ai-suggestions-panel">
+            <span class="suggestions-title">למשל:</span>
+            <div class="suggestions-tags">
+                <button type="button" class="suggestion-tag" onclick="autoTypeSearch('דירת גן 4 חדרים בבאר שבע')">דירת גן 4 חדרים בבאר שבע</button>
+                <button type="button" class="suggestion-tag" onclick="autoTypeSearch('דירת 5 חדרים עם מרפסת סוכה')">דירת 5 חדרים עם מרפסת סוכה</button>
+                <button type="button" class="suggestion-tag" onclick="autoTypeSearch('קרקע מופשרת בגבעתיים')">קרקע מופשרת בגבעתיים   </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="investments-wrapper">
+        <h2 class="investments-title-inline">מגוון השקעות חכמות</h2>
+        
+        <div class="carousel-outer">
+            <button class="main-carousel-arrow next-main-arrow" id="scroll-right-btn">
+                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                    <path d="M1 1L9 9L1 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <div class="carousel-fade-overlay carousel-fade-right" id="fade-right"></div>
+            <div class="carousel-fade-overlay carousel-fade-left" id="fade-left"></div>
+            
+            <div id="property-card-demo-container"></div>
+            
+            <button class="main-carousel-arrow prev-main-arrow" id="scroll-left-btn">
+                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                    <path d="M9 1L1 9L9 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <span class="view-all-investments">לכל ההשקעות</span>
+    </div>
+
+    <div class="investments-wrapper" style="margin-top: 50px !important;">
+        <h2 class="investments-title-inline">מגוון פרוייקטים להשקעה</h2>
+        
+        <div class="carousel-outer">
+            <button class="main-carousel-arrow next-main-arrow" id="scroll-right-btn-2">
+                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                    <path d="M1 1L9 9L1 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <div class="carousel-fade-overlay carousel-fade-right" id="fade-right-2"></div>
+            <div class="carousel-fade-overlay carousel-fade-left" id="fade-left-2"></div>
+            
+            <div id="projects-card-demo-container"></div>
+            
+            <button class="main-carousel-arrow prev-main-arrow" id="scroll-left-btn-2">
+                <svg width="10" height="16" viewBox="0 0 10 18" fill="none">
+                    <path d="M9 1L1 9L9 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <span class="view-all-investments">לכל ההשקעות</span>
+    </div>
+<div id="next-section-container"></div>
+<div id="new-shortcuts-container"></div>
+<div id="new-shortcuts-container-2"></div> 
+<div id="new-shortcuts-container-3"></div>
+
+</main>
+
+    <script src="header.js"></script>
+    <script src="propertyCard.js"></script>
+    <script src="nextSection.js"></script>
+    <script src="shortcuts-logic.js"></script>
+    <script src="shortcuts-logic-2.js"></script>
+    <script src="shortcuts-logic-3.js"></script>
+
+    <script>
+    let currentTypingAnimation = null;
+
+    function autoTypeSearch(textToType) {
+        const searchInput = document.querySelector('.pro-search-input');
+        if (!searchInput) return;
+
+        clearInterval(currentTypingAnimation);
+        searchInput.value = ''; 
+        searchInput.focus(); 
+
+        let characterIndex = 0;
+        currentTypingAnimation = setInterval(() => {
+            if (characterIndex < textToType.length) {
+                searchInput.value += textToType.charAt(characterIndex);
+                characterIndex++;
+            } else {
+                clearInterval(currentTypingAnimation);
+            }
+        }, 14); 
+    }
+
+    // =====================================================
+    // 🔥 מנגנון גלילה מהיר וחלק במיוחד (Custom Fast Scroll Animation)
+    // =====================================================
+    function fastScroll(container, distance) {
+        const start = container.scrollLeft;
+        const target = start + distance;
+        const duration = 200; // ⚡ מהיר במיוחד (חצי מהזמן של הדפדפן)
+        const startTime = performance.now();
+        
+        function animate(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out quad
+            const ease = progress * (2 - progress); 
+            container.scrollLeft = start + (target - start) * ease;
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // פונקציית ניווט חכמה ומבודדת לכל קרוסלה
+    function setupCarousel(containerId, leftBtnId, rightBtnId, fadeLeftId, fadeRightId) {
+        const container = document.getElementById(containerId);
+        const leftBtn = document.getElementById(leftBtnId);
+        const rightBtn = document.getElementById(rightBtnId);
+        const fLeft = document.getElementById(fadeLeftId);
+        const fRight = document.getElementById(fadeRightId);
+        
+        if (!container) return;
+
+        const getVal = (varName) => parseInt(getComputedStyle(document.documentElement).getPropertyValue(varName)) || 300;
+
+        function updateArrows() {
+            const scrollLeft = container.scrollLeft;
+            const scrollWidth = container.scrollWidth;
+            const clientWidth = container.clientWidth;
+            const absScrollLeft = Math.abs(scrollLeft);
+            
+            if (absScrollLeft < 3) {
+                if(rightBtn) rightBtn.classList.add('hidden');
+                if(fRight) fRight.classList.add('hidden');
+            } else {
+                if(rightBtn) rightBtn.classList.remove('hidden');
+                if(fRight) fRight.classList.remove('hidden');
+            }
+            
+            if (absScrollLeft + clientWidth >= scrollWidth - 3) {
+                if(leftBtn) leftBtn.classList.add('hidden');
+                if(fLeft) fLeft.classList.add('hidden');
+            } else {
+                if(leftBtn) leftBtn.classList.remove('hidden');
+                if(fLeft) fLeft.classList.remove('hidden');
+            }
+        }
+
+        container.addEventListener('scroll', updateArrows);
+        // בדיקה חוזרת קצרה כדי לוודא שהכרטיסיות נטענו מה-JS
+        setTimeout(updateArrows, 200);
+        setTimeout(updateArrows, 600);
+
+        if(leftBtn) {
+            leftBtn.addEventListener('click', () => {
+                const scrollAmount = getVal('--ניהול-גודל-הכרטיסיות') + getVal('--ניהול-מרחק-בין-הכרטיסיות');
+                fastScroll(container, -scrollAmount); // ⚡ שמאלה מהיר
+            });
+        }
+        
+        if(rightBtn) {
+            rightBtn.addEventListener('click', () => {
+                const scrollAmount = getVal('--ניהול-גודל-הכרטיסיות') + getVal('--ניהול-מרחק-בין-הכרטיסיות');
+                fastScroll(container, scrollAmount); // ⚡ ימינה מהיר
+            });
+        }
+    }
+
+    // הפעלת קרוסלה 1 ו-2 בנפרד
+    setupCarousel('property-card-demo-container', 'scroll-left-btn', 'scroll-right-btn', 'fade-left', 'fade-right');
+    setupCarousel('projects-card-demo-container', 'scroll-left-btn-2', 'scroll-right-btn-2', 'fade-left-2', 'fade-right-2');
+    </script>
+</body>
+</html>

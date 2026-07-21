@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השקעות בארץ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="israelInvestments.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main id="israel-investments-page">
+        
+        <section class="welcome-section">
+            <h1 class="main-page-title">היכן הנכם מעוניינים להשקיע חכם?</h1>
+        </section>
+
+        <div class="investments-grid">
+            
+            <div class="investment-box">
+                <div class="box-image-wrapper">
+                    <img src="hi1.png" alt="דירות" class="box-image">
+                </div>
+                <div class="box-content">
+                    <h2 class="box-title">דירות</h2>
+                    <button class="wood-button" onclick="location.href='apartments.html'">התחילו</button>
+                </div>
+            </div>
+
+            <div class="investment-box">
+                <div class="box-image-wrapper">
+                    <img src="hi3.png" alt="משרדים ומסחר" class="box-image">
+                </div>
+                <div class="box-content">
+                    <h2 class="box-title">משרדים ומסחר</h2>
+                    <button class="wood-button">התחילו</button>
+                </div>
+            </div>
+
+            <div class="investment-box">
+                <div class="box-image-wrapper">
+                    <img src="hi2.png" alt="קרקעות" class="box-image">
+                </div>
+                <div class="box-content">
+                    <h2 class="box-title">קרקעות</h2>
+                    <button class="wood-button">התחילו</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="header.js"></script>
+
+    <script>
+        document.body.classList.add('scrolled-to-search');
+        window.addEventListener('scroll', (e) => {
+            if (!document.body.classList.contains('scrolled-to-search')) {
+                document.body.classList.add('scrolled-to-search');
+            }
+        }, true);
+    </script>
+</body>
+</html>
