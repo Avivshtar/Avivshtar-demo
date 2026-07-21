@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // 🏢 שורה שנייה (מימין לשמאל)
         { text: "מסחרי ומשרדים", src: "/office.png" },
         { text: "SIMPLEX3D", src: "/netonim.png" },
-        { text: "פודקאסטים", src: "/https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" },
+        { text: "פודקאסטים", src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" },
         { text: "עזרה", src: "/help.png" }
     ];
 
