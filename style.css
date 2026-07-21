@@ -5,7 +5,7 @@
     /* --- קבועים למועדון המשקיעים (שמאל) --- */
     --club-x-desktop: -7px;  
     --club-y-desktop: 12px;   
-  /* --------------------------------------------------- */
+    /* --------------------------------------------------- */
     /* 🖥️ קבועים למחשב (DESKTOP) */
     /* --------------------------------------------------- */
     
@@ -31,7 +31,7 @@
     --click-radius: 50%;         
 
     /* --------------------------------------------------- */
-  /* 4. לבבות - 1.png */
+    /* 4. לבבות - 1.png */
     --love1-width: 150px;
     --love1-height: 150px;
     --love1-right: -21.5px;
@@ -80,7 +80,7 @@
     --sidebar-font-size: 18px;    /* גודל הטקסט */
     --sidebar-color: #535353;     /* צבע הטקסט הרגיל (חום) */
     --sidebar-color-hover: #875b33; /* צבע הטקסט במעבר עכבר (שמנת) */
-   /* --------------------------------------------------- */
+    /* --------------------------------------------------- */
     /* 📱 קבועים לטלפון (MOBILE) - ברירות מחדל קומפקטיות */
     /* --------------------------------------------------- */
     --profile-width-mobile: 35px;
@@ -123,10 +123,11 @@
 
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #ffffff; /* הרקע הכללי של האתר הפך ללבן נקי! */
+    background-color: #ffffff;
     color: #334155;
     padding-top: 85px;
 }
+
 /* ======================================================= */
 /* הסרגל עצמו */
 /* ======================================================= */
@@ -172,6 +173,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+
 /* ======================================================= */
 /* 🖥️ עיצוב שכבות הפרופיל במחשב */
 /* ======================================================= */
@@ -223,7 +225,6 @@ body {
     pointer-events: none;
     opacity: 0; 
     transition: opacity 0.15s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    /* 👇 הוספת צל לפרופיל השני כמו שביקשת */
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.25));
     transform-origin: center;
 }
@@ -289,12 +290,11 @@ body {
 .love-click-box:hover ~ .love-icon-2 { opacity: 1; transform: scale(1.08); filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.15)); }
 .love-click-box:active ~ .love-icon-2 { transform: scale(0.96); transition: all 0.1s; }
 
-
 /* ======================================================= */
 /* 🖥️ עיצוב שכבות הפעמון במחשב */
 /* ======================================================= */
 .bell-click-box {
- position: absolute;
+    position: absolute;
     right: var(--bell-click-right);
     top: var(--bell-click-top);
     width: var(--bell-click-width);
@@ -348,7 +348,7 @@ body {
 .bell-click-box:active ~ .bell-icon-2 { transform: scale(0.96); transition: all 0.1s; }
 
 /* ======================================================= */
-/* 🖥️ תפריט קטגוריות צד ימין (צף נקי על הלבן) */
+/* 🖥️ תפריט קטגוריות צד ימין (טקסט צף נקי) */
 /* ======================================================= */
 .side-menu {
     position: absolute;
@@ -358,11 +358,10 @@ body {
     flex-direction: column;
     gap: var(--sidebar-gap);
     text-align: right;
-    /* הורדנו את כל הרקע, הפדינג, המסגרת והצל */
 }
 
 .menu-link {
-font-family: 'Heebo', system-ui, sans-serif;
+    font-family: 'Heebo', system-ui, sans-serif;
     font-size: var(--sidebar-font-size);
     font-weight: 500;
     color: var(--sidebar-color);
@@ -374,6 +373,7 @@ font-family: 'Heebo', system-ui, sans-serif;
     color: var(--sidebar-color-hover);
     transform: translateX(-3px); 
 }
+
 /* ======================================================= */
 /* מועדון המשקיעים (שמאל) */
 /* ======================================================= */
@@ -384,7 +384,7 @@ font-family: 'Heebo', system-ui, sans-serif;
 }
 
 .club-link {
-font-family: 'Heebo', system-ui, sans-serif;
+    font-family: 'Heebo', system-ui, sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
     color: #957559;
@@ -414,7 +414,7 @@ font-family: 'Heebo', system-ui, sans-serif;
 }
 
 /* ======================================================= */
-/* 📱 קוד מיוחד למובייל (טלפון) */
+/* 📱 קוד מיוחד למובייל (טלפון) בלבד */
 /* ======================================================= */
 @media (max-width: 768px) {
     body { padding-top: 85px; }
@@ -457,7 +457,8 @@ font-family: 'Heebo', system-ui, sans-serif;
         display: flex; 
         flex-direction: column; 
     }
- .menu-link {
+
+    .menu-link {
         width: 100%;
         padding: 16px 20px;
         text-align: right; 
@@ -472,22 +473,21 @@ font-family: 'Heebo', system-ui, sans-serif;
         color: var(--sidebar-color-hover);
         background-color: transparent; 
     }
-    /* ======================================================= */
-/* ⚡ תיקון והרצת האנימציה - להדביק בסוף style.css ⚡ */
-/* ======================================================= */
+}
 
-/* מוודא שכל האייקונים והקליק-בוקסים שלך יודעים לזוז חלק באנימציה */
+/* ======================================================= */
+/* ⚡ אנימציית גלילה והמבורגר ברזולוציות נמוכות בלבד ⚡ */
+/* ======================================================= */
 .profile-click-box, .profile-icon-1, .profile-icon-2,
 .love-click-box, .love-icon-1, .love-icon-2,
 .bell-click-box, .bell-icon-1, .bell-icon-2 {
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* 🍔 בניית כפתור ההמבורגר (2 קווים) במיקום המדויק של הפרופיל שלך */
 .hamburger-btn {
-    display: none !important; /* מוסתר לחלוטין למעלה */
+    display: none !important;
     position: absolute !important;
-    right: -45px !important; /* מתיישב בול בקו של הפרופיל כדי להיות ראשון מימין */
+    right: -45px !important;
     top: 50% !important;
     transform: translateY(-50%) scale(0.8) !important;
     flex-direction: column !important;
@@ -515,7 +515,6 @@ font-family: 'Heebo', system-ui, sans-serif;
 .hamburger-btn .line-short { width: 14px !important; align-self: flex-start !important; }
 .hamburger-btn:hover .line-short { width: 22px !important; }
 
-/* ❌ איפוס מוחלט של ה-X שלא ייראה כמו כפתור מרובע ואפור מהאתר */
 .menu-close-btn {
     display: none !important;
     position: absolute !important;
@@ -535,11 +534,6 @@ font-family: 'Heebo', system-ui, sans-serif;
     z-index: 100001 !important;
 }
 
-/* ------------------------------------------------------- */
-/* 🎬 האנימציה בפועל - מה קורה כשמגיעים לחיפוש */
-/* ------------------------------------------------------- */
-
-/* 1. הסייד-מניו הנוכחי שלך נעלם באנימציה הצידה */
 body.scrolled-to-search .side-menu {
     opacity: 0 !important;
     pointer-events: none !important;
@@ -547,14 +541,12 @@ body.scrolled-to-search .side-menu {
     transition: all 0.4s ease !important;
 }
 
-/* 2. כפתור ההמבורגר (2 קווים) נחשף פתאום */
 body.scrolled-to-search .hamburger-btn {
     display: flex !important;
     opacity: 1 !important;
     transform: translateY(-50%) scale(1) !important;
 }
 
-/* 3. 🔥 הצידה! כל האייקונים והקליק-בוקסים שלך זזים יחד שמאלה ב-55 פיקסלים ומפנים מקום להמבורגר 🔥 */
 body.scrolled-to-search .profile-click-box,
 body.scrolled-to-search .profile-icon-1,
 body.scrolled-to-search .profile-icon-2,
@@ -567,7 +559,6 @@ body.scrolled-to-search .bell-icon-2 {
     transform: translateX(-55px) !important;
 }
 
-/* 4. 🔓 כשלוחצים על ההמבורגר - הסיידבר הופך לדרואר קפסולה צפה עם צל מטורף ומנתק מהאתר */
 body.scrolled-to-search.sidebar-open .side-menu {
     position: fixed !important;
     top: 0 !important;
@@ -581,13 +572,10 @@ body.scrolled-to-search.sidebar-open .side-menu {
     display: flex !important;
     flex-direction: column !important;
     padding: 70px 20px 20px 20px !important;
-    /* צל עמוק שמפריד לחלוטין בין הסרגל לאתר מאחורה */
     box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; 
     z-index: 100000 !important;
 }
 
-/* 5. ה-X הופך להיות גלוי רק כשהסיידבר פתוח במצב חיפוש */
 body.scrolled-to-search.sidebar-open .menu-close-btn {
     display: block !important;
-}
 }

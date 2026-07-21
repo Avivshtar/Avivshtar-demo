@@ -25,10 +25,10 @@
     --hero-subtitle-weight: 700;  
 
     /* 🔥 14. מיקום כפתורי הזכוכית 🔥 */
-    --hero-buttons-top: 200px;    /* יושב מתחת לכותרת המשנית */
-    --hero-buttons-right: 710px;  /* דחוף שמאלה כדי לשבת באמצע-שמאל של התמונה */
+    --hero-buttons-top: 200px;    
+    --hero-buttons-right: 710px;  
 
-    /* 🔥 צל "קריספי" כפול שנותן קונטרסט בלי לכלוך 🔥 */
+    /* 🔥 צל "קריספי" כפול 🔥 */
     --hero-text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6), 0px 4px 12px rgba(0, 0, 0, 0.3);
 
     /* 📱 קבועים לטלפון (MOBILE) */
@@ -38,17 +38,14 @@
     --photo1-right-mobile: auto;   
     --photo1-left-mobile: 4%;      
 
-    /* כותרת ראשית במובייל */
     --hero-title-size-mobile: 28px;
     --hero-title-top-mobile: 40px;
     --hero-title-right-mobile: 15px;
 
-    /* כותרת משנית במובייל */
     --hero-subtitle-size-mobile: 16px;
     --hero-subtitle-top-mobile: 85px;
     --hero-subtitle-right-mobile: 15px;
 
-    /* כפתורים במובייל */
     --hero-buttons-top-mobile: 135px;
     --hero-buttons-right-mobile: 15px;
 }
@@ -115,7 +112,7 @@
 }
 
 /* ======================================================= */
-/* 🔴 עיגול מושלם ב-CSS (Zillow Style מוחלט) */
+/* 🔴 עיגול מושלם ב-CSS */
 /* ======================================================= */
 .zillow-dot {
     display: inline-block;
@@ -130,7 +127,7 @@
 }
 
 /* ======================================================= */
-/* 🔘 עיצוב כפתורי זכוכית (Apple Glassmorphism - צל מטושטש) */
+/* 🔘 עיצוב כפתורי זכוכית */
 /* ======================================================= */
 .hero-buttons-container {
     position: absolute;
@@ -152,29 +149,23 @@
     cursor: pointer;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
     
-    /* 🔥 פנים הכפתור: פחות מטושטש משמעותית 🔥 */
     background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(4px);           
     -webkit-backdrop-filter: blur(4px);   
     border: 1px solid rgba(255, 255, 255, 0.35); 
-    
-    /* 🔥 חוץ הכפתור (ברגיל): צל חזק, רחב ומטושטש שעוטף אותו קבוע 🔥 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); 
-    
     transition: all 0.3s ease; 
 }
 
-/* 🔥 אפקט במעבר עכבר (Hover) - מרגישים את השינוי 🔥 */
 .glass-btn:hover {
     background: rgba(255, 255, 255, 0.2); 
     border: 1px solid rgba(255, 255, 255, 0.6);
     transform: translateY(-2px); 
-    
-    /* הצל מתחזק ומתפזר עוד יותר כשעוברים עם העכבר */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
 }
+
 /* ======================================================= */
-/* 📦 העוטף הראשי - נעול על 526px בדיוק לפי הבקשה שלך */
+/* 📦 העוטף הראשי של החיפוש */
 /* ======================================================= */
 .pro-search-wrapper {
     width: 100%;
@@ -196,14 +187,14 @@
 }
 
 /* ======================================================= */
-/* 🔘 כפתורי טאב - קפסולת זכוכית מולחמת */
+/* 🔘 כפתורי טאב */
 /* ======================================================= */
 .search-tabs-container {
     position: relative;
     display: flex;
     margin: 0 auto -1px auto; 
     width: 222px; 
-    z-index: 6; /* הכי גבוה כדי שלא ייחסם משום אלמנט */
+    z-index: 6; 
     
     background: rgba(255, 255, 255, 0.35); 
     backdrop-filter: blur(20px);
@@ -230,7 +221,6 @@
     pointer-events: none;
 }
 
-/* 🎚️ קפסולת הסימון - עגולה, צפה, אפור בהיר מטאלי עם ברק */
 .search-tab-slider {
     position: absolute;
     right: 4px; 
@@ -290,7 +280,7 @@
 #tab-ai:checked ~ .search-tabs-container .ai-label { color: #000000; font-weight: 700; }
 
 /* ======================================================= */
-/* 🔍 שורת חיפוש פרו - תמיד מקדימה (z-index גבוה) */
+/* 🔍 שורת חיפוש פרו */
 /* ======================================================= */
 .pro-search-container {
     display: flex;
@@ -299,14 +289,11 @@
     width: 100%;
     background-color: #ffffff; 
     border: 1px solid #d1d1d1; 
-    border-radius: 50px !important; /* תמיד עגולה לחלוטין כמו קפסולה */
+    border-radius: 50px !important; 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
     padding: 6px 10px 6px 20px; 
-    
-    /* 🔥 התיקון: מקבל מיקום יחסי ו-z-index גבוה כדי לעמוד בבטחה מעל הפאנל האחורי! 🔥 */
     position: relative;
     z-index: 5; 
-    
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
 }
 
@@ -358,39 +345,25 @@
 }
 
 /* ======================================================= */
-/* 🤖 פאנל קטגוריות AI - 🔥 גולש ונפתח מאחורה (z-index נמוך) 🔥 */
+/* 🤖 פאנל קטגוריות AI */
 /* ======================================================= */
 .ai-suggestions-panel {
     max-height: 0; 
     opacity: 0;
     overflow: hidden;
     pointer-events: none;
-    
-    /* רוחב 650px המושלם שביקשת */
     width: 650px; 
-    
-    /* מירכוז מוחלט על הציר מתחת לשורה */
     position: absolute;
     right: 50%;
     top: 100%;
-    
-    /* 🔥 הלחמה מאחורה: עולה למעלה ונבלע ישירות מאחורי שורת החיפוש! 🔥 */
     margin-top: -30px; 
     transform: translateX(50%) translateY(-15px);
-    
-    /* רקע לבן חלק שמתמזג וממשיך את שורת החיפוש */
     background: #ffffff;
     border: 1px solid #d1d1d1;
-    
-    /* 🔥 פינות עגולות לחלוטין מכל 4 הכיוונים (קפסולה שלמה ללא קווים ישרים) 🔥 */
     border-radius: 40px; 
-    
     padding: 0 28px; 
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-    
-    /* 🔥 התיקון: z-index נמוך יותר משורת החיפוש כדי להיפתח מאחוריה בצורה מושלמת 🔥 */
     z-index: 2; 
-    
     transition: max-height 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
                 opacity 0.3s ease,
                 transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -402,13 +375,11 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* פתיחה חלקה ומתוזמנת במצב AI */
 #tab-ai:checked ~ .ai-suggestions-panel {
     max-height: 220px;
     opacity: 1;
     transform: translateX(50%) translateY(0);
     pointer-events: all;
-    /* 🔥 פדינג עליון מוגדל (45px) שדוחף את הטקסט והכפתורים למטה כדי שינקו את שורת החיפוש שחופפת עליהם מלמעלה! 🔥 */
     padding: 45px 28px 20px 28px; 
 }
 
@@ -422,7 +393,6 @@
     padding-right: 8px;
 }
 
-/* 3 אופציות שוות בשורה אחת */
 .suggestions-tags {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -458,8 +428,18 @@
 .suggestion-tag:active {
     transform: scale(0.95) translateY(0);
 }
+
+.investments-title {
+    text-align: right; 
+    font-size: 16px; 
+    font-weight: 300; 
+    color: #555555; 
+    margin-top: 15px !important; 
+    margin-bottom: 20px !important; 
+}
+
 /* ======================================================= */
-/* 📱 התאמה למובייל (טלפון) */
+/* 📱 התאמה למובייל (טלפון) בלבד */
 /* ======================================================= */
 @media (max-width: 768px) {
     .homepage-container {
@@ -506,185 +486,17 @@
         padding: 10px 24px;
         font-size: 14px;
     }
-  /* ======================================================= */
-/* 🖼️ תמונה מרכזית (home.svg) באמצע האתר */
-/* ======================================================= */
-.home-image-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 50%;
-    margin-top: 80px; 
-    margin-bottom: 80px; 
-}
 
-.home-centered-image {
-    /* 👇 עכשיו זה חייב להקשיב לך! 👇 */
-    width: -500px !important;  
-    height: 200px !important; 
-    
-    object-fit: contain !important; 
-    max-width: 100% !important; /* מוודא ששום דבר לא חוסם אותו מלהיות קטן */
-}
-/* ======================================================= */
-/* 🧭 הגדרות בסיס ומעברים חלקים לסרגל הצד (side-menu) */
-/* ======================================================= */
-.side-menu {
-    /* מוודא שיש מעבר חלק ויוקרתי (Apple Style) לכל שינוי מיקום או צל */
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                opacity 0.3s ease, 
-                box-shadow 0.4s ease !important;
-}
+    .pro-search-wrapper {
+        max-width: 90%;
+        top: -40px;
+    }
 
-/* 🔥 תיקון אגרסיבי: מוחק את כל הגדרות הקופסה האפורה של ה-X מהאתר! 🔥 */
-.menu-close-btn {
-    display: none !important; /* מוסתר לחלוטין בכל מצב רגיל למעלה */
-    position: absolute !important;
-    top: 20px !important;
-    left: 20px !important;
-    width: auto !important;
-    height: auto !important;
-    background: transparent !important; /* מעלים את הרקע האפור */
-    border: none !important; /* מעלים את המסגרת המרובעת */
-    outline: none !important;
-    font-size: 32px !important; /* X גדול ונקי */
-    line-height: 1 !important;
-    cursor: pointer !important;
-    color: #333333 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    z-index: 101 !important;
-}
+    .ai-suggestions-panel {
+        width: 100%;
+    }
 
-/* ======================================================= */
-/* 🍔 עיצוב כפתור המבורגר פרו (2 קווים) */
-/* ======================================================= */
-.hamburger-btn {
-    display: none !important; /* חבוי לחלוטין כל עוד אנחנו למעלה */
-    position: absolute;
-    right: 25px; /* מתמקם ראשון מצד ימין באזור האייקונים */
-    top: 50%;
-    transform: translateY(-50%) scale(0.8);
-    flex-direction: column;
-    gap: 6px;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer;
-    padding: 8px !important;
-    opacity: 0;
-    z-index: 10;
-    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.hamburger-btn span {
-    display: block;
-    height: 2px;
-    background-color: #1a1a1a;
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-.hamburger-btn .line-long { width: 22px; }
-.hamburger-btn .line-short { width: 14px; align-self: flex-start; } /* קצר יותר שמתיישר לימין ב-RTL */
-
-/* אפקט מתיחת קו בריחוף עכבר */
-.hamburger-btn:hover .line-short {
-    width: 22px; 
-}
-
-/* ======================================================= */
-/* ⚡ מצב דינמי: ברגע שהגענו לשורת החיפוש */
-/* ======================================================= */
-
-/* 1. הסייד-מניו הרגיל שלך מחליק ימינה אל מחוץ למסך ונעלם */
-body.scrolled-to-search .side-menu {
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-    box-shadow: none;
-}
-
-/* 2. כפתור ההמבורגר המעוצב (2 קווים) נחשף ונדלק */
-body.scrolled-to-search .hamburger-btn {
-    display: flex !important;
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-}
-
-/* 3. 🔥 האנימציה של האייקונים שלך: כולם (הפעמון, הלב, הפרופיל והתיבות שלהם) זזים יחד שמאלה ומפנים מקום להמבורגר! 🔥 */
-body.scrolled-to-search .profile-click-box,
-body.scrolled-to-search .profile-icon-1,
-body.scrolled-to-search .profile-icon-2,
-body.scrolled-to-search .love-click-box,
-body.scrolled-to-search .love-icon-1,
-body.scrolled-to-search .love-icon-2,
-body.scrolled-to-search .bell-click-box,
-body.scrolled-to-search .bell-icon-1,
-body.scrolled-to-search .bell-icon-2 {
-    transform: translateX(-48px); 
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-}
-
-/* ======================================================= */
-/* 🔓 מצב דינמי: לחצנו על ההמבורגר בחיפוש והסרגל נפתח צף */
-/* ======================================================= */
-body.scrolled-to-search.sidebar-open .side-menu {
-    transform: translateX(0); /* מחזיר את הסרגל מהגלות */
-    opacity: 1;
-    pointer-events: all;
-    /* 🔥 צל עמוק, דרמטי ויוקרתי שמפריד בצורה מוחלטת ומנקה את הרקע מהאתר 🔥 */
-    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; 
-}
-
-/* 🔥 ורק במצב הצף הזה - ה-X מקבל עיגול אפור, נהיה דק, זוהר וחום בריחוף! 🔥 */
-body.scrolled-to-search.sidebar-open .menu-close-btn {
-    display: flex !important; /* משתמשים ב-flex כדי למרכז את ה-X בתוך העיגול */
-    position: absolute !important;
-    top: 20px !important;
-    left: 20px !important;
-    width: 38px !important;
-    height: 38px !important;
-    background-color: #f4f4f5 !important; /* עיגול רקע אפור בהיר ונקי */
-    border: none !important;
-    border-radius: 50% !important; /* הופך לעיגול מושלם */
-    font-family: 'Heebo', system-ui, sans-serif !important;
-    font-size: 26px !important;
-    font-weight: 200 !important; /* 🔥 הופך את קו ה-X לדק מאוד ויפה */
-    color: #8c8c8c !important; /* צבע אפור בהיר לאיקס עצמו, תואם לאייקונים */
-    cursor: pointer !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    padding-bottom: 5px !important; /* קיזוז עדין למרכוז אנכי מושלם של סימן ה-X */
-    margin: 0 !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
-    z-index: 100002 !important;
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* אנימציית מעבר חלק */
-}
-
-/* 🔥 מעבר עכבר (Hover): הכל גדל ביחד, ה-X נהיה חום ומקבל אפקט זוהר יפה */
-body.scrolled-to-search.sidebar-open .menu-close-btn:hover {
-    background-color: #ffffff !important; /* העיגול נהיה לבן כדי להבליט את החום והזוהר */
-    color: #875b33 !important; /* ה-X משנה צבע לחום של ההמבורגר/פרופיל 2 */
-    transform: scale(1.12) !important; /* גדל ב-12% באנימציה חלקה */
-    box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important; /* 🔥 אפקט זוהר חום יפה */
-}
-
-/* 🔥 לחיצה (Active): אנימציית לחיצה קלה של פידבק (מתכווץ קצת) */
-body.scrolled-to-search.sidebar-open .menu-close-btn:active {
-    transform: scale(0.94) !important;
-    transition: all 0.1s !important;
-}
-/* העיצוב של הכותרת "מגוון השקעות חכמות" - מעודכן, דק וקטן! */
-.investments-title {
-    text-align: right;       /* 📍 קבוע בצד ימין */
-    font-size: 16px;         /* 📐 גודל הטקסט - הוקטן משמעותית כדי שלא יבלוט */
-    font-weight: 300;        /* 🪶 מנטרל את ה-Bold והופך אותו לממש דק ונקי */
-    color: #555555;          /* 🎨 צבע אפור עדין ולא שחור בולט */
-    
-    /* ↕️ ניהול גובה ומרווחים */
-    margin-top: 15px !important;    /* 🛠️ מרווח/גובה מלמעלה */
-    margin-bottom: 20px !important; /* מרווח מלמטה לכיוון הכרטיסיות */
-}
+    .suggestions-tags {
+        grid-template-columns: 1fr;
+    }
 }
