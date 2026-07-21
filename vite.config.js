@@ -3,7 +3,6 @@ import { resolve } from 'path';
 
 export default defineConfig({
   build: {
-    cssCodeSplit: false, // 👈 מונע מ-Vite לפרק ולבלבל את ה-CSS ב-Build
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
