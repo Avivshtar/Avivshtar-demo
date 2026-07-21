@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     
                     <div class="clean-card-image-container">
-                        <img src="map.png" class="clean-card-img" alt="מפת חום חכמה">
+                        <img src="/map.png" class="clean-card-img" alt="מפת חום חכמה">
                     </div>
 
                     <a href="https://www.immobiliare.it/mercato-immobiliare/" target="_blank" class="custom-map-glass-btn">התחילו</a>

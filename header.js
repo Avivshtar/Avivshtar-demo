@@ -179,7 +179,7 @@ const headerTemplate = `
         </div>
 
         <div class="logo-container">
-            <img src="logo.svg" alt="משקיעים חכם" class="site-logo">
+            <img src="/logo.svg" alt="משקיעים חכם" class="site-logo">
         </div>
 
         <div class="profile-click-box"></div>

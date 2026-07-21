@@ -99,18 +99,72 @@ const propertiesData = [
 ];
 
 // ==========================================================================
-// 🏗️ מאגר נתונים 2: מגוון פרויקטים להשקעה (10 אופציות נקיות בלי מ"ר)
+// 🏗️ מאגר נתונים 2: מגוון פרויקטים להשקעה (9 אופציות נקיות בלי מ"ר)
 // ==========================================================================
 const projectsData = [
-    { price: "YAMA - Marina", address: "יפה נוף 32, אשקלון", type: "2-6 חד'", rooms: "החל מ-2,490,000", img1: "https://treedis-cdn.yad2.co.il/projects/1000177/assets/mainImage/fd36a7a8-9cd7-4720-95a8-402b2984b081.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1000177/assets/gallery/1f79564c-151f-45de-bb5f-3984b86ed0f0.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1000177/assets/gallery/70d98359-d48f-4cb3-92ef-adb9252acec4.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000009/logo.png" },
-    { price: "SOHO", address: "בר יוחאי 15, ירושלים", type: "5 חד'", rooms: "החל מ-2,200,000 ₪", img1: "https://treedis-cdn.yad2.co.il/projects/1000234/assets/gallery/b972e0ea-45b8-4e8d-9974-36074585463b.jpg", img2: "https://treedis-cdn.yad2.co.il/projects/1000234/assets/gallery/8eb896e1-4b83-49c7-82e1-f51d8ecfdfcd.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1000234/assets/gallery/986a6cc1-77ea-4617-a7d0-6132afec49f4.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000004/logo.png" },
-    { price: "RAMAT EFAL", address: "רב אלוף רפאל איתן 14, רמת גן", type: "2-6 חד'", rooms: "החל מ-2,300,000 ₪", img1: "https://treedis-cdn.yad2.co.il/projects/1000360/assets/gallery/ff4ef75f-2d33-4fed-ae6c-15ecf0ef7b2f.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1000360/assets/gallery/54e16b67-31f2-4bda-ba5a-f6afc3f72c57.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1000360/assets/mainImage/390d5097-336f-409d-a010-03f81cc1b0ff.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000086/logo.png" },
-    { price: "THE STRIP", address: "שמחה ארליך פינת בן צבי, נתניה", type: "תמ\"א 38", rooms: "החל מ-1,900,000", img1: "https://treedis-cdn.yad2.co.il/projects/1019296/assets/gallery/93bb3fb6-42ee-4d41-9912-6437e8c3dd9e.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1019296/assets/gallery/395cb229-d3a3-44fc-8d3f-8e5f0bbaca71.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1019296/assets/gallery/b0b96fd9-ce71-4db7-935a-00f9d121b60b.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000010/logo.png" },
-    { price: "RAINBOW - TEL AVIV", address: "מתחם שדה דב", type: "2-5 חד'", rooms: "החל מ-5,000,000", img1: "https://treedis-cdn.yad2.co.il/projects/1017470/assets/mainImage/01f610d1-e87f-48fb-a6d3-ec3bbe40934f.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1017470/assets/gallery/8b0cf444-67c7-4779-b5f2-aaab4155237c.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1017470/assets/gallery/3ca1007f-29c8-4e13-86c9-057c0fed68bb.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000496/logo.png" },
-    { price: "REISDOR - NETIVOT", address: "אריאל שרון 48, נתיבות", type: "6 חד'", rooms: "החל מ-1,543,750", img1: "https://treedis-cdn.yad2.co.il/projects/1018845/assets/mainImage/e513dde6-b535-4653-88c6-58eaa9d6a868.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1018845/assets/gallery/41a02314-26e1-4cff-80e5-fdcede736ed5.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1018845/assets/gallery/0656b496-a456-4dbe-98ea-17ea14808a5f.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000012/logo.png" },
-    { price: "NORTH STAR", address: "ז'בוטינסקי 45, אשדוד", type: "פינוי בינוי", rooms: "החל מ-3,000,000", img1: "https://treedis-cdn.yad2.co.il/projects/1000159/assets/mainImage/7f3a2f9b-171d-4e2e-96b4-663fe66f6c1b.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1000159/assets/gallery/b284db22-4bd2-4709-a35f-3450e8c899e1.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1000159/assets/gallery/de1fe349-131a-4316-8438-7076f5674be1.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000037/logo.png" },
-    { price: "RIVERSIDE", address: "גדות, יהוד מונסון", type: "3-6 חד'", rooms: "החל מ-3,250,000", img1: "https://treedis-cdn.yad2.co.il/projects/1019060/assets/mainImage/702e76d1-f0a5-43a4-9fa4-3527c79bf999.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1019060/assets/gallery/1207076a-6cda-4071-aeb7-4cc56f782612.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1019060/assets/gallery/23e96817-5b04-4f90-9bb7-8c829db1ec09.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1001189/logo.png" },
-    { price: "NOFIM", address: "שכונת אבוקדו, קרית אתא", type: "3-5 חד'", rooms: "החל מ-1,790,000", img1: "https://treedis-cdn.yad2.co.il/projects/1019279/assets/gallery/f2f92d28-62cf-4558-a5f8-177428ad1af8.webp", img2: "https://treedis-cdn.yad2.co.il/projects/1019279/assets/gallery/5886a73c-a1ca-45aa-91c6-1f526f5184aa.webp", img3: "https://treedis-cdn.yad2.co.il/projects/1019279/assets/mainImage/e2ff8220-d4ed-4aed-bcd0-84713deb6e80.webp", developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000087/logo.png" },
+    { 
+        price: "YAMA - Marina", address: "יפה נוף 32, אשקלון", type: "2-6 חד'", rooms: "החל מ-2,490,000", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1000177/assets/mainImage/fd36a7a8-9cd7-4720-95a8-402b2984b081.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1000177/assets/gallery/1f79564c-151f-45de-bb5f-3984b86ed0f0.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1000177/assets/gallery/70d98359-d48f-4cb3-92ef-adb9252acec4.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000009/logo.png" 
+    },
+    { 
+        price: "SOHO", address: "בר יוחאי 15, ירושלים", type: "5 חד'", rooms: "החל מ-2,200,000 ₪", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1000234/assets/gallery/b972e0ea-45b8-4e8d-9974-36074585463b.jpg", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1000234/assets/gallery/8eb896e1-4b83-49c7-82e1-f51d8ecfdfcd.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1000234/assets/gallery/986a6cc1-77ea-4617-a7d0-6132afec49f4.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000004/logo.png" 
+    },
+    { 
+        price: "RAMAT EFAL", address: "רב אלוף רפאל איתן 14, רמת גן", type: "2-6 חד'", rooms: "החל מ-2,300,000 ₪", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1000360/assets/gallery/ff4ef75f-2d33-4fed-ae6c-15ecf0ef7b2f.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1000360/assets/gallery/54e16b67-31f2-4bda-ba5a-f6afc3f72c57.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1000360/assets/mainImage/390d5097-336f-409d-a010-03f81cc1b0ff.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000086/logo.png" 
+    },
+    { 
+        price: "THE STRIP", address: "שמחה ארליך פינת בן צבי, נתניה", type: "תמ\"א 38", rooms: "החל מ-1,900,000", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1019296/assets/gallery/93bb3fb6-42ee-4d41-9912-6437e8c3dd9e.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1019296/assets/gallery/395cb229-d3a3-44fc-8d3f-8e5f0bbaca71.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1019296/assets/gallery/b0b96fd9-ce71-4db7-935a-00f9d121b60b.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000010/logo.png" 
+    },
+    { 
+        price: "RAINBOW - TEL AVIV", address: "מתחם שדה דב", type: "2-5 חד'", rooms: "החל מ-5,000,000", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1017470/assets/mainImage/01f610d1-e87f-48fb-a6d3-ec3bbe40934f.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1017470/assets/gallery/8b0cf444-67c7-4779-b5f2-aaab4155237c.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1017470/assets/gallery/3ca1007f-29c8-4e13-86c9-057c0fed68bb.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000496/logo.png" 
+    },
+    { 
+        price: "REISDOR - NETIVOT", address: "אריאל שרון 48, נתיבות", type: "6 חד'", rooms: "החל מ-1,543,750", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1018845/assets/mainImage/e513dde6-b535-4653-88c6-58eaa9d6a868.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1018845/assets/gallery/41a02314-26e1-4cff-80e5-fdcede736ed5.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1018845/assets/gallery/0656b496-a456-4dbe-98ea-17ea14808a5f.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000012/logo.png" 
+    },
+    { 
+        price: "NORTH STAR", address: "ז'בוטינסקי 45, אשדוד", type: "פינוי בינוי", rooms: "החל מ-3,000,000", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1000159/assets/mainImage/7f3a2f9b-171d-4e2e-96b4-663fe66f6c1b.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1000159/assets/gallery/b284db22-4bd2-4709-a35f-3450e8c899e1.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1000159/assets/gallery/de1fe349-131a-4316-8438-7076f5674be1.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000037/logo.png" 
+    },
+    { 
+        price: "RIVERSIDE", address: "גדות, יהוד מונסון", type: "3-6 חד'", rooms: "החל מ-3,250,000", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1019060/assets/mainImage/702e76d1-f0a5-43a4-9fa4-3527c79bf999.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1019060/assets/gallery/1207076a-6cda-4071-aeb7-4cc56f782612.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1019060/assets/gallery/23e96817-5b04-4f90-9bb7-8c829db1ec09.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1001189/logo.png" 
+    },
+    { 
+        price: "NOFIM", address: "שכונת אבוקדו, קרית אתא", type: "3-5 חד'", rooms: "החל מ-1,790,000", 
+        img1: "https://treedis-cdn.yad2.co.il/projects/1019279/assets/gallery/f2f92d28-62cf-4558-a5f8-177428ad1af8.webp", 
+        img2: "https://treedis-cdn.yad2.co.il/projects/1019279/assets/gallery/5886a73c-a1ca-45aa-91c6-1f526f5184aa.webp", 
+        img3: "https://treedis-cdn.yad2.co.il/projects/1019279/assets/mainImage/e2ff8220-d4ed-4aed-bcd0-84713deb6e80.webp", 
+        developerLogo: "https://treedis-cdn.yad2.co.il/clients/1000087/logo.png" 
+    }
 ];
 
 // ==========================================================================
@@ -131,8 +185,8 @@ const createPropertyCard = (data, index, type) => `
         <div class="card-love-container js-love-btn">
             <div class="card-love-click-box js-click-box"></div> 
             <div class="card-love-hearts-anchor"> 
-                <img src="1.png" class="card-love-icon-1" alt="לב אפור">
-                <img src="2.png" class="card-love-icon-2" alt="לב חום">
+                <img src="/1.png" class="card-love-icon-1" alt="לב אפור">
+                <img src="/2.png" class="card-love-icon-2" alt="לב חום">
             </div>
         </div>
     </div>

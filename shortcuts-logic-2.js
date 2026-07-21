@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                     <div class="clean-card-image-container-2">
-                        <img src="hi.gif" class="clean-card-img-2" alt="תמונה">
+                        <img src="/hi.gif" class="clean-card-img-2" alt="תמונה">
                     </div>
                     <a href="https://www.immobiliare.it/" target="_blank" class="custom-map-glass-btn-2">התחילו</a>
                 </div>

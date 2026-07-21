@@ -5,16 +5,16 @@ window.addEventListener('DOMContentLoaded', () => {
     // 8 תמונות קיצורי דרך מעודכנות (נוספה כתובת מעבר לדף החדש בפריט הראשון)
     const shortcutsData = [
         // 🏠 שורה ראשונה (מימין לשמאל)
-        { text: "דירות בארץ", src: "israelrealestate.png", url: "israelInvestments.html" }, // 🔥 מוביל לדף החדש!
-        { text: "דירות בחו\"ל", src: "globalrealestate.png" },
-        { text: "קרקעות", src: "karkaot.png" },
-        { text: "הצטרפות כחבר מועדון", src: "memberchip.png" },
+        { text: "דירות בארץ", src: "/israelrealestate.png", url: "israelInvestments.html" }, // 🔥 מוביל לדף החדש!
+        { text: "דירות בחו\"ל", src: "/globalrealestate.png" },
+        { text: "קרקעות", src: "/karkaot.png" },
+        { text: "הצטרפות כחבר מועדון", src: "/memberchip.png" },
         
         // 🏢 שורה שנייה (מימין לשמאל)
-        { text: "מסחרי ומשרדים", src: "office.png" },
-        { text: "SIMPLEX3D", src: "netonim.png" },
-        { text: "פודקאסטים", src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" },
-        { text: "עזרה", src: "help.png" }
+        { text: "מסחרי ומשרדים", src: "/office.png" },
+        { text: "SIMPLEX3D", src: "/netonim.png" },
+        { text: "פודקאסטים", src: "/https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" },
+        { text: "עזרה", src: "/help.png" }
     ];
 
     // יצירת ה-HTML של הכרטיסיות עם בדיקה: אם יש URL, מוסיף פקודת מעבר בלחיצה
