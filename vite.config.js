@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   build: {
+    cssCodeSplit: true, // שומר על הפרדה מוחלטת בין העיצובים של הדפים
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
