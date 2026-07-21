@@ -353,3 +353,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // הוספנו 'project' בסוף
     renderFeed('projects-card-demo-container', projectsData, false, 'project');
 });
+// חשיפה גלובלית כדי שגם מודולים בדפים אחרים וגם המפה יוכלו לקרוא למידע
+window.renderFeed = renderFeed;
+window.propertiesData = propertiesData;

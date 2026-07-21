@@ -81,17 +81,18 @@
         </button>
     </div>
 
-    <script src="./header.js"></script>
-    <script src="./propertyCard.js"></script>
+<script type="module" src="./header.js"></script>
+    <script type="module" src="./propertyCard.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="./mapLogic.js" defer></script>
+    <script type="module" src="./mapLogic.js"></script>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            if (typeof renderFeed === 'function' && typeof propertiesData !== 'undefined') {
-                renderFeed('properties-cards-container', propertiesData, true);
-            } else {
-                console.error("שגיאה: הקובץ propertyCard.js לא נטען או שמאגר הנתונים חסר.");
+    <script type="module">
+        window.addEventListener('load', () => {
+            const feedFunc = window.renderFeed || (typeof renderFeed === 'function' ? renderFeed : null);
+            const dataObj = window.propertiesData || (typeof propertiesData !== 'undefined' ? propertiesData : null);
+
+            if (typeof feedFunc === 'function' && dataObj) {
+                feedFunc('properties-cards-container', dataObj, true);
             }
         });
 
@@ -103,7 +104,7 @@
         }, true);
 
         let currentTypingAnimation = null;
-        function autoTypeSearch(textToType) {
+        window.autoTypeSearch = function(textToType) {
             const searchInput = document.querySelector('.pro-search-input');
             if (!searchInput) return;
 
@@ -120,7 +121,7 @@
                     clearInterval(currentTypingAnimation);
                 }
             }, 14); 
-        }
+        };
     </script>
 </body>
 </html>
