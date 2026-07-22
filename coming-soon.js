@@ -3,7 +3,8 @@ class ComingSoonVideo extends HTMLElement {
         this.innerHTML = `
             <div class="coming-soon-wrapper">
                 <video autoplay loop muted playsinline>
-                    <source src="./comingsoon.mp4" type="video/mp4">
+                    <!-- הנה השינוי הקטן: שמתי רק לוכסן (/) בלי הנקודה בהתחלה -->
+                    <source src="/comingsoon.mp4" type="video/mp4">
                     הדפדפן שלך אינו תומך בניגון וידאו.
                 </video>
             </div>
