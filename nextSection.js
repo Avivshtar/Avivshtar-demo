@@ -2,19 +2,18 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('next-section-container');
     if (!container) return;
 
-    // 8 תמונות קיצורי דרך מעודכנות (נוספה כתובת מעבר לדף החדש בפריט הראשון)
-    const shortcutsData = [
+  const shortcutsData = [
         // 🏠 שורה ראשונה (מימין לשמאל)
-        { text: "דירות בארץ", src: "/israelrealestate.png", url: "israelInvestments.html" }, // 🔥 מוביל לדף החדש!
-        { text: "דירות בחו\"ל", src: "/globalrealestate.png" },
-        { text: "קרקעות", src: "/karkaot.png" },
-        { text: "הצטרפות כחבר מועדון", src: "/memberchip.png" },
+        { text: "דירות בארץ", src: "/israelrealestate.png", url: "israelInvestments.html" },
+        { text: "דירות בחו\"ל", src: "/globalrealestate.png", url: "abroad.html" },
+        { text: "קרקעות", src: "/karkaot.png", url: "lands.html" },
+        { text: "הצטרפות כחבר מועדון", src: "/memberchip.png", url: "club.html" },
         
         // 🏢 שורה שנייה (מימין לשמאל)
-        { text: "מסחרי ומשרדים", src: "/office.png" },
-        { text: "SIMPLEX3D", src: "/netonim.png" },
-        { text: "פודקאסטים", src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" },
-        { text: "עזרה", src: "/help.png" }
+        { text: "מסחרי ומשרדים", src: "/office.png", url: "commercial.html" },
+        { text: "SIMPLEX3D", src: "/netonim.png", url: "share-demo.html" },
+        { text: "פודקאסטים", src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600", url: "podcasts.html" },
+        { text: "עזרה", src: "/help.png", url: "help.html" }
     ];
 
     // יצירת ה-HTML של הכרטיסיות עם בדיקה: אם יש URL, מוסיף פקודת מעבר בלחיצה

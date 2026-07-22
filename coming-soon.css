@@ -1,0 +1,86 @@
+/* ==========================================================================
+   🎛️ לוח בקרה מוגן - סרגל פלס + וידאו COMING SOON
+   ========================================================================== */
+:root {
+    --מיקום-לוגו-אופקי: -539px; 
+    --מיקום-לוגו-אנכי: 7px;     
+    --גודל-לוגו-קנה-מידה: 0.77;    
+
+    --כותרת-אמצע-טקסט: ""; 
+    --כותרת-אמצע-גודל: 26px;             
+    --כותרת-אמצע-עובי: 200;              
+    --כותרת-אמצע-צבע: #875b33;           
+    --כותרת-אמצע-צל: 1px 1px 3px rgba(0, 0, 0, 0.15); 
+    --כותרת-אמצע-אנכי: 7px; 
+
+    --גודל-וידאו-בקרוב: 442.3px;           
+    --מרחק-וידאו-מלמעלה: -50px;          
+    --הזזה-אופקית-וידאו: 0px;           
+}
+
+/* 📱 התאמה אוטומטית למובייל ומסכים קטנים! (רספונסיביות) */
+@media (max-width: 768px) {
+    :root {
+        --מיקום-לוגו-אופקי: -10px; /* מתקן את הבריחה שמאלה במובייל */
+        --גודל-לוגו-קנה-מידה: 0.65; 
+        --גודל-וידאו-בקרוב: 90vw; /* מתאים את הוידאו לרוחב המסך של הטלפון */
+        --מרחק-וידאו-מלמעלה: 10px;
+    }
+}
+
+/* 🛡️ חסינות אבסולוטית ומלאה לסרגל המקורי - נעול פלס! */
+body .hamburger-btn { display: flex !important; opacity: 1 !important; transform: translateY(-50%) scale(1) !important; }
+body .side-menu { opacity: 0 !important; pointer-events: none !important; transform: translateX(60px) !important; }
+
+body .profile-click-box, body .profile-icon-1, 
+body .love-click-box, body .love-icon-1, 
+body .bell-click-box, body .bell-icon-1 { transform: translateX(-55px) scale(1) !important; }
+body .profile-icon-2, body .love-icon-2, body .bell-icon-2 { transform: translateX(-55px) scale(1) !important; opacity: 0 !important; }
+
+body .profile-click-box:hover ~ .profile-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:hover ~ .profile-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:active ~ .profile-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body .love-click-box:hover ~ .love-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:hover ~ .love-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:active ~ .love-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body .bell-click-box:hover ~ .bell-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:hover ~ .bell-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:active ~ .bell-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body.sidebar-open .side-menu { position: fixed !important; top: 0 !important; right: 0 !important; width: 280px !important; height: 100vh !important; background: #ffffff !important; opacity: 1 !important; pointer-events: all !important; transform: translateX(0) !important; display: flex !important; flex-direction: column !important; padding: 70px 20px 20px 20px !important; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; z-index: 100000 !important; }
+body.sidebar-open #menu-close-btn { display: flex !important; position: absolute !important; top: 20px !important; left: 20px !important; width: 38px !important; height: 38px !important; background-color: #f4f4f5 !important; border: none !important; border-radius: 50% !important; color: #8c8c8c !important; cursor: pointer !important; align-items: center !important; justify-content: center !important; padding: 0 !important; margin: 0 !important; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important; z-index: 100002 !important; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important; }
+body.sidebar-open #menu-close-btn:hover { background-color: #ffffff !important; color: #875b33 !important; transform: scale(1.12) !important; box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important; }
+
+/* 🎯 אלמנטים של הדף */
+body .header-left-link { display: none !important; }
+body .logo-container { transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important; transform-origin: center !important; }
+body .header-container::after { content: var(--כותרת-אמצע-טקסט) !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; font-family: 'Heebo', sans-serif !important; font-size: var(--כותרת-אמצע-גודל) !important; font-weight: var(--כותרת-אמצע-עובי) !important; color: var(--כותרת-אמצע-צבע) !important; text-shadow: var(--כותרת-אמצע-צל) !important; white-space: nowrap !important; pointer-events: none !important; }
+
+/* 🎥 עיצוב הווידאו */
+.coming-soon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: var(--מרחק-וידאו-מלמעלה);
+    transform: translateX(var(--הזזה-אופקית-וידאו));
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+.coming-soon-wrapper video {
+    width: var(--גודל-וידאו-בקרוב);
+    max-width: 100%; /* חוסם חריגה במובייל */
+    height: auto;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    object-fit: cover !important;
+    mix-blend-mode: multiply !important;
+}

@@ -174,9 +174,9 @@ const headerTemplate = `
             <span class="line-bottom"></span>
         </button>
         
-        <div class="header-left-link">
-            <a href="#" class="club-link">מועדון המשקיעים חכם</a>
-        </div>
+    <div class="header-left-link">
+    <a href="club.html" class="club-link">מועדון המשקיעים חכם</a>
+</div>
 
         <div class="logo-container">
             <img src="/logo.svg" alt="משקיעים חכם" class="site-logo">
@@ -202,14 +202,14 @@ const headerTemplate = `
                 </svg>
             </button>
             
-            <a href="#" class="menu-link">עזרה</a>
-            <a href="#" class="menu-link">פרסם</a>
-            <a href="#" class="menu-link">בלוג</a>
-            <a href="#" class="menu-link">Simplex3d</a>
-            <a href="israelInvestments.html" class="menu-link">השקעות בארץ</a>
-            <a href="#" class="menu-link">השקעות בחו"ל</a>
-            <a href="#" class="menu-link">מועדון המשקיעים חכם</a>
-            <a href="#" class="menu-link">פורום</a>
+         <a href="help.html" class="menu-link">עזרה</a>
+<a href="publish.html" class="menu-link">פרסם</a>
+<a href="blog.html" class="menu-link">בלוג</a>
+<a href="share-demo.html" class="menu-link">Simplex3d</a>
+<a href="israelInvestments.html" class="menu-link">השקעות בארץ</a>
+<a href="abroad.html" class="menu-link">השקעות בחו"ל</a>
+<a href="club.html" class="menu-link">מועדון המשקיעים חכם</a>
+<a href="forum.html" class="menu-link">פורום</a>
         </nav>
 
     </div>

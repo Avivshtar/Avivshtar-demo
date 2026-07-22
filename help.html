@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עזרה ותמיכה | השקעות חכמות</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./coming-soon.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main id="help-page">
+        <coming-soon-video></coming-soon-video>
+    </main>
+
+    <script type="module" src="./header.js"></script>
+    <script type="module" src="./coming-soon.js"></script>
+
+    <script>
+        document.body.classList.add('scrolled-to-search');
+        window.addEventListener('scroll', (e) => {
+            if (!document.body.classList.contains('scrolled-to-search')) {
+                document.body.classList.add('scrolled-to-search');
+            }
+        }, true);
+    </script>
+</body>
+</html>
