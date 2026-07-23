@@ -1,4 +1,18 @@
 /* ======================================================= */
+/* 🛠️ איפוס ונעילת גלילה רוחבית (קריטי למובייל!) */
+/* ======================================================= */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden; /* זה הקסם שמונע את הגלילה הרוחבית */
+    margin: 0;
+    padding: 0;
+}
+
+/* מוודא ששוליים (padding) לא מנפחים את הגודל של אלמנטים ודוחפים אותם החוצה */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* ======================================================= */
 /* 🔥 קבועים (CONST) - שליטה נפרדת לחלוטין בכל תמונה 🔥 */
 /* ======================================================= */
 :root {
@@ -24,7 +38,7 @@
     /* 3. שליטה באזור הלחיצה */
     --click-width: 40px;         
     --click-height: 40px;        
-    --click-right: -15px;         
+    --click-right: -15px;        
     --click-top: 16px;            
     --click-color-hover: transparent;  
     --click-color-active: transparent; 
@@ -74,7 +88,7 @@
     /* --------------------------------------------------- */
     
     /* 🔥 10. תפריט קטגוריות צד ימין (טקסט צף נקי) 🔥 */
-    --sidebar-top: 100px;         /* גובה התחלה (מרחק מלמעלה) */
+    --sidebar-top: 100px;        /* גובה התחלה (מרחק מלמעלה) */
     --sidebar-right: -18px;        /* מיקום ימינה/שמאלה מהקצה */
     --sidebar-gap: 26px;          /* מרווח בין כל טקסט לטקסט */
     --sidebar-font-size: 18px;    /* גודל הטקסט */
@@ -412,108 +426,460 @@ body {
     margin-top: 20px;
     background: transparent;
 }
-
+/* מסתיר את הלוגו של המובייל במסכי מחשב */
+.mobile-logo {
+    display: none !important;
+}
 /* ======================================================= */
-/* 📱 קוד מיוחד למובייל (טלפון) בלבד */
+/* 📱 קוד מיוחד למובייל (טלפון) בלבד - סרגל עליון (Header) */
 /* ======================================================= */
 @media (max-width: 768px) {
-    body { padding-top: 85px; }
-    .header-container { padding: 12px 15px; }
-    .site-logo { height: 35px; }
-    .hamburger { display: block; }
+    
+    /* 🎛️ פאנל ניהול כפול: מצב התחלתי (שקוף) VS מצב נגלל (סרגל לבן) */
+    :root {
+        /* 📏 גובה הסרגל הלבן כשגוללים למטה */
+        --mobile-header-height-scrolled: 75px; 
 
-    .header-left-link { display: none; }
+        /* ======================================================= */
+        /* ☀️ 1. מצב התחלתי (למעלה - שקוף על התמונה) */
+        /* ======================================================= */
+        /* 🏷️ לוגו התחלתי */
+        --logo-top-initial: -43px;
+        --logo-width-initial: 153px;
+        --logo-shift-x-initial: 0px;
 
-    .profile-click-box { right: var(--click-right-mobile); top: var(--click-top-mobile); width: var(--click-width-mobile); height: var(--click-height-mobile); }
-    .profile-icon-1, .profile-icon-2 { right: var(--profile-right-mobile); top: var(--profile-top-mobile); width: var(--profile-width-mobile); height: var(--profile-height-mobile); }
+        /* 👑 מועדון משקיעים התחלתי */
+        --club-top-initial: 26px;
+        --club-left-initial: 7px;
+        --club-size-initial: 10px;
 
-    .love-click-box { right: var(--love-click-right-mobile); top: var(--love-click-top-mobile); width: var(--love-click-width-mobile); height: var(--love-click-height-mobile); background-color: transparent; }
-    .love-icon-1, .love-icon-2 { right: var(--love-right-mobile); top: var(--love-top-mobile); width: var(--love-width-mobile); height: var(--love-height-mobile); filter: none; }
-    .love-click-box:hover ~ .love-icon-1 { transform: none; }
-    .love-click-box:hover ~ .love-icon-2 { transform: none; filter: none; }
-    .love-click-box:active ~ .love-icon-2 { transform: none; }
+        /* 🍔 המבורגר התחלתי */
+        --hamburger-top-initial: 24px;
+        --hamburger-right-initial: 9px;
+        --hamburger-scale-initial: 1;
 
-    .bell-click-box { right: var(--bell-click-right-mobile); top: var(--bell-click-top-mobile); width: var(--bell-click-width-mobile); height: var(--bell-click-height-mobile); background-color: transparent; }
-    .bell-icon-1, .bell-icon-2 { right: var(--bell-right-mobile); top: var(--bell-top-mobile); width: var(--bell-width-mobile); height: var(--bell-height-mobile); filter: none; }
-    .bell-click-box:hover ~ .bell-icon-1 { transform: none; }
-    .bell-click-box:hover ~ .bell-icon-2 { transform: none; filter: none; }
-    .bell-click-box:active ~ .bell-icon-2 { transform: none; }
+        /* ======================================================= */
+        /* ❄️ 2. מצב נגלל (אחרי גלילה - בתוך הסרגל הלבן) */
+        /* ======================================================= */
+        /* 🏷️ לוגו נגלל */
+        --logo-top-scrolled: -53px;
+        --logo-width-scrolled: 180px;
+        --logo-shift-x-scrolled: 0px;
 
-    .side-menu {
-        display: none; 
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-        border-top: 1px solid #f1f5f9;
-        padding: 5px 0;
-        right: 0 !important;
-        gap: 0;
+        /* 👑 מועדון משקיעים נגלל */
+        --club-top-scrolled: 50px;
+        --club-left-scrolled: 7px;
+        --club-size-scrolled: 10px;
+
+        /* 🍔 המבורגר נגלל */
+        --hamburger-top-scrolled: 26px;
+        --hamburger-right-scrolled: 9px;
+        --hamburger-scale-scrolled: 1;
     }
 
-    .side-menu.open { 
-        display: flex; 
-        flex-direction: column; 
+    body { padding-top: 0 !important; } 
+    .header-container { padding: 0; }
+    
+    /* מסתיר את לוגו המחשב ואת האייקונים המיותרים במובייל */
+    .desktop-logo,
+    .profile-click-box, .profile-icon-1, .profile-icon-2,
+    .love-click-box, .love-icon-1, .love-icon-2,
+    .bell-click-box, .bell-icon-1, .bell-icon-2 {
+        display: none !important;
+    }
+
+    /* --------------------------------------------------- */
+    /* 📍 1. עיצוב ברירת מחדל - מצב התחלתי (למעלה שקוף) */
+    /* --------------------------------------------------- */
+    .site-header {
+        position: absolute !important;
+        top: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+    /* לוגו */
+    .logo-container {
+        position: absolute !important;
+        left: calc(50% + var(--logo-shift-x-initial)) !important;
+        transform: translateX(-50%) !important;
+        top: var(--logo-top-initial) !important;
+        transition: all 0.3s ease !important;
+    }
+    .mobile-logo {
+        display: block !important;
+        width: var(--logo-width-initial) !important;
+        height: auto !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* מועדון משקיעים */
+    .header-left-link {
+        display: block !important;
+        position: absolute !important;
+        left: var(--club-left-initial) !important;
+        top: var(--club-top-initial) !important;
+        bottom: auto !important;
+        transition: all 0.3s ease !important;
+    }
+    .club-link {
+        font-size: var(--club-size-initial) !important;
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        transition: color 0.3s ease, font-size 0.3s ease !important;
+    }
+
+    /* המבורגר */
+    button#hamburger-btn,
+    .hamburger-btn {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: absolute !important;
+        right: var(--hamburger-right-initial) !important;
+        top: var(--hamburger-top-initial) !important;
+        background: transparent !important;
+        border: none !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        z-index: 2000 !important;
+        padding: 8px !important;
+        width: auto !important;
+        height: auto !important;
+        transform: scale(var(--hamburger-scale-initial)) !important;
+        transform-origin: right top !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    button#hamburger-btn span,
+    .hamburger-btn span {
+        display: block !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: #ffffff !important;
+        transition: background-color 0.3s ease, width 0.3s ease !important;
+    }
+    button#hamburger-btn .line-long, .hamburger-btn .line-long { width: 22px !important; }
+    button#hamburger-btn .line-short, .hamburger-btn .line-short { width: 14px !important; align-self: flex-start !important; }
+    button#hamburger-btn:hover .line-short, .hamburger-btn:hover .line-short { width: 22px !important; }
+
+   /* --------------------------------------------------- */
+    /* 🍔 2. תפריט מגירה במובייל + כפתור X */
+    /* --------------------------------------------------- */
+    .side-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 82% !important;
+        max-width: 320px !important;
+        height: 100vh !important;
+        background: #ffffff !important;
+        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.18) !important;
+        padding: 70px 20px 20px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        z-index: 100000 !important;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        border-top: none !important;
+        gap: 0 !important;
+        
+        /* 🔒 נעילת גלילה רוחבית מוחלטת + אפשור גלילה לאורך בלבד */
+        overflow-x: hidden !important; 
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .side-menu.open,
+    body.sidebar-open .side-menu {
+        right: 0 !important;
+        display: flex !important;
+    }
+
+    /* ✖️ כפתור ה-X העגול */
+    .menu-close-btn,
+    button.menu-close-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: absolute !important;
+        top: 20px !important;
+        left: 20px !important;
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 50% !important;
+        background-color: #f3f4f6 !important;
+        border: none !important;
+        outline: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        z-index: 100001 !important;
+        transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    /* ❗ כאן מחקנו את ה-content: '✕' כדי שלא יהיה איקס כפול! */
+    .menu-close-btn::before {
+        content: none !important;
+    }
+
+    .menu-close-btn:active {
+        background-color: #e5e7eb !important;
+        transform: scale(0.95) !important;
     }
 
     .menu-link {
-        width: 100%;
-        padding: 16px 20px;
-        text-align: right; 
-        font-size: 1rem;
-        color: var(--sidebar-color);
-        border-bottom: 1px solid #f1f5f9;
-        -webkit-tap-highlight-color: transparent; 
+        width: 100% !important; 
+        padding: 16px 10px !important; 
+        text-align: right !important; 
+        font-size: 1.05rem !important; 
+        font-weight: 500 !important;
+        color: #333333 !important;
+        border-bottom: 1px solid #f1f5f9 !important; 
+        -webkit-tap-highlight-color: transparent !important; 
         transform: none !important; 
+        text-decoration: none !important;
+        display: block !important;
+        transition: background-color 0.1s ease, color 0.1s ease, transform 0.1s ease !important;
+    }
+
+    .menu-link:hover {
+        color: #957559 !important; 
+        background-color: #f8fafc !important; 
     }
     
-    .menu-link:hover, .menu-link:active {
-        color: var(--sidebar-color-hover);
-        background-color: transparent; 
+    /* 🔥 אפקט הנגיעה במובייל הוסף לכאן בלבד */
+    .menu-link.is-touched, .menu-link:active {
+        background-color: #f2e8dc !important;
+        color: #875b33 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transform: scale(0.98) !important;
+    }
+    
+    @keyframes slideDownHeader {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(0); }
+    }
+
+    /* --------------------------------------------------- */
+    /* 🔄 3. מצב נגלל (אחרי גלילה - סרגל לבן) */
+    /* --------------------------------------------------- */
+    body.header-scrolled .site-header {
+        position: fixed !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.14) !important;
+        animation: slideDownHeader 0.35s ease-out forwards !important;
+    }
+
+    body.header-scrolled .header-container {
+        height: var(--mobile-header-height-scrolled) !important;
+    }
+
+    /* לוגו במצב נגלל */
+    body.header-scrolled .logo-container {
+        left: calc(50% + var(--logo-shift-x-scrolled)) !important;
+        top: var(--logo-top-scrolled) !important;
+    }
+    body.header-scrolled .mobile-logo {
+        width: var(--logo-width-scrolled) !important;
+    }
+
+    /* מועדון משקיעים במצב נגלל */
+    body.header-scrolled .header-left-link {
+        left: var(--club-left-scrolled) !important;
+        top: var(--club-top-scrolled) !important;
+    }
+    body.header-scrolled .club-link {
+        font-size: var(--club-size-scrolled) !important;
+        color: #957559 !important;
+    }
+
+    /* המבורגר במצב נגלל */
+    body.header-scrolled button#hamburger-btn,
+    body.header-scrolled .hamburger-btn {
+        right: var(--hamburger-right-scrolled) !important;
+        top: var(--hamburger-top-scrolled) !important;
+        transform: scale(var(--hamburger-scale-scrolled)) !important;
+    }
+    body.header-scrolled button#hamburger-btn span,
+    body.header-scrolled .hamburger-btn span {
+        background-color: #8c8c8c !important;
+    }
+
+    /* 🧱 אזור האייקונים במובייל בלבד */
+    .mobile-thick-item {
+        display: block !important; 
+        position: relative !important; 
+        height: 120px !important; 
+        width: 100% !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+        padding: 0 !important; 
+        background: transparent !important; 
+        cursor: default !important;
+        overflow: hidden !important; /* 🔒 חוסם גלישת תמונות ימינה/שמאלה */
+    }
+
+    .mobile-icons-flex {
+        display: flex !important;
+        justify-content: space-evenly !important; 
+        align-items: center !important;
+        height: 100% !important;
+        width: 100% !important;
+        direction: rtl !important;
+    }
+
+    .mobile-icon-box {
+        position: relative !important;
+        flex: 1 !important; /* 🎯 מחלק את התפריט ל-3 עמודות שוות בלי לחרוג מהרוחב */
+        max-width: 33.33% !important;
+        height: 120px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .m-click-box {
+        position: absolute !important;
+        z-index: 12 !important;
+        cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .m-icon-1, .m-icon-2 {
+        position: absolute !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        z-index: 11 !important;
+        pointer-events: none !important;
+        transition: opacity 0.15s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+
+    .m-icon-1 { opacity: 1 !important; filter: drop-shadow(0px 1.5px 3px rgba(0, 0, 0, 0.1)) !important; }
+    .m-icon-2 { opacity: 0 !important; filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.25)) !important; }
+
+    .m-click-box:hover ~ .m-icon-1 { opacity: 0 !important; transform: scale(1.08) !important; }
+    .m-click-box:hover ~ .m-icon-2 { opacity: 1 !important; transform: scale(1.08) !important; }
+    .m-click-box:active ~ .m-icon-2 { transform: scale(0.96) !important; transition: all 0.1s !important; }
+
+   /* ========================================== */
+    /* 🔴 1. פרופיל */
+    /* ========================================== */
+    
+    /* פרופיל: רגיל */
+    .profile-bg-1 { 
+        background-image: url('/1.svg') !important; 
+        width: 140px !important; height: 140px !important; /* גודל */
+        right: -26px !important;                            /* ימינה */
+        top: -10px !important;                              /* גובה מלמעלה */
+    }
+
+    /* פרופיל: HOVER */
+    .profile-bg-2 { 
+        background-image: url('/2.svg') !important; 
+        width: 140px !important; height: 140px !important; /* גודל */
+        right: -23px !important;                            /* ימינה */
+        top: -4px !important;                               /* גובה מלמעלה */
+    }
+
+    /* פרופיל: אזור לחיצה */
+    .profile-box .m-click-box {
+        width: 52px !important; height: 52px !important; /* גודל */
+        right: 21px !important;                            /* ימינה */
+        top: 30px !important;                              /* גובה מלמעלה */
+        border-radius: 50% !important;                     /* עגול */
+    }
+
+
+    /* ========================================== */
+    /* 🟡 2. לבבות */
+    /* ========================================== */
+    
+    /* לבבות: רגיל */
+    .love-bg-1 { 
+        background-image: url('/1.png') !important; 
+        width: 200px !important; height: 200px !important; /* גודל */
+        right: -59px !important;                            /* ימינה */
+        top: -39.7px !important;                               /* גובה מלמעלה */
+    }
+
+    /* לבבות: HOVER */
+    .love-bg-2 { 
+        background-image: url('/2.png') !important; 
+        width: 200px !important; height: 200px !important; /* גודל */
+        right: -59px !important;                            /* ימינה */
+        top: -45px !important;                               /* גובה מלמעלה */
+    }
+
+    /* לבבות: אזור לחיצה */
+    .love-box .m-click-box {
+        width: 55px !important; height: 55px !important; /* גודל */
+        right: 13px !important;                            /* ימינה */
+        top: 24px !important;                               /* גובה מלמעלה */
+        border-radius: 50% !important;                     /* עגול */
+    }
+
+
+    /* ========================================== */
+    /* 🟢 3. פעמון */
+    /* ========================================== */
+    
+    /* פעמון: רגיל */
+    .bell-bg-1 { 
+        background-image: url('/3.png') !important; 
+        width: 155px !important; height: 155px !important; /* גודל */
+        right: -50.7px !important;                            /* ימינה */
+        top: -15px !important;                              /* גובה מלמעלה */
+    }
+
+    /* פעמון: HOVER */
+    .bell-bg-2 { 
+        background-image: url('/4.png') !important; 
+        width: 155px !important; height: 155px !important; /* גודל */
+        right: -47px !important;                            /* ימינה */
+        top: -21px !important;                               /* גובה מלמעלה */
+    }
+
+    /* פעמון: אזור לחיצה */
+    .bell-box .m-click-box {
+        width: 50px !important; height: 50px !important; /* גודל */
+        right: 5px !important;                            /* ימינה */
+        top: 30px !important;                              /* גובה מלמעלה */
+        border-radius: 50% !important;                     /* עגול */
+    }
+} /* סגירת כלוב המובייל */
+
+
+/* ======================================================= */
+/* 🖥️ קוד למחשב בלבד - בדיוק הקוד המקורי שלך! ⚡ */
+/* ======================================================= */
+@media (min-width: 769px) {
+    body.scrolled-to-search .hamburger-btn {
+        display: flex !important;
+        opacity: 1 !important;
+        transform: translateY(-50%) scale(1) !important;
+    }
+    
+    body.scrolled-to-search .profile-click-box,
+    body.scrolled-to-search .profile-icon-1,
+    body.scrolled-to-search .profile-icon-2,
+    body.scrolled-to-search .love-click-box,
+    body.scrolled-to-search .love-icon-1,
+    body.scrolled-to-search .love-icon-2,
+    body.scrolled-to-search .bell-click-box,
+    body.scrolled-to-search .bell-icon-1,
+    body.scrolled-to-search .bell-icon-2 {
+        transform: translateX(-55px) !important;
     }
 }
 
-/* ======================================================= */
-/* ⚡ אנימציית גלילה והמבורגר ברזולוציות נמוכות בלבד ⚡ */
-/* ======================================================= */
+/* ⚡ אנימציות גלילה גלובליות ⚡ */
 .profile-click-box, .profile-icon-1, .profile-icon-2,
 .love-click-box, .love-icon-1, .love-icon-2,
 .bell-click-box, .bell-icon-1, .bell-icon-2 {
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
-
-.hamburger-btn {
-    display: none !important;
-    position: absolute !important;
-    right: -45px !important;
-    top: 50% !important;
-    transform: translateY(-50%) scale(0.8) !important;
-    flex-direction: column !important;
-    gap: 6px !important;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-    padding: 8px !important;
-    opacity: 0;
-    z-index: 2000 !important;
-    box-shadow: none !important;
-    width: auto !important;
-    height: auto !important;
-    transition: all 0.35s ease !important;
-}
-
-.hamburger-btn span {
-    display: block !important;
-    height: 2px !important;
-    background-color: #1a1a1a !important;
-    border-radius: 2px !important;
-    transition: width 0.3s ease !important;
-}
-.hamburger-btn .line-long { width: 22px !important; }
-.hamburger-btn .line-short { width: 14px !important; align-self: flex-start !important; }
-.hamburger-btn:hover .line-short { width: 22px !important; }
 
 .menu-close-btn {
     display: none !important;
@@ -527,10 +893,6 @@ body {
     cursor: pointer !important;
     color: #333333 !important;
     padding: 0 !important;
-    box-sizing: content-box !important;
-    box-shadow: none !important;
-    width: auto !important;
-    height: auto !important;
     z-index: 100001 !important;
 }
 
@@ -539,24 +901,6 @@ body.scrolled-to-search .side-menu {
     pointer-events: none !important;
     transform: translateX(60px) !important;
     transition: all 0.4s ease !important;
-}
-
-body.scrolled-to-search .hamburger-btn {
-    display: flex !important;
-    opacity: 1 !important;
-    transform: translateY(-50%) scale(1) !important;
-}
-
-body.scrolled-to-search .profile-click-box,
-body.scrolled-to-search .profile-icon-1,
-body.scrolled-to-search .profile-icon-2,
-body.scrolled-to-search .love-click-box,
-body.scrolled-to-search .love-icon-1,
-body.scrolled-to-search .love-icon-2,
-body.scrolled-to-search .bell-click-box,
-body.scrolled-to-search .bell-icon-1,
-body.scrolled-to-search .bell-icon-2 {
-    transform: translateX(-55px) !important;
 }
 
 body.scrolled-to-search.sidebar-open .side-menu {
@@ -578,4 +922,10 @@ body.scrolled-to-search.sidebar-open .side-menu {
 
 body.scrolled-to-search.sidebar-open .menu-close-btn {
     display: block !important;
+}
+/* 🚫 חסימה מוחלטת: מעלים את קופסת האייקונים ממסכי מחשב ולפטופ */
+@media (min-width: 769px) {
+    .mobile-thick-item {
+        display: none !important;
+    }
 }

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     --subtitle-size: 20px;    
                     --text-move-up: -40px;    /* שליטה בגובה הטקסט */
                     
-                    /* -- הגדרות כפתור "התחילו" -- */
+                    /* -- הגדרות כפתור "התחילו" למחשב -- */
                     --btn-width: 160px;       
                     --btn-height: 50px;       
                     --btn-right: 470px;       
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 /* ==========================================================================
-                   🔘 כפתור "התחילו"
+                   🔘 כפתור "התחילו" למחשב
                    ========================================================================== */
                 #new-shortcuts-container .custom-map-glass-btn {
                     position: absolute;
@@ -166,43 +166,61 @@ document.addEventListener("DOMContentLoaded", () => {
                     transform: translateY(0) scale(0.96); 
                 }
 
-                /* ================== התאמה בסיסית למובייל ================== */
+                /* ==========================================================================
+                   📱 התאמה מדויקת למובייל (טלפון)
+                   ========================================================================== */
                 @media (max-width: 900px) {
                     #new-shortcuts-container .clean-card-wrapper {
                         --card-width: 100% !important; 
                         --move-right: 0px !important;
                         height: auto !important; 
-                        padding: 0 15px;
+                        padding: 0 10px !important;
+                        margin-top: 105px !important;
                     }
+
                     #new-shortcuts-container .clean-card {
-                        flex-direction: column; 
+                        flex-direction: column !important; 
+                        border-radius: 20px !important;
                     }
+
                     #new-shortcuts-container .clean-card-white {
-                        width: 100%;
-                        min-height: 200px; 
-                        padding: 40px 30px; 
+                        width: 100% !important;
+                        min-height: auto !important; 
+                        padding: 30px 20px 20px 20px !important; 
                     }
+
                     #new-shortcuts-container .clean-card-text-inner {
-                        transform: translateY(0); 
+                        transform: translateY(0) !important; 
                     }
+
                     #new-shortcuts-container .card-main-title {
-                        font-size: 34px; 
+                        font-size: 28px !important; 
+                        margin-bottom: 8px !important;
                     }
+
                     #new-shortcuts-container .card-sub-title {
-                        font-size: 17px; 
-                        white-space: normal; 
+                        font-size: 15px !important; 
+                        white-space: normal !important; 
                     }
+
                     #new-shortcuts-container .clean-card-image-container {
-                        width: 100%;
-                        height: 250px; 
+                        width: 100% !important;
+                        height: 200px !important; 
                     }
+
+                    /* 🔘 שליטה בלעדית בגודל ובמיקום הכפתור במובייל */
                     #new-shortcuts-container .custom-map-glass-btn {
-                        right: 50%;
-                        transform: translateX(50%);
-                        bottom: 20px;
+                        width: 140px !important;        /* 📏 רוחב הכפתור במובייל */
+                        height: 44px !important;       /* 📏 גובה הכפתור במובייל */
+                        font-size: 15px !important;     /* 🔤 גודל הפונט בכפתור */
+                        right: 50% !important;
+                        transform: translateX(50%) !important;
+                        bottom: 18px !important;       /* ⬇️ מרחק מלמטה במובייל */
+                        -webkit-tap-highlight-color: transparent !important;
                     }
+
                     #new-shortcuts-container .custom-map-glass-btn:hover {
-                        transform: translateX(50%) translateY(-3px);
+                        transform: translateX(50%) translateY(-2px) !important;
                     }
                 }
             </style>

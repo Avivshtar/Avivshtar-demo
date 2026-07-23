@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 /* ========================================================= */
                 #new-shortcuts-container-3 .legal-footer-wrapper {
                     --footer-width: 1000px;     /* רוחב זהה לחלוטין לכרטיסיות שמעליו */
-                    --margin-top: 170px;        /* 🔥 עודכן ל-170px לבקשתך 🔥 */
-                    --move-right: -120px;       /* הזזה ימינה כדי להתיישר בול עם השאר */
+                    --margin-top: 170px;        /* 🔝 מרחק מלמעלה במחשב */
+                    --move-right: -120px;       /* הזזה ימינה להתיישרות במחשב */
                     --text-color: #555555;      /* אפור פחם נקי ודק */
                     
                     width: var(--footer-width) !important;
                     max-width: 100vw !important;
                     margin-top: var(--margin-top);
-                    margin-bottom: 25px;        /* 🔥 קוצר מ-60px כדי לצמצם את הגלילה המיותרת אחרי 🔥 */
+                    margin-bottom: 25px;        
                     margin-left: auto;
                     margin-right: auto;
                     
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     box-sizing: border-box;
                 }
 
-                /* קו לבן מפריד פשוט ונקי (בלי שום צל) */
+                /* קו מפריד פשוט ונקי */
                 #new-shortcuts-container-3 .footer-strong-divider {
                     width: 100%;
                     height: 2px;
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     padding: 0 10px;
                 }
 
-                /* הקישורים המשפטיים */
+                /* הקישורים המשפטיים למחשב */
                 #new-shortcuts-container-3 .footer-legal-links {
                     display: flex;
                     gap: 30px; 
@@ -78,23 +78,44 @@ document.addEventListener("DOMContentLoaded", () => {
                     letter-spacing: 0.2px;
                 }
 
-                /* ================== התאמה למובייל ================== */
+                /* ==========================================================================
+                   📱 התאמה מדויקת למובייל (טלפון)
+                   ========================================================================== */
                 @media (max-width: 900px) {
                     #new-shortcuts-container-3 .legal-footer-wrapper {
                         width: 100% !important;
                         right: 0px !important;
-                        padding: 0 20px;
-                        margin-top: 60px;
-                        margin-bottom: 20px;
+                        padding: 0 15px !important;
+                        margin-top: 77px !important;  /* 🔝 מרחק הפוטר ממה שמעליו במובייל */
+                        margin-bottom: 30px !important;
                     }
+
+                    #new-shortcuts-container-3 .footer-strong-divider {
+                        margin-bottom: 20px !important;
+                    }
+
                     #new-shortcuts-container-3 .footer-legal-content {
-                        flex-direction: column;
-                        gap: 15px;
-                        text-align: center;
+                        flex-direction: column !important;
+                        gap: 16px !important;
+                        text-align: center !important;
+                        padding: 0 !important;
                     }
+
                     #new-shortcuts-container-3 .footer-legal-links {
-                        justify-content: center;
-                        gap: 20px;
+                        justify-content: center !important;
+                        flex-wrap: wrap !important;
+                        gap: 16px 20px !important;
+                    }
+
+                    #new-shortcuts-container-3 .footer-legal-links a {
+                        font-size: 13.5px !important;
+                        -webkit-tap-highlight-color: transparent !important;
+                    }
+
+                    #new-shortcuts-container-3 .footer-copyright-text {
+                        font-size: 12.5px !important;
+                        line-height: 1.4 !important;
+                        opacity: 0.85;
                     }
                 }
             </style>

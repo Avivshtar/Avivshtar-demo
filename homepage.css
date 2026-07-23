@@ -1,4 +1,12 @@
 /* ======================================================= */
+/* 🔒 הגנה גלובלית נגד מצב לילה כפוי בדפדפנים (Dark Mode) */
+/* ======================================================= */
+html, body {
+    background-color: #ffffff !important;
+    color-scheme: light !important;
+}
+
+/* ======================================================= */
 /* 🔥 קבועים (CONST) - שליטה בלעדית באלמנטים של דף הבית 🔥 */
 /* ======================================================= */
 :root {
@@ -10,47 +18,33 @@
     --photo1-shadow: 0px 12px 30px rgba(0, 0, 0, 0.18); 
     --photo1-radius: 0px;         
 
-    /* 🔥 12. כותרת ראשית (בואו נתחיל...) 🔥 */
+    /* 🔥 כותרת ראשית למחשב 🔥 */
     --hero-title-size: 57px;      
     --hero-title-top: 57px;       
     --hero-title-right: 600px;    
     --hero-title-color: #ffffff;  
     --hero-title-weight: 800;     
 
-    /* 🔥 13. כותרת משנית (היכן הנכם...) 🔥 */
+    /* 🔥 כותרת משנית למחשב 🔥 */
     --hero-subtitle-size: 30px;   
     --hero-subtitle-top: 126px;   
     --hero-subtitle-right: 714px; 
     --hero-subtitle-color: #ffffff; 
     --hero-subtitle-weight: 700;  
 
-    /* 🔥 14. מיקום כפתורי הזכוכית 🔥 */
+    /* 🔥 כפתורי זכוכית למחשב 🔥 */
     --hero-buttons-top: 200px;    
     --hero-buttons-right: 710px;  
 
     /* 🔥 צל "קריספי" כפול 🔥 */
     --hero-text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6), 0px 4px 12px rgba(0, 0, 0, 0.3);
-
-    /* 📱 קבועים לטלפון (MOBILE) */
-    --photo1-width-mobile: 92%;
-    --photo1-height-mobile: 220px;
-    --photo1-top-mobile: 10px;
-    --photo1-right-mobile: auto;   
-    --photo1-left-mobile: 4%;      
-
-    --hero-title-size-mobile: 28px;
-    --hero-title-top-mobile: 40px;
-    --hero-title-right-mobile: 15px;
-
-    --hero-subtitle-size-mobile: 16px;
-    --hero-subtitle-top-mobile: 85px;
-    --hero-subtitle-right-mobile: 15px;
-
-    --hero-buttons-top-mobile: 135px;
-    --hero-buttons-right-mobile: 15px;
 }
 
-/* אריזה כללית לתוכן של דף הבית */
+/* ======================================================= */
+/* 🖥️ עיצוב דף הבית - למחשב בלבד (DESKTOP) */
+/* ======================================================= */
+
+/* אריזה כללית */
 .homepage-container {
     width: 100%;
     position: relative;
@@ -60,7 +54,7 @@
     min-height: 450px; 
 }
 
-/* 🖼️ עיצוב התמונה המרכזית */
+/* 🖼️ תמונה מרכזית */
 .main-photo {
     position: absolute;            
     top: var(--photo1-top);
@@ -73,9 +67,7 @@
     z-index: 10; 
 }
 
-/* ======================================================= */
-/* ✍️ עיצוב הכותרת הראשית (Zillow Style) */
-/* ======================================================= */
+/* ✍️ כותרת ראשית */
 .hero-title {
     position: absolute;
     top: var(--hero-title-top);
@@ -93,9 +85,7 @@
     white-space: nowrap; 
 }
 
-/* ======================================================= */
-/* ✍️ עיצוב הכותרת המשנית */
-/* ======================================================= */
+/* ✍️ כותרת משנית */
 .hero-subtitle {
     position: absolute;
     top: var(--hero-subtitle-top);
@@ -111,9 +101,7 @@
     white-space: nowrap; 
 }
 
-/* ======================================================= */
-/* 🔴 עיגול מושלם ב-CSS */
-/* ======================================================= */
+/* 🔴 עיגול Zillow */
 .zillow-dot {
     display: inline-block;
     width: 14px;        
@@ -126,9 +114,7 @@
     top: -3px;          
 }
 
-/* ======================================================= */
-/* 🔘 עיצוב כפתורי זכוכית */
-/* ======================================================= */
+/* 🔘 כפתורי זכוכית */
 .hero-buttons-container {
     position: absolute;
     top: var(--hero-buttons-top);
@@ -148,7 +134,6 @@
     border-radius: 50px; 
     cursor: pointer;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
-    
     background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(4px);           
     -webkit-backdrop-filter: blur(4px);   
@@ -164,21 +149,33 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
 }
 
-/* ======================================================= */
-/* 📦 העוטף הראשי של החיפוש */
-/* ======================================================= */
+/* 🖥️ תמונת הבית - למחשב */
+.house-wrapper {
+    text-align: center;
+    margin-top: -155px;
+    margin-bottom: 80px;
+    width: 100%;
+}
+
+.house-img {
+    width: 470px;
+    height: 300px;
+    object-fit: contain;
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* 📦 תיבת החיפוש - למחשב */
 .pro-search-wrapper {
     width: 100%;
     max-width: 526px; 
     margin-left: auto;
     margin-right: auto;
     direction: rtl;
-    
     margin-top: 80px !important; 
     margin-bottom: 40px;
     position: relative;
     top: -177px; 
-    
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -186,25 +183,19 @@
     transform: translateY(-5px); 
 }
 
-/* ======================================================= */
-/* 🔘 כפתורי טאב */
-/* ======================================================= */
 .search-tabs-container {
     position: relative;
     display: flex;
     margin: 0 auto -1px auto; 
     width: 222px; 
     z-index: 6; 
-    
     background: rgba(255, 255, 255, 0.35); 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    
     border: 1px solid #d1d1d1;
     border-bottom: none; 
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
-    
     padding: 4px; 
     transition: border-color 0.3s ease;
 }
@@ -227,12 +218,10 @@
     top: 4px;
     bottom: 4px; 
     width: 105px; 
-    
     background: linear-gradient(135deg, #e4e4e7, #f4f4f5);
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 40px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
-    
     z-index: 2; 
     overflow: hidden; 
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -279,9 +268,6 @@
 #tab-free:checked ~ .search-tabs-container .free-label { color: #000000; font-weight: 700; }
 #tab-ai:checked ~ .search-tabs-container .ai-label { color: #000000; font-weight: 700; }
 
-/* ======================================================= */
-/* 🔍 שורת חיפוש פרו */
-/* ======================================================= */
 .pro-search-container {
     display: flex;
     align-items: center;
@@ -344,9 +330,6 @@
     display: block;
 }
 
-/* ======================================================= */
-/* 🤖 פאנל קטגוריות AI */
-/* ======================================================= */
 .ai-suggestions-panel {
     max-height: 0; 
     opacity: 0;
@@ -429,45 +412,248 @@
     transform: scale(0.95) translateY(0);
 }
 
-.investments-title {
-    text-align: right; 
-    font-size: 16px; 
-    font-weight: 300; 
-    color: #555555; 
-    margin-top: 15px !important; 
-    margin-bottom: 20px !important; 
+/* 🏆 כותרת "מגוון השקעות חכמות" - עיצוב מקורי קלאסי למחשב */
+.investments-wrapper {
+    direction: rtl !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    position: relative !important;
+    margin-top: var(--ניהול-גובה-הכותרת-מלמעלה, -45px) !important; 
+    margin-right: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה, 150px)) !important;
+    margin-left: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה, 150px)) !important;
+    width: calc(100% + (2 * var(--ניהול-תוספת-רוחב-הצידה, 150px))) !important;
+}
+
+.investments-title-inline {
+    text-align: right !important;
+    font-family: 'Heebo', system-ui, sans-serif !important;
+    font-size: 21px !important;            
+    font-weight: 300 !important;          
+    color: #555555 !important;             
+    margin: 0 0 20px 0 !important;
+    display: block !important;
+    transform: translateX(var(--ניהול-ימינה-הכותרת, 0px)) !important;
 }
 
 /* ======================================================= */
-/* 📱 התאמה למובייל (טלפון) בלבד */
+/* 📱 התאמה למובייל (טלפון) בלבד - דף הבית */
 /* ======================================================= */
 @media (max-width: 768px) {
+    
+    /* 🎛️ פאנל ניהול PRO - שליטה מרכזית במובייל (ערכים מקוריים 100%) */
+    :root {
+        --mobile-hero-height: 324px;         
+        --mobile-hero-crop-top: 60px;        
+        --mobile-hero-crop-bottom: 43.9px;   
+        --mobile-hero-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+
+        --mobile-house-width: 350px;          
+        --mobile-house-top: -55px;           
+        --mobile-house-margin-bottom: -100px;  
+
+        --master-group-top: 130px;  
+        --master-group-right: 20px; 
+
+        --hero-title-size: 34px;
+        --hero-title-spacing-top: -7.7px;   
+        --hero-title-spacing-right: 11px; 
+
+        --hero-subtitle-size: 18px; 
+        --hero-subtitle-spacing-top: 30px; 
+        --hero-subtitle-spacing-right: 70px;
+
+        --hero-buttons-top: 218px;      
+        --hero-buttons-right: 50px;     
+        --hero-buttons-scale: 1.1;        
+        --hero-buttons-gap: 12px;     
+
+        --mobile-title-size: 19px;            
+        --mobile-title-top: 24px;             
+        --mobile-title-right: 7px;            
+        --mobile-title-color: #555555;         
+        --mobile-title-weight: 300;           
+    }
+
+    /* 🌊 אפקט FADE דינמי במובייל */
+    .carousel-fade-overlay {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 25px !important;            
+        pointer-events: none !important;
+        z-index: 15 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    }
+
+    .carousel-fade-right {
+        right: 0 !important;
+        background: linear-gradient(to left, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%) !important;
+    }
+
+    .carousel-fade-left {
+        left: 0 !important;
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%) !important;
+    }
+
+    .carousel-fade-overlay.hidden {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* 🖼️ דפדוף תמונות חופשי באצבע + ביטול מלבן אפור */
+    .property-card .card-images-container,
+    .property-card .image-slider,
+    .property-card .card-media-wrapper,
+    .property-card [class*="image-container"],
+    .property-card [class*="slider"] {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-x !important;
+        pointer-events: auto !important;
+        scrollbar-width: none !important;
+    }
+
+    .property-card .card-images-container::-webkit-scrollbar,
+    .property-card .image-slider::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .property-card img,
+    .property-card .card-images-container img,
+    .property-card .image-slider img {
+        scroll-snap-align: start !important;
+        flex-shrink: 0 !important;
+        pointer-events: auto !important;
+    }
+
+    .property-card .card-nav-btn,
+    .property-card .slider-btn,
+    .property-card .card-image-arrow,
+    .property-card .card-slider-arrow,
+    .property-card .image-slider-arrow,
+    .property-card [class*="arrow"],
+    .property-card [class*="nav-btn"] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        pointer-events: auto !important;
+        z-index: 10 !important;
+        -webkit-tap-highlight-color: transparent !important;
+        outline: none !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+    }
+
+    .property-card [class*="arrow"]:active,
+    .property-card [class*="nav-btn"]:active {
+        opacity: 1 !important;
+        background-color: transparent !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    /* 🏆 שליטה בכותרת במובייל */
+    main.content .investments-wrapper {
+        margin-top: var(--mobile-title-top) !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    main.content .investments-title-inline {
+        font-family: 'Heebo', system-ui, sans-serif !important;
+        font-size: var(--mobile-title-size) !important;
+        padding-right: var(--mobile-title-right) !important;
+        color: var(--mobile-title-color) !important;
+        font-weight: var(--mobile-title-weight) !important;
+        text-align: right !important;
+        transform: none !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* 📦 מעטפת דף הבית במובייל */
     .homepage-container {
-        padding: 0 15px;
-        min-height: 250px;
+        padding: 0 !important; 
+        min-height: var(--mobile-hero-height) !important; 
+        position: relative !important;
+        overflow: hidden !important; 
+        box-shadow: var(--mobile-hero-shadow) !important;
+        background: transparent !important;
+        background-color: transparent !important;
     }
 
+    /* 🖼️ תמונה ראשית במובייל */
     .main-photo {
-        width: var(--photo1-width-mobile);
-        height: var(--photo1-height-mobile);
-        vertical-align: top;
-        top: var(--photo1-top-mobile);
-        right: var(--photo1-right-mobile);
-        left: var(--photo1-left-mobile);
-        border-radius: 0px; 
-        box-shadow: var(--photo1-shadow);
+        position: absolute !important; 
+        left: 0 !important;
+        right: auto !important;
+        width: 100vw !important; 
+        top: calc(-1 * var(--mobile-hero-crop-top)) !important; 
+        height: calc(var(--mobile-hero-height) + var(--mobile-hero-crop-top) + var(--mobile-hero-crop-bottom)) !important;
+        border-radius: 0px !important; 
+        box-shadow: none !important; 
+        object-fit: cover !important; 
+        z-index: 1 !important; 
+        background: transparent !important;
+        background-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        pointer-events: none !important; 
     }
 
+    /* 🏠 תמונת הבית במובייל - הגנה שקופה נגד הבלוק השחור */
+    .house-wrapper {
+        margin-top: var(--mobile-house-top) !important;
+        margin-bottom: var(--mobile-house-margin-bottom) !important;
+        width: 100% !important;
+        text-align: center !important;
+        position: relative !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        forced-color-adjust: none !important;
+        -webkit-forced-color-adjust: none !important;
+    }
+
+    .house-img {
+        width: var(--mobile-house-width) !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: inline-block !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        pointer-events: none !important;
+        forced-color-adjust: none !important;
+        -webkit-forced-color-adjust: none !important;
+    }
+
+    /* ✍️ כותרות Hero במובייל */
     .hero-title {
-        top: var(--hero-title-top-mobile);
-        right: var(--hero-title-right-mobile);
-        font-size: var(--hero-title-size-mobile);
+        top: calc(var(--master-group-top) + var(--hero-title-spacing-top)) !important;
+        right: calc(var(--master-group-right) + var(--hero-title-spacing-right)) !important;
+        font-size: var(--hero-title-size) !important;
+        z-index: 20 !important;
     }
 
     .hero-subtitle {
-        top: var(--hero-subtitle-top-mobile);
-        right: var(--hero-subtitle-right-mobile);
-        font-size: var(--hero-subtitle-size-mobile);
+        top: calc(var(--master-group-top) + var(--hero-subtitle-spacing-top)) !important;
+        right: calc(var(--master-group-right) + var(--hero-subtitle-spacing-right)) !important;
+        font-size: var(--hero-subtitle-size) !important;
+        z-index: 20 !important;
     }
     
     .zillow-dot {
@@ -476,24 +662,68 @@
         top: -1px;
     }
 
+    /* 🔘 כפתורים במובייל */
     .hero-buttons-container {
-        top: var(--hero-buttons-top-mobile);
-        right: var(--hero-buttons-right-mobile);
-        gap: 15px; 
+        position: absolute !important;
+        top: var(--hero-buttons-top) !important;
+        right: var(--hero-buttons-right) !important;
+        gap: var(--hero-buttons-gap) !important; 
+        z-index: 20 !important;
+        display: flex !important;
+        transform: scale(var(--hero-buttons-scale)) !important;
+        transform-origin: right top !important; 
     }
 
     .glass-btn {
-        padding: 10px 24px;
-        font-size: 14px;
+        padding: 10px 24px !important;
+        font-size: 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50px !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 
+    /* 🔍 תיבת החיפוש במובייל */
     .pro-search-wrapper {
         max-width: 90%;
         top: -40px;
+        z-index: 30 !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), margin-bottom 0.35s ease-in-out !important;
+    }
+
+    .search-tabs-container {
+        border-radius: 30px !important;
+        overflow: hidden !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .search-tab-slider {
+        border-radius: 30px !important;
+    }
+
+    .search-tab-label {
+        border-radius: 30px !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .pro-search-container {
+        border-radius: 50px !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .pro-search-wrapper:has(#tab-ai:checked) {
+        margin-bottom: 220px !important;
     }
 
     .ai-suggestions-panel {
         width: 100%;
+        border-radius: 30px !important;
+    }
+
+    .suggestion-tag {
+        border-radius: 30px !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 
     .suggestions-tags {

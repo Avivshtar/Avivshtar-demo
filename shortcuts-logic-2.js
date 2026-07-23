@@ -4,17 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (container2) {
         container2.innerHTML = `
             <style>
+                /* ========================================================= */
+                /* === אזור הניהול שלך - הכל נעול וסגור רק לכאן! === */
+                /* ========================================================= */
+                
                 #new-shortcuts-container-2 .clean-card-wrapper-2 {
+                    /* -- הגדרות הכרטיסייה למחשב -- */
                     --card-width: 1000px;     
                     --card-height: 370px;     
-                    --margin-top: 77px;       /* רווח קטן יותר מלמעלה בין שתי התבניות */
+                    --margin-top: 77px;       /* 🔝 מרחק הכרטיסייה מלמעלה במחשב */
                     --move-right: -120px;     
                     --image-width: 45%;       
                     
+                    /* -- הגדרות טקסט למחשב -- */
                     --title-size: 46px;       
                     --subtitle-size: 20px;    
                     --text-move-up: -40px;    
                     
+                    /* -- הגדרות כפתור "התחילו" למחשב -- */
                     --btn-width: 160px;       
                     --btn-height: 50px;       
                     --btn-right: 470px;       
@@ -41,6 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     overflow: hidden; 
                 }
 
+                /* ==========================================================================
+                   📝 אזור הטקסט (צד ימין)
+                   ========================================================================== */
                 #new-shortcuts-container-2 .clean-card-white-2 {
                     width: calc(100% - var(--image-width)); 
                     height: 100%;
@@ -77,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     white-space: nowrap; 
                 }
 
+                /* ==========================================================================
+                   🖼️ אזור התמונה (צד שמאל)
+                   ========================================================================== */
                 #new-shortcuts-container-2 .clean-card-image-container-2 {
                     width: var(--image-width); 
                     height: 100%;
@@ -89,6 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     display: block;
                 }
 
+                /* ==========================================================================
+                   🔘 כפתור "התחילו" למחשב
+                   ========================================================================== */
                 #new-shortcuts-container-2 .custom-map-glass-btn-2 {
                     position: absolute;
                     width: var(--btn-width);
@@ -122,16 +138,66 @@ document.addEventListener("DOMContentLoaded", () => {
                     letter-spacing: 1.5px; 
                 }
 
+                #new-shortcuts-container-2 .custom-map-glass-btn-2:active {
+                    transform: translateY(0) scale(0.96); 
+                }
+
+                /* ==========================================================================
+                   📱 התאמה מדויקת למובייל (טלפון)
+                   ========================================================================== */
                 @media (max-width: 900px) {
-                    #new-shortcuts-container-2 .clean-card-wrapper-2 { width: 100% !important; right: 0px !important; height: auto !important; padding: 0 15px; }
-                    #new-shortcuts-container-2 .clean-card-2 { flex-direction: column; }
-                    #new-shortcuts-container-2 .clean-card-white-2 { width: 100%; min-height: 200px; padding: 40px 30px; }
-                    #new-shortcuts-container-2 .clean-card-text-inner-2 { transform: translateY(0); }
-                    #new-shortcuts-container-2 .card-main-title-2 { font-size: 34px; }
-                    #new-shortcuts-container-2 .card-sub-title-2 { font-size: 17px; white-space: normal; }
-                    #new-shortcuts-container-2 .clean-card-image-container-2 { width: 100%; height: 250px; }
-                    #new-shortcuts-container-2 .custom-map-glass-btn-2 { right: 50%; transform: translateX(50%); bottom: 20px; }
-                    #new-shortcuts-container-2 .custom-map-glass-btn-2:hover { transform: translateX(50%) translateY(-3px); }
+                    #new-shortcuts-container-2 .clean-card-wrapper-2 { 
+                        width: 100% !important; 
+                        right: 0px !important; 
+                        height: auto !important; 
+                        padding: 0 10px !important;
+                        margin-top: 50px !important;  /* 🔝 מרחק מלמעלה במובייל */
+                    }
+
+                    #new-shortcuts-container-2 .clean-card-2 { 
+                        flex-direction: column !important; 
+                        border-radius: 20px !important;
+                    }
+
+                    #new-shortcuts-container-2 .clean-card-white-2 { 
+                        width: 100% !important; 
+                        min-height: auto !important; 
+                        padding: 30px 20px 20px 20px !important; 
+                    }
+
+                    #new-shortcuts-container-2 .clean-card-text-inner-2 { 
+                        transform: translateY(0) !important; 
+                    }
+
+                    #new-shortcuts-container-2 .card-main-title-2 { 
+                        font-size: 28px !important; 
+                        margin-bottom: 8px !important;
+                    }
+
+                    #new-shortcuts-container-2 .card-sub-title-2 { 
+                        font-size: 15px !important; 
+                        white-space: normal !important; 
+                    }
+
+                    #new-shortcuts-container-2 .clean-card-image-container-2 { 
+                        width: 100% !important; 
+                        height: 200px !important; 
+                    }
+
+                    /* 🔘 שליטה בלעדית בגודל ובמיקום הכפתור במובייל */
+                    #new-shortcuts-container-2 .custom-map-glass-btn-2 { 
+                        width: 140px !important;        /* 📏 רוחב הכפתור במובייל */
+                        height: 44px !important;       /* 📏 גובה הכפתור במובייל */
+                        font-size: 15px !important;     /* 🔤 גודל הפונט בכפתור */
+                        right: 50% !important; 
+                        transform: translateX(50%) !important; 
+                        bottom: 18px !important;       /* ⬇️ מרחק מלמטה במובייל */
+                        -webkit-tap-highlight-color: transparent !important;
+                    }
+
+                    #new-shortcuts-container-2 .custom-map-glass-btn-2:hover { 
+                        transform: translateX(50%) translateY(-2px) !important; 
+                    }
                 }
             </style>
 

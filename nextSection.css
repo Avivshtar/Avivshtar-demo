@@ -126,3 +126,56 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 
                  0 0 4px rgba(0, 0, 0, 0.6) !important;
 }
+/* ======================================================= */
+/* 📱 התאמה למובייל (טלפון) בלבד - מקטע קיצורי דרך */
+/* ======================================================= */
+@media (max-width: 768px) {
+    
+    /* 🎛️ משתני שליטה במובייל - מורחב ומודגש למקסימום! */
+    :root {
+        --mobile-shortcut-height: 145px;         /* 📏 הגדלנו את הגובה (מ-120px ל-145px) */
+        --mobile-shortcut-text-top: 96px;        /* 🔝 מיקום הטקסט מותאם לגובה החדש */
+        --mobile-shortcut-text-size: 17.5px;     /* 🔤 גודל טקסט מוגדל וברור */
+        --mobile-shortcut-gap: 10px;              /* 📏 רווח נקי בין הקוביות */
+        --mobile-shortcut-margin-top: 60px;       /* 🔝 הגדלנו את הרווח מלמעלה (מ-35px ל-60px) */
+    }
+
+    /* מעטפת המקטע במובייל - ניצול מקסימלי של רוחב המסך */
+    .shortcuts-wrapper {
+        margin-top: var(--mobile-shortcut-margin-top) !important;
+        margin-bottom: 50px !important;
+        padding: 0 0px !important;              /* 📐 שוליים צדדיים קטנים לקבלת רוחב מקסימלי */
+    }
+
+    /* כותרת המקטע במובייל */
+    .shortcuts-title {
+        font-size: 20px !important;
+        font-weight: 300 !important;             /* פונט דק ויוקרתי */
+        margin-bottom: 24px !important;
+    }
+
+    /* 📱 גריד של 2 עמודות ברוחב מקסימלי אפשרי */
+    .shortcuts-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--mobile-shortcut-gap) !important;
+        width: 103% !important;
+    }
+
+    /* קוביית קיצור בודדת - מוגדלת ומורחבת במובייל */
+    .shortcut-item {
+        width: 100% !important;
+        height: var(--mobile-shortcut-height) !important;
+        border-radius: 16px !important;          /* פינות מעוגלות ויוקרתיות */
+    }
+
+    /* שכבת ה-Overlay והטקסט במובייל */
+    .shortcut-overlay {
+        padding-top: var(--mobile-shortcut-text-top) !important;
+    }
+
+    .shortcut-text {
+        font-size: var(--mobile-shortcut-text-size) !important;
+        font-weight: 400 !important;
+        line-height: 1.25 !important;
+    }
+}

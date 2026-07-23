@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🔒 הגנה מוחלטת נגד מצב לילה כפוי בניידים (Dark Mode) שמייצר רקע שחור בבית -->
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    
     <title>Avivshtar - Demo</title>
     
+    <!-- ⚡ התחברות סופר-מהירה לשרתים של גוגל ומניעת קפיצות פונט -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=block">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=block">
+    
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./homepage.css">
     <link rel="stylesheet" href="./nextSection.css">
@@ -41,7 +49,7 @@
         }
         /* ========================================================================== */
 
-        /* עיצוב מבודד לחלוטין לאזורי הקרוסלות - אפס השפעה על שאר האתר */
+        /* עיצוב מבודד לחלוטין לאזורי הקרוסלות */
         .investments-wrapper {
             direction: rtl !important;
             box-sizing: border-box !important;
@@ -50,25 +58,22 @@
             align-items: flex-start !important;
             position: relative !important;
             margin-top: var(--ניהול-גובה-הכותרת-מלמעלה) !important; 
-            
             margin-right: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה)) !important;
             margin-left: calc(-1 * var(--ניהול-תוספת-רוחב-הצידה)) !important;
             width: calc(100% + (2 * var(--ניהול-תוספת-רוחב-הצידה))) !important;
         }
 
-        /* כותרות המקטעים */
         .investments-title-inline {
             text-align: right !important;
             font-family: 'Heebo', sans-serif !important;
             font-size: 21px !important;            
-            font-weight: 300 !important;           
+            font-weight: 300 !important;          
             color: #555555 !important;             
             margin: 0 0 20px 0 !important;
             display: block !important;
             transform: translateX(var(--ניהול-ימינה-הכותרת)) !important;
         }
 
-        /* עיצוב כפתור הטקסט "לכל ההשקעות" למטה בצד שמאל */
         .view-all-investments {
             align-self: flex-end !important; 
             font-family: 'Heebo', sans-serif !important;
@@ -82,130 +87,46 @@
             user-select: none !important;
             transition: text-decoration 0.2s ease !important;
         }
-        .view-all-investments:hover {
-            text-decoration: underline !important; 
-        }
+        .view-all-investments:hover { text-decoration: underline !important; }
 
-        /* מעטפת הקרוסלה הכללית */
-        .carousel-outer {
-            position: relative !important;
-            width: 100% !important;
-            display: flex !important;
-            align-items: center !important;
-        }
+        .carousel-outer { position: relative !important; width: 100% !important; display: flex !important; align-items: center !important; }
         
-        /* שכבות ה-Fade הלבנות בקצוות הצידיים של הקרוסלות */
         .carousel-fade-overlay {
-            position: absolute !important;
-            top: 0 !important;
-            bottom: 0 !important;
-            width: 70px !important; 
-            pointer-events: none !important; 
-            z-index: 8 !important; 
-            transition: opacity 0.3s ease, visibility 0.3s ease !important;
-            opacity: 1;
-            visibility: visible;
+            position: absolute !important; top: 0 !important; bottom: 0 !important; width: 70px !important; pointer-events: none !important; z-index: 8 !important; transition: opacity 0.3s ease, visibility 0.3s ease !important; opacity: 1; visibility: visible;
         }
-        .carousel-fade-right {
-            right: 0 !important;
-            background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%) !important;
-        }
-        .carousel-fade-left {
-            left: 0 !important;
-            background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%) !important;
-        }
-        .carousel-fade-overlay.hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
+        .carousel-fade-right { right: 0 !important; background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%) !important; }
+        .carousel-fade-left { left: 0 !important; background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%) !important; }
+        .carousel-fade-overlay.hidden { opacity: 0 !important; visibility: hidden !important; }
 
         #property-card-demo-container, #projects-card-demo-container {
-            width: 100% !important;
-            display: flex !important;
-            flex-direction: row !important; 
-            justify-content: flex-start !important; 
-            overflow-x: auto !important; 
-            overflow-y: hidden !important;
-            padding-bottom: 25px !important; 
-            padding-top: 10px !important;
-            
-            gap: var(--ניהול-מרחק-בין-הכרטיסיות) !important; 
-            
-            -ms-overflow-style: none !important;  
-            scrollbar-width: none !important;  
+            width: 100% !important; display: flex !important; flex-direction: row !important; justify-content: flex-start !important; overflow-x: auto !important; overflow-y: hidden !important; padding-bottom: 25px !important; padding-top: 10px !important; gap: var(--ניהול-מרחק-בין-הכרטיסיות) !important; -ms-overflow-style: none !important; scrollbar-width: none !important;
         }
-        #property-card-demo-container::-webkit-scrollbar, #projects-card-demo-container::-webkit-scrollbar {
-            display: none !important;
-        }
+        #property-card-demo-container::-webkit-scrollbar, #projects-card-demo-container::-webkit-scrollbar { display: none !important; }
 
         #property-card-demo-container .property-card, #projects-card-demo-container .property-card {
-            flex-shrink: 0 !important; 
-            margin: 0 !important; 
-            width: var(--ניהול-גודל-הכרטיסיות) !important;  
-            max-height: var(--ניהול-גובה-הכרטיסיות) !important; 
+            flex-shrink: 0 !important; margin: 0 !important; width: var(--ניהול-גודל-הכרטיסיות) !important; max-height: var(--ניהול-גובה-הכרטיסיות) !important; 
         }
 
-        /* כפתורי הגלילה - סגנון זכוכית */
         .main-carousel-arrow {
-            position: absolute !important;
-            top: 45% !important;
-            transform: translateY(-50%) !important;
-            background: rgba(255, 255, 255, 0.65) !important; 
-            backdrop-filter: blur(3px) !important;
-            border: none !important;
-            
-            width: var(--ניהול-גודל-כפתורי-הגלילה) !important;  
-            height: var(--ניהול-גודל-כפתורי-הגלילה) !important; 
-            border-radius: 50% !important;
-            cursor: pointer !important;
-            z-index: 10 !important; 
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: #333 !important;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
-            
-            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+            position: absolute !important; top: 45% !important; transform: translateY(-50%) !important; background: rgba(255, 255, 255, 0.65) !important; backdrop-filter: blur(3px) !important; border: none !important; width: var(--ניהול-גודל-כפתורי-הגלילה) !important; height: var(--ניהול-גודל-כפתורי-הגלילה) !important; border-radius: 50% !important; cursor: pointer !important; z-index: 10 !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #333 !important; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
         }
-        
-        .main-carousel-arrow:hover {
-            background: rgba(255, 255, 255, 0.85) !important; 
-            transform: translateY(-50%) scale(1.08) !important;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important; 
-        }
-        
-        .main-carousel-arrow:active {
-            transform: translateY(-50%) scale(0.96) !important;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-        }
+        .main-carousel-arrow:hover { background: rgba(255, 255, 255, 0.85) !important; transform: translateY(-50%) scale(1.08) !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important; }
+        .main-carousel-arrow:active { transform: translateY(-50%) scale(0.96) !important; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important; }
 
         .next-main-arrow { right: -12px !important; } 
         .prev-main-arrow { left: -12px !important; }  
         
-        .main-carousel-arrow.hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
+        .main-carousel-arrow.hidden { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
 
-        @media (max-width: 768px) {
-            .main-carousel-arrow, .carousel-fade-overlay { display: none !important; }
-        }
+        /* 🔒 הסתרת החצים בלבד במובייל (ה-FADE נשאר מורשה!) */
+        @media (max-width: 768px) { .main-carousel-arrow { display: none !important; } }
         
-        /* 🏢 עיצוב לוגו הקבלן במיקום חופשי בצד שמאל של הכרטיסייה */
-        .developer-logo {
-            position: absolute !important;
-            left: var(--ניהול-לוגו-שמאלה, 18px) !important;
-            top: var(--ניהול-לוגו-מרחק-מלמעלה, 3px) !important;
-            width: var(--ניהול-רוחב-לוגו-קבלן, 70.2px) !important;
-            height: var(--ניהול-גובה-לוגו-קבלן, 30px) !important;
-            object-fit: contain !important;
-            display: block !important;
-        }
+        .developer-logo { position: absolute !important; left: var(--ניהול-לוגו-שמאלה, 18px) !important; top: var(--ניהול-לוגו-מרחק-מלמעלה, 3px) !important; width: var(--ניהול-רוחב-לוגו-קבלן, 70.2px) !important; height: var(--ניהול-גובה-לוגו-קבלן, 30px) !important; object-fit: contain !important; display: block !important; }
     </style>
 </head>
 <body>
 
+    <!-- 📍 לכאן ה-JS יזריק את הסרגל העליון (Header) -->
     <div id="header-placeholder"></div>
 
     <div class="homepage-container">
@@ -214,20 +135,15 @@
         <h1 class="hero-title">בואו נתחיל להשקיע חכם<span class="zillow-dot"></span></h1>
         <h2 class="hero-subtitle">היכן הנכם מעוניינים להשקיע?</h2>
 
-   <div class="hero-buttons-container">
-    <button type="button" class="glass-btn" onclick="window.location.href='israelInvestments.html'">השקעות בארץ</button>
-    <button type="button" class="glass-btn" onclick="window.location.href='abroad.html'">השקעות בחו"ל</button>
-</div>
+       <div class="hero-buttons-container">
+        <button type="button" class="glass-btn" onclick="window.location.href='israelInvestments.html'">השקעות בארץ</button>
+        <button type="button" class="glass-btn" onclick="window.location.href='abroad.html'">השקעות בחו"ל</button>
+       </div>
     </div>
 
     <main class="content">
-        <div style="text-align: center; margin-top: -155px; margin-bottom: 80px; width: 100%;">
-            <img src="./home.svg" alt="תמונת הבית" 
-                 style="width: 470px;          
-                        height: 300px;        
-                        object-fit: contain;  
-                        max-width: 100%; 
-                        display: inline-block;">
+        <div class="house-wrapper">
+            <img src="./home.svg" alt="תמונת הבית" class="house-img">
         </div>
         
         <div class="pro-search-wrapper">
@@ -273,7 +189,8 @@
                     </svg>
                 </button>
                 
-                <div class="carousel-fade-overlay carousel-fade-right" id="fade-right"></div>
+                <!-- 🌊 צד ימין מתחיל מוסתר (hidden) כי בטעינה הראשונית אי אפשר לגולל ימינה -->
+                <div class="carousel-fade-overlay carousel-fade-right hidden" id="fade-right"></div>
                 <div class="carousel-fade-overlay carousel-fade-left" id="fade-left"></div>
                 
                 <div id="property-card-demo-container"></div>
@@ -298,7 +215,8 @@
                     </svg>
                 </button>
                 
-                <div class="carousel-fade-overlay carousel-fade-right" id="fade-right-2"></div>
+                <!-- 🌊 צד ימין מתחיל מוסתר (hidden) -->
+                <div class="carousel-fade-overlay carousel-fade-right hidden" id="fade-right-2"></div>
                 <div class="carousel-fade-overlay carousel-fade-left" id="fade-left-2"></div>
                 
                 <div id="projects-card-demo-container"></div>
@@ -319,7 +237,7 @@
         <div id="new-shortcuts-container-3"></div>
     </main>
 
-    <!-- ✅ 1. טעינת הסקריפטים (פעם אחת בלבד!) -->
+    <!-- טעינת הסקריפטים -->
     <script type="module" src="./header.js"></script>
     <script type="module" src="./propertyCard.js"></script>
     <script type="module" src="./nextSection.js"></script>
@@ -327,7 +245,7 @@
     <script type="module" src="./shortcuts-logic-2.js"></script>
     <script type="module" src="./shortcuts-logic-3.js"></script>
 
-    <!-- ✅ 2. לוגיקה מקומית (הקלדה אוטומטית, גלילה מהירה וקרוסלות) -->
+    <!-- לוגיקה מקומית (הקלדה אוטומטית וקרוסלות) -->
     <script type="module">
         let currentTypingAnimation = null;
 
@@ -385,6 +303,7 @@
                 const clientWidth = container.clientWidth;
                 const absScrollLeft = Math.abs(scrollLeft);
                 
+                /* מתי להסתיר/להציג את ה-FADE הימני והשמאלי */
                 if (absScrollLeft < 3) {
                     if(rightBtn) rightBtn.classList.add('hidden');
                     if(fRight) fRight.classList.add('hidden');
@@ -424,6 +343,18 @@
         window.addEventListener('load', () => {
             setupCarousel('property-card-demo-container', 'scroll-left-btn', 'scroll-right-btn', 'fade-left', 'fade-right');
             setupCarousel('projects-card-demo-container', 'scroll-left-btn-2', 'scroll-right-btn-2', 'fade-left-2', 'fade-right-2');
+        });
+    </script>
+
+    <!-- 🔒 פתרון מוחלט לבאג Safari/Mobile BFCache: טוען מחדש ומשחזר עיצוב תקין כשלוחצים "אחורה" -->
+    <script>
+        window.addEventListener('pageshow', function (event) {
+            var isBackNavigation = event.persisted || 
+                (typeof window.performance !== 'undefined' && 
+                 window.performance.getEntriesByType("navigation")[0]?.type === 'back_forward');
+            if (isBackNavigation) {
+                window.location.reload();
+            }
         });
     </script>
 </body>
