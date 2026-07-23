@@ -848,6 +848,64 @@ body {
         top: 30px !important;                              /* גובה מלמעלה */
         border-radius: 50% !important;                     /* עגול */
     }
+   /* ======================================================= */
+    /* 📌 כפיית סרגל נגלל (לוגו גדול באמצע וטקסט) בדפים פנימיים */
+    /* ======================================================= */
+    body.force-white-header {
+        padding-top: var(--mobile-header-height-scrolled) !important;
+    }
+    
+    body.force-white-header .site-header {
+        position: fixed !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.14) !important;
+        animation: none !important;
+    }
+    
+    body.force-white-header .header-container {
+        height: var(--mobile-header-height-scrolled) !important;
+    }
+    
+    /* 🔥 לוגו גדול ובאמצע - מוגן מפני קוד של דפים אחרים 🔥 */
+    body.force-white-header .logo-container {
+        left: 50% !important;
+        top: var(--logo-top-scrolled) !important;
+        /* השורה הזו היא הקסם - מבטלת את ההזזות של המחשב וממרכזת בכוח! */
+        transform: translateX(-50%) scale(1) !important; 
+    }
+    
+    body.force-white-header .mobile-logo {
+        display: block !important;
+        width: var(--logo-width-scrolled) !important;
+        height: auto !important;
+    }
+    
+    body.force-white-header .desktop-logo {
+        display: none !important; /* מוודא שלוגו המחשב מוסתר */
+    }
+    
+    /* מועדון משקיעים - טקסט שמאלי */
+    body.force-white-header .header-left-link {
+        left: var(--club-left-scrolled) !important;
+        top: var(--club-top-scrolled) !important;
+        display: block !important;
+    }
+    body.force-white-header .club-link {
+        font-size: var(--club-size-scrolled) !important;
+        color: #957559 !important;
+    }
+    
+    /* כפתור המבורגר */
+    body.force-white-header button#hamburger-btn,
+    body.force-white-header .hamburger-btn {
+        right: var(--hamburger-right-scrolled) !important;
+        top: var(--hamburger-top-scrolled) !important;
+        transform: scale(var(--hamburger-scale-scrolled)) !important;
+    }
+    body.force-white-header button#hamburger-btn span,
+    body.force-white-header .hamburger-btn span {
+        background-color: #8c8c8c !important;
+    }
 } /* סגירת כלוב המובייל */
 
 

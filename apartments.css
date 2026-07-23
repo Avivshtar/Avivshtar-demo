@@ -21,7 +21,7 @@
     --תמונה-גובה-סיום: 172px;        
 
     --קובייה-צל-רגיל: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04); 
-    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                            
+    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                                        
 
     --טקסט-קובייה-גודל: 22.5px;         
     --טקסט-קובייה-עובי: 400;            
@@ -164,4 +164,98 @@ body .header-container::after {
 .wood-button:active {
     transform: translateY(1.5px) !important; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ======================================================= */
+/* 📱 שיפוץ מקיף למובייל - חוויית משתמש של אפליקציה!     */
+/* ======================================================= */
+@media (max-width: 768px) {
+    
+    /* --- 1. סרגל עליון (Header) - מראה רגיל ונקי! --- */
+    
+    /* העלמה מוחלטת של מועדון המשקיעים במובייל */
+    body .header-left-link,
+    body.force-white-header .header-left-link {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* העלמת כותרות אמצע במובייל (במידה ויש) */
+    body .header-container::after,
+    body.force-white-header .header-container::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* ⚡ איפוס הלוגו למרכז */
+    body .logo-container,
+    body.force-white-header .logo-container {
+        transform: translateX(-50%) scale(1) !important; 
+        left: 50% !important; 
+        top: var(--logo-top-scrolled, -53px) !important; 
+    }
+    
+    body .mobile-logo,
+    body.force-white-header .mobile-logo {
+        width: var(--logo-width-scrolled, 180px) !important; 
+    }
+
+    /* הסתרת האייקונים של הפרופיל/לב/פעמון */
+    body .profile-click-box, body .love-click-box, body .bell-click-box,
+    body .profile-icon-1, body .love-icon-1, body .bell-icon-1,
+    body .profile-icon-2, body .love-icon-2, body .bell-icon-2 {
+        display: none !important;
+    }
+
+    /* --- 2. עיצוב הדף עצמו (קוביות) שאהבת --- */
+    
+    #apartments-page {
+        padding-top: 43px !important; 
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .main-page-title {
+        font-size: 24px !important; 
+        margin-bottom: 25px !important;
+        font-weight: 300 !important; 
+    }
+
+    .investments-grid {
+        gap: 25px !important; 
+    }
+
+    .investment-box {
+        width: 100% !important; 
+        max-width: 100% !important; 
+        height: auto !important; 
+        border-radius: 8px !important; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.06) !important; 
+        border: none !important;
+    }
+
+    .box-image-wrapper {
+        height: 220px !important; 
+        border-radius: 8px 8px 0 0 !important;
+    }
+
+    .box-content {
+        padding: 20px 15px 25px 15px !important;
+        justify-content: center !important;
+    }
+
+    .box-title {
+        font-size: 22px !important;
+        transform: translateY(0) !important; 
+        margin-bottom: 15px !important;
+    }
+
+    .wood-button {
+        width: 100% !important; 
+        max-width: 280px !important; 
+        height: 48px !important; 
+        font-size: 18px !important;
+        border-radius: 6px !important;
+    }
 }
