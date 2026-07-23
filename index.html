@@ -10,7 +10,10 @@
     
     <title>Avivshtar - Demo</title>
     
-    <!-- ⚡ התחברות סופר-מהירה לשרתים של גוגל ומניעת קפיצות פונט -->
+    <!-- ⚡ טעינה מוקדמת (Preload) - פותר את הטעינה האיטית של 5 השניות בלי לגעת בעיצוב! -->
+    <link rel="preload" href="/hi.gif" as="image">
+    <link rel="preload" href="/map.png" as="image">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=block">
@@ -237,7 +240,7 @@
         <div id="new-shortcuts-container-3"></div>
     </main>
 
-    <!-- טעינת הסקריפטים -->
+    <!-- טעינת הסקריפטים המקוריים שלך! לא נוגע בהם -->
     <script type="module" src="./header.js"></script>
     <script type="module" src="./propertyCard.js"></script>
     <script type="module" src="./nextSection.js"></script>
@@ -346,13 +349,16 @@
         });
     </script>
 
-    <!-- 🔒 פתרון מוחלט לבאג Safari/Mobile BFCache: טוען מחדש ומשחזר עיצוב תקין כשלוחצים "אחורה" -->
+    <!-- 🔒 פתרון מוחלט לבאג Safari/Mobile BFCache (מרענן כשחוזרים אחורה כדי לתקן את התמונה) -->
     <script>
         window.addEventListener('pageshow', function (event) {
             var isBackNavigation = event.persisted || 
                 (typeof window.performance !== 'undefined' && 
                  window.performance.getEntriesByType("navigation")[0]?.type === 'back_forward');
             if (isBackNavigation) {
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Force reflow
+                document.body.style.display = '';
                 window.location.reload();
             }
         });
