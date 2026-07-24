@@ -179,12 +179,12 @@
             <div class="min-max-inputs-row">
                 <div class="min-max-field">
                     <label>Min</label>
-                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלד מחיר...">
+                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלידו מחיר...">
                 </div>
                 <span class="dash-separator">-</span>
                 <div class="min-max-field">
                     <label>Max</label>
-                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלד מחיר...">
+                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלידו מחיר...">
                 </div>
             </div>
 
@@ -587,6 +587,16 @@
 
         if (!launcher || !modal) return;
 
+        // ✨ פונקציית עזר לעיצוב המחירים ✨
+        const formatPriceShort = (val) => {
+            val = parseInt(val);
+            if (val >= 10000000) return '₪10M+';
+            if (val <= 100000) return '₪100K';
+            if (val >= 1000000) return `₪${(val / 1000000).toFixed(1).replace('.0', '')}M`;
+            if (val >= 1000) return `₪${Math.round(val / 1000)}K`;
+            return `₪${val}`;
+        };
+
         // ✨ מנגנון צביעת המסננים (פוקוס / בחירה) ✨
         const allSelects = document.querySelectorAll('.native-filter-select');
         allSelects.forEach(select => {
@@ -681,15 +691,6 @@
                 let digits = str.toString().replace(/\D/g, '');
                 if (!digits) return '';
                 return Number(digits).toLocaleString('en-US');
-            };
-
-            const formatPriceShort = (val) => {
-                val = parseInt(val);
-                if (val >= 10000000) return '₪10M+';
-                if (val <= 100000) return '₪100K';
-                if (val >= 1000000) return `₪${(val / 1000000).toFixed(1).replace('.0', '')}M`;
-                if (val >= 1000) return `₪${Math.round(val / 1000)}K`;
-                return `₪${val}`;
             };
 
             const formatPrice = (val, isMin = false) => {
@@ -811,14 +812,6 @@
                     creamPriceCard.classList.remove('active');
                     const minInput = document.querySelector('#min-range');
                     const maxInput = document.querySelector('#max-range');
-                    const formatPriceShort = (val) => {
-                        val = parseInt(val);
-                        if (val >= 10000000) return '₪10M+';
-                        if (val <= 100000) return '₪100K';
-                        if (val >= 1000000) return `₪${(val / 1000000).toFixed(1).replace('.0', '')}M`;
-                        if (val >= 1000) return `₪${Math.round(val / 1000)}K`;
-                        return `₪${val}`;
-                    };
                     const minText = parseInt(minInput.value) <= 100000 ? 'ללא מינימום' : formatPriceShort(minInput.value);
                     const maxText = parseInt(maxInput.value) >= 10000000 ? 'ללא מקסימום' : formatPriceShort(maxInput.value);
 
@@ -845,10 +838,24 @@
             });
         });
 
-        // פתיחה וסגירת המודל - חסימת הגלילה המעצבנת באייפון
+        // 🔄 פתיחה וסגירת המודל - עם סנכרון מחירים!
         const openModal = () => {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; 
+            
+            // שואב את המחירים שהוזנו בחוץ לתוך המודל
+            const mainMin = document.querySelector('#min-range');
+            const mainMax = document.querySelector('#max-range');
+            const modalMin = document.querySelector('#modal-min-range');
+            const modalMax = document.querySelector('#modal-max-range');
+            
+            if(mainMin && modalMin && mainMax && modalMax) {
+                modalMin.value = mainMin.value;
+                modalMax.value = mainMax.value;
+                modalMin.dispatchEvent(new Event('input'));
+                modalMax.dispatchEvent(new Event('input'));
+            }
+
             if (realInput) setTimeout(() => realInput.focus(), 60);
         };
 
@@ -875,13 +882,19 @@
                     searchIcon.classList.remove('active');
                 }
                 
-                // מנקה סליידרים במודל
-                const minRange = document.getElementById('modal-min-range');
-                const maxRange = document.getElementById('modal-max-range');
-                if (minRange && maxRange) {
-                    minRange.value = 100000;
-                    maxRange.value = 10000000;
-                    minRange.dispatchEvent(new Event('input'));
+                // 🔄 מנקה סליידרים גם במודל וגם בחוץ!
+                const sliders = ['min-range', 'max-range', 'modal-min-range', 'modal-max-range'];
+                const defaultVals = [100000, 10000000, 100000, 10000000];
+                sliders.forEach((id, idx) => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.value = defaultVals[idx];
+                        el.dispatchEvent(new Event('input'));
+                    }
+                });
+
+                if (pricePillTitle) {
+                    pricePillTitle.textContent = 'מחיר';
                 }
 
                 // מנקה תאריך
@@ -909,7 +922,29 @@
 
         if (applyModalBtn) {
             applyModalBtn.addEventListener('click', () => {
-                closeModal(); // כרגע פשוט סוגר יפה את המודל ושומר את הבחירות שעשינו בתוכו
+                // 🔄 דוחף את המחירים מהמודל חזרה לחוץ!
+                const modalMin = document.querySelector('#modal-min-range');
+                const modalMax = document.querySelector('#modal-max-range');
+                const mainMin = document.querySelector('#min-range');
+                const mainMax = document.querySelector('#max-range');
+                
+                if(mainMin && modalMin && mainMax && modalMax) {
+                    mainMin.value = modalMin.value;
+                    mainMax.value = modalMax.value;
+                    mainMin.dispatchEvent(new Event('input'));
+                    mainMax.dispatchEvent(new Event('input'));
+
+                    const minText = parseInt(modalMin.value) <= 100000 ? 'ללא מינימום' : formatPriceShort(modalMin.value);
+                    const maxText = parseInt(modalMax.value) >= 10000000 ? 'ללא מקסימום' : formatPriceShort(modalMax.value);
+
+                    if (minText === 'ללא מינימום' && maxText === 'ללא מקסימום') {
+                        pricePillTitle.textContent = 'מחיר';
+                    } else {
+                        pricePillTitle.textContent = `${minText} - ${maxText}`;
+                    }
+                }
+
+                closeModal(); 
             });
         }
 

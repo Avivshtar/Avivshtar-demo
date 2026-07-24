@@ -367,8 +367,8 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin-top: 4px !important; 
     }
 
-    .mobile-search-launcher .filter-pill,
-    .mobile-search-launcher .filter-pill-box {
+    /* כפתורים רגילים (כמו בחירת מחיר וסינונים נוספים) */
+    .mobile-search-launcher .filter-pill {
         flex: 1 !important;
         display: flex !important;
         align-items: center !important;
@@ -386,6 +386,33 @@ body.map-is-collapsed #map-toggle-btn svg {
         transition: all 0.2s ease !important;
     }
 
+    .mobile-search-launcher .filter-pill .chevron-icon {
+        width: 14px !important;
+        height: 14px !important;
+        color: #6b7280 !important;
+        flex-shrink: 0 !important;
+        pointer-events: none !important;
+        margin: 0 !important;
+    }
+
+    /* 🔥 פתרון הלחיצה הגלובלית על כל תבנית הפילטר (Selects) 🔥 */
+    .mobile-search-launcher .filter-pill-box,
+    .mobile-search-modal .modal-filter-pill {
+        flex: 1 !important;
+        position: relative !important; /* קריטי כדי להחזיק את הבחירה בפנים */
+        background-color: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 50px !important;
+        height: 38px !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+        margin: 0 !important;
+        transition: all 0.2s ease !important;
+        display: block !important;
+        padding: 0 !important; /* הביטול פדינג חשוב פה */
+    }
+
     .mobile-search-launcher .secondary-row .filter-pill,
     .mobile-search-launcher .secondary-row .filter-pill-box {
         flex: 0 0 42% !important;
@@ -401,7 +428,9 @@ body.map-is-collapsed #map-toggle-btn svg {
         text-align: right !important;
     }
 
-    .mobile-search-launcher .native-filter-select {
+    /* כיסוי מלא של Select על כל התיבה כדי שיילחץ מכל מקום! */
+    .mobile-search-launcher .native-filter-select,
+    .mobile-search-modal .native-filter-select {
         -webkit-appearance: none !important;
         -moz-appearance: none !important;
         appearance: none !important;
@@ -409,24 +438,32 @@ body.map-is-collapsed #map-toggle-btn svg {
         outline: none !important;
         background: transparent !important;
         font-family: 'Heebo', sans-serif !important;
-        font-size: 12.5px !important;
+        font-size: 13px !important;
         font-weight: 500 !important;
         color: #374151 !important;
         cursor: pointer !important;
-        padding: 0 !important;
-        margin: 0 !important;
         text-align: right !important;       
         text-align-last: right !important;  
-        width: 100% !important;
         direction: rtl !important;
         white-space: nowrap !important;
         word-break: keep-all !important;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
         transition: color 0.2s ease !important;
+        
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 12px 0 28px !important; /* שומר מקום לחץ משמאל */
+        z-index: 2 !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
     }
 
-    .mobile-search-launcher .native-filter-select option {
+    .mobile-search-launcher .native-filter-select option,
+    .mobile-search-modal .native-filter-select option {
         font-size: 13px !important;
         font-weight: 400 !important;
         direction: rtl !important;
@@ -434,14 +471,56 @@ body.map-is-collapsed #map-toggle-btn svg {
         color: #1f2937 !important;
     }
 
-    .mobile-search-launcher .chevron-icon {
+    /* חץ מותאם מאחורי ה-Select */
+    .filter-pill-box .chevron-icon,
+    .modal-filter-pill .chevron-icon {
+        position: absolute !important;
+        left: 10px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 1 !important;
         width: 14px !important;
         height: 14px !important;
         color: #6b7280 !important;
-        flex-shrink: 0 !important;
-        pointer-events: none !important;
-        margin: 0 !important;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease !important;
+        margin: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* 💥✨ קסם הלחיצה (FOCUS) ✨💥 */
+    .modal-filter-pill.select-active,
+    .filter-pill-box.select-active {
+        border-color: #bda082 !important;
+        box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2) !important;
+    }
+    
+    .modal-filter-pill.select-active .native-filter-select,
+    .filter-pill-box.select-active .native-filter-select {
+        color: #bda082 !important;
+    }
+
+    .modal-filter-pill.select-active .chevron-icon,
+    .filter-pill-box.select-active .chevron-icon {
+        color: #bda082 !important;
+        transform: translateY(-50%) rotate(180deg) !important;
+    }
+
+    /* 💥✨ קסם הבחירה הסופית (HAS VALUE) ✨💥 */
+    .modal-filter-pill.has-value,
+    .filter-pill-box.has-value {
+        border-color: #bda082 !important;
+        background-color: #fcfaf8 !important; 
+    }
+
+    .modal-filter-pill.has-value .native-filter-select,
+    .filter-pill-box.has-value .native-filter-select {
+        color: #bda082 !important;
+        font-weight: 700 !important; 
+    }
+
+    .modal-filter-pill.has-value .chevron-icon,
+    .filter-pill-box.has-value .chevron-icon {
+        color: #bda082 !important;
     }
 
     /* ⚪ כרטיס פילטר מחיר התחתון הקופץ */
@@ -831,93 +910,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         box-sizing: border-box;
     }
 
-    .mobile-search-modal .modal-filter-pill {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between; 
-        flex-direction: row-reverse; 
-        background-color: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 50px;
-        height: 38px;
-        padding: 0 10px;
-        box-sizing: border-box;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-        transition: all 0.2s ease;
-    }
-
-    .mobile-search-modal .modal-filter-pill .chevron-icon {
-        width: 14px;
-        height: 14px;
-        color: #6b7280;
-        pointer-events: none;
-        margin-left: 4px;
-        margin-right: auto; 
-        flex-shrink: 0;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
-    }
-
-    .mobile-search-modal .modal-filter-pill .native-filter-select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border: none;
-        outline: none;
-        background: transparent;
-        font-family: 'Heebo', sans-serif;
-        font-size: 13px; 
-        font-weight: 500;
-        color: #374151;
-        cursor: pointer;
-        padding: 0;
-        margin: 0;
-        text-align: right;
-        text-align-last: right;
-        width: 100%;
-        direction: rtl;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; 
-        transition: color 0.2s ease;
-    }
-
-    /* 💥✨ קסם הלחיצה (FOCUS) של פילטר בחירה ✨💥 */
-    .modal-filter-pill.select-active,
-    .filter-pill-box.select-active {
-        border-color: #bda082 !important;
-        box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2) !important;
-    }
-    
-    .modal-filter-pill.select-active .native-filter-select,
-    .filter-pill-box.select-active .native-filter-select {
-        color: #bda082 !important;
-    }
-
-    .modal-filter-pill.select-active .chevron-icon,
-    .filter-pill-box.select-active .chevron-icon {
-        color: #bda082 !important;
-        transform: rotate(180deg) !important;
-    }
-
-    /* 💥✨ קסם הבחירה הסופית (HAS VALUE) ✨💥 */
-    .modal-filter-pill.has-value,
-    .filter-pill-box.has-value {
-        border-color: #bda082 !important;
-        background-color: #fcfaf8 !important; 
-    }
-
-    .modal-filter-pill.has-value .native-filter-select,
-    .filter-pill-box.has-value .native-filter-select {
-        color: #bda082 !important;
-        font-weight: 700 !important; 
-    }
-
-    .modal-filter-pill.has-value .chevron-icon,
-    .filter-pill-box.has-value .chevron-icon {
-        color: #bda082 !important;
-    }
-
     /* 📅 שדה התאריך "כניסה לנכס" */
     .entry-date-wrapper {
         display: flex;
@@ -1167,9 +1159,9 @@ body.map-is-collapsed #map-toggle-btn svg {
         flex: 1; 
         background-color: #ffffff;
         color: #374151;
-        border: 1px solid #d1d5db; /* אפור עדין */
-        border-radius: 10px; /* מעוגל כמו כפתור המחיר */
-        height: 36px; /* גובה כמו כפתור המחיר */
+        border: 1px solid #d1d5db; 
+        border-radius: 10px; 
+        height: 36px; 
         font-size: 12.5px;
         font-weight: 400;
         font-family: 'Heebo', sans-serif;
@@ -1182,10 +1174,9 @@ body.map-is-collapsed #map-toggle-btn svg {
         box-shadow: none;
     }
 
-    /* אפקט לחיצה בול כמו כפתור החלת סינון מחירים (צבע שמנת / זהב!) */
     .mobile-search-modal .reset-filters-btn:active,
     .mobile-search-modal .apply-filters-btn:active {
-        background-color: #bda082 !important; /* זהב שמנת */
+        background-color: #bda082 !important; 
         border-color: #bda082 !important;
         color: #ffffff !important;
         transform: scale(0.97);
