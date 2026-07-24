@@ -80,9 +80,6 @@
         </button>
     </div>
 
-    <!-- אזור הנכסים הייעודי למובייל בלבד -->
-    <div id="mobile-properties-feed"></div>
-
     <!-- 📱 1. סרגל צף בתחתית במובייל -->
     <div class="mobile-search-launcher">
         <div class="drag-handle"></div>
@@ -559,11 +556,7 @@
             const dataObj = window.propertiesData || (typeof propertiesData !== 'undefined' ? propertiesData : null);
             
             if (typeof feedFunc === 'function' && dataObj) {
-                // טעינה לאזור המחשב
                 feedFunc('properties-cards-container', dataObj, true);
-                
-                // טעינה לאזור המובייל
-                feedFunc('mobile-properties-feed', dataObj, true);
             }
         });
 
@@ -592,7 +585,7 @@
         };
     </script>
 
-    <!-- 📱 סקריפט מובייל -->
+    <!-- 📱 סקריפט מובייל מלא -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth > 768) return;
@@ -610,7 +603,6 @@
         const creamPriceCard = document.querySelector('#cream-price-card');
         const applyPriceBtn = document.querySelector('#apply-price-btn');
 
-        // אלמנטים של מסך המפה החדש
         const modalOpenMapBtn = document.querySelector('#modal-open-map-btn');
         const launcherMapBtn = document.querySelector('.launcher-box .map-btn');
         const mapModal = document.querySelector('.mobile-map-modal');
@@ -618,25 +610,27 @@
 
         if (!launcher || !modal) return;
 
-        // 🔄 משתנה מצב הסרגל (פתוח/סגור)
         let isCollapsed = false;
-
-        // 📜 מנגנון סגירה אוטומטית לפי מרחק מצטבר של 180px
         let accumulatedDown = 0;
         let lastScrollY = window.scrollY || document.documentElement.scrollTop;
 
         window.addEventListener('scroll', () => {
+            if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'SELECT')) {
+                return;
+            }
+
             const currentScrollY = window.scrollY || document.documentElement.scrollTop;
             const delta = currentScrollY - lastScrollY;
 
             if (delta > 0) {
                 accumulatedDown += delta;
-                
-                // 🎯 סף גלילה 180 פיקסלים
                 if (accumulatedDown >= 180 && !isCollapsed) {
                     isCollapsed = true;
                     launcher.classList.add('collapsed');
-                    if (creamPriceCard) creamPriceCard.classList.remove('active');
+                    if (creamPriceCard) {
+                        creamPriceCard.classList.remove('active');
+                        if (pricePillBtn) pricePillBtn.classList.remove('active');
+                    }
                 }
             } else if (delta < -10) {
                 accumulatedDown = 0;
@@ -645,7 +639,6 @@
             lastScrollY = currentScrollY;
         }, { passive: true });
 
-        // ✨ פונקציית עזר לעיצוב המחירים ✨
         const formatPriceShort = (val) => {
             val = parseInt(val);
             if (val >= 10000000) return '₪10M+';
@@ -655,7 +648,7 @@
             return `₪${val}`;
         };
 
-        // ✨ מנגנון צביעת המסננים (פוקוס / בחירה) ✨
+        // מנגנון צביעת Selects
         const allSelects = document.querySelectorAll('.native-filter-select');
         allSelects.forEach(select => {
             const parentPill = select.closest('.modal-filter-pill') || select.closest('.filter-pill-box');
@@ -685,7 +678,6 @@
             }
         });
 
-        // 📅 מנגנון חכם לשדה התאריך
         const entrySelect = document.getElementById('entry-date-select');
         const dateContainer = document.getElementById('specific-date-container');
         const dateInput = document.getElementById('specific-date-input');
@@ -704,7 +696,6 @@
             dateInput.addEventListener('input', (e) => {
                 let val = e.target.value.replace(/\D/g, '');
                 if (val.length > 8) val = val.substring(0, 8);
-                
                 let formatted = val;
                 if (val.length >= 5) {
                     formatted = val.substring(0, 2) + '/' + val.substring(2, 4) + '/' + val.substring(4, 8);
@@ -715,7 +706,6 @@
             });
         }
 
-        // פונקציה לטעינת סליידר
         const initPriceSlider = (prefix) => {
             const minInput = document.querySelector(`#${prefix}min-range`);
             const maxInput = document.querySelector(`#${prefix}max-range`);
@@ -858,25 +848,39 @@
         initPriceSlider(''); 
         initPriceSlider('modal-'); 
 
-        // כפתור חלון מחיר תחתון (פתיחה וסגירה)
+        // 💰 כפתור פתיחה/סגירה והחלה של פילטר המחיר בחוץ
         if (pricePillBtn && creamPriceCard) {
             pricePillBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                creamPriceCard.classList.toggle('active');
+                const isActive = creamPriceCard.classList.toggle('active');
+                pricePillBtn.classList.toggle('active', isActive);
+            });
+
+            creamPriceCard.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
 
             if (applyPriceBtn) {
                 applyPriceBtn.addEventListener('click', () => {
                     creamPriceCard.classList.remove('active');
+                    pricePillBtn.classList.remove('active');
+
                     const minInput = document.querySelector('#min-range');
                     const maxInput = document.querySelector('#max-range');
-                    const minText = parseInt(minInput.value) <= 100000 ? 'ללא מינימום' : formatPriceShort(minInput.value);
-                    const maxText = parseInt(maxInput.value) >= 10000000 ? 'ללא מקסימום' : formatPriceShort(maxInput.value);
+                    const minVal = parseInt(minInput.value);
+                    const maxVal = parseInt(maxInput.value);
 
-                    if (minText === 'ללא מינימום' && maxText === 'ללא מקסימום') {
-                        pricePillTitle.textContent = 'מחיר';
-                    } else {
+                    const isMinSet = minVal > 100000;
+                    const isMaxSet = maxVal < 10000000;
+
+                    if (isMinSet || isMaxSet) {
+                        const minText = !isMinSet ? 'ללא מינימום' : formatPriceShort(minVal);
+                        const maxText = !isMaxSet ? 'ללא מקסימום' : formatPriceShort(maxVal);
                         pricePillTitle.textContent = `${minText} - ${maxText}`;
+                        pricePillBtn.classList.add('has-value');
+                    } else {
+                        pricePillTitle.textContent = 'מחיר';
+                        pricePillBtn.classList.remove('has-value');
                     }
                 });
             }
@@ -884,11 +888,12 @@
             document.addEventListener('click', (e) => {
                 if (!creamPriceCard.contains(e.target) && !pricePillBtn.contains(e.target)) {
                     creamPriceCard.classList.remove('active');
+                    pricePillBtn.classList.remove('active');
                 }
             });
         }
 
-        // ניהול בחירת מאפייני הנכס
+        // בחירת מאפייני הנכס (Features)
         const featureButtons = document.querySelectorAll('.feature-btn');
         featureButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -896,9 +901,10 @@
             });
         });
 
-        // 🔄 פתיחה וסגירת המודל
+        // 🔄 פתיחה וסגירת המודל (סינונים נוספים)
         const openModal = () => {
             modal.classList.add('active');
+            if (moreFiltersBtn) moreFiltersBtn.classList.add('active');
             document.body.style.overflow = 'hidden'; 
             
             const mainMin = document.querySelector('#min-range');
@@ -918,6 +924,7 @@
 
         const closeModal = () => {
             modal.classList.remove('active');
+            if (moreFiltersBtn) moreFiltersBtn.classList.remove('active');
             document.body.style.overflow = ''; 
             if (realInput) realInput.blur();
         };
@@ -926,7 +933,7 @@
         if (moreFiltersBtn) moreFiltersBtn.addEventListener('click', openModal);
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-        // 🗺️ פתיחה וסגירה של מסך המפה
+        // 🗺️ מפה מודלית
         let mobileLeafletMap = null;
 
         const openMapModal = () => {
@@ -965,18 +972,13 @@
 
                     propertyList.forEach(prop => {
                         const marker = L.marker(prop.coords, { icon: customPinIcon }).addTo(mobileLeafletMap);
-                        
                         const popupHtml = `
                             <div class="custom-map-popup">
                                 <div class="popup-price">${prop.price}</div>
                                 <div class="popup-address">${prop.address}</div>
                             </div>
                         `;
-                        
-                        marker.bindPopup(popupHtml, {
-                            closeButton: true,
-                            offset: [0, 0]
-                        });
+                        marker.bindPopup(popupHtml, { closeButton: true, offset: [0, 0] });
                     });
                 }
 
@@ -1002,7 +1004,7 @@
         }
         if (closeMapModalBtn) closeMapModalBtn.addEventListener('click', closeMapModal);
 
-        // 🧹 מנגנון ניקוי ושמירת פילטרים
+        // 🧹 ניקוי והחלת סינונים במודל
         const resetModalBtn = document.getElementById('reset-modal-filters');
         const applyModalBtn = document.getElementById('apply-modal-filters');
 
@@ -1027,6 +1029,12 @@
                 if (pricePillTitle) {
                     pricePillTitle.textContent = 'מחיר';
                 }
+                if (pricePillBtn) {
+                    pricePillBtn.classList.remove('has-value', 'active');
+                }
+                if (moreFiltersBtn) {
+                    moreFiltersBtn.classList.remove('has-value', 'active');
+                }
 
                 if (dateInput) {
                     dateInput.value = '';
@@ -1037,8 +1045,7 @@
                     select.value = '';
                     const parentPill = select.closest('.modal-filter-pill') || select.closest('.filter-pill-box');
                     if (parentPill) {
-                        parentPill.classList.remove('has-value');
-                        parentPill.classList.remove('select-active');
+                        parentPill.classList.remove('has-value', 'select-active');
                     }
                 });
 
@@ -1055,19 +1062,38 @@
                 const mainMin = document.querySelector('#min-range');
                 const mainMax = document.querySelector('#max-range');
                 
-                if(mainMin && modalMin && mainMax && modalMax) {
+                if (mainMin && modalMin && mainMax && modalMax) {
                     mainMin.value = modalMin.value;
                     mainMax.value = modalMax.value;
                     mainMin.dispatchEvent(new Event('input'));
                     mainMax.dispatchEvent(new Event('input'));
 
-                    const minText = parseInt(modalMin.value) <= 100000 ? 'ללא מינימום' : formatPriceShort(modalMin.value);
-                    const maxText = parseInt(modalMax.value) >= 10000000 ? 'ללא מקסימום' : formatPriceShort(modalMax.value);
+                    const minVal = parseInt(modalMin.value);
+                    const maxVal = parseInt(modalMax.value);
+                    const isMinSet = minVal > 100000;
+                    const isMaxSet = maxVal < 10000000;
 
-                    if (minText === 'ללא מינימום' && maxText === 'ללא מקסימום') {
-                        pricePillTitle.textContent = 'מחיר';
-                    } else {
+                    if (isMinSet || isMaxSet) {
+                        const minText = !isMinSet ? 'ללא מינימום' : formatPriceShort(minVal);
+                        const maxText = !isMaxSet ? 'ללא מקסימום' : formatPriceShort(maxVal);
                         pricePillTitle.textContent = `${minText} - ${maxText}`;
+                        if (pricePillBtn) pricePillBtn.classList.add('has-value');
+                    } else {
+                        pricePillTitle.textContent = 'מחיר';
+                        if (pricePillBtn) pricePillBtn.classList.remove('has-value');
+                    }
+                }
+
+                // בדיקה אם נבחרו פילטרים נוספים במודל
+                const hasSelectedFeatures = document.querySelectorAll('.mobile-search-modal .feature-btn.selected').length > 0;
+                const hasActiveSelects = Array.from(document.querySelectorAll('.mobile-search-modal select')).some(s => s.value !== '');
+                const hasDateInput = dateInput && dateInput.value.trim() !== '';
+
+                if (moreFiltersBtn) {
+                    if (hasSelectedFeatures || hasActiveSelects || hasDateInput) {
+                        moreFiltersBtn.classList.add('has-value');
+                    } else {
+                        moreFiltersBtn.classList.remove('has-value');
                     }
                 }
 
@@ -1075,7 +1101,7 @@
             });
         }
 
-        // גרירת המגירה התחתונה
+        // גרירת המגירה
         let startY = 0;
         let currentY = 0;
         let isDragging = false;
@@ -1121,7 +1147,10 @@
             if (!isCollapsed && deltaY > 30) {
                 isCollapsed = true;
                 launcher.classList.add('collapsed');
-                if (creamPriceCard) creamPriceCard.classList.remove('active');
+                if (creamPriceCard) {
+                    creamPriceCard.classList.remove('active');
+                    if (pricePillBtn) pricePillBtn.classList.remove('active');
+                }
             } else if (isCollapsed && deltaY < -30) {
                 isCollapsed = false;
                 launcher.classList.remove('collapsed');
@@ -1130,7 +1159,7 @@
             launcher.style.transform = '';
         });
 
-        // חיפוש X פנימי
+        // X בחיפוש
         if (realInput && clearBtn && searchIcon) {
             realInput.addEventListener('input', () => {
                 const hasText = realInput.value.trim().length > 0;
@@ -1152,14 +1181,13 @@
             });
         }
 
-        // 🖼️ מנגנון החלקה (Swipe) גלובלי לתמונות בכרטיסיות (תומך גם ב-mobile-properties-feed)
+        // Swipe בתמונות
         let cardTouchStartX = 0;
         let cardTouchStartY = 0;
 
         document.addEventListener('touchstart', (e) => {
             const cardMedia = e.target.closest('.card-media');
             if (!cardMedia) return;
-
             cardTouchStartX = e.touches[0].clientX;
             cardTouchStartY = e.touches[0].clientY;
         }, { passive: true });
@@ -1170,7 +1198,6 @@
 
             const touchEndX = e.changedTouches[0].clientX;
             const touchEndY = e.changedTouches[0].clientY;
-
             const diffX = cardTouchStartX - touchEndX;
             const diffY = cardTouchStartY - touchEndY;
 
