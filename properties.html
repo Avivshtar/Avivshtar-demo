@@ -80,6 +80,9 @@
         </button>
     </div>
 
+    <!-- אזור הנכסים הייעודי למובייל בלבד -->
+    <div id="mobile-properties-feed"></div>
+
     <!-- 📱 1. סרגל צף בתחתית במובייל -->
     <div class="mobile-search-launcher">
         <div class="drag-handle"></div>
@@ -212,7 +215,6 @@
         <div class="modal-body">
             <!-- 2 המסננים הראשונים -->
             <div class="modal-filters-row">
-                <!-- חדרים -->
                 <div class="modal-filter-pill">
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
                     <select class="native-filter-select">
@@ -225,7 +227,6 @@
                     </select>
                 </div>
 
-                <!-- סוג נכס -->
                 <div class="modal-filter-pill">
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
                     <select class="native-filter-select">
@@ -556,8 +557,13 @@
         window.addEventListener('load', () => {
             const feedFunc = window.renderFeed || (typeof renderFeed === 'function' ? renderFeed : null);
             const dataObj = window.propertiesData || (typeof propertiesData !== 'undefined' ? propertiesData : null);
+            
             if (typeof feedFunc === 'function' && dataObj) {
+                // טעינה לאזור המחשב
                 feedFunc('properties-cards-container', dataObj, true);
+                
+                // טעינה לאזור המובייל
+                feedFunc('mobile-properties-feed', dataObj, true);
             }
         });
 
@@ -611,6 +617,33 @@
         const closeMapModalBtn = document.querySelector('.close-map-modal-btn');
 
         if (!launcher || !modal) return;
+
+        // 🔄 משתנה מצב הסרגל (פתוח/סגור)
+        let isCollapsed = false;
+
+        // 📜 מנגנון סגירה אוטומטית לפי מרחק מצטבר של 180px
+        let accumulatedDown = 0;
+        let lastScrollY = window.scrollY || document.documentElement.scrollTop;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY || document.documentElement.scrollTop;
+            const delta = currentScrollY - lastScrollY;
+
+            if (delta > 0) {
+                accumulatedDown += delta;
+                
+                // 🎯 סף גלילה 180 פיקסלים
+                if (accumulatedDown >= 180 && !isCollapsed) {
+                    isCollapsed = true;
+                    launcher.classList.add('collapsed');
+                    if (creamPriceCard) creamPriceCard.classList.remove('active');
+                }
+            } else if (delta < -10) {
+                accumulatedDown = 0;
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
 
         // ✨ פונקציית עזר לעיצוב המחירים ✨
         const formatPriceShort = (val) => {
@@ -855,7 +888,7 @@
             });
         }
 
-        // ניהול בחירת מאפייני הנכס (לחיצה הופכת לירוק)
+        // ניהול בחירת מאפייני הנכס
         const featureButtons = document.querySelectorAll('.feature-btn');
         featureButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -863,7 +896,7 @@
             });
         });
 
-        // 🔄 פתיחה וסגירת המודל - עם סנכרון מחירים!
+        // 🔄 פתיחה וסגירת המודל
         const openModal = () => {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; 
@@ -893,7 +926,7 @@
         if (moreFiltersBtn) moreFiltersBtn.addEventListener('click', openModal);
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-        // 🗺️ פתיחה וסגירה של מסך המפה בגרסת 4K HD + ללא פתיחת פופאפ אוטומטית!
+        // 🗺️ פתיחה וסגירה של מסך המפה
         let mobileLeafletMap = null;
 
         const openMapModal = () => {
@@ -903,10 +936,8 @@
                 document.body.style.overflow = 'hidden';
 
                 if (!mobileLeafletMap && typeof L !== 'undefined') {
-                    // מיקוד יפהפה במרכז הארץ
                     mobileLeafletMap = L.map('mobile-map-container', { zoomControl: true }).setView([32.0731, 34.7900], 11);
                     
-                    // 🌟 טעינת אריחי Google Maps בגרסת HD/4K 🌟
                     L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&scale=2', {
                         maxZoom: 20,
                         tileSize: 256,
@@ -915,7 +946,6 @@
                         attribution: '© Google Maps'
                     }).addTo(mobileLeafletMap);
 
-                    // הסיכה החומה היוקרתית
                     const customPinIcon = L.divIcon({
                         className: 'custom-map-marker-container',
                         html: '<div class="premium-brown-pin"></div>',
@@ -924,7 +954,6 @@
                         popupAnchor: [0, -28]
                     });
 
-                    // 📍 נכסים לדוגמה עם מחירים וכתובות פרופורציונליות!
                     const propertyList = [
                         { coords: [32.0731, 34.8120], price: '3,200,000 ₪', address: 'כצנלסון 45, גבעתיים' },
                         { coords: [32.0800, 34.7800], price: '4,500,000 ₪', address: 'דיזנגוף 120, תל אביב' },
@@ -1050,7 +1079,6 @@
         let startY = 0;
         let currentY = 0;
         let isDragging = false;
-        let isCollapsed = false;
         const collapseOffset = 118;
 
         launcher.addEventListener('touchstart', (e) => {
@@ -1123,6 +1151,39 @@
                 realInput.focus();
             });
         }
+
+        // 🖼️ מנגנון החלקה (Swipe) גלובלי לתמונות בכרטיסיות (תומך גם ב-mobile-properties-feed)
+        let cardTouchStartX = 0;
+        let cardTouchStartY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            const cardMedia = e.target.closest('.card-media');
+            if (!cardMedia) return;
+
+            cardTouchStartX = e.touches[0].clientX;
+            cardTouchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            const cardMedia = e.target.closest('.card-media');
+            if (!cardMedia) return;
+
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+
+            const diffX = cardTouchStartX - touchEndX;
+            const diffY = cardTouchStartY - touchEndY;
+
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+                if (diffX > 0) {
+                    const nextBtn = cardMedia.querySelector('.next-btn, .slider-next, .arrow-next, .nav-btn.next, .swiper-button-next, .slick-next, .owl-next, [data-slide="next"], [class*="next"]');
+                    if (nextBtn) nextBtn.click();
+                } else {
+                    const prevBtn = cardMedia.querySelector('.prev-btn, .slider-prev, .arrow-prev, .nav-btn.prev, .swiper-button-prev, .slick-prev, .owl-prev, [data-slide="prev"], [class*="prev"]');
+                    if (prevBtn) prevBtn.click();
+                }
+            }
+        }, { passive: true });
     });
     </script>
 </body>

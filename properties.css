@@ -255,6 +255,17 @@ body.map-is-collapsed #map-toggle-btn svg {
 .mobile-map-modal {
     display: none !important;
 }
+/* ======================================================= */
+/* 🖥️ מחשב נייד / דסקטופ בלבד (מעל 768px)                   */
+/* ======================================================= */
+@media (min-width: 769px) {
+    #mobile-properties-feed,
+    .mobile-search-launcher,
+    .mobile-search-modal,
+    .mobile-map-modal {
+        display: none !important;
+    }
+}
 
 /* ======================================================= */
 /* 📱 מובייל בלבד (עד 768px)                              */
@@ -267,14 +278,96 @@ body.map-is-collapsed #map-toggle-btn svg {
         outline: none !important;
     }
 
-    /* הסתרת התוכן של המחשב במובייל */
+    /* 🔝 תיקון שכבות (Z-Index) במובייל בלבד */
+    #header-placeholder,
+    .side-menu,
+    body.sidebar-open .side-menu,
+    body.sidebar-open #header-placeholder {
+        z-index: 999999 !important;
+    }
+
+    /* 🏡 הצגת דף הנכסים במובייל */
+    #properties-page {
+        display: block !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding-top: 16px !important;
+        padding-bottom: 170px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* הסתרת רכיבי הדסקטופ בלבד במובייל */
     .properties-banner-container,
-    #properties-page,
+    .pro-search-wrapper,
+    .custom-filter-wrapper,
     #map-wrapper-section {
         display: none !important;
     }
 
-    /* 1. הסרגל הצף בתחתית המסך */
+    /* 🃏 עיצוב קומפקטי ומותאם לכרטיסיות */
+    #properties-page .regular-cards-section {
+        width: 100% !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        margin: 0 auto !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    #properties-page .regular-cards-grid,
+    #mobile-properties-feed {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 418px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    #properties-page .regular-cards-grid > *,
+    #mobile-properties-feed > * {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 🖼️ תמונה מוארכת לאורך */
+    .property-card .card-media {
+        height: 243px !important;
+    }
+
+    /* 📞 כפתורי ווטסאפ וטלפון בשורה אחת */
+    .property-card .card-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        padding: 0 14px 16px 14px !important;
+        gap: 8px !important;
+    }
+
+    .property-card .btn-call,
+    .property-card .btn-whatsapp {
+        flex: 1 !important;
+        height: 36px !important;
+        font-size: 12.5px !important;
+        padding: 0 4px !important;
+        gap: 4px !important;
+    }
+
+    .property-card .btn-icon,
+    .property-card .btn-icon-wa {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    /* ==========================================================================
+       📱 1. הסרגל הצף בתחתית המסך (Search Launcher)
+       ========================================================================== */
     .mobile-search-launcher {
         display: flex !important;
         flex-direction: column;
@@ -283,12 +376,15 @@ body.map-is-collapsed #map-toggle-btn svg {
         bottom: 0 !important;
         left: 0 !important;
         right: 0 !important;
-        background-color: #ffffff !important;
-        border-top-left-radius: 28px;
-        border-top-right-radius: 28px;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: saturate(150%) blur(4px) !important;
+        -webkit-backdrop-filter: saturate(150%) blur(4px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-top-left-radius: 42px !important;
+        border-top-right-radius: 42px !important;
         padding: 12px 20px 24px 20px;
-        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.1);
-        z-index: 99990 !important;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2) !important;
+        z-index: 500 !important;
         direction: rtl;
         box-sizing: border-box;
         cursor: pointer;
@@ -313,14 +409,18 @@ body.map-is-collapsed #map-toggle-btn svg {
         cursor: grab;
     }
 
-    /* תיבת החיפוש */
+    /* תיבת החיפוש הצפה בסרגל התחתון בלבד */
     .mobile-search-launcher .launcher-box {
         display: flex;
         align-items: center;
-        background-color: #ffffff;
-        border: 1px solid #e5e7eb;
+        background: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid #ffffff !important;
         border-radius: 50px !important;
-        padding: 10px 16px;
+        padding: 0 16px !important;
+        height: 55px !important;
+        position: relative !important;
+        top: -7px !important;
         gap: 10px;
         cursor: pointer;
         overflow: hidden !important;
@@ -333,7 +433,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         flex-shrink: 0 !important;
     }
 
-    /* 📍 כפתור ואייקון המפה בסרגל הצף - עם אפקט לחיצה עגול ואפור! */
+    /* 📍 כפתור המפה בסרגל הצף */
     .mobile-search-launcher .map-btn {
         display: flex !important;
         align-items: center !important;
@@ -348,8 +448,8 @@ body.map-is-collapsed #map-toggle-btn svg {
     }
 
     .mobile-search-launcher .map-btn:active {
-        background-color: #e5e7eb !important; /* עיגול אפור בינוני בלחיצה */
-        transform: scale(0.92) !important;    /* תגובת לחיצה עדינה */
+        background-color: #e5e7eb !important;
+        transform: scale(0.92) !important;
     }
 
     .mobile-search-launcher .icon-map {
@@ -370,11 +470,12 @@ body.map-is-collapsed #map-toggle-btn svg {
     .mobile-search-launcher .launcher-placeholder {
         width: 100%;
         font-size: 16px;
-        color: #9ca3af;
+        color: #111827 !important;
+        font-weight: 600 !important;
         font-family: 'Heebo', sans-serif;
     }
 
-    /* פילטרים מהירים */
+    /* פילטרים מהירים בסרגל התחתון בלבד */
     .mobile-search-launcher .launcher-filters-container {
         display: flex;
         flex-direction: column;
@@ -390,7 +491,7 @@ body.map-is-collapsed #map-toggle-btn svg {
 
     .mobile-search-launcher .filter-pills-row.secondary-row {
         justify-content: center;
-        margin-top: 4px !important; 
+        margin-top: 4px !important;
     }
 
     .mobile-search-launcher .filter-pill {
@@ -398,13 +499,13 @@ body.map-is-collapsed #map-toggle-btn svg {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        flex-direction: row-reverse !important; 
-        background-color: #ffffff !important;
-        border: 1px solid #e5e7eb !important;
+        flex-direction: row-reverse !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid #ffffff !important;
         border-radius: 50px !important;
         height: 38px !important;
         padding: 0 12px !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
         box-sizing: border-box !important;
         cursor: pointer !important;
         margin: 0 !important;
@@ -421,15 +522,14 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin: 0 !important;
     }
 
-    .mobile-search-launcher .filter-pill-box,
-    .mobile-search-modal .modal-filter-pill {
+    .mobile-search-launcher .filter-pill-box {
         flex: 1 !important;
-        position: relative !important; 
-        background-color: #ffffff !important;
-        border: 1px solid #e5e7eb !important;
+        position: relative !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid #ffffff !important;
         border-radius: 50px !important;
         height: 38px !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
         box-sizing: border-box !important;
         cursor: pointer !important;
         margin: 0 !important;
@@ -445,11 +545,12 @@ body.map-is-collapsed #map-toggle-btn svg {
         max-width: 42% !important;
     }
 
-    .mobile-search-launcher .filter-pill span {
+    .mobile-search-launcher .filter-pill span,
+    .mobile-search-launcher .native-filter-select {
         font-family: 'Heebo', sans-serif !important;
         font-size: 13px !important;
-        font-weight: 500 !important;
-        color: #374151 !important;
+        font-weight: 600 !important;
+        color: #111827 !important;
         white-space: nowrap !important;
         text-align: right !important;
     }
@@ -462,21 +563,14 @@ body.map-is-collapsed #map-toggle-btn svg {
         border: none !important;
         outline: none !important;
         background: transparent !important;
-        font-family: 'Heebo', sans-serif !important;
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        color: #374151 !important;
         cursor: pointer !important;
-        text-align: right !important;       
-        text-align-last: right !important;  
+        text-align-last: right !important;
         direction: rtl !important;
-        white-space: nowrap !important;
         word-break: keep-all !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         transition: color 0.2s ease !important;
         border-radius: 50px !important;
-        
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
@@ -517,7 +611,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         border-color: #bda082 !important;
         box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2) !important;
     }
-    
+
     .modal-filter-pill.select-active .native-filter-select,
     .filter-pill-box.select-active .native-filter-select {
         color: #bda082 !important;
@@ -532,13 +626,13 @@ body.map-is-collapsed #map-toggle-btn svg {
     .modal-filter-pill.has-value,
     .filter-pill-box.has-value {
         border-color: #bda082 !important;
-        background-color: #fcfaf8 !important; 
+        background-color: #fcfaf8 !important;
     }
 
     .modal-filter-pill.has-value .native-filter-select,
     .filter-pill-box.has-value .native-filter-select {
         color: #bda082 !important;
-        font-weight: 700 !important; 
+        font-weight: 700 !important;
     }
 
     .modal-filter-pill.has-value .chevron-icon,
@@ -550,14 +644,16 @@ body.map-is-collapsed #map-toggle-btn svg {
     .cream-price-slider-card {
         display: none;
         position: absolute;
-        bottom: calc(100% - 5px);
+        bottom: calc(100% - 80px);
         right: 15px;
         left: 15px;
         background-color: #ffffff !important;
-        border: 1px solid #e5e7eb;
-        border-radius: 20px;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 28px !important;
         padding: 14px 16px 12px 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.03) !important;
         z-index: 999999;
         flex-direction: column;
         gap: 10px;
@@ -772,7 +868,7 @@ body.map-is-collapsed #map-toggle-btn svg {
     }
 
     /* ==========================================================================
-       📱 2. מסך חיפוש מלא הנפתח (MODAL) עם Header מקובע וגלילה מושלמת
+       📱 2. מסך חיפוש מלא הנפתח (MODAL)
        ========================================================================== */
     .mobile-search-modal {
         display: flex !important;
@@ -791,9 +887,9 @@ body.map-is-collapsed #map-toggle-btn svg {
         transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         transform: translate3d(0, 24px, 0);
         direction: rtl;
-        padding: 0 !important; 
+        padding: 0 !important;
         box-sizing: border-box;
-        overflow: hidden !important; 
+        overflow: hidden !important;
     }
 
     .mobile-search-modal.active {
@@ -802,18 +898,22 @@ body.map-is-collapsed #map-toggle-btn svg {
         transform: translate3d(0, 0, 0) !important;
     }
 
+    /* Header של המסכים הנפתחים - צל אולטרה עדין מתחת לחיפוש */
     .mobile-search-modal .modal-header,
     .mobile-map-modal .modal-header {
         display: flex;
         align-items: center;
         gap: 12px;
         width: 100%;
-        padding: 16px 20px 12px 20px;
+        padding: 16px 20px 12px 20px !important;
         box-sizing: border-box;
-        background-color: #ffffff;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
         z-index: 10;
-        flex-shrink: 0; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+        flex-shrink: 0;
     }
 
     .mobile-search-modal .close-modal-btn,
@@ -841,13 +941,16 @@ body.map-is-collapsed #map-toggle-btn svg {
         background-color: #f3f4f6;
     }
 
+    /* תיבת החיפוש בתוך המודל - אפור נקי ללא צל */
     .mobile-search-modal .modal-search-box,
     .mobile-map-modal .modal-search-box {
         display: flex;
         align-items: center;
-        background-color: #f3f4f6;
+        background-color: #f3f4f6 !important;
+        box-shadow: none !important;
+        border: none !important;
         border-radius: 50px !important;
-        padding: 8px 14px;
+        padding: 8px 14px !important;
         gap: 8px;
         flex: 1;
         direction: rtl !important;
@@ -918,23 +1021,46 @@ body.map-is-collapsed #map-toggle-btn svg {
         color: #111827;
     }
 
-    /* ==========================================================================
-       📱 תוכן מסך החיפוש הנגלל (Modal Body) 
-       ========================================================================== */
+    /* 🏷️ כל הקטגוריות/הפילטרים בדף הפנימי (חדרים, חניות, שירותים, סוג נכס וכו') - מראה נקי ומקורי! */
+    .mobile-search-modal .modal-filter-pill {
+        flex: 1 !important;
+        position: relative !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 50px !important;
+        height: 38px !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+        margin: 0 !important;
+        transition: all 0.2s ease !important;
+        display: block !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .mobile-search-modal .native-filter-select {
+        font-family: 'Heebo', sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        color: #374151 !important;
+    }
+
+    /* תוכן מסך החיפוש הנגלל */
     .mobile-search-modal .modal-body {
-        padding: 24px 20px 24px 20px !important; 
+        padding: 24px 20px 24px 20px !important;
         display: flex;
         flex-direction: column;
-        gap: 24px; 
+        gap: 24px;
         overflow-y: auto !important;
         overflow-x: hidden !important;
         width: 100%;
         box-sizing: border-box;
-        flex: 1 1 auto; 
-        min-height: 0; 
-        -webkit-overflow-scrolling: touch; 
-        overscroll-behavior-y: contain; 
-        transform: translateZ(0); 
+        flex: 1 1 auto;
+        min-height: 0;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
+        transform: translateZ(0);
     }
 
     .mobile-search-modal .modal-filters-row {
@@ -989,9 +1115,9 @@ body.map-is-collapsed #map-toggle-btn svg {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        border: none;              
-        background: transparent;   
-        box-shadow: none;          
+        border: none;
+        background: transparent;
+        box-shadow: none;
         padding: 0;
         margin: 0;
         width: 100%;
@@ -1007,17 +1133,15 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin-bottom: 0px;
     }
 
-    /* ==========================================================================
-       🏠 מאפייני הנכס (Features Grid)
-       ========================================================================== */
+    /* 🏠 מאפייני הנכס (Features Grid) */
     .modal-features-section {
         display: flex;
         flex-direction: column;
         gap: 14px;
-        margin: 0; 
+        margin: 0;
         width: 100%;
         box-sizing: border-box;
-        padding: 0; 
+        padding: 0;
     }
 
     .features-header {
@@ -1025,13 +1149,13 @@ body.map-is-collapsed #map-toggle-btn svg {
         font-size: 15px;
         font-weight: 700;
         color: #111827;
-        text-align: right; 
+        text-align: right;
         margin-bottom: 0px;
     }
 
     .features-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
         width: 100%;
         box-sizing: border-box;
@@ -1041,10 +1165,10 @@ body.map-is-collapsed #map-toggle-btn svg {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #f4f6f9; 
-        border: 1px solid #cacedb; 
-        border-radius: 50px !important; 
-        padding: 8px 14px; 
+        background-color: #f4f6f9;
+        border: 1px solid #cacedb;
+        border-radius: 50px !important;
+        padding: 8px 14px;
         cursor: pointer;
         transition: all 0.2s ease;
         box-shadow: 0 1px 3px rgba(0,0,0,0.02);
@@ -1099,8 +1223,8 @@ body.map-is-collapsed #map-toggle-btn svg {
     }
 
     .feature-btn.selected {
-        background-color: #eafaf1; 
-        border-color: #14804a; 
+        background-color: #eafaf1;
+        border-color: #14804a;
     }
 
     .feature-btn.selected .feature-content {
@@ -1121,7 +1245,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         color: #14804a;
     }
 
-    /* 🗺️ עיצוב תבנית "עיון במפה" - ממורכזת */
+    /* 🗺️ כפתור "עיון במפה" - ממורכז */
     .map-row-center {
         display: flex !important;
         justify-content: center !important;
@@ -1171,31 +1295,31 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin: 0 !important;
     }
 
-    /* ==========================================================================
-       🧹 סרגל תחתון (Footer)
-       ========================================================================== */
+    /* Footer של המסך הנפתח - צל אולטרה עדין מעל הכפתורים */
     .mobile-search-modal .modal-footer-actions {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        padding: 8px 20px; 
-        background-color: #ffffff;
-        border-top: 1px solid #e5e7eb;
-        box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+        padding: 8px 20px;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-top: 1px solid #f3f4f6 !important;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.03) !important;
         z-index: 10;
         flex-shrink: 0;
-        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); 
+        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
     }
 
     .mobile-search-modal .reset-filters-btn,
     .mobile-search-modal .apply-filters-btn {
-        flex: 1; 
+        flex: 1;
         background-color: #ffffff;
         color: #374151;
-        border: 1px solid #d1d5db; 
-        border-radius: 10px !important; 
-        height: 36px; 
+        border: 1px solid #d1d5db;
+        border-radius: 10px !important;
+        height: 36px;
         font-size: 12.5px;
         font-weight: 400;
         font-family: 'Heebo', sans-serif;
@@ -1211,14 +1335,14 @@ body.map-is-collapsed #map-toggle-btn svg {
 
     .mobile-search-modal .reset-filters-btn:active,
     .mobile-search-modal .apply-filters-btn:active {
-        background-color: #bda082 !important; 
+        background-color: #bda082 !important;
         border-color: #bda082 !important;
         color: #ffffff !important;
         transform: scale(0.97);
     }
 
     /* ==========================================================================
-       🗺️ 3. מסך מפה מלא הנפתח במובייל (Map Modal - High Quality)
+       🗺️ 3. מסך מפה מלא הנפתח במובייל
        ========================================================================== */
     .mobile-map-modal {
         display: flex !important;
@@ -1237,9 +1361,9 @@ body.map-is-collapsed #map-toggle-btn svg {
         transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         transform: translate3d(0, 24px, 0);
         direction: rtl;
-        padding: 0 !important; 
+        padding: 0 !important;
         box-sizing: border-box;
-        overflow: hidden !important; 
+        overflow: hidden !important;
     }
 
     .mobile-map-modal.active {
@@ -1262,7 +1386,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         height: 100%;
     }
 
-    /* 🔍 מקשי הזום (+/-) - יציבים, ללא מצמוץ! */
+    /* 🔍 מקשי הזום (+/-) */
     .mobile-map-modal .leaflet-control-zoom {
         border: none !important;
         margin: 16px !important;
@@ -1300,7 +1424,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         transform: scale(1.08) !important;
     }
 
-    /* 🏠 כרטיסיית המידע (Popup) - מרווחת, רחבה ויוקרתית */
+    /* 🏠 כרטיסיית המידע (Popup) */
     .mobile-map-modal .leaflet-popup-content-wrapper {
         background: #ffffff !important;
         border-radius: 16px !important;
@@ -1308,7 +1432,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         padding: 4px !important;
         direction: rtl !important;
         text-align: center !important;
-        min-width: 180px !important; /* רוחב נדיב ונושם */
+        min-width: 180px !important;
     }
 
     .mobile-map-modal .leaflet-popup-content {
@@ -1345,16 +1469,40 @@ body.map-is-collapsed #map-toggle-btn svg {
     }
 
     .mobile-map-modal .custom-map-popup .popup-price {
-        font-size: 15px; /* מחיר בולט */
+        font-size: 19px;
         font-weight: 700;
         color: #875b33;
     }
 
     .mobile-map-modal .custom-map-popup .popup-address {
-        font-size: 15px;
+        font-size: 13.5px;
         font-weight: 400;
         color: #6b7280;
         margin-top: 3px;
         white-space: nowrap;
     }
-}
+
+    /* 🖼️ הסתרת כפתורי החצים במובייל בלבד */
+    .property-card .card-media .nav-btn,
+    .property-card .card-media .prev-btn,
+    .property-card .card-media .next-btn,
+    .property-card .card-media .slider-arrow,
+    .property-card .card-media .arrow,
+    .property-card .card-media .swiper-button-next,
+    .property-card .card-media .swiper-button-prev,
+    .property-card .card-media .slick-arrow,
+    .property-card .card-media [class*="next"],
+    .property-card .card-media [class*="prev"] {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* חוויית החלקה נקייה ללא התנגשות בגלילת העמוד */
+    .property-card .card-media {
+        touch-action: pan-y !important;
+        user-select: none !important;
+        -webkit-user-drag: none !important;
+    }
+
+} /* סוף המדיה-קווארי של המובייל */
