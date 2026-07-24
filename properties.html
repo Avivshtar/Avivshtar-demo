@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>השקעות בארץ - נכסים</title>
     
+    <!-- ⚡ preconnect & dns-prefetch לטעינת מפה במיידי -->
+    <link rel="preconnect" href="https://mt1.google.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mt1.google.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="./style.css">
@@ -144,7 +150,6 @@
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
                     <select class="native-filter-select">
                         <option value="" selected>מצב הנכס</option>
-                        <option value="new_developer">חדש מקבלן</option>
                         <option value="new_5_years">חדש (עד 5 שנים)</option>
                         <option value="renovated_5_years">משופץ (עד 5 שנים)</option>
                         <option value="needs_renovation">דרוש שיפוץ</option>
@@ -180,12 +185,12 @@
             <div class="min-max-inputs-row">
                 <div class="min-max-field">
                     <label>Min</label>
-                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלד מחיר...">
+                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלידו מחיר...">
                 </div>
                 <span class="dash-separator">-</span>
                 <div class="min-max-field">
                     <label>Max</label>
-                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלד מחיר...">
+                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלידו מחיר...">
                 </div>
             </div>
 
@@ -262,12 +267,12 @@
                 <div class="min-max-inputs-row">
                     <div class="min-max-field">
                         <label>Min</label>
-                        <input type="text" id="modal-min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלד מחיר...">
+                        <input type="text" id="modal-min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלידו מחיר...">
                     </div>
                     <span class="dash-separator">-</span>
                     <div class="min-max-field">
                         <label>Max</label>
-                        <input type="text" id="modal-max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלד מחיר...">
+                        <input type="text" id="modal-max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלידו מחיר...">
                     </div>
                 </div>
             </div>
@@ -462,7 +467,6 @@
                         <option value="7">קומה 7</option>
                         <option value="8">קומה 8</option>
                         <option value="9">קומה 9</option>
-                        <option value="10">קומה 10</option>
                         <option value="10+">קומה 10+</option>
                     </select>
                 </div>
@@ -486,7 +490,6 @@
                         <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
                         <select class="native-filter-select">
                             <option value="" selected>מצב הנכס</option>
-                            <option value="new_developer">חדש מקבלן</option>
                             <option value="new_5_years">חדש (עד 5 שנים)</option>
                             <option value="renovated_5_years">משופץ (עד 5 שנים)</option>
                             <option value="needs_renovation">דרוש שיפוץ</option>
@@ -585,7 +588,7 @@
         };
     </script>
 
-    <!-- 📱 סקריפט מובייל מלא -->
+    <!-- 📱 סקריפט מובייל מותאם לביצועים אולטרה מהירים במפה -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth > 768) return;
@@ -933,8 +936,64 @@
         if (moreFiltersBtn) moreFiltersBtn.addEventListener('click', openModal);
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-        // 🗺️ מפה מודלית
+        // ⚡ 🗺️ מפה מודלית אולטרה מהירה (Pre-initialization & Canvas mode)
         let mobileLeafletMap = null;
+
+        const initLeafletMapSilently = () => {
+            if (mobileLeafletMap || typeof L === 'undefined') return;
+
+            // ⚡ preferCanvas: true מעביר לרנדור מואץ בכרטיס המסך
+            mobileLeafletMap = L.map('mobile-map-container', { 
+                zoomControl: true,
+                preferCanvas: true 
+            }).setView([32.0731, 34.7900], 11);
+            
+            // ⚡ keepBuffer & updateWhenIdle מבטלים תקיעות בעת הזזת המפה
+            L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&scale=2', {
+                maxZoom: 20,
+                tileSize: 256,
+                zoomOffset: 0,
+                detectRetina: true,
+                keepBuffer: 4,
+                updateWhenIdle: true,
+                attribution: '© Google Maps'
+            }).addTo(mobileLeafletMap);
+
+            const customPinIcon = L.divIcon({
+                className: 'custom-map-marker-container',
+                html: '<div class="premium-brown-pin"></div>',
+                iconSize: [26, 26],
+                iconAnchor: [13, 26],
+                popupAnchor: [0, -28]
+            });
+
+            const propertyList = [
+                { coords: [32.0731, 34.8120], price: '3,200,000 ₪', address: 'כצנלסון 45, גבעתיים' },
+                { coords: [32.0800, 34.7800], price: '4,500,000 ₪', address: 'דיזנגוף 120, תל אביב' },
+                { coords: [32.3214, 34.8532], price: '2,850,000 ₪', address: 'הרצל 12, נתניה' },
+                { coords: [32.1750, 34.9069], price: '3,900,000 ₪', address: 'אחוזה 88, רעננה' },
+                { coords: [31.9622, 34.8014], price: '2,450,000 ₪', address: 'רוטשילד 30, ראשון לציון' },
+                { coords: [31.8015, 34.6433], price: '1,950,000 ₪', address: 'העצמאות 5, אשדוד' }
+            ];
+
+            propertyList.forEach(prop => {
+                const marker = L.marker(prop.coords, { icon: customPinIcon }).addTo(mobileLeafletMap);
+                const popupHtml = `
+                    <div class="custom-map-popup">
+                        <div class="popup-price">${prop.price}</div>
+                        <div class="popup-address">${prop.address}</div>
+                    </div>
+                `;
+                marker.bindPopup(popupHtml, { closeButton: true, offset: [0, 0] });
+            });
+        };
+
+        // 🚀 טעינה שקטה ברקע בזמן שהדפדפן פנוי (קורה מיידית לפני הלחיצה!)
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => initLeafletMapSilently());
+        } else {
+            setTimeout(initLeafletMapSilently, 1000);
+        }
 
         const openMapModal = () => {
             closeModal(); 
@@ -942,49 +1001,12 @@
                 mapModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
 
-                if (!mobileLeafletMap && typeof L !== 'undefined') {
-                    mobileLeafletMap = L.map('mobile-map-container', { zoomControl: true }).setView([32.0731, 34.7900], 11);
-                    
-                    L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&scale=2', {
-                        maxZoom: 20,
-                        tileSize: 256,
-                        zoomOffset: 0,
-                        detectRetina: true,
-                        attribution: '© Google Maps'
-                    }).addTo(mobileLeafletMap);
+                initLeafletMapSilently();
 
-                    const customPinIcon = L.divIcon({
-                        className: 'custom-map-marker-container',
-                        html: '<div class="premium-brown-pin"></div>',
-                        iconSize: [26, 26],
-                        iconAnchor: [13, 26],
-                        popupAnchor: [0, -28]
-                    });
-
-                    const propertyList = [
-                        { coords: [32.0731, 34.8120], price: '3,200,000 ₪', address: 'כצנלסון 45, גבעתיים' },
-                        { coords: [32.0800, 34.7800], price: '4,500,000 ₪', address: 'דיזנגוף 120, תל אביב' },
-                        { coords: [32.3214, 34.8532], price: '2,850,000 ₪', address: 'הרצל 12, נתניה' },
-                        { coords: [32.1750, 34.9069], price: '3,900,000 ₪', address: 'אחוזה 88, רעננה' },
-                        { coords: [31.9622, 34.8014], price: '2,450,000 ₪', address: 'רוטשילד 30, ראשון לציון' },
-                        { coords: [31.8015, 34.6433], price: '1,950,000 ₪', address: 'העצמאות 5, אשדוד' }
-                    ];
-
-                    propertyList.forEach(prop => {
-                        const marker = L.marker(prop.coords, { icon: customPinIcon }).addTo(mobileLeafletMap);
-                        const popupHtml = `
-                            <div class="custom-map-popup">
-                                <div class="popup-price">${prop.price}</div>
-                                <div class="popup-address">${prop.address}</div>
-                            </div>
-                        `;
-                        marker.bindPopup(popupHtml, { closeButton: true, offset: [0, 0] });
-                    });
-                }
-
-                setTimeout(() => {
+                // ⚡ עדכון גודל מיידי ללא השהייה מעצבנת
+                requestAnimationFrame(() => {
                     if (mobileLeafletMap) mobileLeafletMap.invalidateSize();
-                }, 200);
+                });
             }
         };
 
