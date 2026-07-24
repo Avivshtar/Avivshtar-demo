@@ -29,40 +29,33 @@
     --מפה-רדיוס: 16px;                   
     --צבע-סיכה-חום-בהיר: #bda082; 
 
-    /* ==========================================================================
-       🗺️ [שלט 1] - מצב רגיל (המפה פתוחה לרווחה)
-       ========================================================================== */
+    /* 🗺️ מצב רגיל (המפה פתוחה לרווחה) */
     --מפה-רוחב: 32%;                     
     
     --חיפוש-מיקום-אופקי: 218px;          
     --חיפוש-מיקום-אנכי: -350px;          
 
-    --סינונים-מיקום-אופקי: 218px;         
-    --סינונים-מיקום-אנכי: -350px;         
+    --סינונים-מיקום-אופקי: 218px;        
+    --סינונים-מיקום-אנכי: -350px;        
 
     --כרטיסיות-מיקום-אופקי: 213px;       
     --כרטיסיות-מיקום-אנכי: -300px;        
 
-    /* ==========================================================================
-       ⚡ [שלט 2] - מצב מכווץ (המפה נכנסת שמאלה)
-       ========================================================================== */
+    /* ⚡ מצב מכווץ (המפה נכנסת שמאלה) */
     --מפה-רוחב-מכווץ-px: 180px;          
     
     --חיפוש-מיקום-אופקי-מכווץ: 100px;      
     --חיפוש-מיקום-אנכי-מכווץ: -350px;    
 
     --סינונים-מיקום-אופקי-מכווץ: 100px;     
-    --סינונים-מיקום-אנכי-מכווץ: -350px;     
+    --סינונים-מיקום-אנכי-מכווץ: -350px;    
 
     --כרטיסיות-מיקום-אופקי-מכווץ: 100px;    
     --כרטיסיות-מיקום-אנכי-מכווץ: -300px;    
 
-    /* 🔥 שתי השורות החדשות שלך לגודל הכרטיסיות במצב מכווץ! */
     --כרטיסיה-רוחב-מכווץ: 300px; 
     --כרטיסיה-גובה-מכווץ: 400px;
-
 }
-/* ========================================================================== */
 
 body { margin: 0; padding: 0; background-color: #ffffff !important; font-family: 'Heebo', sans-serif; overflow-x: hidden !important; }
 
@@ -92,7 +85,7 @@ body .header-container::after { content: var(--כותרת-אמצע-טקסט) !im
 .properties-banner-img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; }
 #properties-page { max-width: 1200px; margin: 0 auto; padding-top: 0px; padding-bottom: 60px; text-align: center; position: relative !important; }
 
-/* שורת חיפוש */
+/* שורת חיפוש מחשב */
 .pro-search-wrapper { 
     width: 100%; max-width: 526px; margin-left: auto; margin-right: auto; direction: rtl; margin-top: 80px !important; margin-bottom: 40px; position: relative; 
     top: var(--חיפוש-מיקום-אנכי) !important; 
@@ -117,7 +110,7 @@ body .header-container::after { content: var(--כותרת-אמצע-טקסט) !im
 .pro-search-btn:hover { color: #a8a8a8; transform: scale(1.18); }
 .pro-search-icon { width: 20px; height: 20px; display: block; }
 
-/* פאנל ה-AI - תוקן עם !important כדי שייפתח בטוח */
+/* פאנל ה-AI */
 .ai-suggestions-panel { 
     max-height: 0 !important; opacity: 0 !important; overflow: hidden !important; pointer-events: none !important; padding: 0 28px !important;
     width: 650px !important; position: relative !important; right: auto !important; top: auto !important; margin-right: -62px !important; margin-left: -62px !important; margin-top: 0px !important; background: #ffffff !important; border: 1px solid transparent !important; border-radius: 40px !important; box-shadow: none !important; z-index: 4 !important; 
@@ -185,9 +178,7 @@ body .header-container::after { content: var(--כותרת-אמצע-טקסט) !im
 .leaflet-control-zoom-in, .leaflet-control-zoom-out { background: rgba(255, 255, 255, 0.9) !important; color: #333 !important; border-radius: 8px !important; border: 1px solid rgba(0, 0, 0, 0.05) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; width: 30px !important; height: 30px !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: all 0.2s ease !important; margin: 0 !important; }
 .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover { background: #ffffff !important; transform: scale(1.05) !important; }
 
-/* ==========================================================================
-   🔘 כפתור ה-Toggle זכוכית (50x50, אייקון 26, אפור -> חום, טשטוש חזק)
-   ========================================================================== */
+/* 🔘 כפתור ה-Toggle זכוכית */
 #map-toggle-btn {
     position: absolute !important;
     top: 50% !important;
@@ -197,7 +188,6 @@ body .header-container::after { content: var(--כותרת-אמצע-טקסט) !im
     height: 50px !important;   
     right: -25px !important; 
     
-    /* 🔥 שקיפות מקסימלית (רואים הכל מאחורה) */
     background: rgba(255, 255, 255, 0.03) !important;
     backdrop-filter: blur(6px) saturate(140%) !important;
     -webkit-backdrop-filter: blur(6px) saturate(140%) !important;
@@ -224,24 +214,20 @@ body .header-container::after { content: var(--כותרת-אמצע-טקסט) !im
     transform: translateY(-50%) scale(0.95) !important; 
 }
 
-/* החץ הפנימי */
 #map-toggle-btn svg { 
     width: 26px !important; 
     height: 26px !important; 
     stroke-width: 0.9px !important; 
-    color: #555555 !important; /* אפור עדין במצב רגיל */
+    color: #555555 !important; 
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease !important; 
 }
 #map-toggle-btn svg polyline { stroke-width: 0.9px !important; }
 
-/* מעבר צבע לחום עשיר בריחוף */
 #map-toggle-btn:hover svg {
     color: #875b33 !important; 
 }
 
-/* ==========================================================================
-   ⚡ מצב פעיל (Collapsed State) - הזרקת נתונים
-   ========================================================================== */
+/* ⚡ מצב פעיל (Collapsed State) */
 body.map-is-collapsed {
     --מפה-רוחב: var(--מפה-רוחב-מכווץ-px) !important; 
     
@@ -254,10 +240,966 @@ body.map-is-collapsed {
     --כרטיסיות-מיקום-אופקי: var(--כרטיסיות-מיקום-אופקי-מכווץ) !important;
     --כרטיסיות-מיקום-אנכי: var(--כרטיסיות-מיקום-אנכי-מכווץ) !important;
 
-    /* 🔥 מכריח את הכרטיסיות לקבל את הגדלים החדשים מהשלט! */
     --כרטיסיה-רוחב: var(--כרטיסיה-רוחב-מכווץ) !important;
     --כרטיסיה-גובה: var(--כרטיסיה-גובה-מכווץ) !important;
 }
 body.map-is-collapsed #map-toggle-btn svg {
     transform: rotate(180deg) !important;
+}
+
+/* ======================================================= */
+/* 💻 דסקטופ (מחשב) - מוגן 100% ללא שום שינוי                 */
+/* ======================================================= */
+.mobile-search-launcher,
+.mobile-search-modal {
+    display: none !important;
+}
+
+/* ======================================================= */
+/* 🌐 כללי - קיבוע החיפוש בדף הראשי מבחוץ (Sticky)         */
+/* ======================================================= */
+.pro-search-wrapper {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 998 !important;
+    background-color: #ffffff;
+    /* תוספת קטנה כדי למנוע קו לבן דק מעל החיפוש בגלילה */
+    margin-top: -1px; 
+}
+
+/* ======================================================= */
+/* 📱 מובייל בלבד (עד 768px)                              */
+/* ======================================================= */
+@media (max-width: 768px) {
+
+    /* הסתרת התוכן של המחשב במובייל */
+    .properties-banner-container,
+    #properties-page,
+    #map-wrapper-section {
+        display: none !important;
+    }
+
+    /* 1. הסרגל הצף בתחתית המסך */
+    .mobile-search-launcher {
+        display: flex !important;
+        flex-direction: column;
+        gap: 12px;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background-color: #ffffff !important;
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        padding: 12px 20px 24px 20px;
+        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.1);
+        z-index: 99990 !important;
+        direction: rtl;
+        box-sizing: border-box;
+        cursor: pointer;
+        touch-action: none !important;
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .mobile-search-launcher.collapsed {
+        transform: translate3d(0, 118px, 0) !important;
+    }
+
+    .mobile-search-launcher .drag-handle {
+        width: 40px;
+        height: 4px;
+        background-color: #d1d5db;
+        border-radius: 10px;
+        margin: 0 auto 2px auto;
+        cursor: grab;
+    }
+
+    /* תיבת החיפוש */
+    .mobile-search-launcher .launcher-box {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 50px;
+        padding: 10px 16px;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+    /* 🚨 התיקון לזכוכית המגדלת הענקית ולמפה 🚨 */
+    .mobile-search-launcher .icon-search {
+        width: 20px !important;
+        height: 20px !important;
+        color: #6b7280;
+        flex-shrink: 0;
+    }
+
+    .mobile-search-launcher .icon-map {
+        width: 22px !important;
+        height: 22px !important;
+        color: #4b5563;
+        transform: translateY(3px);
+        flex-shrink: 0;
+    }
+
+    .mobile-search-launcher .search-divider {
+        width: 1px !important;
+        height: 24px !important;
+        background-color: #e5e7eb;
+        flex-shrink: 0;
+    }
+
+    .mobile-search-launcher .launcher-placeholder {
+        width: 100%;
+        font-size: 16px;
+        color: #9ca3af;
+        font-family: 'Heebo', sans-serif;
+    }
+
+    /* פילטרים מהירים */
+    .mobile-search-launcher .launcher-filters-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .mobile-search-launcher .filter-pills-row {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .mobile-search-launcher .filter-pills-row.secondary-row {
+        justify-content: center;
+        margin-top: 4px !important; 
+    }
+
+    .mobile-search-launcher .filter-pill,
+    .mobile-search-launcher .filter-pill-box {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-direction: row-reverse !important; 
+        background-color: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 50px !important;
+        height: 38px !important;
+        padding: 0 12px !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+        margin: 0 !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .mobile-search-launcher .secondary-row .filter-pill,
+    .mobile-search-launcher .secondary-row .filter-pill-box {
+        flex: 0 0 42% !important;
+        max-width: 42% !important;
+    }
+
+    .mobile-search-launcher .filter-pill span {
+        font-family: 'Heebo', sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        color: #374151 !important;
+        white-space: nowrap !important;
+        text-align: right !important;
+    }
+
+    .mobile-search-launcher .native-filter-select {
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        border: none !important;
+        outline: none !important;
+        background: transparent !important;
+        font-family: 'Heebo', sans-serif !important;
+        font-size: 12.5px !important;
+        font-weight: 500 !important;
+        color: #374151 !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: right !important;       
+        text-align-last: right !important;  
+        width: 100% !important;
+        direction: rtl !important;
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.2s ease !important;
+    }
+
+    .mobile-search-launcher .native-filter-select option {
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        direction: rtl !important;
+        text-align: right !important;
+        color: #1f2937 !important;
+    }
+
+    .mobile-search-launcher .chevron-icon {
+        width: 14px !important;
+        height: 14px !important;
+        color: #6b7280 !important;
+        flex-shrink: 0 !important;
+        pointer-events: none !important;
+        margin: 0 !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease !important;
+    }
+
+    /* ⚪ כרטיס פילטר מחיר התחתון הקופץ */
+    .cream-price-slider-card {
+        display: none;
+        position: absolute;
+        bottom: calc(100% - 5px);
+        right: 15px;
+        left: 15px;
+        background-color: #ffffff !important;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        padding: 14px 16px 12px 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        z-index: 999999;
+        flex-direction: column;
+        gap: 10px;
+        direction: rtl;
+        box-sizing: border-box;
+        animation: whitePopIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes whitePopIn {
+        from { opacity: 0; transform: scale(0.96) translateY(8px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .cream-price-slider-card.active {
+        display: flex !important;
+    }
+
+    .histogram-wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 28px;
+        padding-left: 14px;
+        padding-right: 14px;
+        margin-bottom: 2px;
+        box-sizing: border-box;
+    }
+
+    .histogram-bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 1px;
+        height: 34px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        direction: ltr !important;
+    }
+
+    .histogram-bar {
+        flex: 1;
+        background-color: #e5e7eb;
+        border-radius: 1px 1px 0 0;
+        transition: background-color 0.1s ease;
+    }
+
+    .histogram-bar.active {
+        background-color: #bda082 !important;
+    }
+
+    .dual-range-container {
+        position: relative;
+        height: 16px;
+        width: 100%;
+        margin-top: -2px;
+        direction: ltr !important;
+        box-sizing: border-box;
+    }
+
+    .slider-fill-track {
+        position: absolute;
+        height: 2.5px;
+        background-color: #bda082;
+        top: 6px;
+        border-radius: 3px;
+        z-index: 1;
+    }
+
+    .range-input {
+        position: absolute;
+        width: 100%;
+        height: 16px;
+        top: 0;
+        left: 0;
+        background: none;
+        pointer-events: none;
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        z-index: 2;
+        direction: ltr !important;
+    }
+
+    .range-input::-webkit-slider-thumb {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 2px solid #bda082;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+        pointer-events: auto;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    .floating-tooltip {
+        position: absolute;
+        top: -32px;
+        background-color: #ffffff;
+        color: #1f2937;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+        border: 1px solid #e5e7eb;
+        pointer-events: none;
+        white-space: nowrap;
+        transform: translateX(-50%);
+        transition: left 0.1s ease, transform 0.15s ease;
+        z-index: 5;
+    }
+
+    .floating-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: var(--arrow-left, 50%);
+        transform: translateX(-50%);
+        border-width: 4px;
+        border-style: solid;
+        border-color: #ffffff transparent transparent transparent;
+        transition: left 0.15s ease;
+    }
+
+    .range-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #6b7280;
+        font-weight: 600;
+        margin-top: 2px;
+        direction: ltr !important;
+    }
+
+    .min-max-inputs-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 2px;
+        box-sizing: border-box;
+    }
+
+    .min-max-field {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        text-align: right;
+        min-width: 0;
+    }
+
+    .min-max-field label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .min-max-field input {
+        width: 100%;
+        min-width: 0;
+        height: 36px;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        background-color: #ffffff;
+        text-align: center;
+        font-size: 12.5px;
+        font-weight: 300 !important;
+        color: #374151 !important;
+        font-family: 'Heebo', sans-serif;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .min-max-field input:focus {
+        border-color: #bda082;
+        box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2);
+    }
+
+    .dash-separator {
+        font-size: 14px;
+        font-weight: 300;
+        color: #9ca3af;
+        margin-top: 16px;
+    }
+
+    .apply-cream-btn {
+        background-color: #ffffff;
+        color: #374151;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        height: 36px;
+        font-size: 12.5px;
+        font-weight: 400;
+        font-family: 'Heebo', sans-serif;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 2px;
+        transition: all 0.15s ease;
+        box-shadow: none;
+    }
+
+    .apply-cream-btn:active {
+        background-color: #bda082 !important;
+        border-color: #bda082 !important;
+        color: #ffffff !important;
+    }
+
+    /* ==========================================================================
+       📱 2. מסך חיפוש מלא הנפתח (MODAL) עם Header מקובע וגלילה מושלמת
+       ========================================================================== */
+    .mobile-search-modal {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 100dvh !important;
+        background-color: #ffffff !important;
+        z-index: 999999 !important;
+        opacity: 0;
+        pointer-events: none;
+        will-change: transform, opacity;
+        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translate3d(0, 24px, 0);
+        direction: rtl;
+        padding: 0 !important; 
+        box-sizing: border-box;
+        overflow: hidden !important; 
+    }
+
+    .mobile-search-modal.active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translate3d(0, 0, 0) !important;
+    }
+
+    .mobile-search-modal .modal-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 16px 20px 12px 20px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        z-index: 10;
+        flex-shrink: 0; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+    }
+
+    .mobile-search-modal .close-modal-btn {
+        background: none;
+        border: none;
+        font-size: 26px;
+        font-weight: 400;
+        color: #374151;
+        cursor: pointer;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .mobile-search-modal .close-modal-btn:active {
+        transform: scale(0.85);
+        background-color: #f3f4f6;
+    }
+
+    .mobile-search-modal .modal-search-box {
+        display: flex;
+        align-items: center;
+        background-color: #f3f4f6;
+        border-radius: 50px;
+        padding: 8px 14px;
+        gap: 8px;
+        flex: 1;
+        direction: rtl !important;
+    }
+
+    .mobile-search-modal .real-search-input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 16px;
+        color: #1f2937;
+        background: transparent;
+        font-family: 'Heebo', sans-serif;
+    }
+
+    .mobile-search-modal .clear-input-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background-color: #d1d5db;
+        color: #4b5563;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        font-weight: bold;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .mobile-search-modal .clear-input-btn.visible {
+        display: flex !important;
+    }
+
+    .mobile-search-modal .clear-input-btn:active {
+        transform: scale(0.85);
+        background-color: #9ca3af;
+    }
+
+    .mobile-search-modal .icon-search {
+        width: 20px;
+        height: 20px;
+        color: #6b7280;
+        opacity: 0.35;
+        pointer-events: none;
+        flex-shrink: 0;
+        transition: opacity 0.2s ease, transform 0.15s ease, color 0.15s ease;
+    }
+
+    .mobile-search-modal .icon-search.active {
+        opacity: 1;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    .mobile-search-modal .icon-search.active:active {
+        transform: scale(0.8);
+        color: #111827;
+    }
+
+    /* ==========================================================================
+       📱 תוכן מסך החיפוש הנגלל (Modal Body) 
+       ========================================================================== */
+    .mobile-search-modal .modal-body {
+        padding: 24px 20px 24px 20px !important; 
+        display: flex;
+        flex-direction: column;
+        gap: 24px; 
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1 1 auto; 
+        min-height: 0; 
+        -webkit-overflow-scrolling: touch; 
+        overscroll-behavior-y: contain; 
+        transform: translateZ(0); 
+    }
+
+    .mobile-search-modal .modal-filters-row {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+
+    .mobile-search-modal .modal-filter-pill {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+        flex-direction: row-reverse; 
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 50px;
+        height: 38px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        transition: all 0.2s ease;
+    }
+
+    .mobile-search-modal .modal-filter-pill .chevron-icon {
+        width: 14px;
+        height: 14px;
+        color: #6b7280;
+        pointer-events: none;
+        margin-left: 4px;
+        margin-right: auto; 
+        flex-shrink: 0;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    }
+
+    .mobile-search-modal .modal-filter-pill .native-filter-select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: 'Heebo', sans-serif;
+        font-size: 13px; 
+        font-weight: 500;
+        color: #374151;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+        text-align-last: right;
+        width: 100%;
+        direction: rtl;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        transition: color 0.2s ease;
+    }
+
+    /* 💥✨ קסם הלחיצה (FOCUS) של פילטר בחירה ✨💥 */
+    .modal-filter-pill.select-active,
+    .filter-pill-box.select-active {
+        border-color: #bda082 !important;
+        box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2) !important;
+    }
+    
+    .modal-filter-pill.select-active .native-filter-select,
+    .filter-pill-box.select-active .native-filter-select {
+        color: #bda082 !important;
+    }
+
+    .modal-filter-pill.select-active .chevron-icon,
+    .filter-pill-box.select-active .chevron-icon {
+        color: #bda082 !important;
+        transform: rotate(180deg) !important;
+    }
+
+    /* 💥✨ קסם הבחירה הסופית (HAS VALUE) ✨💥 */
+    .modal-filter-pill.has-value,
+    .filter-pill-box.has-value {
+        border-color: #bda082 !important;
+        background-color: #fcfaf8 !important; 
+    }
+
+    .modal-filter-pill.has-value .native-filter-select,
+    .filter-pill-box.has-value .native-filter-select {
+        color: #bda082 !important;
+        font-weight: 700 !important; 
+    }
+
+    .modal-filter-pill.has-value .chevron-icon,
+    .filter-pill-box.has-value .chevron-icon {
+        color: #bda082 !important;
+    }
+
+    /* 📅 שדה התאריך "כניסה לנכס" */
+    .entry-date-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .specific-date-container {
+        display: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .specific-date-container.active {
+        display: block;
+        animation: whitePopIn 0.2s ease;
+    }
+
+    .specific-date-input {
+        width: 100%;
+        height: 38px;
+        border: 1px solid #e5e7eb;
+        border-radius: 50px;
+        background-color: #ffffff;
+        text-align: center;
+        font-size: 13.5px;
+        font-weight: 400;
+        color: #374151;
+        font-family: 'Heebo', sans-serif;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .specific-date-input:focus {
+        border-color: #bda082;
+        box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2);
+    }
+
+    /* 💸 קוביית המחירים */
+    .modal-inline-price-section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border: none;              
+        background: transparent;   
+        box-shadow: none;          
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .inline-price-header {
+        font-family: 'Heebo', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: #111827;
+        text-align: right;
+        margin-bottom: 0px;
+    }
+
+    /* ==========================================================================
+       🏠 מאפייני הנכס (Features Grid)
+       ========================================================================== */
+    .modal-features-section {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin: 0; 
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0; 
+    }
+
+    .features-header {
+        font-family: 'Heebo', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: #111827;
+        text-align: right; 
+        margin-bottom: 0px;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .feature-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f4f6f9; 
+        border: 1px solid #cacedb; 
+        border-radius: 50px; 
+        padding: 8px 14px; 
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        outline: none;
+        direction: rtl;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .feature-btn:active {
+        transform: scale(0.97);
+    }
+
+    .feature-btn .feature-content {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Heebo', sans-serif;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: #4b5563;
+        transition: color 0.2s ease;
+    }
+
+    .feature-btn .feature-svg {
+        width: 18px;
+        height: 18px;
+        color: #64748b;
+        flex-shrink: 0;
+        transition: color 0.2s ease;
+    }
+
+    .feature-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .feature-icon-wrapper svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .feature-btn .icon-cross {
+        display: block;
+        color: #6a7c92;
+    }
+
+    .feature-btn .icon-check {
+        display: none;
+    }
+
+    .feature-btn.selected {
+        background-color: #eafaf1; 
+        border-color: #14804a; 
+    }
+
+    .feature-btn.selected .feature-content {
+        color: #14804a;
+        font-weight: 600;
+    }
+
+    .feature-btn.selected .feature-svg {
+        color: #14804a;
+    }
+
+    .feature-btn.selected .icon-cross {
+        display: none;
+    }
+
+    .feature-btn.selected .icon-check {
+        display: block;
+        color: #14804a;
+    }
+
+    /* 🗺️ עיצוב תבנית "עיון במפה" - ממורכזת */
+    .map-row-center {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-top: 4px;
+    }
+
+    .map-filter-pill {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        padding: 0 16px !important;
+        height: 38px !important;
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        background-color: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 50px !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+        cursor: pointer !important;
+        transition: all 0.15s ease !important;
+    }
+
+    .map-filter-pill:active {
+        background-color: #f9fafb !important;
+        border-color: #bda082 !important;
+        transform: scale(0.97) !important;
+    }
+
+    .map-filter-pill .map-pill-title {
+        font-family: 'Heebo', sans-serif !important;
+        font-size: 13.5px !important;
+        font-weight: 500 !important;
+        color: #374151 !important;
+        white-space: nowrap !important;
+    }
+
+    .map-filter-pill .icon-map {
+        width: 16px !important;
+        height: 16px !important;
+        color: #bda082 !important;
+        flex-shrink: 0 !important;
+        transform: none !important;
+        margin: 0 !important;
+    }
+
+    /* ==========================================================================
+       🧹 סרגל תחתון (Footer) - עיצוב זהה לכפתור סינון מחירים (בדיוק כמו שביקשת)
+       ========================================================================== */
+    .mobile-search-modal .modal-footer-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 20px; 
+        background-color: #ffffff;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+        z-index: 10;
+        flex-shrink: 0;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); 
+    }
+
+    /* כפתורי הניקוי והחלה - בול כמו .apply-cream-btn */
+    .mobile-search-modal .reset-filters-btn,
+    .mobile-search-modal .apply-filters-btn {
+        flex: 1; 
+        background-color: #ffffff;
+        color: #374151;
+        border: 1px solid #d1d5db; /* אפור עדין */
+        border-radius: 10px; /* מעוגל כמו כפתור המחיר */
+        height: 36px; /* גובה כמו כפתור המחיר */
+        font-size: 12.5px;
+        font-weight: 400;
+        font-family: 'Heebo', sans-serif;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    /* אפקט לחיצה בול כמו כפתור החלת סינון מחירים (צבע שמנת / זהב!) */
+    .mobile-search-modal .reset-filters-btn:active,
+    .mobile-search-modal .apply-filters-btn:active {
+        background-color: #bda082 !important; /* זהב שמנת */
+        border-color: #bda082 !important;
+        color: #ffffff !important;
+        transform: scale(0.97);
+    }
 }

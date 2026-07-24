@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>השקעות בארץ - נכסים</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -55,8 +55,7 @@
                 <div class="custom-filter-segment"><span class="custom-filter-text">מחיר</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div><div class="custom-filter-divider"></div>
                 <div class="custom-filter-segment"><span class="custom-filter-text">חדרים</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div><div class="custom-filter-divider"></div>
                 <div class="custom-filter-segment"><span class="custom-filter-text">סוג הנכס</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div><div class="custom-filter-divider"></div>
-                <div class="custom-filter-segment"><span class="custom-filter-text">מצב הנכס</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div><div class="custom-filter-divider"></div>
-                <div class="custom-filter-segment"><span class="custom-filter-text">סינונים נוספים</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div>
+                <div class="custom-filter-segment"><span class="custom-filter-text">מצב הנכס</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div><div class="custom-filter-segment"><span class="custom-filter-text">סינונים נוספים</span><div class="custom-dropdown-circle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg></div></div>
                 <div class="custom-diagonal-line">/</div>
                 <button type="button" class="custom-filter-search-btn" aria-label="חיפוש">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -81,7 +80,458 @@
         </button>
     </div>
 
-<script type="module" src="./header.js"></script>
+    <!-- 📱 1. סרגל צף בתחתית במובייל -->
+    <div class="mobile-search-launcher">
+        <div class="drag-handle"></div>
+        
+        <!-- תיבת חיפוש צפה -->
+        <div class="launcher-box">
+            <svg class="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span class="launcher-placeholder">חיפוש...</span>
+            <div class="search-divider"></div>
+            <div class="map-btn">
+                <svg class="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- פילטרים מהירים -->
+        <div class="launcher-filters-container">
+            <div class="filter-pills-row">
+                <button class="filter-pill price-pill" id="price-pill-btn" type="button">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <span id="price-pill-title">מחיר</span>
+                </button>
+
+                <!-- 🛏️ חדרים -->
+                <div class="filter-pill-box">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>חדרים</option>
+                        <option value="1-2">1-2 חדרים</option>
+                        <option value="3">3 חדרים</option>
+                        <option value="4">4 חדרים</option>
+                        <option value="5">5 חדרים</option>
+                        <option value="6+">6+ חדרים</option>
+                    </select>
+                </div>
+
+                <!-- 🏠 סוג נכס -->
+                <div class="filter-pill-box">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>סוג נכס</option>
+                        <option value="apartment">דירה</option>
+                        <option value="garden">דירת גן</option>
+                        <option value="penthouse">פנטהאוז</option>
+                        <option value="house">בית פרטי</option>
+                        <option value="mini_penthouse">מיני - פנטהאוז</option>
+                        <option value="semi_detached">דו - משפחתי</option>
+                        <option value="cottage">קוטג'</option>
+                        <option value="duplex">דופלקס</option>
+                        <option value="triplex">טריפלקס</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-pills-row secondary-row">
+                <!-- 🔨 מצב הנכס -->
+                <div class="filter-pill-box">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>מצב הנכס</option>
+                        <option value="new_developer">חדש מקבלן</option>
+                        <option value="new_5_years">חדש (עד 5 שנים)</option>
+                        <option value="renovated_5_years">משופץ (עד 5 שנים)</option>
+                        <option value="needs_renovation">דרוש שיפוץ</option>
+                    </select>
+                </div>
+
+                <!-- ⚙️ סינונים נוספים -->
+                <button class="filter-pill" id="more-filters-btn" type="button">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <span>סינונים נוספים</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ⚪ כרטיס פילטר מחיר התחתון הקופץ -->
+        <div class="cream-price-slider-card" id="cream-price-card">
+            <div class="histogram-wrapper">
+                <div class="histogram-bars" id="histogram-bars"></div>
+
+                <div class="dual-range-container">
+                    <div class="slider-fill-track" id="slider-fill-track"></div>
+                    <input type="range" class="range-input min-range" id="min-range" min="100000" max="10000000" step="50000" value="100000">
+                    <input type="range" class="range-input max-range" id="max-range" min="100000" max="10000000" step="50000" value="10000000">
+                    <div class="floating-tooltip" id="range-tooltip">₪100K</div>
+                </div>
+
+                <div class="range-labels">
+                    <span>₪100K</span>
+                    <span>₪10M+</span>
+                </div>
+            </div>
+
+            <div class="min-max-inputs-row">
+                <div class="min-max-field">
+                    <label>Min</label>
+                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלד מחיר...">
+                </div>
+                <span class="dash-separator">-</span>
+                <div class="min-max-field">
+                    <label>Max</label>
+                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלד מחיר...">
+                </div>
+            </div>
+
+            <button type="button" class="apply-cream-btn" id="apply-price-btn">החלת סינון מחירים</button>
+        </div>
+    </div>
+
+    <!-- 📱 2. מסך חיפוש נפתח במובייל (Modal) -->
+    <div class="mobile-search-modal">
+        <!-- HEADER קבוע -->
+        <div class="modal-header">
+            <button class="close-modal-btn" type="button" aria-label="סגור">✕</button>
+            <div class="modal-search-box">
+                <button type="button" class="clear-input-btn" aria-label="מחק טקסט">✕</button>
+                <input type="text" class="real-search-input" placeholder="חפשו עיר, שכונה, כתובת..." />
+                <svg class="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- BODY נגלל פנימית -->
+        <div class="modal-body">
+            <!-- 2 המסננים הראשונים -->
+            <div class="modal-filters-row">
+                <!-- חדרים -->
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>חדרים</option>
+                        <option value="1-2">1-2 חדרים</option>
+                        <option value="3">3 חדרים</option>
+                        <option value="4">4 חדרים</option>
+                        <option value="5">5 חדרים</option>
+                        <option value="6+">6+ חדרים</option>
+                    </select>
+                </div>
+
+                <!-- סוג נכס -->
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>סוג נכס</option>
+                        <option value="apartment">דירה</option>
+                        <option value="garden">דירת גן</option>
+                        <option value="penthouse">פנטהאוז</option>
+                        <option value="house">בית פרטי</option>
+                        <option value="mini_penthouse">מיני - פנטהאוז</option>
+                        <option value="semi_detached">דו - משפחתי</option>
+                        <option value="cottage">קוטג'</option>
+                        <option value="duplex">דופלקס</option>
+                        <option value="triplex">טריפלקס</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- קוביית טווח מחירים פתוחה בתוך הדף -->
+            <div class="modal-inline-price-section">
+                <div class="inline-price-header">טווח מחירים</div>
+                
+                <div class="histogram-wrapper">
+                    <div class="histogram-bars" id="modal-histogram-bars"></div>
+                    <div class="dual-range-container">
+                        <div class="slider-fill-track" id="modal-slider-fill-track"></div>
+                        <input type="range" class="range-input min-range" id="modal-min-range" min="100000" max="10000000" step="50000" value="100000">
+                        <input type="range" class="range-input max-range" id="modal-max-range" min="100000" max="10000000" step="50000" value="10000000">
+                        <div class="floating-tooltip" id="modal-range-tooltip">₪100K</div>
+                    </div>
+                    <div class="range-labels">
+                        <span>₪100K</span>
+                        <span>₪10M+</span>
+                    </div>
+                </div>
+
+                <div class="min-max-inputs-row">
+                    <div class="min-max-field">
+                        <label>Min</label>
+                        <input type="text" id="modal-min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלד מחיר...">
+                    </div>
+                    <span class="dash-separator">-</span>
+                    <div class="min-max-field">
+                        <label>Max</label>
+                        <input type="text" id="modal-max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלד מחיר...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- גריד מאפייני הנכס -->
+            <div class="modal-features-section">
+                <div class="features-header">בחרו את העדפות הנכס</div>
+                
+                <div class="features-grid">
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 21h20"/>
+                                <path d="M4 21V10a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v11"/>
+                                <path d="M9 21V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16"/>
+                                <path d="M15 21V9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v12"/>
+                                <line x1="11.5" y1="8" x2="13.5" y2="8"/>
+                                <line x1="11.5" y1="12" x2="13.5" y2="12"/>
+                                <line x1="11.5" y1="16" x2="13.5" y2="16"/>
+                            </svg>
+                            מעלית
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.05 10.9 2 11.2 2 11.5V16c0 .6.4 1 1 1h2"/>
+                                <circle cx="7" cy="17" r="2"/>
+                                <circle cx="17" cy="17" r="2"/>
+                            </svg>
+                            חניה
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.52a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.78 0l-8-4A2 2 0 0 1 2 16.76V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"/>
+                                <polyline points="2.32 6.16 12 11 21.68 6.16"/>
+                                <line x1="12" y1="22.76" x2="12" y2="11"/>
+                            </svg>
+                            מחסן
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20"/><path d="m17 4-5 5-5-5"/><path d="m17 20-5-5-5 5"/><path d="M2 12h20"/><path d="m4 7 5 5-5 5"/><path d="m20 7-5 5 5 5"/>
+                            </svg>
+                            מיזוג
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                            ממ"ד
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+                            </svg>
+                            דוד שמש
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="10" cy="4" r="2"/>
+                                <path d="M10 8v5h4l2.5 5h2"/>
+                                <path d="M10 10h4"/>
+                                <path d="M7 13a5 5 0 1 0 6.5 4.5"/>
+                            </svg>
+                            נגישות
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+
+                    <button type="button" class="feature-btn">
+                        <span class="feature-content">
+                            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
+                                <path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/>
+                                <path d="M6 18v3"/>
+                                <path d="M18 18v3"/>
+                            </svg>
+                            מרוהט
+                        </span>
+                        <div class="feature-icon-wrapper">
+                            <svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- שורת המסננים: חניות, שירותים, מרפסת / גינה -->
+            <div class="modal-filters-row">
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>חניות</option>
+                        <option value="1">1 חניה</option>
+                        <option value="2">2 חניות</option>
+                        <option value="3+">3+ חניות</option>
+                    </select>
+                </div>
+
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>שירותים</option>
+                        <option value="1">1 שירותים</option>
+                        <option value="2">2 שירותים</option>
+                        <option value="3+">3+ שירותים</option>
+                    </select>
+                </div>
+
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>מרפסת / גינה</option>
+                        <option value="1">1 מרפסת / גינה</option>
+                        <option value="2+">2+ מרפסות / גינות</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- שורת המסננים: גודל במ"ר, קומה, סה"כ קומות -->
+            <div class="modal-filters-row">
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>גודל במ"ר</option>
+                        <option value="0-50">עד 50 מ"ר</option>
+                        <option value="50-75">50-75 מ"ר</option>
+                        <option value="75-100">75-100 מ"ר</option>
+                        <option value="100-125">100-125 מ"ר</option>
+                        <option value="125-150">125-150 מ"ר</option>
+                        <option value="150-200">150-200 מ"ר</option>
+                        <option value="200+">200+ מ"ר</option>
+                    </select>
+                </div>
+
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>קומה</option>
+                        <option value="0">קרקע</option>
+                        <option value="1">קומה 1</option>
+                        <option value="2">קומה 2</option>
+                        <option value="3">קומה 3</option>
+                        <option value="4">קומה 4</option>
+                        <option value="5">קומה 5</option>
+                        <option value="6">קומה 6</option>
+                        <option value="7">קומה 7</option>
+                        <option value="8">קומה 8</option>
+                        <option value="9">קומה 9</option>
+                        <option value="10">קומה 10</option>
+                        <option value="10+">קומה 10+</option>
+                    </select>
+                </div>
+
+                <div class="modal-filter-pill">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                    <select class="native-filter-select">
+                        <option value="" selected>סה"כ קומות</option>
+                        <option value="3">עד 3 קומות</option>
+                        <option value="5">עד 5 קומות</option>
+                        <option value="10">עד 10 קומות</option>
+                        <option value="15+">15 קומות ומעלה</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- מצב הנכס + כניסה לנכס -->
+            <div class="entry-date-wrapper">
+                <div class="modal-filters-row">
+                    <div class="modal-filter-pill">
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                        <select class="native-filter-select">
+                            <option value="" selected>מצב הנכס</option>
+                            <option value="new_developer">חדש מקבלן</option>
+                            <option value="new_5_years">חדש (עד 5 שנים)</option>
+                            <option value="renovated_5_years">משופץ (עד 5 שנים)</option>
+                            <option value="needs_renovation">דרוש שיפוץ</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-filter-pill">
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
+                        <select class="native-filter-select" id="entry-date-select">
+                            <option value="" selected>כניסה לנכס</option>
+                            <option value="flexible">גמיש</option>
+                            <option value="immediate">מיידי</option>
+                            <option value="specific">תאריך ספציפי</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="specific-date-container" id="specific-date-container">
+                    <input type="text" class="specific-date-input" id="specific-date-input" inputmode="numeric" placeholder="הקלידו את התאריך הרצוי">
+                </div>
+            </div>
+
+            <!-- 🗺️ תבנית עיון במפה ממורכזת -->
+            <div class="modal-filters-row map-row-center">
+                <button type="button" class="map-filter-pill" id="modal-open-map-btn">
+                    <span class="map-pill-title">עיון במפה</span>
+                    <svg class="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                </button>
+            </div>
+
+        </div> <!-- סיום מודל Body נגלל -->
+
+        <!-- ⬇️ סרגל תחתון קבוע (Footer) ⬇️ -->
+        <div class="modal-footer-actions">
+            <button type="button" class="reset-filters-btn" id="reset-modal-filters">ניקוי הכל</button>
+            <button type="button" class="apply-filters-btn" id="apply-modal-filters">החלת סינונים</button>
+        </div>
+
+    </div>
+
+    <!-- סקריפטים דסקטופ -->
+    <script type="module" src="./header.js"></script>
     <script type="module" src="./propertyCard.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script type="module" src="./mapLogic.js"></script>
@@ -90,14 +540,13 @@
         window.addEventListener('load', () => {
             const feedFunc = window.renderFeed || (typeof renderFeed === 'function' ? renderFeed : null);
             const dataObj = window.propertiesData || (typeof propertiesData !== 'undefined' ? propertiesData : null);
-
             if (typeof feedFunc === 'function' && dataObj) {
                 feedFunc('properties-cards-container', dataObj, true);
             }
         });
 
         document.body.classList.add('scrolled-to-search');
-        window.addEventListener('scroll', (e) => {
+        window.addEventListener('scroll', () => {
             if (!document.body.classList.contains('scrolled-to-search')) {
                 document.body.classList.add('scrolled-to-search');
             }
@@ -107,11 +556,8 @@
         window.autoTypeSearch = function(textToType) {
             const searchInput = document.querySelector('.pro-search-input');
             if (!searchInput) return;
-
             clearInterval(currentTypingAnimation);
-            searchInput.value = ''; 
-            searchInput.focus(); 
-
+            searchInput.value = ''; searchInput.focus();
             let characterIndex = 0;
             currentTypingAnimation = setInterval(() => {
                 if (characterIndex < textToType.length) {
@@ -122,6 +568,432 @@
                 }
             }, 14); 
         };
+    </script>
+
+    <!-- 📱 סקריפט מובייל -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth > 768) return;
+
+        const launcher = document.querySelector('.mobile-search-launcher');
+        const launcherBox = document.querySelector('.launcher-box');
+        const modal = document.querySelector('.mobile-search-modal');
+        const closeBtn = document.querySelector('.close-modal-btn');
+        const realInput = document.querySelector('.real-search-input');
+        const clearBtn = document.querySelector('.clear-input-btn');
+        const searchIcon = document.querySelector('.modal-search-box .icon-search');
+        const moreFiltersBtn = document.querySelector('#more-filters-btn');
+        const pricePillBtn = document.querySelector('#price-pill-btn');
+        const pricePillTitle = document.querySelector('#price-pill-title');
+        const creamPriceCard = document.querySelector('#cream-price-card');
+        const applyPriceBtn = document.querySelector('#apply-price-btn');
+
+        if (!launcher || !modal) return;
+
+        // ✨ מנגנון צביעת המסננים (פוקוס / בחירה) ✨
+        const allSelects = document.querySelectorAll('.native-filter-select');
+        allSelects.forEach(select => {
+            const parentPill = select.closest('.modal-filter-pill') || select.closest('.filter-pill-box');
+            if (parentPill) {
+                select.addEventListener('focus', () => {
+                    parentPill.classList.add('select-active');
+                });
+                
+                select.addEventListener('blur', () => {
+                    parentPill.classList.remove('select-active');
+                    checkValue();
+                });
+
+                select.addEventListener('change', () => {
+                    parentPill.classList.remove('select-active');
+                    checkValue();
+                });
+
+                const checkValue = () => {
+                    if (select.value !== '') {
+                        parentPill.classList.add('has-value');
+                    } else {
+                        parentPill.classList.remove('has-value');
+                    }
+                };
+                checkValue();
+            }
+        });
+
+        // 📅 מנגנון חכם לשדה התאריך
+        const entrySelect = document.getElementById('entry-date-select');
+        const dateContainer = document.getElementById('specific-date-container');
+        const dateInput = document.getElementById('specific-date-input');
+
+        if (entrySelect && dateContainer && dateInput) {
+            entrySelect.addEventListener('change', (e) => {
+                if (e.target.value === 'specific') {
+                    dateContainer.classList.add('active');
+                    setTimeout(() => dateInput.focus(), 50);
+                } else {
+                    dateContainer.classList.remove('active');
+                    dateInput.value = '';
+                }
+            });
+
+            dateInput.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                if (val.length > 8) val = val.substring(0, 8);
+                
+                let formatted = val;
+                if (val.length >= 5) {
+                    formatted = val.substring(0, 2) + '/' + val.substring(2, 4) + '/' + val.substring(4, 8);
+                } else if (val.length >= 3) {
+                    formatted = val.substring(0, 2) + '/' + val.substring(2, 4);
+                }
+                e.target.value = formatted;
+            });
+        }
+
+        // פונקציה לטעינת סליידר
+        const initPriceSlider = (prefix) => {
+            const minInput = document.querySelector(`#${prefix}min-range`);
+            const maxInput = document.querySelector(`#${prefix}max-range`);
+            const minBox = document.querySelector(`#${prefix}min-price-box`);
+            const maxBox = document.querySelector(`#${prefix}max-price-box`);
+            const sliderFillTrack = document.querySelector(`#${prefix}slider-fill-track`);
+            const barsContainer = document.querySelector(`#${prefix}histogram-bars`);
+            const tooltip = document.querySelector(`#${prefix}range-tooltip`);
+
+            if (!minInput || !maxInput) return;
+
+            const barHeights = [
+                12, 18, 26, 34, 42, 52, 65, 80, 92, 100, 88, 76, 85, 95, 82, 74, 80, 88,
+                75, 62, 70, 82, 90, 84, 72, 60, 50, 42, 34, 28, 22, 18, 15, 12, 14, 18,
+                16, 14, 12, 10, 12, 11, 9, 8, 7, 6, 8, 7, 5, 4, 3, 3, 2, 2, 4, 3, 2, 1, 1, 1
+            ];
+            const barElements = [];
+
+            if (barsContainer) {
+                barsContainer.innerHTML = '';
+                barHeights.forEach((h) => {
+                    const bar = document.createElement('div');
+                    bar.className = 'histogram-bar active';
+                    bar.style.height = `${h}%`;
+                    barsContainer.appendChild(bar);
+                    barElements.push(bar);
+                });
+            }
+
+            const formatNumberWithCommas = (str) => {
+                let digits = str.toString().replace(/\D/g, '');
+                if (!digits) return '';
+                return Number(digits).toLocaleString('en-US');
+            };
+
+            const formatPriceShort = (val) => {
+                val = parseInt(val);
+                if (val >= 10000000) return '₪10M+';
+                if (val <= 100000) return '₪100K';
+                if (val >= 1000000) return `₪${(val / 1000000).toFixed(1).replace('.0', '')}M`;
+                if (val >= 1000) return `₪${Math.round(val / 1000)}K`;
+                return `₪${val}`;
+            };
+
+            const formatPrice = (val, isMin = false) => {
+                val = parseInt(val);
+                if (isMin && val <= 100000) return 'ללא מינימום';
+                if (!isMin && val >= 10000000) return 'ללא מקסימום';
+                return formatPriceShort(val);
+            };
+
+            const updateSlider = (activeInput = 'min') => {
+                let minVal = parseInt(minInput.value);
+                let maxVal = parseInt(maxInput.value);
+
+                if (minVal > maxVal) {
+                    if (activeInput === 'min') {
+                        maxInput.value = minVal;
+                        maxVal = minVal;
+                    } else {
+                        minInput.value = maxVal;
+                        minVal = maxVal;
+                    }
+                }
+
+                const minRangeVal = parseInt(minInput.min);
+                const maxRangeVal = parseInt(minInput.max);
+                const totalRange = maxRangeVal - minRangeVal;
+                const minPercent = ((minVal - minRangeVal) / totalRange) * 100;
+                const maxPercent = ((maxVal - minRangeVal) / totalRange) * 100;
+
+                if (sliderFillTrack) {
+                    sliderFillTrack.style.left = `${minPercent}%`;
+                    sliderFillTrack.style.width = `${maxPercent - minPercent}%`;
+                }
+
+                if (tooltip) {
+                    const activePercent = (activeInput === 'min') ? minPercent : maxPercent;
+                    const activeVal = (activeInput === 'min') ? minVal : maxVal;
+                    tooltip.style.left = `${activePercent}%`;
+                    
+                    if (activePercent <= 20) {
+                        tooltip.style.transform = 'translateX(0%)';
+                        tooltip.style.setProperty('--arrow-left', '14px');
+                    } else if (activePercent >= 80) {
+                        tooltip.style.transform = 'translateX(-100%)';
+                        tooltip.style.setProperty('--arrow-left', 'calc(100% - 14px)');
+                    } else {
+                        tooltip.style.transform = 'translateX(-50%)';
+                        tooltip.style.setProperty('--arrow-left', '50%');
+                    }
+
+                    tooltip.textContent = formatPriceShort(activeVal);
+                }
+
+                if (minBox && document.activeElement !== minBox) minBox.value = formatPrice(minVal, true);
+                if (maxBox && document.activeElement !== maxBox) maxBox.value = formatPrice(maxVal, false);
+
+                const count = barElements.length;
+                barElements.forEach((bar, index) => {
+                    const barPercent = (index / count) * 100;
+                    if (barPercent >= minPercent && barPercent <= maxPercent) {
+                        bar.classList.add('active');
+                    } else {
+                        bar.classList.remove('active');
+                    }
+                });
+            };
+
+            minInput.addEventListener('input', () => updateSlider('min'));
+            maxInput.addEventListener('input', () => updateSlider('max'));
+            setTimeout(() => updateSlider('min'), 50);
+
+            if (minBox && maxBox) {
+                minBox.addEventListener('focus', () => {
+                    let v = parseInt(minInput.value);
+                    minBox.value = v <= 100000 ? '' : formatNumberWithCommas(v);
+                });
+                minBox.addEventListener('input', () => {
+                    let digits = minBox.value.replace(/\D/g, '');
+                    if (digits !== '') {
+                        minBox.value = formatNumberWithCommas(digits);
+                        let num = parseInt(digits);
+                        if (num > 10000000) num = 10000000;
+                        minInput.value = num;
+                        updateSlider('min');
+                    } else { minBox.value = ''; }
+                });
+                minBox.addEventListener('blur', () => { minBox.value = formatPrice(minInput.value, true); });
+
+                maxBox.addEventListener('focus', () => {
+                    let v = parseInt(maxInput.value);
+                    maxBox.value = v >= 10000000 ? '' : formatNumberWithCommas(v);
+                });
+                maxBox.addEventListener('input', () => {
+                    let digits = maxBox.value.replace(/\D/g, '');
+                    if (digits !== '') {
+                        maxBox.value = formatNumberWithCommas(digits);
+                        let num = parseInt(digits);
+                        if (num > 10000000) num = 10000000;
+                        maxInput.value = num;
+                        updateSlider('max');
+                    } else { maxBox.value = ''; }
+                });
+                maxBox.addEventListener('blur', () => { maxBox.value = formatPrice(maxInput.value, false); });
+            }
+        };
+
+        initPriceSlider(''); 
+        initPriceSlider('modal-'); 
+
+        // כפתור חלון מחיר תחתון (פתיחה וסגירה)
+        if (pricePillBtn && creamPriceCard) {
+            pricePillBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                creamPriceCard.classList.toggle('active');
+            });
+
+            if (applyPriceBtn) {
+                applyPriceBtn.addEventListener('click', () => {
+                    creamPriceCard.classList.remove('active');
+                    const minInput = document.querySelector('#min-range');
+                    const maxInput = document.querySelector('#max-range');
+                    const formatPriceShort = (val) => {
+                        val = parseInt(val);
+                        if (val >= 10000000) return '₪10M+';
+                        if (val <= 100000) return '₪100K';
+                        if (val >= 1000000) return `₪${(val / 1000000).toFixed(1).replace('.0', '')}M`;
+                        if (val >= 1000) return `₪${Math.round(val / 1000)}K`;
+                        return `₪${val}`;
+                    };
+                    const minText = parseInt(minInput.value) <= 100000 ? 'ללא מינימום' : formatPriceShort(minInput.value);
+                    const maxText = parseInt(maxInput.value) >= 10000000 ? 'ללא מקסימום' : formatPriceShort(maxInput.value);
+
+                    if (minText === 'ללא מינימום' && maxText === 'ללא מקסימום') {
+                        pricePillTitle.textContent = 'מחיר';
+                    } else {
+                        pricePillTitle.textContent = `${minText} - ${maxText}`;
+                    }
+                });
+            }
+
+            document.addEventListener('click', (e) => {
+                if (!creamPriceCard.contains(e.target) && !pricePillBtn.contains(e.target)) {
+                    creamPriceCard.classList.remove('active');
+                }
+            });
+        }
+
+        // ניהול בחירת מאפייני הנכס (לחיצה הופכת לירוק)
+        const featureButtons = document.querySelectorAll('.feature-btn');
+        featureButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('selected');
+            });
+        });
+
+        // פתיחה וסגירת המודל - חסימת הגלילה המעצבנת באייפון
+        const openModal = () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+            if (realInput) setTimeout(() => realInput.focus(), 60);
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; 
+            if (realInput) realInput.blur();
+        };
+
+        if (launcherBox) launcherBox.addEventListener('click', openModal);
+        if (moreFiltersBtn) moreFiltersBtn.addEventListener('click', openModal);
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+        // 🧹 מנגנון ניקוי ושמירת פילטרים מהסרגל התחתון החדש 🧹
+        const resetModalBtn = document.getElementById('reset-modal-filters');
+        const applyModalBtn = document.getElementById('apply-modal-filters');
+
+        if (resetModalBtn) {
+            resetModalBtn.addEventListener('click', () => {
+                // מנקה תיבת חיפוש
+                if (realInput) {
+                    realInput.value = '';
+                    clearBtn.classList.remove('visible');
+                    searchIcon.classList.remove('active');
+                }
+                
+                // מנקה סליידרים במודל
+                const minRange = document.getElementById('modal-min-range');
+                const maxRange = document.getElementById('modal-max-range');
+                if (minRange && maxRange) {
+                    minRange.value = 100000;
+                    maxRange.value = 10000000;
+                    minRange.dispatchEvent(new Event('input'));
+                }
+
+                // מנקה תאריך
+                if (dateInput) {
+                    dateInput.value = '';
+                    dateContainer.classList.remove('active');
+                }
+
+                // מנקה Dropdowns
+                allSelects.forEach(select => {
+                    select.value = '';
+                    const parentPill = select.closest('.modal-filter-pill') || select.closest('.filter-pill-box');
+                    if (parentPill) {
+                        parentPill.classList.remove('has-value');
+                        parentPill.classList.remove('select-active');
+                    }
+                });
+
+                // מנקה מאפייני נכס
+                featureButtons.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+            });
+        }
+
+        if (applyModalBtn) {
+            applyModalBtn.addEventListener('click', () => {
+                closeModal(); // כרגע פשוט סוגר יפה את המודל ושומר את הבחירות שעשינו בתוכו
+            });
+        }
+
+        // גרירת המגירה התחתונה
+        let startY = 0;
+        let currentY = 0;
+        let isDragging = false;
+        let isCollapsed = false;
+        const collapseOffset = 118;
+
+        launcher.addEventListener('touchstart', (e) => {
+            if (creamPriceCard && creamPriceCard.contains(e.target)) return;
+            if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
+
+            startY = e.touches[0].clientY;
+            currentY = startY;
+            isDragging = true;
+            launcher.style.transition = 'none';
+        }, { passive: true });
+
+        launcher.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            if (e.cancelable) e.preventDefault();
+
+            currentY = e.touches[0].clientY;
+            const deltaY = currentY - startY;
+
+            if (!isCollapsed) {
+                if (deltaY > 0) {
+                    const move = Math.min(deltaY, collapseOffset + 20);
+                    launcher.style.transform = `translate3d(0, ${move}px, 0)`;
+                }
+            } else {
+                if (deltaY < 0) {
+                    const move = Math.max(collapseOffset + deltaY, -20);
+                    launcher.style.transform = `translate3d(0, ${move}px, 0)`;
+                }
+            }
+        }, { passive: false });
+
+        launcher.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            launcher.style.transition = 'transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1)';
+            const deltaY = currentY - startY;
+
+            if (!isCollapsed && deltaY > 30) {
+                isCollapsed = true;
+                launcher.classList.add('collapsed');
+                if (creamPriceCard) creamPriceCard.classList.remove('active');
+            } else if (isCollapsed && deltaY < -30) {
+                isCollapsed = false;
+                launcher.classList.remove('collapsed');
+            }
+
+            launcher.style.transform = '';
+        });
+
+        // חיפוש X פנימי
+        if (realInput && clearBtn && searchIcon) {
+            realInput.addEventListener('input', () => {
+                const hasText = realInput.value.trim().length > 0;
+                if (hasText) {
+                    clearBtn.classList.add('visible');
+                    searchIcon.classList.add('active');
+                } else {
+                    clearBtn.classList.remove('visible');
+                    searchIcon.classList.remove('active');
+                }
+            });
+
+            clearBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                realInput.value = '';
+                clearBtn.classList.remove('visible');
+                searchIcon.classList.remove('active');
+                realInput.focus();
+            });
+        }
+    });
     </script>
 </body>
 </html>
