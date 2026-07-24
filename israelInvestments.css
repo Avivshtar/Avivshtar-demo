@@ -19,7 +19,7 @@
     --תמונה-גובה-סיום: 172px;        
 
     --קובייה-צל-רגיל: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04); 
-    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                                        
+    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                                         
 
     --טקסט-קובייה-גודל: 22.5px;         
     --טקסט-קובייה-עובי: 400;            
@@ -259,14 +259,42 @@ body .header-container::after {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
 }
 
+/* ==========================================================================
+   🔻 ניהול הפוטר (תנאי שימוש) - במחשב 🔻
+   ========================================================================== */
+
+/* ❌ ביטול הקו המפריד */
+#new-shortcuts-container-3 .footer-strong-divider {
+    display: none !important;
+}
+
+/* 🎯 יישור ממורכז ומדויק מול 3 הקוביות במחשב + מרווח נדיב */
+#new-shortcuts-container-3 .legal-footer-wrapper {
+    width: 100% !important;
+    max-width: 1130px !important; /* רוחב מדויק של 3 קוביות (350x3 + 2x40px) */
+    margin-top: 150px !important; /* 🔝 מרחק מלמעלה מהקוביות במחשב */
+    margin-bottom: 40px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    right: 0 !important;
+    left: 0 !important;
+    padding: 0 !important;
+}
+
+#new-shortcuts-container-3 .footer-legal-content {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
 /* ======================================================= */
-/* 📱 שיפוץ מקיף למובייל - חוויית משתמש של אפליקציה!     */
+/* 📱 שיפוץ מקיף למובייל                                   */
 /* ======================================================= */
 @media (max-width: 768px) {
     
-    /* --- 1. סרגל עליון (Header) - חזרה למקורי והנקי! --- */
-    
-    /* 🚀 מחיקה מוחלטת של מועדון המשקיעים במובייל בלבד */
+    /* --- 1. סרגל עליון (Header) --- */
     body .header-left-link,
     body.force-white-header .header-left-link {
         display: none !important;
@@ -274,14 +302,12 @@ body .header-container::after {
         pointer-events: none !important;
     }
 
-    /* 🚀 מחיקה של כותרת "השקעות בארץ" במובייל בלבד */
     body .header-container::after,
     body.force-white-header .header-container::after {
         display: none !important;
         content: none !important;
     }
 
-    /* ⚡ איפוס הלוגו למרכז - לוקח את המידות מהקוד הראשי */
     body .logo-container,
     body.force-white-header .logo-container {
         transform: translateX(-50%) scale(1) !important; 
@@ -294,15 +320,13 @@ body .header-container::after {
         width: var(--logo-width-scrolled, 180px) !important; 
     }
 
-    /* הסתרת האייקונים של הפרופיל/לב/פעמון */
     body .profile-click-box, body .love-click-box, body .bell-click-box,
     body .profile-icon-1, body .love-icon-1, body .bell-icon-1,
     body .profile-icon-2, body .love-icon-2, body .bell-icon-2 {
         display: none !important;
     }
 
-    /* --- 2. עיצוב הדף עצמו (קוביות) שאהבת --- */
-    
+    /* --- 2. עיצוב הדף במובייל --- */
     #israel-investments-page {
         padding-top: 43px !important; 
         padding-left: 20px !important;
@@ -350,5 +374,25 @@ body .header-container::after {
         height: 48px !important; 
         font-size: 18px !important;
         border-radius: 6px !important;
+    }
+
+    /* --- 3. התאמת הפוטר במובייל --- */
+    #new-shortcuts-container-3 .legal-footer-wrapper {
+        max-width: 100% !important;
+        margin-top: 90px !important; /* מרחק נקי ומרווח במובייל */
+        margin-bottom: 40px !important;
+        padding: 0 15px !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-content {
+        flex-direction: column !important;
+        gap: 16px !important;
+        text-align: center !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-links {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 16px 20px !important;
     }
 }

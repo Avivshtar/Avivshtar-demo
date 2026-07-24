@@ -6,29 +6,21 @@
     --מיקום-לוגו-אנכי: 7px;     
     --גודל-לוגו-קנה-מידה: 0.77;    
 
-    /* ❌ למעלה אין כותרת בכלל כרגע */
-    --כותרת-אמצע-טקסט: ""; 
-    --כותרת-אמצע-גודל: 26px;             
-    --כותרת-אמצע-עובי: 200;              
-    --כותרת-אמצע-צבע: #875b33;           
-    --כותרת-אמצע-צל: 1px 1px 3px rgba(0, 0, 0, 0.15); 
-    --כותרת-אמצע-אנכי: 7px; 
-
-    /* 🗂️ לוח בקרה לניהול 2 הריבועים והתמונות ב-PX (תואם דף קודם) */
-    --קוביות-מרחק-מלמעלה: 32px;     
+    /* 🗂️ לוח בקרה לניהול 2 הריבועים והתמונות ב-PX */
+    --קוביות-מרחק-מלמעלה: 26px;     
     --קובייה-רוחב: 350px;            
     --קובייה-גובה: 350px;            
     --תמונה-גובה-סיום: 172px;        
 
     --קובייה-צל-רגיל: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04); 
-    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                                        
+    --קובייה-צל-ריחוף: 0 16px 40px rgba(0, 0, 0, 0.16);                                         
 
     --טקסט-קובייה-גודל: 22.5px;         
     --טקסט-קובייה-עובי: 400;            
     --טקסט-קובייה-צבע: #2b2b2b;         
     --טקסט-קובייה-אנכי: -32px; 
 
-    /* 🔘 לוח בקרה כפתור - מלבן ישר קלאסי עם צל היקפי עדין מסביב */
+    /* 🔘 לוח בקרה כפתור */
     --כפתור-צבע-בסיס: #004ce6;        
     --כפתור-צבע-ריחוף: #003ecb;       
     --כפתור-טקסט-צבע: #ffffff;        
@@ -46,7 +38,7 @@ body {
     font-family: 'Heebo', sans-serif;
 }
 
-/* 🛡️ חסינות אבסולוטית ומלאה לסרגל המקורי - נעול פלס! */
+/* 🛡️ חסינות אבסולוטית ומלאה לסרגל המקורי */
 body .hamburger-btn { display: flex !important; opacity: 1 !important; transform: translateY(-50%) scale(1) !important; }
 body .side-menu { opacity: 0 !important; pointer-events: none !important; transform: translateX(60px) !important; }
 
@@ -84,17 +76,23 @@ body .header-container::after {
     content: var(--כותרת-אמצע-טקסט) !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; font-family: 'Heebo', sans-serif !important; font-size: var(--כותרת-אמצע-גודל) !important; font-weight: var(--כותרת-אמצע-עובי) !important; color: var(--כותרת-אמצע-צבע) !important; text-shadow: var(--כותרת-אמצע-צל) !important; white-space: nowrap !important; pointer-events: none !important; 
 }
 
-.main-page-title {
-    font-family: 'Heebo', sans-serif !important; font-size: 22.5px; font-weight: 200; color: #555555; text-align: center; letter-spacing: 0.5px;        
-}
-
 #apartments-page {
-    max-width: 1200px; margin: 0 auto; padding-top: 110px; padding-bottom: 60px; text-align: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-top: 85px; 
+    padding-bottom: 80px; 
+    text-align: center;
 }
 
-/* 🧱 עיצוב שורת הריבועים (הכרטיסיות החדשות) */
+/* 🧱 עיצוב שורת הריבועים */
 .investments-grid {
-    display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: var(--קוביות-מרחק-מלמעלה); direction: rtl; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 40px; 
+    flex-wrap: wrap; 
+    margin-top: var(--קוביות-מרחק-מלמעלה); 
+    direction: rtl; 
 }
 
 .investment-box {
@@ -136,7 +134,7 @@ body .header-container::after {
     transform: translateY(var(--טקסט-קובייה-אנכי)) !important; 
 }
 
-/* 🔘 כפתור מלבני, ישר ומיושר פלס כמו בדף הקודם */
+/* 🔘 כפתור מלבני */
 .wood-button {
     font-family: 'Heebo', sans-serif !important;
     background-color: var(--כפתור-צבע-בסיס) !important;
@@ -166,14 +164,42 @@ body .header-container::after {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
 }
 
+/* ==========================================================================
+   🔻 ניהול הפוטר (תנאי שימוש) - במחשב 🔻
+   ========================================================================== */
+
+/* ❌ ביטול הקו המפריד */
+#new-shortcuts-container-3 .footer-strong-divider {
+    display: none !important;
+}
+
+/* 🎯 יישור ממורכז פלס מול שתי הקוביות במחשב + מרווח נדיב */
+#new-shortcuts-container-3 .legal-footer-wrapper {
+    width: 100% !important;
+    max-width: 740px !important; /* רוחב מדויק של 2 הקוביות (350x2) + 40px רווח */
+    margin-top: 180px !important; /* 🔝 מרווח מוגדל מהקוביות במחשב */
+    margin-bottom: 40px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    right: 0 !important;
+    left: 0 !important;
+    padding: 0 !important;
+}
+
+#new-shortcuts-container-3 .footer-legal-content {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
 /* ======================================================= */
-/* 📱 שיפוץ מקיף למובייל - חוויית משתמש של אפליקציה!     */
+/* 📱 שיפוץ מקיף למובייל                                   */
 /* ======================================================= */
 @media (max-width: 768px) {
     
-    /* --- 1. סרגל עליון (Header) - מראה רגיל ונקי! --- */
-    
-    /* העלמה מוחלטת של מועדון המשקיעים במובייל */
+    /* --- 1. סרגל עליון (Header) --- */
     body .header-left-link,
     body.force-white-header .header-left-link {
         display: none !important;
@@ -181,14 +207,12 @@ body .header-container::after {
         pointer-events: none !important;
     }
 
-    /* העלמת כותרות אמצע במובייל (במידה ויש) */
     body .header-container::after,
     body.force-white-header .header-container::after {
         display: none !important;
         content: none !important;
     }
 
-    /* ⚡ איפוס הלוגו למרכז */
     body .logo-container,
     body.force-white-header .logo-container {
         transform: translateX(-50%) scale(1) !important; 
@@ -201,29 +225,23 @@ body .header-container::after {
         width: var(--logo-width-scrolled, 180px) !important; 
     }
 
-    /* הסתרת האייקונים של הפרופיל/לב/פעמון */
     body .profile-click-box, body .love-click-box, body .bell-click-box,
     body .profile-icon-1, body .love-icon-1, body .bell-icon-1,
     body .profile-icon-2, body .love-icon-2, body .bell-icon-2 {
         display: none !important;
     }
 
-    /* --- 2. עיצוב הדף עצמו (קוביות) שאהבת --- */
-    
+    /* --- 2. עיצוב הדף במובייל --- */
     #apartments-page {
-        padding-top: 43px !important; 
+        padding-top: 39px !important; /* מורם חזק למעלה במובייל */
         padding-left: 20px !important;
         padding-right: 20px !important;
-    }
-
-    .main-page-title {
-        font-size: 24px !important; 
-        margin-bottom: 25px !important;
-        font-weight: 300 !important; 
+        padding-bottom: 50px !important;
     }
 
     .investments-grid {
-        gap: 25px !important; 
+        gap: 20px !important; 
+        margin-top: 0 !important;
     }
 
     .investment-box {
@@ -257,5 +275,25 @@ body .header-container::after {
         height: 48px !important; 
         font-size: 18px !important;
         border-radius: 6px !important;
+    }
+
+    /* --- 3. התאמת הפוטר במובייל --- */
+    #new-shortcuts-container-3 .legal-footer-wrapper {
+        max-width: 100% !important;
+        margin-top: 100px !important; /* 🔝 מרווח מוגדל במובייל מהקוביות */
+        margin-bottom: 40px !important;
+        padding: 0 15px !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-content {
+        flex-direction: column !important;
+        gap: 16px !important;
+        text-align: center !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-links {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 16px 20px !important;
     }
 }

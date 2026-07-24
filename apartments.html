@@ -3,50 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>השקעות בארץ - דירות</title>
+    <title>השקעות בארץ - נכסים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-<link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./apartments.css">
 </head>
 <body>
 
-<div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 
     <main id="apartments-page">
-        
-        <section class="welcome-section">
-            <h1 class="main-page-title">דירות</h1>
-        </section>
-
-      <div class="investments-grid">
+        <div class="investments-grid">
             
+            <!-- קובייה 1: נכסים -->
             <div class="investment-box">
                 <div class="box-image-wrapper">
-                    <img src="/hi4.png" alt="דירות" class="box-image">
+                    <img src="/hi4.png" alt="נכסים" class="box-image">
                 </div>
                 <div class="box-content">
-                    <h2 class="box-title">דירות</h2>
+                    <h2 class="box-title">נכסים</h2>
                     <button class="wood-button" onclick="location.href='properties.html'">התחילו</button>
                 </div>
             </div>
 
+            <!-- קובייה 2: PRE-SALE -->
             <div class="investment-box">
                 <div class="box-image-wrapper">
-                    <img src="/hi5.png" alt="דירות PRE-SALE" class="box-image">
+                    <img src="/hi5.png" alt="PRE-SALE" class="box-image">
                 </div>
                 <div class="box-content">
-                    <h2 class="box-title">דירות PRE-SALE</h2>
+                    <h2 class="box-title">PRE-SALE</h2>
                     <button class="wood-button">התחילו</button>
                 </div>
             </div>
 
         </div>
 
-        </div>
+        <div id="new-shortcuts-container-3"></div>
     </main>
 
-   <script type="module" src="./header.js"></script>
+    <!-- סקריפטים -->
+    <script type="module" src="./header.js"></script>
+    <script type="module" src="./shortcuts-logic-3.js"></script>
 
     <script>
         document.body.classList.add('scrolled-to-search');

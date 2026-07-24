@@ -6,8 +6,8 @@
     <title>השקעות בארץ</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="./israelInvestments.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./israelInvestments.css">
 </head>
 <body>
 
@@ -21,16 +21,18 @@
 
         <div class="investments-grid">
             
+            <!-- קובייה 1: נכסים (הוחלף מ-דירות) -->
             <div class="investment-box">
                 <div class="box-image-wrapper">
-                    <img src="/hi1.png" alt="דירות" class="box-image">
+                    <img src="/hi1.png" alt="נכסים" class="box-image">
                 </div>
                 <div class="box-content">
-                    <h2 class="box-title">דירות</h2>
+                    <h2 class="box-title">נכסים</h2>
                     <button class="wood-button" onclick="location.href='apartments.html'">התחילו</button>
                 </div>
             </div>
 
+            <!-- קובייה 2: משרדים ומסחר -->
             <div class="investment-box">
                 <div class="box-image-wrapper">
                     <img src="/hi3.png" alt="משרדים ומסחר" class="box-image">
@@ -41,6 +43,7 @@
                 </div>
             </div>
 
+            <!-- קובייה 3: קרקעות -->
             <div class="investment-box">
                 <div class="box-image-wrapper">
                     <img src="/hi2.png" alt="קרקעות" class="box-image">
@@ -52,16 +55,22 @@
             </div>
 
         </div>
+
+        <!-- 👈 קונטיינר ה-Footer עבור LOGIC3 -->
+        <div id="new-shortcuts-container-3"></div>
     </main>
 
- <script type="module" src="./header.js"></script>
-<script>
-    document.body.classList.add('scrolled-to-search');
-    window.addEventListener('scroll', (e) => {
-        if (!document.body.classList.contains('scrolled-to-search')) {
-            document.body.classList.add('scrolled-to-search');
-        }
-    }, true);
-</script>
+    <!-- סקריפטים -->
+    <script type="module" src="./header.js"></script>
+    <script type="module" src="./shortcuts-logic-3.js"></script>
+
+    <script>
+        document.body.classList.add('scrolled-to-search');
+        window.addEventListener('scroll', (e) => {
+            if (!document.body.classList.contains('scrolled-to-search')) {
+                document.body.classList.add('scrolled-to-search');
+            }
+        }, true);
+    </script>
 </body>
 </html>
