@@ -256,18 +256,6 @@ body.map-is-collapsed #map-toggle-btn svg {
 }
 
 /* ======================================================= */
-/* 🌐 כללי - קיבוע החיפוש בדף הראשי מבחוץ (Sticky)         */
-/* ======================================================= */
-.pro-search-wrapper {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 998 !important;
-    background-color: #ffffff;
-    /* תוספת קטנה כדי למנוע קו לבן דק מעל החיפוש בגלילה */
-    margin-top: -1px; 
-}
-
-/* ======================================================= */
 /* 📱 מובייל בלבד (עד 768px)                              */
 /* ======================================================= */
 @media (max-width: 768px) {
@@ -330,27 +318,27 @@ body.map-is-collapsed #map-toggle-btn svg {
         cursor: pointer;
     }
 
-    /* 🚨 התיקון לזכוכית המגדלת הענקית ולמפה 🚨 */
+    /* 🚨 התיקון הקריטי לאייקון זכוכית המגדלת והמפה 🚨 */
     .mobile-search-launcher .icon-search {
         width: 20px !important;
         height: 20px !important;
-        color: #6b7280;
-        flex-shrink: 0;
+        color: #6b7280 !important;
+        flex-shrink: 0 !important;
     }
 
     .mobile-search-launcher .icon-map {
         width: 22px !important;
         height: 22px !important;
-        color: #4b5563;
-        transform: translateY(3px);
-        flex-shrink: 0;
+        color: #4b5563 !important;
+        transform: translateY(3px) !important;
+        flex-shrink: 0 !important;
     }
 
     .mobile-search-launcher .search-divider {
         width: 1px !important;
         height: 24px !important;
-        background-color: #e5e7eb;
-        flex-shrink: 0;
+        background-color: #e5e7eb !important;
+        flex-shrink: 0 !important;
     }
 
     .mobile-search-launcher .launcher-placeholder {
@@ -1157,7 +1145,7 @@ body.map-is-collapsed #map-toggle-btn svg {
     }
 
     /* ==========================================================================
-       🧹 סרגל תחתון (Footer) - עיצוב זהה לכפתור סינון מחירים (בדיוק כמו שביקשת)
+       🧹 סרגל תחתון (Footer) - כפתורים מעוצבים כמו לחצן סינון מחירים
        ========================================================================== */
     .mobile-search-modal .modal-footer-actions {
         display: flex;
