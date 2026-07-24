@@ -251,7 +251,8 @@ body.map-is-collapsed #map-toggle-btn svg {
 /* 💻 דסקטופ (מחשב) - מוגן 100% ללא שום שינוי                 */
 /* ======================================================= */
 .mobile-search-launcher,
-.mobile-search-modal {
+.mobile-search-modal,
+.mobile-map-modal {
     display: none !important;
 }
 
@@ -259,6 +260,12 @@ body.map-is-collapsed #map-toggle-btn svg {
 /* 📱 מובייל בלבד (עד 768px)                              */
 /* ======================================================= */
 @media (max-width: 768px) {
+
+    /* 🎯 ביטול מסגרת אפורה ומצמוצים בלחיצה במובייל */
+    *, button, input, select, div, a {
+        -webkit-tap-highlight-color: transparent !important;
+        outline: none !important;
+    }
 
     /* הסתרת התוכן של המחשב במובייל */
     .properties-banner-container,
@@ -312,13 +319,13 @@ body.map-is-collapsed #map-toggle-btn svg {
         align-items: center;
         background-color: #ffffff;
         border: 1px solid #e5e7eb;
-        border-radius: 50px;
+        border-radius: 50px !important;
         padding: 10px 16px;
         gap: 10px;
         cursor: pointer;
+        overflow: hidden !important;
     }
 
-    /* 🚨 התיקון הקריטי לאייקון זכוכית המגדלת והמפה 🚨 */
     .mobile-search-launcher .icon-search {
         width: 20px !important;
         height: 20px !important;
@@ -326,11 +333,30 @@ body.map-is-collapsed #map-toggle-btn svg {
         flex-shrink: 0 !important;
     }
 
+    /* 📍 כפתור ואייקון המפה בסרגל הצף - עם אפקט לחיצה עגול ואפור! */
+    .mobile-search-launcher .map-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 50% !important;
+        transition: background-color 0.15s ease, transform 0.15s ease !important;
+        cursor: pointer !important;
+        margin-right: -4px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .mobile-search-launcher .map-btn:active {
+        background-color: #e5e7eb !important; /* עיגול אפור בינוני בלחיצה */
+        transform: scale(0.92) !important;    /* תגובת לחיצה עדינה */
+    }
+
     .mobile-search-launcher .icon-map {
         width: 22px !important;
         height: 22px !important;
         color: #4b5563 !important;
-        transform: translateY(3px) !important;
+        transform: none !important;
         flex-shrink: 0 !important;
     }
 
@@ -367,7 +393,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin-top: 4px !important; 
     }
 
-    /* כפתורים רגילים (כמו בחירת מחיר וסינונים נוספים) */
     .mobile-search-launcher .filter-pill {
         flex: 1 !important;
         display: flex !important;
@@ -384,6 +409,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         cursor: pointer !important;
         margin: 0 !important;
         transition: all 0.2s ease !important;
+        overflow: hidden !important;
     }
 
     .mobile-search-launcher .filter-pill .chevron-icon {
@@ -395,11 +421,10 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin: 0 !important;
     }
 
-    /* 🔥 פתרון הלחיצה הגלובלית על כל תבנית הפילטר (Selects) 🔥 */
     .mobile-search-launcher .filter-pill-box,
     .mobile-search-modal .modal-filter-pill {
         flex: 1 !important;
-        position: relative !important; /* קריטי כדי להחזיק את הבחירה בפנים */
+        position: relative !important; 
         background-color: #ffffff !important;
         border: 1px solid #e5e7eb !important;
         border-radius: 50px !important;
@@ -410,7 +435,8 @@ body.map-is-collapsed #map-toggle-btn svg {
         margin: 0 !important;
         transition: all 0.2s ease !important;
         display: block !important;
-        padding: 0 !important; /* הביטול פדינג חשוב פה */
+        padding: 0 !important;
+        overflow: hidden !important;
     }
 
     .mobile-search-launcher .secondary-row .filter-pill,
@@ -428,7 +454,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         text-align: right !important;
     }
 
-    /* כיסוי מלא של Select על כל התיבה כדי שיילחץ מכל מקום! */
     .mobile-search-launcher .native-filter-select,
     .mobile-search-modal .native-filter-select {
         -webkit-appearance: none !important;
@@ -450,13 +475,14 @@ body.map-is-collapsed #map-toggle-btn svg {
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         transition: color 0.2s ease !important;
+        border-radius: 50px !important;
         
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
         height: 100% !important;
-        padding: 0 12px 0 28px !important; /* שומר מקום לחץ משמאל */
+        padding: 0 12px 0 28px !important;
         z-index: 2 !important;
         box-sizing: border-box !important;
         margin: 0 !important;
@@ -471,7 +497,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         color: #1f2937 !important;
     }
 
-    /* חץ מותאם מאחורי ה-Select */
     .filter-pill-box .chevron-icon,
     .modal-filter-pill .chevron-icon {
         position: absolute !important;
@@ -487,7 +512,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         pointer-events: none !important;
     }
 
-    /* 💥✨ קסם הלחיצה (FOCUS) ✨💥 */
     .modal-filter-pill.select-active,
     .filter-pill-box.select-active {
         border-color: #bda082 !important;
@@ -505,7 +529,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         transform: translateY(-50%) rotate(180deg) !important;
     }
 
-    /* 💥✨ קסם הבחירה הסופית (HAS VALUE) ✨💥 */
     .modal-filter-pill.has-value,
     .filter-pill-box.has-value {
         border-color: #bda082 !important;
@@ -779,7 +802,8 @@ body.map-is-collapsed #map-toggle-btn svg {
         transform: translate3d(0, 0, 0) !important;
     }
 
-    .mobile-search-modal .modal-header {
+    .mobile-search-modal .modal-header,
+    .mobile-map-modal .modal-header {
         display: flex;
         align-items: center;
         gap: 12px;
@@ -792,7 +816,8 @@ body.map-is-collapsed #map-toggle-btn svg {
         box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
     }
 
-    .mobile-search-modal .close-modal-btn {
+    .mobile-search-modal .close-modal-btn,
+    .mobile-map-modal .close-map-modal-btn {
         background: none;
         border: none;
         font-size: 26px;
@@ -805,28 +830,32 @@ body.map-is-collapsed #map-toggle-btn svg {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
+        border-radius: 50% !important;
         flex-shrink: 0;
         transition: transform 0.15s ease, background-color 0.15s ease;
     }
 
-    .mobile-search-modal .close-modal-btn:active {
+    .mobile-search-modal .close-modal-btn:active,
+    .mobile-map-modal .close-map-modal-btn:active {
         transform: scale(0.85);
         background-color: #f3f4f6;
     }
 
-    .mobile-search-modal .modal-search-box {
+    .mobile-search-modal .modal-search-box,
+    .mobile-map-modal .modal-search-box {
         display: flex;
         align-items: center;
         background-color: #f3f4f6;
-        border-radius: 50px;
+        border-radius: 50px !important;
         padding: 8px 14px;
         gap: 8px;
         flex: 1;
         direction: rtl !important;
+        overflow: hidden !important;
     }
 
-    .mobile-search-modal .real-search-input {
+    .mobile-search-modal .real-search-input,
+    .mobile-map-modal .real-search-input {
         border: none;
         outline: none;
         width: 100%;
@@ -836,14 +865,15 @@ body.map-is-collapsed #map-toggle-btn svg {
         font-family: 'Heebo', sans-serif;
     }
 
-    .mobile-search-modal .clear-input-btn {
+    .mobile-search-modal .clear-input-btn,
+    .mobile-map-modal .clear-input-btn {
         display: none;
         align-items: center;
         justify-content: center;
         background-color: #d1d5db;
         color: #4b5563;
         border: none;
-        border-radius: 50%;
+        border-radius: 50% !important;
         width: 20px;
         height: 20px;
         font-size: 11px;
@@ -853,16 +883,19 @@ body.map-is-collapsed #map-toggle-btn svg {
         transition: transform 0.15s ease, background-color 0.15s ease;
     }
 
-    .mobile-search-modal .clear-input-btn.visible {
+    .mobile-search-modal .clear-input-btn.visible,
+    .mobile-map-modal .clear-input-btn.visible {
         display: flex !important;
     }
 
-    .mobile-search-modal .clear-input-btn:active {
+    .mobile-search-modal .clear-input-btn:active,
+    .mobile-map-modal .clear-input-btn:active {
         transform: scale(0.85);
         background-color: #9ca3af;
     }
 
-    .mobile-search-modal .icon-search {
+    .mobile-search-modal .icon-search,
+    .mobile-map-modal .icon-search {
         width: 20px;
         height: 20px;
         color: #6b7280;
@@ -872,13 +905,15 @@ body.map-is-collapsed #map-toggle-btn svg {
         transition: opacity 0.2s ease, transform 0.15s ease, color 0.15s ease;
     }
 
-    .mobile-search-modal .icon-search.active {
+    .mobile-search-modal .icon-search.active,
+    .mobile-map-modal .icon-search.active {
         opacity: 1;
         pointer-events: auto;
         cursor: pointer;
     }
 
-    .mobile-search-modal .icon-search.active:active {
+    .mobile-search-modal .icon-search.active:active,
+    .mobile-map-modal .icon-search.active:active {
         transform: scale(0.8);
         color: #111827;
     }
@@ -910,7 +945,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         box-sizing: border-box;
     }
 
-    /* 📅 שדה התאריך "כניסה לנכס" */
     .entry-date-wrapper {
         display: flex;
         flex-direction: column;
@@ -934,7 +968,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         width: 100%;
         height: 38px;
         border: 1px solid #e5e7eb;
-        border-radius: 50px;
+        border-radius: 50px !important;
         background-color: #ffffff;
         text-align: center;
         font-size: 13.5px;
@@ -951,7 +985,6 @@ body.map-is-collapsed #map-toggle-btn svg {
         box-shadow: 0 0 0 2px rgba(189, 160, 130, 0.2);
     }
 
-    /* 💸 קוביית המחירים */
     .modal-inline-price-section {
         display: flex;
         flex-direction: column;
@@ -1010,7 +1043,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         justify-content: space-between;
         background-color: #f4f6f9; 
         border: 1px solid #cacedb; 
-        border-radius: 50px; 
+        border-radius: 50px !important; 
         padding: 8px 14px; 
         cursor: pointer;
         transition: all 0.2s ease;
@@ -1019,6 +1052,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         direction: rtl;
         box-sizing: border-box;
         width: 100%;
+        overflow: hidden !important;
     }
 
     .feature-btn:active {
@@ -1111,6 +1145,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
         cursor: pointer !important;
         transition: all 0.15s ease !important;
+        overflow: hidden !important;
     }
 
     .map-filter-pill:active {
@@ -1137,7 +1172,7 @@ body.map-is-collapsed #map-toggle-btn svg {
     }
 
     /* ==========================================================================
-       🧹 סרגל תחתון (Footer) - כפתורים מעוצבים כמו לחצן סינון מחירים
+       🧹 סרגל תחתון (Footer)
        ========================================================================== */
     .mobile-search-modal .modal-footer-actions {
         display: flex;
@@ -1153,14 +1188,13 @@ body.map-is-collapsed #map-toggle-btn svg {
         padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); 
     }
 
-    /* כפתורי הניקוי והחלה - בול כמו .apply-cream-btn */
     .mobile-search-modal .reset-filters-btn,
     .mobile-search-modal .apply-filters-btn {
         flex: 1; 
         background-color: #ffffff;
         color: #374151;
         border: 1px solid #d1d5db; 
-        border-radius: 10px; 
+        border-radius: 10px !important; 
         height: 36px; 
         font-size: 12.5px;
         font-weight: 400;
@@ -1172,6 +1206,7 @@ body.map-is-collapsed #map-toggle-btn svg {
         justify-content: center;
         margin: 0;
         box-shadow: none;
+        overflow: hidden !important;
     }
 
     .mobile-search-modal .reset-filters-btn:active,
@@ -1180,5 +1215,146 @@ body.map-is-collapsed #map-toggle-btn svg {
         border-color: #bda082 !important;
         color: #ffffff !important;
         transform: scale(0.97);
+    }
+
+    /* ==========================================================================
+       🗺️ 3. מסך מפה מלא הנפתח במובייל (Map Modal - High Quality)
+       ========================================================================== */
+    .mobile-map-modal {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 100dvh !important;
+        background-color: #ffffff !important;
+        z-index: 999999 !important;
+        opacity: 0;
+        pointer-events: none;
+        will-change: transform, opacity;
+        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translate3d(0, 24px, 0);
+        direction: rtl;
+        padding: 0 !important; 
+        box-sizing: border-box;
+        overflow: hidden !important; 
+    }
+
+    .mobile-map-modal.active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translate3d(0, 0, 0) !important;
+    }
+
+    .mobile-map-modal .map-modal-body {
+        flex: 1 1 auto;
+        background-color: #f5f5f5;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .mobile-map-modal #mobile-map-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 🔍 מקשי הזום (+/-) - יציבים, ללא מצמוץ! */
+    .mobile-map-modal .leaflet-control-zoom {
+        border: none !important;
+        margin: 16px !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .mobile-map-modal .leaflet-control-zoom a {
+        background-color: #ffffff !important;
+        color: #374151 !important;
+        width: 38px !important;
+        height: 38px !important;
+        line-height: 38px !important;
+        font-size: 19px !important;
+        font-weight: 600 !important;
+        border: none !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+        transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .mobile-map-modal .leaflet-control-zoom a:last-child {
+        border-bottom: none !important;
+    }
+
+    .mobile-map-modal .leaflet-control-zoom a:active {
+        background-color: #bda082 !important;
+        color: #ffffff !important;
+        transform: scale(1.08) !important;
+    }
+
+    /* 🏠 כרטיסיית המידע (Popup) - מרווחת, רחבה ויוקרתית */
+    .mobile-map-modal .leaflet-popup-content-wrapper {
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+        padding: 4px !important;
+        direction: rtl !important;
+        text-align: center !important;
+        min-width: 180px !important; /* רוחב נדיב ונושם */
+    }
+
+    .mobile-map-modal .leaflet-popup-content {
+        margin: 14px 24px !important;
+        line-height: 1.3 !important;
+    }
+
+    .mobile-map-modal .leaflet-popup-tip {
+        background: #ffffff !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important;
+    }
+
+    .mobile-map-modal .leaflet-popup-close-button {
+        top: 8px !important;
+        right: auto !important;
+        left: 10px !important;
+        color: #9ca3af !important;
+        font-size: 18px !important;
+        font-weight: 300 !important;
+        transition: color 0.15s ease !important;
+        padding: 4px !important;
+    }
+
+    .mobile-map-modal .leaflet-popup-close-button:active {
+        color: #111827 !important;
+    }
+
+    .mobile-map-modal .custom-map-popup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Heebo', sans-serif;
+    }
+
+    .mobile-map-modal .custom-map-popup .popup-price {
+        font-size: 15px; /* מחיר בולט */
+        font-weight: 700;
+        color: #875b33;
+    }
+
+    .mobile-map-modal .custom-map-popup .popup-address {
+        font-size: 15px;
+        font-weight: 400;
+        color: #6b7280;
+        margin-top: 3px;
+        white-space: nowrap;
     }
 }

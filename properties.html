@@ -144,6 +144,7 @@
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
                     <select class="native-filter-select">
                         <option value="" selected>מצב הנכס</option>
+                        <option value="new_developer">חדש מקבלן</option>
                         <option value="new_5_years">חדש (עד 5 שנים)</option>
                         <option value="renovated_5_years">משופץ (עד 5 שנים)</option>
                         <option value="needs_renovation">דרוש שיפוץ</option>
@@ -179,12 +180,12 @@
             <div class="min-max-inputs-row">
                 <div class="min-max-field">
                     <label>Min</label>
-                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלידו מחיר...">
+                    <input type="text" id="min-price-box" inputmode="numeric" value="ללא מינימום" placeholder="הקלד מחיר...">
                 </div>
                 <span class="dash-separator">-</span>
                 <div class="min-max-field">
                     <label>Max</label>
-                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלידו מחיר...">
+                    <input type="text" id="max-price-box" inputmode="numeric" value="ללא מקסימום" placeholder="הקלד מחיר...">
                 </div>
             </div>
 
@@ -463,6 +464,7 @@
                         <option value="7">קומה 7</option>
                         <option value="8">קומה 8</option>
                         <option value="9">קומה 9</option>
+                        <option value="10">קומה 10</option>
                         <option value="10+">קומה 10+</option>
                     </select>
                 </div>
@@ -486,6 +488,7 @@
                         <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 9l-7 7-7-7" /></svg>
                         <select class="native-filter-select">
                             <option value="" selected>מצב הנכס</option>
+                            <option value="new_developer">חדש מקבלן</option>
                             <option value="new_5_years">חדש (עד 5 שנים)</option>
                             <option value="renovated_5_years">משופץ (עד 5 שנים)</option>
                             <option value="needs_renovation">דרוש שיפוץ</option>
@@ -525,6 +528,22 @@
             <button type="button" class="apply-filters-btn" id="apply-modal-filters">החלת סינונים</button>
         </div>
 
+    </div>
+
+    <!-- 🗺️ 3. מסך מפה נפתח חדש במובייל (Map Modal) -->
+    <div class="mobile-map-modal">
+        <div class="modal-header">
+            <button class="close-map-modal-btn" type="button" aria-label="סגור">✕</button>
+            <div class="modal-search-box">
+                <button type="button" class="clear-input-btn" aria-label="מחק טקסט">✕</button>
+                <input type="text" class="real-search-input" placeholder="חפשו עיר, שכונה, כתובת..." />
+                <svg class="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+        <div class="map-modal-body" id="mobile-map-container"></div>
     </div>
 
     <!-- סקריפטים דסקטופ -->
@@ -584,6 +603,12 @@
         const pricePillTitle = document.querySelector('#price-pill-title');
         const creamPriceCard = document.querySelector('#cream-price-card');
         const applyPriceBtn = document.querySelector('#apply-price-btn');
+
+        // אלמנטים של מסך המפה החדש
+        const modalOpenMapBtn = document.querySelector('#modal-open-map-btn');
+        const launcherMapBtn = document.querySelector('.launcher-box .map-btn');
+        const mapModal = document.querySelector('.mobile-map-modal');
+        const closeMapModalBtn = document.querySelector('.close-map-modal-btn');
 
         if (!launcher || !modal) return;
 
@@ -843,7 +868,6 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; 
             
-            // שואב את המחירים שהוזנו בחוץ לתוך המודל
             const mainMin = document.querySelector('#min-range');
             const mainMax = document.querySelector('#max-range');
             const modalMin = document.querySelector('#modal-min-range');
@@ -869,20 +893,98 @@
         if (moreFiltersBtn) moreFiltersBtn.addEventListener('click', openModal);
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-        // 🧹 מנגנון ניקוי ושמירת פילטרים מהסרגל התחתון החדש 🧹
+        // 🗺️ פתיחה וסגירה של מסך המפה בגרסת 4K HD + ללא פתיחת פופאפ אוטומטית!
+        let mobileLeafletMap = null;
+
+        const openMapModal = () => {
+            closeModal(); 
+            if (mapModal) {
+                mapModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                if (!mobileLeafletMap && typeof L !== 'undefined') {
+                    // מיקוד יפהפה במרכז הארץ
+                    mobileLeafletMap = L.map('mobile-map-container', { zoomControl: true }).setView([32.0731, 34.7900], 11);
+                    
+                    // 🌟 טעינת אריחי Google Maps בגרסת HD/4K 🌟
+                    L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&scale=2', {
+                        maxZoom: 20,
+                        tileSize: 256,
+                        zoomOffset: 0,
+                        detectRetina: true,
+                        attribution: '© Google Maps'
+                    }).addTo(mobileLeafletMap);
+
+                    // הסיכה החומה היוקרתית
+                    const customPinIcon = L.divIcon({
+                        className: 'custom-map-marker-container',
+                        html: '<div class="premium-brown-pin"></div>',
+                        iconSize: [26, 26],
+                        iconAnchor: [13, 26],
+                        popupAnchor: [0, -28]
+                    });
+
+                    // 📍 נכסים לדוגמה עם מחירים וכתובות פרופורציונליות!
+                    const propertyList = [
+                        { coords: [32.0731, 34.8120], price: '3,200,000 ₪', address: 'כצנלסון 45, גבעתיים' },
+                        { coords: [32.0800, 34.7800], price: '4,500,000 ₪', address: 'דיזנגוף 120, תל אביב' },
+                        { coords: [32.3214, 34.8532], price: '2,850,000 ₪', address: 'הרצל 12, נתניה' },
+                        { coords: [32.1750, 34.9069], price: '3,900,000 ₪', address: 'אחוזה 88, רעננה' },
+                        { coords: [31.9622, 34.8014], price: '2,450,000 ₪', address: 'רוטשילד 30, ראשון לציון' },
+                        { coords: [31.8015, 34.6433], price: '1,950,000 ₪', address: 'העצמאות 5, אשדוד' }
+                    ];
+
+                    propertyList.forEach(prop => {
+                        const marker = L.marker(prop.coords, { icon: customPinIcon }).addTo(mobileLeafletMap);
+                        
+                        const popupHtml = `
+                            <div class="custom-map-popup">
+                                <div class="popup-price">${prop.price}</div>
+                                <div class="popup-address">${prop.address}</div>
+                            </div>
+                        `;
+                        
+                        marker.bindPopup(popupHtml, {
+                            closeButton: true,
+                            offset: [0, 0]
+                        });
+                    });
+                }
+
+                setTimeout(() => {
+                    if (mobileLeafletMap) mobileLeafletMap.invalidateSize();
+                }, 200);
+            }
+        };
+
+        const closeMapModal = () => {
+            if (mapModal) {
+                mapModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        };
+
+        if (modalOpenMapBtn) modalOpenMapBtn.addEventListener('click', openMapModal);
+        if (launcherMapBtn) {
+            launcherMapBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openMapModal();
+            });
+        }
+        if (closeMapModalBtn) closeMapModalBtn.addEventListener('click', closeMapModal);
+
+        // 🧹 מנגנון ניקוי ושמירת פילטרים
         const resetModalBtn = document.getElementById('reset-modal-filters');
         const applyModalBtn = document.getElementById('apply-modal-filters');
 
         if (resetModalBtn) {
             resetModalBtn.addEventListener('click', () => {
-                // מנקה תיבת חיפוש
                 if (realInput) {
                     realInput.value = '';
                     clearBtn.classList.remove('visible');
                     searchIcon.classList.remove('active');
                 }
                 
-                // 🔄 מנקה סליידרים גם במודל וגם בחוץ!
                 const sliders = ['min-range', 'max-range', 'modal-min-range', 'modal-max-range'];
                 const defaultVals = [100000, 10000000, 100000, 10000000];
                 sliders.forEach((id, idx) => {
@@ -897,13 +999,11 @@
                     pricePillTitle.textContent = 'מחיר';
                 }
 
-                // מנקה תאריך
                 if (dateInput) {
                     dateInput.value = '';
                     dateContainer.classList.remove('active');
                 }
 
-                // מנקה Dropdowns
                 allSelects.forEach(select => {
                     select.value = '';
                     const parentPill = select.closest('.modal-filter-pill') || select.closest('.filter-pill-box');
@@ -913,7 +1013,6 @@
                     }
                 });
 
-                // מנקה מאפייני נכס
                 featureButtons.forEach(btn => {
                     btn.classList.remove('selected');
                 });
@@ -922,7 +1021,6 @@
 
         if (applyModalBtn) {
             applyModalBtn.addEventListener('click', () => {
-                // 🔄 דוחף את המחירים מהמודל חזרה לחוץ!
                 const modalMin = document.querySelector('#modal-min-range');
                 const modalMax = document.querySelector('#modal-max-range');
                 const mainMin = document.querySelector('#min-range');
