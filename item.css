@@ -2,7 +2,7 @@
    🎛️ לוח בקרה מרכזי - שליטה מלאה בגדלים, מיקומים ומרווחים (item.css)
    ========================================================================== */
 :root {
-    /* 🛡️ הגדרות לוגו וסרגל */
+    /* 🛡️ הגדרות לוגו וסרגל - מעודכן לפי לוח הבקרה החדש */
     --מיקום-לוגו-אופקי: -539px; 
     --מיקום-לוגו-אנכי: 7px;     
     --גודל-לוגו-קנה-מידה: 0.77;    
@@ -83,14 +83,14 @@
     --map-top-mobile: 42.5px;
     --map-right-mobile: 0px;
 
-    /* 💬 📍 בועת Apple Glass במפה - מובייל (גודל קומפקטי קלאסי) */
+    /* 💬 📍 בועת Apple Glass במפה - מובייל */
     --map-pin-width-mobile: 100px;
     --map-pin-height-mobile: 70px;
 
     /* 🏠 מאפייני הנכס - מובייל */
     --features-top-mobile: 50px;
     --features-gap-mobile: 14px;
-    --features-font-size-mobile: 15.7px;
+    --features-font-size-mobile: 14.2px;
     --features-padding-mobile: 7px 18px;
 
     /* ======================================================================
@@ -319,6 +319,52 @@
     --features-padding-desktop: 7px 20px;
 }
 
+/* 🖱️ הפיכת הלוגו ללחיץ עם סמן יד */
+body .logo-container, 
+body .mobile-logo { 
+    cursor: pointer !important; 
+}
+
+/* ==========================================================================
+   🛡️ חסינות אבסולוטית ומלאה לסרגל המעודכן
+   ========================================================================== */
+body .hamburger-btn { display: flex !important; opacity: 1 !important; transform: translateY(-50%) scale(1) !important; }
+body .side-menu { opacity: 0 !important; pointer-events: none !important; transform: translateX(60px) !important; }
+
+body .profile-click-box, body .profile-icon-1, 
+body .love-click-box, body .love-icon-1, 
+body .bell-click-box, body .bell-icon-1 { transform: translateX(-55px) scale(1) !important; }
+body .profile-icon-2, body .love-icon-2, body .bell-icon-2 { transform: translateX(-55px) scale(1) !important; opacity: 0 !important; }
+
+body .profile-click-box:hover ~ .profile-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:hover ~ .profile-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .profile-click-box:active ~ .profile-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body .love-click-box:hover ~ .love-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:hover ~ .love-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .love-click-box:active ~ .love-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body .bell-click-box:hover ~ .bell-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:hover ~ .bell-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
+body .bell-click-box:active ~ .bell-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
+
+body.sidebar-open .side-menu {
+    position: fixed !important; top: 0 !important; right: 0 !important; width: 280px !important; height: 100vh !important; background: #ffffff !important; opacity: 1 !important; pointer-events: all !important; transform: translateX(0) !important; display: flex !important; flex-direction: column !important; padding: 70px 20px 20px 20px !important; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; z-index: 100000 !important;
+}
+body.sidebar-open #menu-close-btn {
+    display: flex !important; position: absolute !important; top: 20px !important; left: 20px !important; width: 38px !important; height: 38px !important; background-color: #f4f4f5 !important; border: none !important; border-radius: 50% !important; color: #8c8c8c !important; cursor: pointer !important; align-items: center !important; justify-content: center !important; padding: 0 !important; margin: 0 !important; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important; z-index: 100002 !important; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+body.sidebar-open #menu-close-btn:hover {
+    background-color: #ffffff !important; color: #875b33 !important; transform: scale(1.12) !important; box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important;
+}
+
+/* 🎯 אלמנטים של הדף */
+body .header-left-link { display: none !important; }
+body .logo-container { transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important; transform-origin: center !important; }
+body .header-container::after {
+    content: var(--כותרת-אמצע-טקסט) !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; font-family: 'Heebo', sans-serif !important; font-size: var(--כותרת-אמצע-גודל) !important; font-weight: var(--כותרת-אמצע-עובי) !important; color: var(--כותרת-אמצע-צבע) !important; text-shadow: var(--כותרת-אמצע-צל) !important; white-space: nowrap !important; pointer-events: none !important; 
+}
+
 /* ==========================================================================
    🛡️ הגנה מוחלטת: חסימת בלעדית של לחיצה, גרירה, סימון ושמירה על תמונות
    ========================================================================== */
@@ -371,24 +417,6 @@ img,
 .share-btn-glass:active svg, .share-btn-glass.active-share svg { stroke: #007aff !important; }
 .love-btn-glass:active svg, .love-btn-glass.active-love svg { stroke: #ff3b30 !important; fill: #ff3b30 !important; }
 .back-btn-glass:hover svg { transform: translateX(1px); }
-
-/* ==========================================================================
-   🛡️ סרגל נעול פלס
-   ========================================================================== */
-body .hamburger-btn { display: flex !important; opacity: 1 !important; transform: translateY(-50%) scale(1) !important; }
-body .side-menu { opacity: 0 !important; pointer-events: none !important; transform: translateX(60px) !important; }
-
-body .profile-click-box, body .profile-icon-1, 
-body .love-click-box, body .love-icon-1, 
-body .bell-click-box, body .bell-icon-1 { transform: translateX(-55px) scale(1) !important; }
-body .profile-icon-2, body .love-icon-2, body .bell-icon-2 { transform: translateX(-55px) scale(1) !important; opacity: 0 !important; }
-
-body.sidebar-open .side-menu {
-    position: fixed !important; top: 0 !important; right: 0 !important; width: 280px !important; height: 100vh !important; background: #ffffff !important; opacity: 1 !important; pointer-events: all !important; transform: translateX(0) !important; display: flex !important; flex-direction: column !important; padding: 70px 20px 20px 20px !important; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; z-index: 100000 !important;
-}
-
-body .header-left-link { display: none !important; }
-body .logo-container { transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important; transform-origin: center !important; }
 
 /* ==========================================================================
    🖼️ מעטפת השכבות והאלמנטים
@@ -732,7 +760,7 @@ body, #item-page-container {
 }
 
 /* ==========================================================================
-   🌟 תמונת s.png - שמור במדויק ב-100% לפי המיקומים והגדלים שלך!
+   🌟 תמונת s.png
    ========================================================================== */
 .s-3d-image {
     display: flex !important;
@@ -847,7 +875,7 @@ body, #item-page-container {
 }
 
 /* ==========================================================================
-   🏙️ 6. מה צפוי לקום באזור - שורה אחת במסכים גדולים, עמודה במובייל
+   🏙️ 6. מה צפוי לקום באזור
    ========================================================================== */
 .card-future-dev-container {
     display: flex !important;
@@ -922,7 +950,7 @@ body, #item-page-container {
 }
 
 /* ==========================================================================
-   💬 📍 8. בועת GLASS שקופה יוקרתית הנעה 100% נטיבית עם קואורדינטות המפה!
+   💬 📍 8. בועת GLASS שקופה הנעה 100% נטיבית עם קואורדינטות המפה!
    ========================================================================== */
 .leaflet-apple-glass-pin-wrapper {
     background: none !important;
@@ -934,9 +962,8 @@ body, #item-page-container {
 .map-property-pin-bubble {
     position: absolute !important;
     z-index: 10 !important;
-    pointer-events: none !important; /* לא מפריע לגרירת המפה */
+    pointer-events: none !important;
     
-    /* 🍏 זכוכית שקופה Apple Glass Style (ללא מסגרת לבנה אטומה) */
     background: rgba(255, 255, 255, 0.28) !important;
     backdrop-filter: blur(18px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
@@ -951,7 +978,6 @@ body, #item-page-container {
     padding: 3px !important;
     box-sizing: border-box !important;
 
-    /* 🎯 🌟 המפתח הגיאומטרי: שפיץ הבועה מחובר בול ל-(0,0) של המיקום ולא זז בזום! */
     left: 0 !important;
     top: 0 !important;
     transform: translate(-50%, calc(-100% - 9px)) !important;
@@ -966,7 +992,6 @@ body, #item-page-container {
     display: block !important;
 }
 
-/* 🔻 המשולש השקוף והתואם בתחתית הבועה */
 .map-property-pin-bubble::after {
     content: '' !important;
     position: absolute !important;
@@ -982,7 +1007,7 @@ body, #item-page-container {
 }
 
 /* ==========================================================================
-   🏠 9. מאפייני הנכס (ממורכז לחלוטין - כותרת ותגיות לבנות קלאסיות באמצע!)
+   🏠 9. מאפייני הנכס
    ========================================================================== */
 .standalone-features-wrapper {
     width: 100% !important;
@@ -1016,6 +1041,38 @@ body, #item-page-container {
 
 /* 📱 1. מובייל (עד 767px) */
 @media (max-width: 767px) {
+    /* --- סרגל עליון במובייל --- */
+    body .header-left-link,
+    body.force-white-header .header-left-link {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    body .header-container::after,
+    body.force-white-header .header-container::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    body .logo-container,
+    body.force-white-header .logo-container {
+        transform: translateX(-50%) scale(1) !important; 
+        left: 50% !important; 
+        top: var(--logo-top-scrolled, -53px) !important; 
+    }
+    
+    body .mobile-logo,
+    body.force-white-header .mobile-logo {
+        width: var(--logo-width-scrolled, 180px) !important; 
+    }
+
+    body .profile-click-box, body .love-click-box, body .bell-click-box,
+    body .profile-icon-1, body .love-icon-1, body .bell-icon-1,
+    body .profile-icon-2, body .love-icon-2, body .bell-icon-2 {
+        display: none !important;
+    }
+
     .property-hero-wrapper { padding-top: 85px; padding-left: 14px; padding-right: 14px; }
     .top-white-overlay-card { flex-direction: column !important; align-items: center !important; gap: var(--card-gap-mobile) !important; }
     .thumbnails-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; grid-template-rows: 1fr !important; }
@@ -1061,7 +1118,6 @@ body, #item-page-container {
         right: 0px !important;
     }
 
-    /* 🌟 s.png במובייל */
     .s-3d-image {
         position: absolute !important;
         width: 500px !important;
@@ -1091,7 +1147,6 @@ body, #item-page-container {
         flex-shrink: 0 !important;
     }
 
-    /* 🗺️ מפת גוגל במובייל */
     .standalone-map-wrapper {
         margin-top: var(--map-top-mobile) !important;
         right: var(--map-right-mobile) !important;
@@ -1101,13 +1156,11 @@ body, #item-page-container {
         height: var(--map-height-mobile) !important;
     }
 
-    /* 💬 📍 בועת GLASS במפה במובייל */
     .map-property-pin-bubble {
         width: var(--map-pin-width-mobile) !important;
         height: var(--map-pin-height-mobile) !important;
     }
 
-    /* 🏠 מאפייני הנכס במובייל */
     .standalone-features-wrapper {
         margin-top: var(--features-top-mobile) !important;
     }
@@ -1155,30 +1208,24 @@ body, #item-page-container {
         right: auto !important; 
     }
 
-    /* 🥧 2. תשואה ברוטו */
     .yield-text-label { position: relative !important; right: 10px !important; top: -30px !important; }
     .yield-percentage-value { position: relative !important; right: 55px !important; top: -30px !important; }
     .yield-3d-image { width: 120px !important; height: 120px !important; top: -26px !important; right: 53px !important; }
 
-    /* 💰 1. מחיר רכישה */
     .card-price-label { position: relative !important; right: 0px !important; }
     .card-price-value { position: relative !important; right: 0px !important; }
 
-    /* 🏠 3. השכירות כיום */
     .card-rent-label { position: relative !important; right: 0px !important; }
     .card-rent-value { position: relative !important; right: 0px !important; }
 
-    /* 📍 4. שכירות ממוצעת באזור */
     .card-avg-rent-label { position: relative !important; right: -26px !important; }
     .card-avg-rent-value { position: relative !important; right: -11.7px !important; }
     .card-avg-rent-container { right: -55px !important; }
 
-    /* 🚀 5. צפי עליית ערך הנכס */
     .card-appreciation-label { position: relative !important; right: -14px !important; }
     .card-appreciation-value { position: relative !important; right: 10px !important; }
     .card-appreciation-container { right: -95px !important; }
 
-    /* 🌟 s.png בטאבלט */
     .s-3d-image {
         position: absolute !important;
         width: 555px !important;
@@ -1195,7 +1242,6 @@ body, #item-page-container {
         top: 20px !important;
     }
 
-    /* 🗺️ מפת גוגל בטאבלט */
     .standalone-map-wrapper {
         margin-top: var(--map-top-tablet) !important;
         right: var(--map-right-tablet) !important;
@@ -1205,13 +1251,11 @@ body, #item-page-container {
         height: var(--map-height-tablet) !important;
     }
 
-    /* 💬 📍 בועת GLASS במפה בטאבלט */
     .map-property-pin-bubble {
         width: var(--map-pin-width-tablet) !important;
         height: var(--map-pin-height-tablet) !important;
     }
 
-    /* 🏠 מאפייני הנכס בטאבלט */
     .standalone-features-wrapper {
         margin-top: var(--features-top-tablet) !important;
     }
@@ -1259,30 +1303,24 @@ body, #item-page-container {
         right: auto !important; 
     }
 
-    /* 🥧 2. תשואה ברוטו */
     .yield-text-label { position: relative !important; right: 10px !important; top: -30px !important; }
     .yield-percentage-value { position: relative !important; right: 55px !important; top: -30px !important; }
     .yield-3d-image { width: 120px !important; height: 120px !important; top: -26px !important; right: 50px !important; }
 
-    /* 💰 1. מחיר רכישה */
     .card-price-label { position: relative !important; right: 0px !important; }
     .card-price-value { position: relative !important; right: 0px !important; }
 
-    /* 🏠 3. השכירות כיום */
     .card-rent-label { position: relative !important; right: 0px !important; }
     .card-rent-value { position: relative !important; right: 0px !important; }
 
-    /* 📍 4. שכירות ממוצעת באזור */
     .card-avg-rent-label { position: relative !important; right: -26px !important; }
     .card-avg-rent-value { position: relative !important; right: -11.7px !important; }
     .card-avg-rent-container { right: -55px !important; }
 
-    /* 🚀 5. צפי עליית ערך הנכס */
     .card-appreciation-label { position: relative !important; right: -14px !important; }
     .card-appreciation-value { position: relative !important; right: 10px !important; }
     .card-appreciation-container { right: -95px !important; }
 
-    /* 🌟 s.png בלפטופ */
     .s-3d-image {
         position: absolute !important;
         width: 524px !important;
@@ -1299,7 +1337,6 @@ body, #item-page-container {
         top: 20px !important;
     }
 
-    /* 🗺️ מפת גוגל בלפטופ */
     .standalone-map-wrapper {
         margin-top: var(--map-top-laptop) !important;
         right: var(--map-right-laptop) !important;
@@ -1309,13 +1346,11 @@ body, #item-page-container {
         height: var(--map-height-laptop) !important;
     }
 
-    /* 💬 📍 בועת GLASS במפה בלפטופ */
     .map-property-pin-bubble {
         width: var(--map-pin-width-laptop) !important;
         height: var(--map-pin-height-laptop) !important;
     }
 
-    /* 🏠 מאפייני הנכס בלפטופ */
     .standalone-features-wrapper {
         margin-top: var(--features-top-laptop) !important;
     }
@@ -1363,25 +1398,20 @@ body, #item-page-container {
         right: auto !important; 
     }
 
-    /* 🥧 2. תשואה ברוטו */
     .yield-text-label { position: relative !important; right: 18px !important; top: -30px !important; }
     .yield-percentage-value { position: relative !important; right: 60px !important; top: -30px !important; }
     .yield-3d-image { width: 130px !important; height: 130px !important; top: -26px !important; right: 69px !important; }
 
-    /* 💰 1. מחיר רכישה */
     .card-price-label { position: relative !important; right: 0px !important; }
     .card-price-value { position: relative !important; right: 0px !important; }
 
-    /* 🏠 3. השכירות כיום */
     .card-rent-label { position: relative !important; right: 0px !important; top: -2.7px !important; }
     .card-rent-value { position: relative !important; right: 0px !important; top: -2.7px !important; }
 
-    /* 📍 4. שכירות ממוצעת באזור */
     .card-avg-rent-label { position: relative !important; right: -38px !important; }
     .card-avg-rent-value { position: relative !important; right: -22px !important; }
     .card-avg-rent-container { right: -45px !important; }
 
-    /* 🚀 5. צפי עליית ערך הנכס */
     .card-appreciation-label { position: relative !important; right: -57px !important; }
     .card-appreciation-value { position: relative !important; right: -26px !important; }
     .card-appreciation-container { right: -55px !important; }
@@ -1402,7 +1432,6 @@ body, #item-page-container {
         top: 20px !important;
     }
 
-    /* 🗺️ מפת גוגל במחשב נייח */
     .standalone-map-wrapper {
         margin-top: var(--map-top-desktop) !important;
         right: var(--map-right-desktop) !important;
@@ -1412,13 +1441,11 @@ body, #item-page-container {
         height: var(--map-height-desktop) !important;
     }
 
-    /* 💬 📍 בועת GLASS במפה במחשב נייח */
     .map-property-pin-bubble {
         width: var(--map-pin-width-desktop) !important;
         height: var(--map-pin-height-desktop) !important;
     }
 
-    /* 🏠 מאפייני הנכס במחשב נייח */
     .standalone-features-wrapper {
         margin-top: var(--features-top-desktop) !important;
     }

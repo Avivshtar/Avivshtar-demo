@@ -3,6 +3,13 @@
 // ==========================================================================
 window.addEventListener('DOMContentLoaded', () => {
 
+    // 🏠 לחיצה על הלוגו - מעבר נקי לדף הבית (עובד גם אם הסרגל נטען דינמית)
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.logo-container') || e.target.closest('.mobile-logo')) {
+            window.location.href = 'index.html';
+        }
+    });
+
     // 🛡️ חסימת גרירה ומקש ימני (Right-Click) על כל התמונות בטרמינל
     document.addEventListener('contextmenu', (e) => {
         if (e.target.tagName === 'IMG' || e.target.closest('.main-gallery-container') || e.target.closest('.thumbnails-grid')) {
@@ -484,7 +491,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- 🗺️ 4. מפת LEAFLET חיה (הבועה נעה, גדלה וזזה נטיבית עם המפה!) -->
+                <!-- 🗺️ 4. מפת LEAFLET חיה -->
                 <div class="standalone-map-wrapper">
                     <div class="property-map-card">
                         <div id="item-interactive-map-container"></div>
@@ -502,7 +509,7 @@ window.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // 🚀 טעינה שקטה ואוטומטית של ספרייית המפה
+        // 🚀 טעינה שקטה ואוטומטית של ספריית המפה
         ensureLeafletAndInitMap(lat, lng, mainPropertyImage);
     }
 });
@@ -543,7 +550,6 @@ function initPropertyLeafletMap(lat, lng, imageUrl) {
         window.itemLeafletInstance.remove();
     }
 
-    // יצירת מפה חיה
     const map = L.map('item-interactive-map-container', {
         zoomControl: true,
         scrollWheelZoom: false,
@@ -552,7 +558,6 @@ function initPropertyLeafletMap(lat, lng, imageUrl) {
 
     window.itemLeafletInstance = map;
 
-    // אריחי Google Maps נקיים
     L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&scale=2', {
         maxZoom: 20,
         tileSize: 256,
@@ -561,7 +566,6 @@ function initPropertyLeafletMap(lat, lng, imageUrl) {
         attribution: '© Google Maps'
     }).addTo(map);
 
-    // בועת זכוכית שקופה אופנתית (Apple Glass Pin) הנעולה למיקום המדויק
     const glassPinIcon = L.divIcon({
         className: 'leaflet-apple-glass-pin-wrapper',
         html: `
@@ -575,9 +579,6 @@ function initPropertyLeafletMap(lat, lng, imageUrl) {
 
     L.marker([lat, lng], { icon: glassPinIcon }).addTo(map);
 
-    // 🎯 🌟 המפתח למרכוז מושלם ולמניעת "נפילה לים":
-    // לאחר שהדפדפן מסיים לחשב את הגודל והרוחב של ה-DOM,
-    // אנחנו מורים למפה לחשב מחדש את מרכזה הגיאומטרי ולשים את הנכס בול באמצע!
     setTimeout(() => {
         map.invalidateSize();
         map.setView([lat, lng], 16);
