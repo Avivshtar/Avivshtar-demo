@@ -1,27 +1,380 @@
 /* ==========================================================================
-   🎛️ לוח בקרה מוגן לדף נכס (item) - סרגל פלס + וידאו COMING SOON
+   🎛️ לוח בקרה מרכזי - שליטה מלאה בגדלים, מיקומים ומרווחים (item.css)
    ========================================================================== */
 :root {
+    /* 🛡️ הגדרות לוגו וסרגל */
     --מיקום-לוגו-אופקי: -539px; 
     --מיקום-לוגו-אנכי: 7px;     
     --גודל-לוגו-קנה-מידה: 0.77;    
 
-    /* ❌ למעלה אין כותרת אמצע */
     --כותרת-אמצע-טקסט: ""; 
-    --כותרת-אמצע-גודל: 26px;             
-    --כותרת-אמצע-עובי: 200;              
-    --כותרת-אמצע-צבע: #875b33;           
+    --כותרת-אמצע-גודל: 26px;              
+    --כותרת-אמצע-עובי: 200;               
+    --כותרת-אמצע-צבע: #875b33;            
     --כותרת-אמצע-צל: 1px 1px 3px rgba(0, 0, 0, 0.15); 
     --כותרת-אמצע-אנכי: 7px; 
 
-    /* 🎬 פאנל ניהול לווידאו COMING SOON */
-    --גודל-וידאו-בקרוב: 442.3px;           /* רוחב הנגן */
-    --מרחק-וידאו-מלמעלה: -50px;          /* מרחק משורת הסרגל */
-    --הזזה-אופקית-וידאו: 0px;           /* ימינה/שמאלה (פלוס/מינוס) */
-}
-/* ========================================================================== */
+    /* ======================================================================
+       📱 1. מובייל (MOBILE - עד 767px)
+       ====================================================================== */
+    --card-padding-mobile: 18px;            
+    --card-gap-mobile: 14px;                
 
-/* 🛡️ חסינות אבסולוטית ומלאה לסרגל המקורי - נעול פלס! */
+    /* 🍏 כפתורי פעולה במובייל */
+    --back-btn-top-mobile: 47px;            
+    --back-btn-right-mobile: 14px;          
+    --back-btn-size-mobile: 34px;           
+
+    --share-btn-top-mobile: 430px;          
+    --share-btn-left-mobile: 70px;          
+    --share-btn-size-mobile: 39px;          
+
+    --love-btn-top-mobile: 430px;            
+    --love-btn-left-mobile: 24px;           
+    --love-btn-size-mobile: 39px;           
+
+    /* 🖼️ גלריה במובייל */
+    --main-gallery-top-mobile: -59px;         
+    --main-gallery-right-mobile: 0px;       
+    --main-gallery-width-mobile: 103%;      
+    --main-gallery-height-mobile: 270px;    
+
+    --thumbs-top-mobile: -59px;             
+    --thumbs-right-mobile: 0px;             
+    --thumbs-width-mobile: 102%;            
+    --thumbs-height-mobile: 95px;           
+    --thumbs-gap-mobile: 8px;               
+
+    /* 📝 פרטי הנכס - מובייל */
+    --address-top-mobile: -77px;
+    --address-right-mobile: 0px;
+    --address-size-mobile: 18px;
+
+    --specs-top-mobile: -71px;
+    --specs-right-mobile: 0px;
+    --specs-size-mobile: 14px;
+
+    /* 📜 תיאור הנכס - מובייל */
+    --desc-top-mobile: -80px;
+    --desc-right-mobile: 0px;
+    --desc-title-size-mobile: 18px;
+    --desc-text-size-mobile: 15px;
+    --desc-max-width-mobile: 77%;
+
+    /* 🤍 כרטיסיית GLASS וכדורים - מובייל */
+    --card-width-mobile: 95%;
+    --card-min-height-mobile: 550px;
+    --card-top-mobile: -45px;
+    --card-right-mobile: 7px;
+
+    --ball1-width-mobile: 190px;
+    --ball1-height-mobile: 190px;
+    --ball1-top-mobile: -130px;
+    --ball1-left-mobile: -110px;
+
+    --ball2-width-mobile: 130px;
+    --ball2-height-mobile: 130px;
+    --ball2-bottom-mobile: -45px;
+    --ball2-left-mobile: -45px;
+
+    /* 🗺️ מפת גוגל - מובייל */
+    --map-width-mobile: 95%;
+    --map-height-mobile: 252px;
+    --map-top-mobile: 42.5px;
+    --map-right-mobile: 0px;
+
+    /* 💬 📍 בועת Apple Glass במפה - מובייל (גודל קומפקטי קלאסי) */
+    --map-pin-width-mobile: 100px;
+    --map-pin-height-mobile: 70px;
+
+    /* 🏠 מאפייני הנכס - מובייל */
+    --features-top-mobile: 50px;
+    --features-gap-mobile: 14px;
+    --features-font-size-mobile: 15.7px;
+    --features-padding-mobile: 7px 18px;
+
+    /* ======================================================================
+       💻 2. טאבלט (TABLET - 768px - 1023px)
+       ====================================================================== */
+    --card-padding-tablet: 20px;
+    --card-gap-tablet: 16px;
+
+    --back-btn-top-tablet: 95px;
+    --back-btn-right-tablet: 20px;
+    --back-btn-size-tablet: 39px;
+
+    --share-btn-top-tablet: 95px;
+    --share-btn-left-tablet: 70px;
+    --share-btn-size-tablet: 39px;
+
+    --love-btn-top-tablet: 95px;
+    --love-btn-left-tablet: 24px;
+    --love-btn-size-tablet: 39px;
+
+    --main-gallery-top-tablet: 0px;
+    --main-gallery-right-tablet: 0px;
+    --main-gallery-width-tablet: 100%;
+    --main-gallery-height-tablet: 290px;
+
+    --thumbs-top-tablet: 0px;
+    --thumbs-right-tablet: 0px;
+    --thumbs-width-tablet: 100%;
+    --thumbs-height-tablet: 75px;
+    --thumbs-gap-tablet: 10px;
+
+    --address-top-tablet: -24px;
+    --address-right-tablet: 0px;
+    --address-size-tablet: 20px;
+
+    --specs-top-tablet: -19px;
+    --specs-right-tablet: 0px;
+    --specs-size-tablet: 16px;
+
+    --desc-top-tablet: -24px;
+    --desc-right-tablet: 0px;
+    --desc-title-size-tablet: 19px;
+    --desc-text-size-tablet: 16px;
+    --desc-max-width-tablet: 100%;
+
+    /* 🤍 כרטיסיית GLASS וכדורים - טאבלט */
+    --card-width-tablet: 95%;
+    --card-min-height-tablet: 524px;
+    --card-top-tablet: 0px;
+    --card-right-tablet: 18px;
+
+    --ball1-width-tablet: 230px;
+    --ball1-height-tablet: 230px;
+    --ball1-top-tablet: -160px;
+    --ball1-left-tablet: -130px;
+
+    --ball2-width-tablet: 150px;
+    --ball2-height-tablet: 150px;
+    --ball2-bottom-tablet: -55px;
+    --ball2-left-tablet: -55px;
+
+    /* 🗺️ מפת גוגל - טאבלט */
+    --map-width-tablet: 95.5%;
+    --map-height-tablet: 300px;
+    --map-top-tablet: 42.5px;
+    --map-right-tablet: 0px;
+
+    /* 💬 📍 בועת Apple Glass במפה - טאבלט */
+    --map-pin-width-tablet: 126px;
+    --map-pin-height-tablet: 79px;
+
+    /* 🏠 מאפייני הנכס - טאבלט */
+    --features-top-tablet: 50px;
+    --features-gap-tablet: 18px;
+    --features-font-size-tablet: 15.7px;
+    --features-padding-tablet: 7px 18px;
+
+    /* ======================================================================
+       💻 3. מחשב נייד / לפטופ (LAPTOP - 1024px - 1439px)
+       ====================================================================== */
+    --card-padding-laptop: 20px;
+    --card-gap-laptop: 20px;
+
+    --back-btn-top-laptop: 82px;
+    --back-btn-right-laptop: 32px;
+    --back-btn-size-laptop: 39px;
+
+    --share-btn-top-laptop: 82px;
+    --share-btn-left-laptop: 65px;
+    --share-btn-size-laptop: 39px;
+
+    --love-btn-top-laptop: 82px;
+    --love-btn-left-laptop: 24px;
+    --love-btn-size-laptop: 39px;
+
+    --main-gallery-top-laptop: 22.5px;
+    --main-gallery-right-laptop: 0px;
+    --main-gallery-width-laptop: 63%;
+    --main-gallery-height-laptop: 360px;
+
+    --thumbs-top-laptop: 22.5px;
+    --thumbs-right-laptop: 0px;
+    --thumbs-width-laptop: 36%;
+    --thumbs-height-laptop: 360px;
+    --thumbs-gap-laptop: 12px;
+
+    --address-top-laptop: -3px;
+    --address-right-laptop: 0px;
+    --address-size-laptop: 20px;
+
+    --specs-top-laptop: 2px;
+    --specs-right-laptop: 0px;
+    --specs-size-laptop: 16px;
+
+    --desc-top-laptop: -3px;
+    --desc-right-laptop: 0px;
+    --desc-title-size-laptop: 20px;
+    --desc-text-size-laptop: 16.5px;
+    --desc-max-width-laptop: 39%;
+
+    /* 🤍 כרטיסיית GLASS וכדורים - לפטופ */
+    --card-width-laptop: 50%;
+    --card-min-height-laptop: 550px;
+    --card-top-laptop: -77px;
+    --card-right-laptop: -30px;
+
+    --ball1-width-laptop: 280px;
+    --ball1-height-laptop: 280px;
+    --ball1-top-laptop: -200px;
+    --ball1-left-laptop: -160px;
+
+    --ball2-width-laptop: 170px;
+    --ball2-height-laptop: 170px;
+    --ball2-bottom-laptop: -60px;
+    --ball2-left-laptop: -60px;
+
+    /* 🗺️ מפת גוגל - לפטופ */
+    --map-width-laptop: 95.5%;
+    --map-height-laptop: 360px;
+    --map-top-laptop: 42.5px;
+    --map-right-laptop: 0px;
+
+    /* 💬 📍 בועת Apple Glass במפה - לפטופ */
+    --map-pin-width-laptop: 152.5px;
+    --map-pin-height-laptop: 100px;
+
+    /* 🏠 מאפייני הנכס - לפטופ */
+    --features-top-laptop: 50px;
+    --features-gap-laptop: 18px;
+    --features-font-size-laptop: 15.7px;
+    --features-padding-laptop: 7px 18px;
+
+    /* ======================================================================
+       🖥️ 4. מחשב נייח / מסך ענק (DESKTOP - 1440px ומעלה)
+       ====================================================================== */
+    --card-padding-desktop: 24px;
+    --card-gap-desktop: 24px;
+
+    --back-btn-top-desktop: 90px;
+    --back-btn-right-desktop: -224px;
+    --back-btn-size-desktop: 39px;
+
+    --share-btn-top-desktop: 90px;
+    --share-btn-left-desktop: -177px;
+    --share-btn-size-desktop: 39px;
+
+    --love-btn-top-desktop: 90px;
+    --love-btn-left-desktop: -224px;
+    --love-btn-size-desktop: 39px;
+
+    --main-gallery-top-desktop: 34px;
+    --main-gallery-right-desktop: -270px;
+    --main-gallery-width-desktop: 100%;
+    --main-gallery-height-desktop: 470px;
+
+    --thumbs-top-desktop: 34px;
+    --thumbs-right-desktop: -270px;
+    --thumbs-width-desktop: 43%;
+    --thumbs-height-desktop: 470px;
+    --thumbs-gap-desktop: 14px;
+
+    --address-top-desktop: 18px;
+    --address-right-desktop: -250px;
+    --address-size-desktop: 24px;
+
+    --specs-top-desktop: 18px;
+    --specs-right-desktop: -250px;
+    --specs-size-desktop: 18px;
+
+    --desc-top-desktop: 18px;
+    --desc-right-desktop: -250px;
+    --desc-title-size-desktop: 21px;
+    --desc-text-size-desktop: 17px;
+    --desc-max-width-desktop: 39%;
+
+    /* 🤍 כרטיסיית GLASS וכדורים - דסקטופ */
+    --card-width-desktop: 55%;
+    --card-min-height-desktop: 555px;
+    --card-top-desktop: -40px;
+    --card-right-desktop: 150px;
+
+    --ball1-width-desktop: 320px;
+    --ball1-height-desktop: 320px;
+    --ball1-top-desktop: -220px;
+    --ball1-left-desktop: -180px;
+
+    --ball2-width-desktop: 190px;
+    --ball2-height-desktop: 190px;
+    --ball2-bottom-desktop: -65px;
+    --ball2-left-desktop: -65px;
+
+    /* 🗺️ מפת גוגל - דסקטופ */
+    --map-width-desktop: 126%;
+    --map-height-desktop: 400px;
+    --map-top-desktop: 60px;
+    --map-right-desktop: 0px;
+
+    /* 💬 📍 בועת Apple Glass במפה - דסקטופ */
+    --map-pin-width-desktop: 152.5px;
+    --map-pin-height-desktop: 100px;
+
+    /* 🏠 מאפייני הנכס - דסקטופ */
+    --features-top-desktop: 100px;
+    --features-gap-desktop: 18px;
+    --features-font-size-desktop: 15.7px;
+    --features-padding-desktop: 7px 20px;
+}
+
+/* ==========================================================================
+   🛡️ הגנה מוחלטת: חסימת בלעדית של לחיצה, גרירה, סימון ושמירה על תמונות
+   ========================================================================== */
+img, 
+.s-3d-image img, 
+.yield-3d-image img, 
+.gallery-slide-img, 
+.thumb-card img,
+.map-property-pin-bubble img {
+    pointer-events: none !important;     
+    user-select: none !important;        
+    -webkit-user-select: none !important;
+    -webkit-user-drag: none !important;   
+    -webkit-touch-callout: none !important;
+}
+
+/* ==========================================================================
+   🍏 כפתורי GLASS מרחפים (חזרה, שיתוף, לב) - Apple Style
+   ========================================================================== */
+.glass-action-btn {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
+}
+
+.glass-action-btn:hover { background: rgba(255, 255, 255, 0.7) !important; transform: scale(1.05); }
+.glass-action-btn:active { transform: scale(0.9) !important; background: rgba(255, 255, 255, 0.85) !important; }
+
+.glass-action-btn svg {
+    display: block;
+    stroke: #4a4a4a !important;
+    stroke-width: 0.9 !important;
+    transition: stroke 0.25s ease, fill 0.25s ease, transform 0.18s ease;
+}
+
+.back-btn-glass:active svg { stroke: #875b33 !important; }
+.share-btn-glass:active svg, .share-btn-glass.active-share svg { stroke: #007aff !important; }
+.love-btn-glass:active svg, .love-btn-glass.active-love svg { stroke: #ff3b30 !important; fill: #ff3b30 !important; }
+.back-btn-glass:hover svg { transform: translateX(1px); }
+
+/* ==========================================================================
+   🛡️ סרגל נעול פלס
+   ========================================================================== */
 body .hamburger-btn { display: flex !important; opacity: 1 !important; transform: translateY(-50%) scale(1) !important; }
 body .side-menu { opacity: 0 !important; pointer-events: none !important; transform: translateX(60px) !important; }
 
@@ -30,58 +383,1050 @@ body .love-click-box, body .love-icon-1,
 body .bell-click-box, body .bell-icon-1 { transform: translateX(-55px) scale(1) !important; }
 body .profile-icon-2, body .love-icon-2, body .bell-icon-2 { transform: translateX(-55px) scale(1) !important; opacity: 0 !important; }
 
-body .profile-click-box:hover ~ .profile-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
-body .profile-click-box:hover ~ .profile-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
-body .profile-click-box:active ~ .profile-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
-
-body .love-click-box:hover ~ .love-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
-body .love-click-box:hover ~ .love-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
-body .love-click-box:active ~ .love-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
-
-body .bell-click-box:hover ~ .bell-icon-1 { opacity: 0 !important; transform: translateX(-55px) scale(1.08) !important; }
-body .bell-click-box:hover ~ .bell-icon-2 { opacity: 1 !important; transform: translateX(-55px) scale(1.08) !important; }
-body .bell-click-box:active ~ .bell-icon-2 { transform: translateX(-55px) scale(0.96) !important; }
-
 body.sidebar-open .side-menu {
     position: fixed !important; top: 0 !important; right: 0 !important; width: 280px !important; height: 100vh !important; background: #ffffff !important; opacity: 1 !important; pointer-events: all !important; transform: translateX(0) !important; display: flex !important; flex-direction: column !important; padding: 70px 20px 20px 20px !important; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.22) !important; z-index: 100000 !important;
 }
-body.sidebar-open #menu-close-btn {
-    display: flex !important; position: absolute !important; top: 20px !important; left: 20px !important; width: 38px !important; height: 38px !important; background-color: #f4f4f5 !important; border: none !important; border-radius: 50% !important; color: #8c8c8c !important; cursor: pointer !important; align-items: center !important; justify-content: center !important; padding: 0 !important; margin: 0 !important; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important; z-index: 100002 !important; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-}
-body.sidebar-open #menu-close-btn:hover {
-    background-color: #ffffff !important; color: #875b33 !important; transform: scale(1.12) !important; box-shadow: 0 0 15px rgba(135, 91, 51, 0.45) !important;
-}
 
-/* 🎯 אלמנטים של הדף */
 body .header-left-link { display: none !important; }
 body .logo-container { transform: translate(var(--מיקום-לוגו-אופקי), var(--מיקום-לוגו-אנכי)) scale(var(--גודל-לוגו-קנה-מידה)) !important; transform-origin: center !important; }
-body .header-container::after {
-    content: var(--כותרת-אמצע-טקסט) !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, calc(-50% + var(--כותרת-אמצע-אנכי))) !important; font-family: 'Heebo', sans-serif !important; font-size: var(--כותרת-אמצע-גודל) !important; font-weight: var(--כותרת-אמצע-עובי) !important; color: var(--כותרת-אמצע-צבע) !important; text-shadow: var(--כותרת-אמצע-צל) !important; white-space: nowrap !important; pointer-events: none !important; 
-}
 
-/* 🎥 עיצוב נקי לחלוטין לנגן הווידאו - אפס קווים שחורים והבהובים */
-.coming-soon-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ==========================================================================
+   🖼️ מעטפת השכבות והאלמנטים
+   ========================================================================== */
+body, #item-page-container {
+    background-color: #ffffff !important;
     width: 100%;
-    margin-top: var(--מרחק-וידאו-מלמעלה);
-    transform: translateX(var(--הזזה-אופקית-וידאו));
-    background: transparent !important;
-    box-shadow: none !important;
-    overflow: hidden !important; /* חותך קווים זולגים בקצוות */
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Heebo', sans-serif;
+    overflow-x: hidden !important;
 }
 
-.coming-soon-wrapper video {
-    width: var(--גודל-וידאו-בקרוב);
-    max-width: 90vw;
-    height: auto;
-    display: block;
-    border-radius: 0 !important;
+.property-hero-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 110px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.top-white-overlay-card {
+    position: relative;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    background: transparent !important;
     box-shadow: none !important;
     border: none !important;
+}
+
+.thumbnails-grid { box-sizing: border-box; position: relative; order: 2; flex-shrink: 0; }
+.thumb-card {
+    position: relative; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; cursor: pointer; box-sizing: border-box; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.thumb-card:hover { transform: translateY(-2px) scale(1.015); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
+.thumb-card img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+.thumb-card.more-blur-card img { filter: blur(14px) scale(1.2); }
+
+.thumb-blur-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; border-radius: 16px; pointer-events: none;
+}
+.thumb-more-text { color: #ffffff; font-weight: 300; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); font-family: 'Heebo', sans-serif; user-select: none; direction: ltr; }
+
+.main-gallery-container { position: relative; display: flex; align-items: center; justify-content: center; box-sizing: border-box; flex-shrink: 0; order: 1; }
+.gallery-slider { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 24px; box-sizing: border-box; touch-action: pan-y pinch-zoom; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07); border: 1px solid rgba(0, 0, 0, 0.05); }
+.gallery-slide-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 24px; opacity: 0; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; z-index: 1; }
+.gallery-slide-img.active { opacity: 1; transform: translateX(0); z-index: 2; }
+
+.gallery-nav-btn {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0, 0, 0, 0.08); color: #222222; font-size: 14px; cursor: pointer; z-index: 25; display: none; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); transition: all 0.15s ease;
+}
+.gallery-nav-btn:hover { background: #ffffff; transform: translateY(-50%) scale(1.1); }
+.gallery-nav-btn.prev-btn { right: 12px; }
+.gallery-nav-btn.next-btn { left: 12px; }
+
+.gallery-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 6px; z-index: 20; }
+.gallery-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.2s ease; }
+.gallery-dot.active { background: #ffffff; width: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); }
+
+.property-main-image-wrapper, #main-property-img, .glass-info-card { display: none !important; }
+
+/* ==========================================================================
+   📄 אזור פרטי הנכס + תגיות
+   ========================================================================== */
+.main-white-page-content { width: 100%; max-width: 1280px; margin: 0 auto; padding: 20px 20px 60px 20px; box-sizing: border-box; }
+.item-page-info-wrapper { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+
+.prop-address, .prop-specs { position: relative; color: #3a3530; margin: 0; line-height: 1.3; text-align: right; font-family: 'Heebo', sans-serif; }
+
+.prop-address { font-weight: 500; display: flex; align-items: center; justify-content: flex-start; gap: 6px; }
+.location-icon { width: 18px; height: 18px; flex-shrink: 0; color: #3a3530; transform: translateY(-1.5px); }
+
+.prop-specs { font-weight: 400; display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 8px; width: 100%; margin-top: 4px; }
+.spec-badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 14px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 20px; color: #3a3530; font-family: 'Heebo', sans-serif; white-space: nowrap; box-shadow: 0 1px 2px rgba(0,0,0,0.02); font-size: inherit; }
+
+/* ==========================================================================
+   🏗️ מעטפת החלוקה (תיאור הנכס + כרטיסיית GLASS אנכית)
+   ========================================================================== */
+.details-split-container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.prop-description-section { 
+    position: relative; 
+    width: 100%; 
+}
+
+.prop-description-title { 
+    font-family: 'Heebo', sans-serif; 
+    font-weight: 300 !important; 
+    color: #3a3530; 
+    margin: 0 0 6px 0; 
+    line-height: 1.2; 
+}
+
+.prop-description-text { 
+    font-family: 'Heebo', sans-serif; 
+    font-weight: 300; 
+    color: #555555; 
+    line-height: 1.6; 
+    margin: 0; 
+    text-align: right; 
+}
+
+/* ==========================================================================
+   🤍 כרטיסייה לבנה + כדורי שמנת עשירים + GLASS מקצה לקצה
+   ========================================================================== */
+.white-shadow-card {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E") !important;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.07), 0 14px 36px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.sand-card-divider {
+    position: absolute;
+    top: 77px;
+    left: 20px; 
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(
+        to right, 
+        rgba(180, 165, 150, 0) 0%, 
+        rgba(180, 165, 150, 0.45) 20%, 
+        rgba(180, 165, 150, 0.45) 80%, 
+        rgba(180, 165, 150, 0) 100%
+    );
+    z-index: 3;
+    pointer-events: none;
+}
+
+.white-shadow-card::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 35%, 
+        #ffffff 0%, 
+        #fffdf7 25%, 
+        #fdf6e7 50%, 
+        #f7e7ce 78%, 
+        #e5ceab 100%
+    ) !important;
+    box-shadow: 22px 22px 45px rgba(200, 175, 140, 0.22);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.white-shadow-card::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 35%, 
+        #ffffff 0%, 
+        #fffdf7 25%, 
+        #fdf6e7 50%, 
+        #f7e7ce 78%, 
+        #e5ceab 100%
+    ) !important;
+    box-shadow: -18px -18px 36px rgba(200, 175, 140, 0.20);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    padding: 0 !important;
+    box-sizing: border-box;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.apple-glass-layer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.35) 0%, 
+        rgba(255, 255, 255, 0.08) 100%
+    ) !important;
+    backdrop-filter: blur(40px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.9);
+}
+
+.sand-arrow-btn {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    width: 55px;
+    height: 44px;
+    border-radius: 32% !important;
+    background: rgba(255, 255, 255, 0.38) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08), inset 0 1.5px 2px rgba(255, 255, 255, 0.9) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     outline: none !important;
-    background: transparent !important;
-    object-fit: cover !important; /* מעלים רווחים שחורים פנימיים */
-    mix-blend-mode: multiply !important; /* ממזג את הרקע הלבן של הווידאו באופן חלק עם העמוד */
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.sand-arrow-btn:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.58) !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12), inset 0 1.5px 3px rgba(255, 255, 255, 1) !important;
+}
+
+.sand-arrow-btn:active {
+    transform: scale(0.92) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+}
+
+.sand-arrow-btn svg {
+    width: 25px;
+    height: 25px;
+    stroke: #1a1a1a !important;
+    stroke-width: 1.4 !important;
+    display: block;
+}
+
+/* ==========================================================================
+   🏷️ עיצוב כותרת "תוכנית עסקית"
+   ========================================================================== */
+.card-plan-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 24px !important; 
+    font-weight: 300 !important; 
+    color: #3a3530; 
+    text-align: center !important;
+    width: 100%;
+    margin: 0 auto 24px auto !important;
+    padding-top: 4px;
+    line-height: 1;
+    letter-spacing: 0.6px;
+}
+
+/* ==========================================================================
+   💰 1. מחיר רכישה
+   ========================================================================== */
+.card-price-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 57px !important;
+    gap: 26px !important;
+}
+
+.card-price-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px !important;
+    font-weight: 250 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+.card-price-value {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px !important;
+    font-weight: 480 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   🥧 2. תשואה ברוטו + תמונה
+   ========================================================================== */
+.card-yield-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 18px !important;
+    position: relative !important;
+}
+
+.yield-text-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px !important;
+    font-weight: 250 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+    position: relative !important;
+} 
+
+.yield-percentage-value {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px !important;
+    font-weight: 480 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+    position: relative !important;
+}
+
+.yield-3d-image {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+}
+
+.yield-3d-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* ==========================================================================
+   🌟 תמונת s.png - שמור במדויק ב-100% לפי המיקומים והגדלים שלך!
+   ========================================================================== */
+.s-3d-image {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+.s-3d-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* ==========================================================================
+   🏠 3. השכירות כיום
+   ========================================================================== */
+.card-rent-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: -50px !important;
+    gap: 35px !important;
+    position: relative !important;
+    top: 7.7px !important;
+    right: -18px !important;
+}
+
+.card-rent-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px !important;
+    font-weight: 250 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+.card-rent-value {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px !important;
+    font-weight: 480 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   📍 4. שכירות ממוצעת באזור
+   ========================================================================== */
+.card-avg-rent-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 32px !important;
+    gap: 18px !important;
+    position: relative !important;
+    top: 14px !important;
+    right: 0px !important;
+}
+
+.card-avg-rent-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px !important;
+    font-weight: 250 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+.card-avg-rent-value {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px !important;
+    font-weight: 480 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   🚀 5. צפי עליית ערך (שנתי)
+   ========================================================================== */
+.card-appreciation-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 32px !important;
+    gap: 18px !important;
+    position: relative !important;
+    top: 20px !important;
+    right: 0px !important;
+}
+
+.card-appreciation-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px !important;
+    font-weight: 250 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+.card-appreciation-value {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px !important;
+    font-weight: 480 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   🏙️ 6. מה צפוי לקום באזור - שורה אחת במסכים גדולים, עמודה במובייל
+   ========================================================================== */
+.card-future-dev-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    margin-top: 32px !important;
+    gap: 12px !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+.card-future-dev-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px !important;
+    font-weight: 250 !important;
+    color: #3a3530 !important;
+    line-height: 1;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+.future-dev-items-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    box-sizing: border-box;
+    flex-wrap: wrap !important;
+}
+
+/* ==========================================================================
+   🗺️ 7. מפת GOOGLE MAPS חינטרנטית בתוך מעטפת מבודדת
+   ========================================================================== */
+.standalone-map-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+    position: relative !important;
+    clear: both !important;
+}
+
+.property-map-card {
+    position: relative !important;
+    box-sizing: border-box !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    background: #ffffff !important;
+    transition: box-shadow 0.3s ease !important;
+    flex-shrink: 0 !important;
+    max-width: none !important;
+}
+
+.property-map-card:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.08), 0 6px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+#item-interactive-map-container {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    display: block !important;
+    border-radius: inherit !important;
+    z-index: 1 !important;
+}
+
+/* ==========================================================================
+   💬 📍 8. בועת GLASS שקופה יוקרתית הנעה 100% נטיבית עם קואורדינטות המפה!
+   ========================================================================== */
+.leaflet-apple-glass-pin-wrapper {
+    background: none !important;
+    border: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.map-property-pin-bubble {
+    position: absolute !important;
+    z-index: 10 !important;
+    pointer-events: none !important; /* לא מפריע לגרירת המפה */
+    
+    /* 🍏 זכוכית שקופה Apple Glass Style (ללא מסגרת לבנה אטומה) */
+    background: rgba(255, 255, 255, 0.28) !important;
+    backdrop-filter: blur(18px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.65) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), inset 0 1px 1.5px rgba(255, 255, 255, 0.8) !important;
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 3px !important;
+    box-sizing: border-box !important;
+
+    /* 🎯 🌟 המפתח הגיאומטרי: שפיץ הבועה מחובר בול ל-(0,0) של המיקום ולא זז בזום! */
+    left: 0 !important;
+    top: 0 !important;
+    transform: translate(-50%, calc(-100% - 9px)) !important;
+    margin: 0 !important;
+}
+
+.map-property-pin-bubble img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+    display: block !important;
+}
+
+/* 🔻 המשולש השקוף והתואם בתחתית הבועה */
+.map-property-pin-bubble::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -9px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 7px solid transparent !important;
+    border-right: 7px solid transparent !important;
+    border-top: 9px solid rgba(255, 255, 255, 0.65) !important;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.12)) !important;
+}
+
+/* ==========================================================================
+   🏠 9. מאפייני הנכס (ממורכז לחלוטין - כותרת ותגיות לבנות קלאסיות באמצע!)
+   ========================================================================== */
+.standalone-features-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+.standalone-features-wrapper .prop-description-title {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.features-badges-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 10px !important;
+}
+
+/* ==========================================================================
+   📱💻🖥️ לוח בקרה מבודד - שליטה ב-RIGHT, TOP, WIDTH, HEIGHT לפי מסך
+   ========================================================================== */
+
+/* 📱 1. מובייל (עד 767px) */
+@media (max-width: 767px) {
+    .property-hero-wrapper { padding-top: 85px; padding-left: 14px; padding-right: 14px; }
+    .top-white-overlay-card { flex-direction: column !important; align-items: center !important; gap: var(--card-gap-mobile) !important; }
+    .thumbnails-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; grid-template-rows: 1fr !important; }
+    .thumb-card.more-blur-card { grid-column: 4 !important; grid-row: 1 !important; }
+    .thumb-more-text { font-size: 20px; }
+    
+    .back-btn-glass { top: var(--back-btn-top-mobile) !important; right: var(--back-btn-right-mobile) !important; width: var(--back-btn-size-mobile) !important; height: var(--back-btn-size-mobile) !important; }
+    .share-btn-glass { top: var(--share-btn-top-mobile) !important; left: var(--share-btn-left-mobile) !important; width: var(--share-btn-size-mobile) !important; height: var(--share-btn-size-mobile) !important; }
+    .love-btn-glass { top: var(--love-btn-top-mobile) !important; left: var(--love-btn-left-mobile) !important; width: var(--love-btn-size-mobile) !important; height: var(--love-btn-size-mobile) !important; }
+
+    .main-gallery-container { top: var(--main-gallery-top-mobile) !important; right: var(--main-gallery-right-mobile) !important; width: var(--main-gallery-width-mobile) !important; height: var(--main-gallery-height-mobile) !important; }
+    .thumbnails-grid { top: var(--thumbs-top-mobile) !important; right: var(--thumbs-right-mobile) !important; width: var(--thumbs-width-mobile) !important; height: var(--thumbs-height-mobile) !important; gap: var(--thumbs-gap-mobile) !important; }
+
+    .main-white-page-content { padding: 15px 14px 40px 14px; }
+    .prop-address { top: var(--address-top-mobile); right: var(--address-right-mobile); font-size: var(--address-size-mobile); }
+    .prop-specs   { top: var(--specs-top-mobile);   right: var(--specs-right-mobile);   font-size: var(--specs-size-mobile); }
+
+    .details-split-container { flex-direction: column !important; gap: 20px; }
+    .prop-description-section { top: var(--desc-top-mobile); right: var(--desc-right-mobile); max-width: var(--desc-max-width-mobile); }
+    .prop-description-title { font-size: var(--desc-title-size-mobile); }
+    .prop-description-text { font-size: var(--desc-text-size-mobile); }
+
+    .white-shadow-card { width: var(--card-width-mobile) !important; min-height: var(--card-min-height-mobile) !important; top: var(--card-top-mobile) !important; right: var(--card-right-mobile) !important; }
+    .white-shadow-card::before { width: var(--ball1-width-mobile) !important; height: var(--ball1-height-mobile) !important; top: var(--ball1-top-mobile) !important; left: var(--ball1-left-mobile) !important; }
+    
+    .white-shadow-card::after { 
+        width: var(--ball2-width-mobile) !important; 
+        height: var(--ball2-height-mobile) !important; 
+        bottom: var(--ball2-bottom-mobile) !important; 
+        left: var(--ball2-left-mobile) !important; 
+        right: auto !important; 
+    }
+
+    .yield-text-label { right: 10px !important; top: -30px !important; }
+    .yield-percentage-value { right: 50px !important; top: -30px !important; }
+    .yield-3d-image { width: 120px !important; height: 120px !important; top: -26px !important; right: 42.5px !important; }
+    .card-avg-rent-container { right: 0px !important; }
+    
+    .card-appreciation-container {
+        flex-direction: row !important;
+        align-items: baseline !important;
+        gap: 18px !important;
+        right: 0px !important;
+    }
+
+    /* 🌟 s.png במובייל */
+    .s-3d-image {
+        position: absolute !important;
+        width: 500px !important;
+        height: 500px !important;
+        right: -139px !important;
+        bottom: -262px !important;
+    }
+
+    .card-future-dev-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        right: 0px !important;
+        top: 25px !important;
+        gap: 10px !important;
+    }
+
+    .future-dev-items-row {
+        justify-content: center !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .future-dev-items-row .spec-badge {
+        font-size: 13px !important;
+        padding: 4px 10px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 🗺️ מפת גוגל במובייל */
+    .standalone-map-wrapper {
+        margin-top: var(--map-top-mobile) !important;
+        right: var(--map-right-mobile) !important;
+    }
+    .property-map-card {
+        width: var(--map-width-mobile) !important;
+        height: var(--map-height-mobile) !important;
+    }
+
+    /* 💬 📍 בועת GLASS במפה במובייל */
+    .map-property-pin-bubble {
+        width: var(--map-pin-width-mobile) !important;
+        height: var(--map-pin-height-mobile) !important;
+    }
+
+    /* 🏠 מאפייני הנכס במובייל */
+    .standalone-features-wrapper {
+        margin-top: var(--features-top-mobile) !important;
+    }
+    .features-badges-row {
+        gap: var(--features-gap-mobile) !important;
+    }
+    .standalone-features-wrapper .spec-badge {
+        font-size: var(--features-font-size-mobile) !important;
+        padding: var(--features-padding-mobile) !important;
+    }
+}
+
+/* 💻 2. טאבלט (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .property-hero-wrapper { padding-top: 85px; padding-left: 14px; padding-right: 14px; }
+    .top-white-overlay-card { flex-direction: column !important; align-items: center !important; gap: var(--card-gap-tablet) !important; }
+    .thumbnails-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; grid-template-rows: 1fr !important; }
+    .thumb-card.more-blur-card { grid-column: 4 !important; grid-row: 1 !important; }
+    .thumb-more-text { font-size: 20px; }
+    
+    .back-btn-glass { top: var(--back-btn-top-tablet) !important; right: var(--back-btn-right-tablet) !important; width: var(--back-btn-size-tablet) !important; height: var(--back-btn-size-tablet) !important; }
+    .share-btn-glass { top: var(--share-btn-top-tablet) !important; left: var(--share-btn-left-tablet) !important; width: var(--share-btn-size-tablet) !important; height: var(--share-btn-size-tablet) !important; }
+    .love-btn-glass { top: var(--love-btn-top-tablet) !important; left: var(--love-btn-left-tablet) !important; width: var(--love-btn-size-tablet) !important; height: var(--love-btn-size-tablet) !important; }
+
+    .main-gallery-container { top: var(--main-gallery-top-tablet) !important; right: var(--main-gallery-right-tablet) !important; width: var(--main-gallery-width-tablet) !important; height: var(--main-gallery-height-tablet) !important; }
+    .thumbnails-grid { top: var(--thumbs-top-tablet) !important; right: var(--thumbs-right-tablet) !important; width: var(--thumbs-width-tablet) !important; height: var(--thumbs-height-tablet) !important; gap: var(--thumbs-gap-tablet) !important; }
+
+    .main-white-page-content { padding: 15px 14px 40px 14px; }
+    .prop-address { top: var(--address-top-tablet); right: var(--address-right-tablet); font-size: var(--address-size-tablet); }
+    .prop-specs   { top: var(--specs-top-tablet);   right: var(--specs-right-tablet);   font-size: var(--specs-size-tablet); }
+
+    .details-split-container { flex-direction: column !important; gap: 24px; }
+    .prop-description-section { top: var(--desc-top-tablet); right: var(--desc-right-tablet); max-width: var(--desc-max-width-tablet); }
+    .prop-description-title { font-size: var(--desc-title-size-tablet); }
+    .prop-description-text { font-size: var(--desc-text-size-tablet); }
+
+    .white-shadow-card { width: var(--card-width-tablet) !important; min-height: var(--card-min-height-tablet) !important; top: var(--card-top-tablet) !important; right: var(--card-right-tablet) !important; }
+    .white-shadow-card::before { width: var(--ball1-width-tablet) !important; height: var(--ball1-height-tablet) !important; top: var(--ball1-top-tablet) !important; left: var(--ball1-left-tablet) !important; }
+    
+    .white-shadow-card::after { 
+        width: var(--ball2-width-tablet) !important; 
+        height: var(--ball2-height-tablet) !important; 
+        bottom: var(--ball2-bottom-tablet) !important; 
+        left: var(--ball2-left-tablet) !important; 
+        right: auto !important; 
+    }
+
+    /* 🥧 2. תשואה ברוטו */
+    .yield-text-label { position: relative !important; right: 10px !important; top: -30px !important; }
+    .yield-percentage-value { position: relative !important; right: 55px !important; top: -30px !important; }
+    .yield-3d-image { width: 120px !important; height: 120px !important; top: -26px !important; right: 53px !important; }
+
+    /* 💰 1. מחיר רכישה */
+    .card-price-label { position: relative !important; right: 0px !important; }
+    .card-price-value { position: relative !important; right: 0px !important; }
+
+    /* 🏠 3. השכירות כיום */
+    .card-rent-label { position: relative !important; right: 0px !important; }
+    .card-rent-value { position: relative !important; right: 0px !important; }
+
+    /* 📍 4. שכירות ממוצעת באזור */
+    .card-avg-rent-label { position: relative !important; right: -26px !important; }
+    .card-avg-rent-value { position: relative !important; right: -11.7px !important; }
+    .card-avg-rent-container { right: -55px !important; }
+
+    /* 🚀 5. צפי עליית ערך הנכס */
+    .card-appreciation-label { position: relative !important; right: -14px !important; }
+    .card-appreciation-value { position: relative !important; right: 10px !important; }
+    .card-appreciation-container { right: -95px !important; }
+
+    /* 🌟 s.png בטאבלט */
+    .s-3d-image {
+        position: absolute !important;
+        width: 555px !important;
+        height: 555px !important;
+        right: -139px !important;
+        bottom: -297px !important;
+    }
+
+    .card-future-dev-container {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        right: 180px !important;
+        top: 20px !important;
+    }
+
+    /* 🗺️ מפת גוגל בטאבלט */
+    .standalone-map-wrapper {
+        margin-top: var(--map-top-tablet) !important;
+        right: var(--map-right-tablet) !important;
+    }
+    .property-map-card {
+        width: var(--map-width-tablet) !important;
+        height: var(--map-height-tablet) !important;
+    }
+
+    /* 💬 📍 בועת GLASS במפה בטאבלט */
+    .map-property-pin-bubble {
+        width: var(--map-pin-width-tablet) !important;
+        height: var(--map-pin-height-tablet) !important;
+    }
+
+    /* 🏠 מאפייני הנכס בטאבלט */
+    .standalone-features-wrapper {
+        margin-top: var(--features-top-tablet) !important;
+    }
+    .features-badges-row {
+        gap: var(--features-gap-tablet) !important;
+    }
+    .standalone-features-wrapper .spec-badge {
+        font-size: var(--features-font-size-tablet) !important;
+        padding: var(--features-padding-tablet) !important;
+    }
+}
+
+/* 💻 3. מחשב נייד / לפטופ (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .top-white-overlay-card { flex-direction: row !important; justify-content: space-between !important; align-items: flex-start !important; gap: var(--card-gap-laptop) !important; }
+    .thumbnails-grid { order: 1; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; grid-template-rows: repeat(2, 1fr) !important; }
+    .thumb-card.more-blur-card { grid-column: 1 !important; grid-row: 2 !important; }
+    .thumb-more-text { font-size: 28px; }
+    .main-gallery-container { order: 2; }
+    .gallery-nav-btn { display: flex !important; }
+
+    .back-btn-glass { top: var(--back-btn-top-laptop) !important; right: var(--back-btn-right-laptop) !important; width: var(--back-btn-size-laptop) !important; height: var(--back-btn-size-laptop) !important; }
+    .share-btn-glass { top: var(--share-btn-top-laptop) !important; left: var(--share-btn-left-laptop) !important; width: var(--share-btn-size-laptop) !important; height: var(--share-btn-size-laptop) !important; }
+    .love-btn-glass { top: var(--love-btn-top-laptop) !important; left: var(--love-btn-left-laptop) !important; width: var(--love-btn-size-laptop) !important; height: var(--love-btn-size-laptop) !important; }
+
+    .main-gallery-container { top: var(--main-gallery-top-laptop) !important; right: var(--main-gallery-right-laptop) !important; width: var(--main-gallery-width-laptop) !important; height: var(--main-gallery-height-laptop) !important; }
+    .thumbnails-grid { top: var(--thumbs-top-laptop) !important; right: var(--thumbs-right-laptop) !important; width: var(--thumbs-width-laptop) !important; height: var(--thumbs-height-laptop) !important; gap: var(--thumbs-gap-laptop) !important; }
+
+    .prop-address { top: var(--address-top-laptop); right: var(--address-right-laptop); font-size: var(--address-size-laptop); }
+    .prop-specs   { top: var(--specs-top-laptop);   right: var(--specs-right-laptop);   font-size: var(--specs-size-laptop); }
+
+    .details-split-container { flex-direction: row !important; justify-content: space-between !important; align-items: flex-start !important; gap: 30px; }
+    .prop-description-section { top: var(--desc-top-laptop); right: var(--desc-right-laptop); max-width: var(--desc-max-width-laptop); }
+    .prop-description-title { font-size: var(--desc-title-size-laptop); }
+    .prop-description-text { font-size: var(--desc-text-size-laptop); }
+
+    .white-shadow-card { width: var(--card-width-laptop) !important; min-height: var(--card-min-height-laptop) !important; top: var(--card-top-laptop) !important; right: var(--card-right-laptop) !important; }
+    .white-shadow-card::before { width: var(--ball1-width-laptop) !important; height: var(--ball1-height-laptop) !important; top: var(--ball1-top-laptop) !important; left: var(--ball1-left-laptop) !important; }
+    
+    .white-shadow-card::after { 
+        width: var(--ball2-width-laptop) !important; 
+        height: var(--ball2-height-laptop) !important; 
+        bottom: var(--ball2-bottom-laptop) !important; 
+        left: var(--ball2-left-laptop) !important; 
+        right: auto !important; 
+    }
+
+    /* 🥧 2. תשואה ברוטו */
+    .yield-text-label { position: relative !important; right: 10px !important; top: -30px !important; }
+    .yield-percentage-value { position: relative !important; right: 55px !important; top: -30px !important; }
+    .yield-3d-image { width: 120px !important; height: 120px !important; top: -26px !important; right: 50px !important; }
+
+    /* 💰 1. מחיר רכישה */
+    .card-price-label { position: relative !important; right: 0px !important; }
+    .card-price-value { position: relative !important; right: 0px !important; }
+
+    /* 🏠 3. השכירות כיום */
+    .card-rent-label { position: relative !important; right: 0px !important; }
+    .card-rent-value { position: relative !important; right: 0px !important; }
+
+    /* 📍 4. שכירות ממוצעת באזור */
+    .card-avg-rent-label { position: relative !important; right: -26px !important; }
+    .card-avg-rent-value { position: relative !important; right: -11.7px !important; }
+    .card-avg-rent-container { right: -55px !important; }
+
+    /* 🚀 5. צפי עליית ערך הנכס */
+    .card-appreciation-label { position: relative !important; right: -14px !important; }
+    .card-appreciation-value { position: relative !important; right: 10px !important; }
+    .card-appreciation-container { right: -95px !important; }
+
+    /* 🌟 s.png בלפטופ */
+    .s-3d-image {
+        position: absolute !important;
+        width: 524px !important;
+        height: 524px !important;
+        right: -139px !important;
+        bottom: -273px !important;
+    }
+
+    .card-future-dev-container {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        right: 18px !important;
+        top: 20px !important;
+    }
+
+    /* 🗺️ מפת גוגל בלפטופ */
+    .standalone-map-wrapper {
+        margin-top: var(--map-top-laptop) !important;
+        right: var(--map-right-laptop) !important;
+    }
+    .property-map-card {
+        width: var(--map-width-laptop) !important;
+        height: var(--map-height-laptop) !important;
+    }
+
+    /* 💬 📍 בועת GLASS במפה בלפטופ */
+    .map-property-pin-bubble {
+        width: var(--map-pin-width-laptop) !important;
+        height: var(--map-pin-height-laptop) !important;
+    }
+
+    /* 🏠 מאפייני הנכס בלפטופ */
+    .standalone-features-wrapper {
+        margin-top: var(--features-top-laptop) !important;
+    }
+    .features-badges-row {
+        gap: var(--features-gap-laptop) !important;
+    }
+    .standalone-features-wrapper .spec-badge {
+        font-size: var(--features-font-size-laptop) !important;
+        padding: var(--features-padding-laptop) !important;
+    }
+}
+
+/* 🖥️ 4. מחשב נייח / מסך ענק (1440px ומעלה) */
+@media (min-width: 1440px) {
+    .top-white-overlay-card { flex-direction: row !important; justify-content: space-between !important; align-items: flex-start !important; gap: var(--card-gap-desktop) !important; }
+    .thumbnails-grid { order: 1; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; grid-template-rows: repeat(2, 1fr) !important; }
+    .thumb-card.more-blur-card { grid-column: 1 !important; grid-row: 2 !important; }
+    .thumb-more-text { font-size: 28px; }
+    .main-gallery-container { order: 2; }
+    .gallery-nav-btn { display: flex !important; }
+
+    .back-btn-glass { top: var(--back-btn-top-desktop) !important; right: var(--back-btn-right-desktop) !important; width: var(--back-btn-size-desktop) !important; height: var(--back-btn-size-desktop) !important; }
+    .share-btn-glass { top: var(--share-btn-top-desktop) !important; left: var(--share-btn-left-desktop) !important; width: var(--share-btn-size-desktop) !important; height: var(--share-btn-size-desktop) !important; }
+    .love-btn-glass { top: var(--love-btn-top-desktop) !important; left: var(--love-btn-left-desktop) !important; width: var(--love-btn-size-desktop) !important; height: var(--love-btn-size-desktop) !important; }
+
+    .main-gallery-container { top: var(--main-gallery-top-desktop) !important; right: var(--main-gallery-right-desktop) !important; width: var(--main-gallery-width-desktop) !important; height: var(--main-gallery-height-desktop) !important; }
+    .thumbnails-grid { top: var(--thumbs-top-desktop) !important; right: var(--thumbs-right-desktop) !important; width: var(--thumbs-width-desktop) !important; height: var(--thumbs-height-desktop) !important; gap: var(--thumbs-gap-desktop) !important; }
+
+    .prop-address { top: var(--address-top-desktop); right: var(--address-right-desktop); font-size: var(--address-size-desktop); }
+    .prop-specs   { top: var(--specs-top-desktop);   right: var(--specs-right-desktop);   font-size: var(--specs-size-desktop); }
+
+    .details-split-container { flex-direction: row !important; justify-content: space-between !important; align-items: flex-start !important; gap: 36px; }
+    .prop-description-section { top: var(--desc-top-desktop); right: var(--desc-right-desktop); max-width: var(--desc-max-width-desktop); }
+    .prop-description-title { font-size: var(--desc-title-size-desktop); }
+    .prop-description-text { font-size: var(--desc-text-size-desktop); }
+
+    .white-shadow-card { width: var(--card-width-desktop) !important; min-height: var(--card-min-height-desktop) !important; top: var(--card-top-desktop) !important; right: var(--card-right-desktop) !important; }
+    .white-shadow-card::before { width: var(--ball1-width-desktop) !important; height: var(--ball1-height-desktop) !important; top: var(--ball1-top-desktop) !important; left: var(--ball1-left-desktop) !important; }
+    
+    .white-shadow-card::after { 
+        width: var(--ball2-width-desktop) !important; 
+        height: var(--ball2-height-desktop) !important; 
+        bottom: var(--ball2-bottom-desktop) !important; 
+        left: var(--ball2-left-desktop) !important; 
+        right: auto !important; 
+    }
+
+    /* 🥧 2. תשואה ברוטו */
+    .yield-text-label { position: relative !important; right: 18px !important; top: -30px !important; }
+    .yield-percentage-value { position: relative !important; right: 60px !important; top: -30px !important; }
+    .yield-3d-image { width: 130px !important; height: 130px !important; top: -26px !important; right: 69px !important; }
+
+    /* 💰 1. מחיר רכישה */
+    .card-price-label { position: relative !important; right: 0px !important; }
+    .card-price-value { position: relative !important; right: 0px !important; }
+
+    /* 🏠 3. השכירות כיום */
+    .card-rent-label { position: relative !important; right: 0px !important; top: -2.7px !important; }
+    .card-rent-value { position: relative !important; right: 0px !important; top: -2.7px !important; }
+
+    /* 📍 4. שכירות ממוצעת באזור */
+    .card-avg-rent-label { position: relative !important; right: -38px !important; }
+    .card-avg-rent-value { position: relative !important; right: -22px !important; }
+    .card-avg-rent-container { right: -45px !important; }
+
+    /* 🚀 5. צפי עליית ערך הנכס */
+    .card-appreciation-label { position: relative !important; right: -57px !important; }
+    .card-appreciation-value { position: relative !important; right: -26px !important; }
+    .card-appreciation-container { right: -55px !important; }
+
+    .s-3d-image {
+        position: absolute !important;
+        width: 555px !important;
+        height: 555px !important;
+        right: -139px !important;
+        bottom: -290px !important;
+    }
+
+    .card-future-dev-container {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        right: 52px !important;
+        top: 20px !important;
+    }
+
+    /* 🗺️ מפת גוגל במחשב נייח */
+    .standalone-map-wrapper {
+        margin-top: var(--map-top-desktop) !important;
+        right: var(--map-right-desktop) !important;
+    }
+    .property-map-card {
+        width: var(--map-width-desktop) !important;
+        height: var(--map-height-desktop) !important;
+    }
+
+    /* 💬 📍 בועת GLASS במפה במחשב נייח */
+    .map-property-pin-bubble {
+        width: var(--map-pin-width-desktop) !important;
+        height: var(--map-pin-height-desktop) !important;
+    }
+
+    /* 🏠 מאפייני הנכס במחשב נייח */
+    .standalone-features-wrapper {
+        margin-top: var(--features-top-desktop) !important;
+    }
+    .features-badges-row {
+        gap: var(--features-gap-desktop) !important;
+    }
+    .standalone-features-wrapper .spec-badge {
+        font-size: var(--features-font-size-desktop) !important;
+        padding: var(--features-padding-desktop) !important;
+    }
 }
