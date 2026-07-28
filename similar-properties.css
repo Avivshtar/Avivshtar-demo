@@ -1,0 +1,503 @@
+/* ==========================================================================
+   ⚙️ לוח בקרה ראשי - שליטה עצמאית לחלוטין במיקום וגודל כל אלמנט
+   ========================================================================== */
+:root {
+    /* 📐 מידות הכרטיסייה והתמונה (הוחזר בדיוק למקור) */
+    --sim-card-width: 285px;             /* רוחב הכרטיסייה */
+    --sim-card-height: 280px;            /* גובה הכרטיסייה */
+    --sim-img-height: 200px;             /* גובה התמונה */
+    --sim-fade-start: 41%;               /* נקודת התחלת ה-FADE בתמונה */
+
+    /* 💰 1. מחיר (שליטה עצמאית - הוחזר למקור) */
+    --sim-price-bottom: 70px;            /* ↕️ מרחק המחיר מתחתית הכרטיסייה */
+    --sim-price-right: 14px;             /* ↔️ מרחק המחיר מימין */
+    --sim-price-size: 20px;              /* 🔤 גודל פונט המחיר */
+
+    /* 📍 2. כתובת ומיקום (שליטה עצמאית - הוחזר למקור) */
+    --sim-loc-bottom: 43.2px;            /* ↕️ מרחק הכתובת מתחתית הכרטיסייה */
+    --sim-loc-right: 14px;               /* ↔️ מרחק הכתובת מימין */
+    --sim-loc-size: 13.5px;              /* 🔤 גודל פונט הכתובת */
+    --sim-icon-size: 15px;               /* 📍 גודל אייקון המיקום */
+
+    /* 🏷️ 3. תגיות המפרט (שליטה עצמאית - הוחזר למקור) */
+    --sim-specs-bottom: 12px;            /* ↕️ מרחק התגיות מתחתית הכרטיסייה */
+    --sim-specs-right: 14px;             /* ↔️ מרחק התגיות מימין */
+    --sim-specs-size: 12px;              /* 🔤 גודל פונט בתגית */
+    --sim-specs-height: 4px;             /* ↕️ עובי/גובה פנימי של התגית */
+
+    /* ↔️ 4. גובה ומיקום כפתורי החיצים בגלריה */
+    --sim-arrow-top: 85px;               /* ↕️ גובה כפתורי החיצים מלמעלה */
+    --sim-arrow-side: 10px;              /* ↔️ מרחק החיצים מהצדדים */
+
+    /* 📞💬 5. שליטה עצמאית בכפתורי הפעולה (ווטסאפ וטלפון - הוחזר למקור) */
+    --sim-action-btn-bottom: 70px;       /* ↕️ מרחק הכפתורים מתחתית הכרטיסייה */
+    --sim-wa-left: 14px;                 /* ↔️ מרחק כפתור ווטסאפ משמאל */
+    --sim-phone-left: 56px;              /* ↔️ מרחק כפתור טלפון משמאל */
+    --sim-action-btn-size: 36px;         /* 📐 גודל כפתורי הפעולה */
+    --sim-phone-icon-color: #3a3530;     /* 🎨 צבע אייקון הטלפון (אפור תואם למחיר) */
+    --sim-phone-icon-size: 16px;         /* 🔤 גודל אייקון הטלפון */
+    --sim-wa-icon-size: 18px;            /* 🔤 גודל אייקון הווטסאפ */
+
+    /* ↕️ 6. מרווח עליון ממאפייני הנכס שמעליו (שליטה קלה ונוחה) */
+    --sim-section-top-desktop: 77px;     /* 💻 מרווח מלמעלה במחשב */
+    --sim-section-top-tablet: 77px;      /* 📱 מרווח מלמעלה בטאבלט */
+    --sim-section-top-mobile: 77px;      /* 📱 מרווח מלמעלה במובייל */
+}
+
+/* ==========================================================================
+   🎨 תבנית דירות דומות
+   ========================================================================== */
+
+#similar-properties-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* 🎯 מעטפת ראשית */
+.similar-section-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    direction: rtl;
+    font-family: 'Heebo', sans-serif;
+}
+
+/* 🏷️ כותרת ממורכזת */
+.similar-section-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-weight: 300 !important;
+    color: #3a3530 !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 20px auto !important;
+    line-height: 1.2 !important;
+}
+
+/* 🧱 שורת כרטיסיות בסיס */
+.similar-cards-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+}
+
+/* 🤍 הכרטיסייה הראשית */
+.similar-card-template {
+    position: relative;
+    width: var(--sim-card-width) !important;
+    height: var(--sim-card-height) !important;
+    background: #ffffff !important;
+    border-radius: 28px;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    flex: 0 0 var(--sim-card-width) !important;
+}
+
+.similar-card-template:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 🖼️ מעטפת התמונה + FADE זורם */
+.template-image-box {
+    position: relative;
+    width: 100%;
+    height: var(--sim-img-height) !important;
+    border-radius: 28px 28px 0 0;
+    touch-action: pan-y !important; 
+    
+    -webkit-mask-image: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) var(--sim-fade-start), 
+        rgba(0, 0, 0, 0.85) calc(var(--sim-fade-start) + 20%), 
+        rgba(0, 0, 0, 0.4) calc(var(--sim-fade-start) + 40%), 
+        rgba(0, 0, 0, 0) 100%
+    ) !important;
+    mask-image: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) var(--sim-fade-start), 
+        rgba(0, 0, 0, 0.85) calc(var(--sim-fade-start) + 20%), 
+        rgba(0, 0, 0, 0.4) calc(var(--sim-fade-start) + 40%), 
+        rgba(0, 0, 0, 0) 100%
+    ) !important;
+    
+    z-index: 1;
+}
+
+.template-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none !important;
+    outline: none !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   ↔️ כפתורי גלריה למחשב
+   ========================================================================== */
+.carousel-btn {
+    position: absolute !important;
+    top: var(--sim-arrow-top) !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.65) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 15 !important;
+    opacity: 0;
+    pointer-events: auto !important;
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease !important;
+}
+
+.carousel-btn.prev-btn { right: var(--sim-arrow-side) !important; }
+.carousel-btn.next-btn { left: var(--sim-arrow-side) !important; }
+
+.carousel-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    stroke: #2c2c2e !important;
+    stroke-width: 2.2 !important;
+    fill: none !important;
+    pointer-events: none !important;
+}
+
+@media (hover: hover) {
+    .similar-card-template:hover .carousel-btn { opacity: 1 !important; }
+    .carousel-btn:hover {
+        transform: scale(1.12) translateZ(0) !important;
+        background: rgba(255, 255, 255, 0.85) !important;
+    }
+}
+
+@media (hover: none), (max-width: 767px) {
+    .carousel-btn { display: none !important; }
+}
+
+/* ==========================================================================
+   ✨ כפתורי הפעולה (לב, ווטסאפ, טלפון)
+   ========================================================================== */
+.glass-btn,
+.glass-btn *,
+.glass-btn svg,
+.glass-btn path {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    outline: none !important;
+}
+
+.glass-btn {
+    position: absolute !important;
+    width: var(--sim-action-btn-size) !important;
+    height: var(--sim-action-btn-size) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    touch-action: manipulation !important;
+    will-change: transform;
+    transform: translateZ(0);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* 🤍 1. כפתור הלב */
+.glass-heart-btn {
+    top: 14px !important;
+    left: 14px !important;
+    right: auto !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    backdrop-filter: blur(20px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1), inset 0 1.5px 2px rgba(255, 255, 255, 0.8) !important;
+}
+
+.glass-heart-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    stroke: #ffffff !important;
+    stroke-width: 1.8 !important;
+    fill: none !important;
+    transition: fill 0.2s ease, stroke 0.2s ease !important;
+}
+
+.glass-heart-btn.active svg {
+    fill: #ff3b30 !important;
+    stroke: #ff3b30 !important;
+}
+
+/* 💬 2. כפתור ווטסאפ */
+.glass-whatsapp-btn {
+    bottom: var(--sim-action-btn-bottom) !important;
+    left: var(--sim-wa-left) !important;
+    background: #25D366 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.glass-whatsapp-btn svg {
+    width: var(--sim-wa-icon-size) !important;
+    height: var(--sim-wa-icon-size) !important;
+    fill: #ffffff !important;
+    stroke: none !important;
+}
+
+/* 📞 3. כפתור טלפון שקוף */
+.glass-phone-btn {
+    bottom: var(--sim-action-btn-bottom) !important;
+    left: var(--sim-phone-left) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(4px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(4px) saturate(140%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+}
+
+.glass-phone-btn svg {
+    width: var(--sim-phone-icon-size) !important;
+    height: var(--sim-phone-icon-size) !important;
+    stroke: var(--sim-phone-icon-color) !important;
+    stroke-width: 2 !important;
+    fill: none !important;
+}
+
+/* אפקטי Hover */
+@media (hover: hover) {
+    .glass-heart-btn:hover {
+        transform: scale(1.08) translateZ(0) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 100%) !important;
+    }
+    .glass-whatsapp-btn:hover {
+        transform: scale(1.08) translateZ(0) !important;
+        background: #20bd5a !important;
+    }
+    .glass-phone-btn:hover {
+        transform: scale(1.08) translateZ(0) !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
+.glass-btn:active {
+    transform: scale(0.92) translateZ(0) !important;
+}
+
+/* ==========================================================================
+   📍 מיקומים עצמאיים (מחיר, כתובת ותגיות)
+   ========================================================================== */
+
+.card-price-row {
+    position: absolute !important;
+    bottom: var(--sim-price-bottom) !important;
+    right: var(--sim-price-right) !important;
+    font-size: var(--sim-price-size) !important;
+    font-weight: 400 !important;
+    color: #2c2c2e !important;
+    line-height: 1 !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+}
+
+.card-location-row {
+    position: absolute !important;
+    bottom: var(--sim-loc-bottom) !important;
+    right: var(--sim-loc-right) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    color: #3a3530 !important;
+    font-size: var(--sim-loc-size) !important;
+    font-weight: 300 !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+}
+
+.location-icon {
+    width: var(--sim-icon-size) !important;
+    height: var(--sim-icon-size) !important;
+    stroke: #6e6e73 !important;
+    flex-shrink: 0 !important;
+}
+
+.location-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.card-specs-row {
+    position: absolute !important;
+    bottom: var(--sim-specs-bottom) !important;
+    right: var(--sim-specs-right) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 5px !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+}
+
+.mini-spec-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: var(--sim-specs-height) 10px !important;
+    background: transparent !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 50px !important;
+    color: #3a3530 !important;
+    font-family: 'Heebo', sans-serif !important;
+    font-size: var(--sim-specs-size) !important;
+    font-weight: 400 !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+}
+
+/* ==========================================================================
+   📱 💻 התאמות רספונסיביות + שליטה במרווח העליון ממאפייני הנכס
+   ========================================================================== */
+
+/* 📱 1. נייד (עד 767px) */
+@media (max-width: 767px) {
+    .similar-section-wrapper { 
+        margin-top: var(--sim-section-top-mobile) !important; 
+    }
+    .similar-section-title { font-size: var(--desc-title-size-mobile, 18px) !important; }
+
+    /* FADE בצדדים */
+    .similar-section-wrapper::before,
+    .similar-section-wrapper::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 40px !important;
+        bottom: 10px !important;
+        width: 25px !important;
+        z-index: 20 !important;
+        pointer-events: none !important;
+        transition: opacity 0.3s ease !important;
+        opacity: 1;
+    }
+
+    .similar-section-wrapper::before {
+        left: 0 !important;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%) !important;
+    }
+
+    .similar-section-wrapper::after {
+        right: 0 !important;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%) !important;
+    }
+
+    .similar-section-wrapper.hide-fade-left::before { opacity: 0 !important; }
+    .similar-section-wrapper.hide-fade-right::after { opacity: 0 !important; }
+
+    /* 🎯 תיקון חיתוך הצל במובייל וספארי */
+    .similar-cards-list {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        
+        /* 💡 הגדלת ה-padding למטה ובצדדים נותנת לצל שטח לפריסה בלי להיחתך */
+        padding: 15px 25px 35px 25px !important; 
+        scroll-padding-left: 25px !important;
+        
+        touch-action: pan-x pan-y !important;
+        -ms-overflow-style: none !important; 
+        scrollbar-width: none !important;
+    }
+.similar-card-template {
+        scroll-snap-align: start !important;
+        flex: 0 0 var(--sim-card-width) !important;
+        display: block !important;
+        
+        /* 🍏 תיקון באג הרינדור של הצללים במכשירי Apple / Safari + תאימות מלאה */
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        transform: translateZ(0) !important;
+    }
+
+    .similar-cards-list::-webkit-scrollbar { 
+        display: none !important; 
+    }
+}
+
+/* 📱 2. טאבלט (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .similar-section-wrapper { 
+        margin-top: var(--sim-section-top-tablet) !important; 
+    }
+    .similar-section-title { font-size: var(--desc-title-size-tablet, 19px) !important; }
+
+    .similar-cards-list {
+        max-width: 920px !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+    }
+
+    .similar-card-template { display: block !important; }
+    .similar-card-template:nth-child(n+4) { display: none !important; }
+}
+
+/* 💻 3. מחשב נייד ונייח (1024px ומעלה) */
+@media (min-width: 1024px) {
+    .similar-section-wrapper { 
+        margin-top: var(--sim-section-top-desktop) !important; 
+    }
+    .similar-section-title { font-size: var(--desc-title-size-laptop, 20px) !important; }
+
+    .similar-cards-list {
+        max-width: 1250px !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+    }
+
+    .similar-card-template { display: block !important; }
+    .similar-card-template:nth-child(n+5) { display: none !important; }
+}

@@ -1,0 +1,403 @@
+/* ==========================================================================
+   ⚙️ לוח בקרה ראשי - שליטה עצמאית: מחשב נייח, מחשב נייד, טאבלט ומובייל
+   ========================================================================== */
+:root {
+    /* 📱 1. שליטה בתבנית ה-GLASS (מובייל וטאבלט - עד 1023px) */
+    --mobile-launcher-bg: rgba(255, 255, 255, 0.15); /* רקע מעטפת הזכוכית */
+    --mobile-launcher-blur: 20px;                     /* אפקט טשטוש הזכוכית */
+    --mobile-launcher-radius: 38px;                   /* עיגול פינות מעטפת ה-GLASS */
+    
+    /* 🎛️ ⭐️ שליטה בגובה התבנית הכללית בלבד (בלי לפגוע בכפתורים!) ⭐️ */
+    --mobile-launcher-padding-top: 14.3px;              /* ↕️ גובה מעל הכפתורים */
+    --mobile-launcher-padding-bottom: 12px;           /* ↕️ גובה מתחת לכפתורים */
+
+    /* 🔘 שליטה בגודל הכפתורים עצמם */
+    --mobile-btn-height: 46px;                        /* ↕️ גובה הכפתורים */
+    --mobile-btn-radius: 15px;                        /* 🧅 עיגול פינות הכפתורים */
+    --mobile-btn-gap: 12px;                           /* ↔️ רווח בין שני הכפתורים */
+    --mobile-font-size: 15px;                         /* 🔤 גודל הפונט בכפתורים */
+    --mobile-icon-size: 17px;                         /* 📐 גודל האייקונים */
+
+    /* 💻 2. שליטה במחשב נייד (Laptop - מסכים מ-1024px עד 1439px) */
+    --contact-max-width-laptop: 93%;         
+    --contact-btn-height-laptop: 42px;       
+    --contact-font-size-laptop: 13.5px;      
+    --contact-margin-top-laptop: 24px;       
+    --contact-gap-laptop: 10px;              
+    --contact-icon-size-laptop: 14px;        
+
+    /* 🖥️ 3. שליטה במחשב נייח (Desktop PC - מסכים מ-1440px ומעלה) */
+    --contact-max-width-desktop-pc: 100%;    
+    --contact-btn-height-desktop-pc: 48px;   
+    --contact-font-size-desktop-pc: 16px;    
+    --contact-margin-top-desktop-pc: 34px;   
+    --contact-gap-desktop-pc: 14px;          
+    --contact-icon-size-desktop-pc: 17px;    
+
+    /* 🎨 עיצוב וצבעים משותפים */
+    --contact-btn-radius: 12px;              
+
+    /* 🎨 צבעי כפתור טלפון */
+    --call-btn-bg-start: #ffffff;
+    --call-btn-bg-end: #fcfcfc;
+    --call-btn-text-color: #3a3530;
+    --call-btn-border: rgba(0, 0, 0, 0.08);
+
+    /* 🎨 צבעי כפתור ווטסאפ */
+    --wa-btn-bg-start: #25d366;
+    --wa-btn-bg-end: #1ebd59;
+    --wa-btn-text-color: #ffffff;
+}
+
+/* ==========================================================================
+   📱 1. תבנית ה-GLASS המרחפת במובייל וטאבלט (עד 1023px)
+   ========================================================================== */
+@media (max-width: 1023px) {
+    #item-contact-container {
+        display: none !important;
+    }
+
+    /* 🧊 המעטפת הצפה בתחתית המסך (התבנית) */
+    .mobile-search-launcher {
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        
+        background: var(--mobile-launcher-bg) !important;
+        backdrop-filter: blur(var(--mobile-launcher-blur)) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(var(--mobile-launcher-blur)) saturate(180%) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-top-left-radius: var(--mobile-launcher-radius) !important;
+        border-top-right-radius: var(--mobile-launcher-radius) !important;
+        
+        /* 🎯 שליטה דינמית בגובה התבנית דרך המשתנים */
+        padding-top: var(--mobile-launcher-padding-top) !important;
+        padding-bottom: calc(var(--mobile-launcher-padding-bottom) + env(safe-area-inset-bottom, 0px)) !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+
+        box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.12) !important;
+        z-index: 99999 !important;
+        direction: rtl !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 🧱 שורת הכפתורים בתוך ה-GLASS */
+    .mobile-search-launcher .launcher-box {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: var(--mobile-btn-gap) !important;
+        width: 100% !important;
+        max-width: 520px !important;
+        margin: 0 auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        height: auto !important;
+    }
+
+    /* 🔘 בסיס הכפתורים המעוצבים */
+    .mobile-search-launcher .launcher-action-btn {
+        flex: 1 !important;
+        height: var(--mobile-btn-height) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        font-family: 'Heebo', sans-serif !important;
+        font-size: var(--mobile-font-size) !important;
+        font-weight: 500 !important;
+        border-radius: var(--mobile-btn-radius) !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+        transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .mobile-search-launcher .launcher-action-btn:active {
+        transform: scale(0.96) !important;
+    }
+
+    /* 📞 1. כפתור התקשרו עכשיו (מימין) */
+    .mobile-search-launcher .btn-call-action {
+        background: #ffffff !important;
+        color: #3a3530 !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .mobile-search-launcher .icon-phone {
+        width: var(--mobile-icon-size) !important;
+        height: var(--mobile-icon-size) !important;
+        stroke: #3a3530 !important;
+        fill: none !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 💬 2. כפתור WhatsApp (משמאל) */
+    .mobile-search-launcher .btn-wa-action {
+        background: linear-gradient(to bottom, #25d366, #1ebd59) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28) !important;
+    }
+
+    .mobile-search-launcher .icon-wa {
+        width: var(--mobile-icon-size) !important;
+        height: var(--mobile-icon-size) !important;
+        fill: #ffffff !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* ==========================================================================
+   💻 2. התאמה למחשבים (1024px ומעלה) - 100% מוגן
+   ========================================================================== */
+@media (min-width: 1024px) {
+    .mobile-search-launcher {
+        display: none !important;
+    }
+
+    #item-contact-container {
+        display: block !important;
+        box-sizing: border-box !important;
+        direction: rtl !important;
+        font-family: 'Heebo', sans-serif !important;
+    }
+
+    .contact-buttons-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        align-items: center !important;
+    }
+
+    .desktop-contact-btn {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        font-family: 'Heebo', sans-serif !important;
+        font-weight: 500 !important;
+        border-radius: var(--contact-btn-radius) !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+        transition: all 0.2s ease !important;
+        text-decoration: none !important;
+        user-select: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    /* 📞 כפתור טלפון דסקטופ */
+    .btn-desktop-call {
+        color: var(--call-btn-text-color) !important;
+        border: 1px solid var(--call-btn-border) !important;
+        background: linear-gradient(to bottom, var(--call-btn-bg-start), var(--call-btn-bg-end)) !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    .btn-desktop-call:hover {
+        background: linear-gradient(to bottom, #fafafa, #f5f5f5) !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06) !important;
+        border-color: rgba(0, 0, 0, 0.14) !important;
+    }
+
+    .btn-desktop-call:active {
+        transform: scale(0.98) !important;
+    }
+
+    .btn-desktop-call svg {
+        stroke: var(--call-btn-text-color) !important;
+        fill: none !important;
+    }
+
+    /* 💬 כפתור WhatsApp דסקטופ */
+    .btn-desktop-wa {
+        color: var(--wa-btn-text-color) !important;
+        border: none !important;
+        background: linear-gradient(to bottom, var(--wa-btn-bg-start), var(--wa-btn-bg-end)) !important;
+        box-shadow: 0 3px 8px rgba(37, 211, 102, 0.2) !important;
+        font-weight: 600 !important;
+    }
+
+    .btn-desktop-wa:hover {
+        background: linear-gradient(to bottom, #22c358, #1aab50) !important;
+        box-shadow: 0 5px 14px rgba(37, 211, 102, 0.3) !important;
+    }
+
+    .btn-desktop-wa:active {
+        transform: scale(0.98) !important;
+    }
+
+    .btn-desktop-wa svg {
+        fill: #ffffff !important;
+    }
+}
+
+/* ==========================================================================
+   💻 3. התאמה למחשב נייד (Laptop: 1024px - 1439px)
+   ========================================================================== */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    #item-contact-container {
+        margin-top: var(--contact-margin-top-laptop) !important;
+        width: var(--contact-max-width-laptop) !important;
+    }
+
+    .contact-buttons-wrapper {
+        gap: var(--contact-gap-laptop) !important;
+    }
+
+    .desktop-contact-btn {
+        height: var(--contact-btn-height-laptop) !important;
+        font-size: var(--contact-font-size-laptop) !important;
+    }
+
+    .btn-desktop-call svg,
+    .btn-desktop-wa svg {
+        width: var(--contact-icon-size-laptop) !important;
+        height: var(--contact-icon-size-laptop) !important;
+    }
+}
+
+/* ==========================================================================
+   🖥️ 4. התאמה למחשב נייח (Desktop PC: 1440px ומעלה)
+   ========================================================================== */
+@media (min-width: 1440px) {
+    #item-contact-container {
+        margin-top: var(--contact-margin-top-desktop-pc) !important;
+        width: var(--contact-max-width-desktop-pc) !important;
+    }
+
+    .contact-buttons-wrapper {
+        gap: var(--contact-gap-desktop-pc) !important;
+    }
+
+    .desktop-contact-btn {
+        height: var(--contact-btn-height-desktop-pc) !important;
+        font-size: var(--contact-font-size-desktop-pc) !important;
+    }
+
+    .btn-desktop-call svg,
+    .btn-desktop-wa svg {
+        width: var(--contact-icon-size-desktop-pc) !important;
+        height: var(--contact-icon-size-desktop-pc) !important;
+    }
+}
+
+/* ==========================================================================
+   🔻 התאמת הפוטר (תנאי שימוש) בעמוד הנכס במובייל
+   ========================================================================== */
+@media (max-width: 1023px) {
+    #new-shortcuts-container-3 .legal-footer-wrapper {
+        margin-bottom: 60px !important; /* 🔝 מונע הסתרה על ידי סרגל ה-GLASS הצף בתחתית */
+    }
+}
+/* ==========================================================================
+   🔻 שליטה בגובה וריווחי הפוטר (תנאי שימוש) - עמוד נכס
+   ========================================================================== */
+
+/* 💻 1. במחשב נייד ונייח (Desktop) - נשאר כפי שסידרת */
+#new-shortcuts-container-3 .legal-footer-wrapper {
+    margin-top: 70px !important;    /* 🔝 מרחק מלמעלה במחשב */
+    margin-bottom: 40px !important;  /* ⬇️ רווח מתחת בתחתית הדף */
+}
+
+/* ==========================================================================
+   📱 1. מובייל בלבד (עד 767px) - 100% שמור בדיוק כפי שסודר
+   ========================================================================== */
+@media (max-width: 767px) {
+    #new-shortcuts-container-3,
+    #new-shortcuts-container-3 .legal-footer-wrapper {
+        margin-top: -50px !important; 
+        margin-bottom: 120px !important; 
+    }
+}
+
+/* ==========================================================================
+   📱 2. טאבלט בלבד (768px עד 1023px) - מרכוז וריווח מושלם מול 3 הכרטיסיות
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #new-shortcuts-container-3 {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    #new-shortcuts-container-3 .legal-footer-wrapper {
+        width: 100% !important;
+        max-width: 900px !important;   /* 🎯 רוחב תואם בדיוק לשורת 3 הכרטיסיות בטאבלט */
+        margin-top: 40px !important;     /* 🔝 מרווח עליון נקי ונורמלי מהכרטיסיות */
+        margin-bottom: 120px !important; /* ⬇️ מרווח תחתון שמונע מסרגל ה-GLASS הצף להסתירו */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        
+        left: 0 !important;
+        right: 0 !important;
+        position: relative !important;
+        transform: none !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-content {
+        display: flex !important;
+        flex-direction: row !important; /* שורה אחת מיושרת יפה ולא טור */
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        direction: rtl !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-links {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 20px !important;
+    }
+}
+
+/* ==========================================================================
+   💻 3. מחשב נייד ונייח (1024px ומעלה) - 100% שמור ומוגן!
+   ========================================================================== */
+@media (min-width: 1024px) {
+    #new-shortcuts-container-3 {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    #new-shortcuts-container-3 .legal-footer-wrapper {
+        width: 100% !important;
+        max-width: 1200px !important; /* רוחב תואם בדיוק לגריד הנכסים */
+        margin-top: 70px !important;
+        margin-bottom: 40px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        
+        /* 🛑 ביטול ההיסטים הישנים שגרמו לסטייה */
+        left: 0 !important;
+        right: 0 !important;
+        position: relative !important;
+        transform: none !important;
+        
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    #new-shortcuts-container-3 .footer-legal-content {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        direction: rtl !important;
+    }
+}

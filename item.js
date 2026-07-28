@@ -3,14 +3,14 @@
 // ==========================================================================
 window.addEventListener('DOMContentLoaded', () => {
 
-    // 🏠 לחיצה על הלוגו - מעבר נקי לדף הבית (עובד גם אם הסרגל נטען דינמית)
+    // 🏠 לחיצה על הלוגו - מעבר נקי לדף הבית
     document.addEventListener('click', (e) => {
         if (e.target.closest('.logo-container') || e.target.closest('.mobile-logo')) {
             window.location.href = 'index.html';
         }
     });
 
-    // 🛡️ חסימת גרירה ומקש ימני (Right-Click) על כל התמונות בטרמינל
+    // 🛡️ חסימת גרירה ומקש ימני
     document.addEventListener('contextmenu', (e) => {
         if (e.target.tagName === 'IMG' || e.target.closest('.main-gallery-container') || e.target.closest('.thumbnails-grid')) {
             e.preventDefault();
@@ -394,7 +394,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const lat = selectedItem.lat || 32.0812;
         const lng = selectedItem.lng || 34.8145;
 
-        // 🏗️ הזרקת ה-HTML המלא
+        // 🏗️ הזרקת ה-HTML המלא (הכפתורים מוקמו מתחת לתיאור)
         infoContainer.innerHTML = `
             <div class="item-page-info-wrapper">
                 
@@ -416,13 +416,16 @@ window.addEventListener('DOMContentLoaded', () => {
                     ${hasProject}
                 </div>
 
-                <!-- 🏗️ 3. מעטפת חלוקה -->
+                <!-- 🏗️ 3. מעטפת חלוקה ראשית -->
                 <div class="details-split-container">
                     
-                    <!-- 📜 תיאור הנכס -->
+                    <!-- 📜 תיאור הנכס + כפתורי התקשרות מתחתיו -->
                     <div class="prop-description-section">
                         <h3 class="prop-description-title">תיאור הנכס</h3>
                         <p class="prop-description-text">${descriptionText}</p>
+                        
+                        <!-- 📞 כפתורי יצירת קשר (ממוקמים בדיוק מתחת לתיאור עבור דסקטופ!) -->
+                        <div id="item-contact-container"></div>
                     </div>
 
                     <!-- 🤍 כרטיסיית GLASS (התבנית העסקית) -->
@@ -475,7 +478,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                 </div>
 
-                                <!-- 🌟 תמונת s.png (מקובעת לחלוטין) -->
+                                <!-- 🌟 תמונת s.png -->
                                 <div class="s-3d-image">
                                     <img src="s.png" alt="אייקון 3D" draggable="false">
                                 </div>
@@ -506,8 +509,14 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
+                <div id="similar-properties-container"></div>
             </div>
         `;
+
+        // 🔥 הפעלת מודול הכפתורים גם בדסקטופ וגם במובייל דרך קריאה אחת
+        if (typeof window.initContactModule === 'function') {
+            window.initContactModule();
+        }
 
         // 🚀 טעינה שקטה ואוטומטית של ספריית המפה
         ensureLeafletAndInitMap(lat, lng, mainPropertyImage);
@@ -540,7 +549,7 @@ function ensureLeafletAndInitMap(lat, lng, imageUrl) {
 }
 
 // ==========================================================================
-// 🗺️ פונקציית אתחול המפה החיה - מרכוז מדויק + חיבור הבועה לקואורדינטות!
+// 🗺️ פונקציית אתחול המפה החיה
 // ==========================================================================
 function initPropertyLeafletMap(lat, lng, imageUrl) {
     const container = document.getElementById('item-interactive-map-container');
