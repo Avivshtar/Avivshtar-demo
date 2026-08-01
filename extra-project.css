@@ -1,0 +1,203 @@
+/* ==========================================================================
+   🎛️ לוח בקרה - שליטה במיקומים ורוחב לכל מסך
+   ========================================================================== */
+:root {
+    /* 📱 מובייל */
+    --ex-mt-mob: 35px;
+    --ex-x-mob: 0px;
+
+    /* 💊 טאבלט */
+    --ex-mt-tab: 45px;
+    --ex-x-tab: 0px;
+
+    /* 💻 מחשב נייד (ללא גלילה!) */
+    --ex-width-lap: 980px;      /* רוחב מדויק ללפטופ */
+    --ex-mt-lap: 55px;
+    --ex-x-lap: 0px;
+
+    /* 🖥️ מחשב נייח */
+    --ex-width-desk: 1000px;
+    --ex-mt-desk: 65px;
+    --ex-x-desk: 0px;
+}
+
+/* 🎯 העטיפה הראשית של הפרויקט - מוגנת ממחיצה! */
+#plan-modal-overlay .extra-project-container {
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    direction: rtl !important;
+    z-index: 10 !important;
+    flex-shrink: 0 !important;
+}
+
+/* 📱 מובייל */
+@media (max-width: 767px) {
+    #plan-modal-overlay .extra-project-container {
+        width: 100% !important;
+        margin-top: var(--ex-mt-mob) !important;
+        transform: translateX(var(--ex-x-mob)) !important;
+        padding: 0 5px !important;
+    }
+}
+
+/* 💊 טאבלט */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #plan-modal-overlay .extra-project-container {
+        width: 100% !important;
+        margin-top: var(--ex-mt-tab) !important;
+        transform: translateX(var(--ex-x-tab)) !important;
+    }
+}
+
+/* 💻 מחשב נייד - הטריק המנצח לפריצת רוחב ללא פגיעה במודאל! */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    #plan-modal-overlay .extra-project-container {
+        width: var(--ex-width-lap) !important;
+        margin-right: calc(50% - (var(--ex-width-lap) / 2)) !important;
+        margin-left: calc(50% - (var(--ex-width-lap) / 2)) !important;
+        margin-top: var(--ex-mt-lap) !important;
+        transform: translateX(var(--ex-x-lap)) !important;
+    }
+    #plan-modal-overlay .extra-data-table { min-width: 100% !important; }
+    #plan-modal-overlay .extra-data-table th,
+    #plan-modal-overlay .extra-data-table td {
+        padding: 12px 4px !important; /* צמצום זעיר ללפטופ בלבד */
+        font-size: 13px !important;
+    }
+    #plan-modal-overlay .extra-data-table td.price-cell { font-size: 14px !important; }
+}
+
+/* 🖥️ מחשב נייח */
+@media (min-width: 1440px) {
+    #plan-modal-overlay .extra-project-container {
+        width: var(--ex-width-desk) !important;
+        margin-right: calc(50% - (var(--ex-width-desk) / 2)) !important;
+        margin-left: calc(50% - (var(--ex-width-desk) / 2)) !important;
+        margin-top: var(--ex-mt-desk) !important;
+        transform: translateX(var(--ex-x-desk)) !important;
+    }
+}
+
+/* 📐 כותרות, טאבים וכפתורים */
+#plan-modal-overlay .extra-project-main-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-size: 26px !important;
+    font-weight: 300 !important;
+    color: #3a3530 !important;
+    text-align: center !important;
+    margin: 0 0 20px 0 !important;
+}
+
+#plan-modal-overlay .extra-project-sub-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1c3749 !important;
+    text-align: center !important;
+    margin: 0 0 20px 0 !important;
+}
+
+#plan-modal-overlay .extra-project-tabs-bar {
+    display: flex !important; flex-direction: row !important; justify-content: center !important;
+    align-items: center !important; gap: 35px !important; width: 100% !important;
+    border-bottom: 1.5px solid rgba(28, 55, 73, 0.12) !important; margin-bottom: 25px !important;
+    padding-bottom: 2px !important;
+}
+
+#plan-modal-overlay .extra-tab-btn {
+    background: transparent !important; border: none !important; font-family: 'Heebo', sans-serif !important;
+    font-size: 18px !important; font-weight: 500 !important; color: #1c3749 !important;
+    padding: 8px 12px !important; cursor: pointer !important; position: relative !important;
+}
+
+#plan-modal-overlay .extra-tab-btn.active { color: #0056b3 !important; font-weight: 700 !important; }
+#plan-modal-overlay .extra-tab-btn.active::after {
+    content: '' !important; position: absolute !important; bottom: -3.5px !important;
+    left: 0 !important; width: 100% !important; height: 3px !important;
+    background-color: #0056b3 !important; border-radius: 4px 4px 0 0 !important;
+}
+
+#plan-modal-overlay .extra-project-filters-row {
+    display: flex !important; flex-direction: row !important; justify-content: center !important;
+    align-items: center !important; gap: 12px !important; margin-bottom: 25px !important; width: 100% !important;
+}
+
+#plan-modal-overlay .extra-filter-btn {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    gap: 6px !important; background: #ffffff !important; border: 1.5px solid #0056b3 !important;
+    border-radius: 30px !important; padding: 6px 20px !important; font-family: 'Heebo', sans-serif !important;
+    font-size: 15px !important; font-weight: 500 !important; color: #0056b3 !important;
+    cursor: pointer !important; box-shadow: 0 2px 8px rgba(0, 86, 179, 0.06) !important;
+}
+#plan-modal-overlay .extra-filter-btn:hover { background: #0056b3 !important; color: #ffffff !important; }
+#plan-modal-overlay .extra-filter-btn:hover svg { stroke: #ffffff !important; }
+#plan-modal-overlay .btn-arrow { font-size: 9px !important; margin-left: 2px !important; }
+
+/* 🎛️ חלון סינון צף (Dropdown) */
+#plan-modal-overlay .extra-filter-wrapper { position: relative !important; display: inline-block !important; }
+#plan-modal-overlay .extra-filter-panel {
+    display: none !important; /* מוסתר רגיל */
+    position: absolute !important; top: calc(100% + 12px) !important; right: 0 !important;
+    background: #ffffff !important; border: 1px solid rgba(0, 86, 179, 0.15) !important;
+    border-radius: 16px !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    padding: 20px !important; z-index: 100 !important; min-width: 280px !important;
+    flex-direction: column !important; gap: 18px !important; text-align: right !important;
+}
+
+#plan-modal-overlay .extra-filter-panel.active { display: flex !important; }
+
+#plan-modal-overlay .filter-select-group { display: flex !important; flex-direction: column !important; gap: 6px !important; }
+#plan-modal-overlay .filter-select-group label { font-family: 'Heebo', sans-serif !important; font-size: 14px !important; color: #1c3749 !important; font-weight: 700 !important; }
+#plan-modal-overlay .filter-select-group select {
+    padding: 10px 14px !important; border-radius: 10px !important; border: 1px solid #e2e8f0 !important;
+    background: #f8fafc !important; font-family: 'Heebo', sans-serif !important; font-size: 14px !important;
+    color: #4a5568 !important; outline: none !important; cursor: pointer !important; appearance: auto !important;
+}
+#plan-modal-overlay .filter-select-group select:hover, #plan-modal-overlay .filter-select-group select:focus {
+    border-color: #0056b3 !important; background: #ffffff !important;
+}
+
+/* 📊 טבלה - מניעת שבירת מילים לעולמים */
+#plan-modal-overlay .extra-tab-content { display: none !important; width: 100% !important; }
+#plan-modal-overlay .extra-tab-content.active { display: block !important; }
+
+#plan-modal-overlay .extra-table-card {
+    background: #ffffff !important; border-radius: 20px !important; padding: 24px !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important; width: 100% !important; box-sizing: border-box !important;
+}
+#plan-modal-overlay .extra-table-scroll-wrapper { width: 100% !important; overflow-x: auto !important; }
+#plan-modal-overlay .extra-data-table {
+    width: 100% !important; min-width: 820px !important; border-collapse: collapse !important;
+    direction: rtl !important; text-align: center !important; font-family: 'Heebo', sans-serif !important;
+}
+#plan-modal-overlay .extra-data-table thead tr { background-color: #f1f5f9 !important; }
+#plan-modal-overlay .extra-data-table th, #plan-modal-overlay .extra-data-table td {
+    white-space: nowrap !important; word-break: keep-all !important; text-align: center !important; padding: 14px 10px !important;
+}
+#plan-modal-overlay .extra-data-table th { font-size: 14px !important; font-weight: 600 !important; color: #1c3749 !important; border: none !important; }
+#plan-modal-overlay .extra-data-table th:first-child { border-radius: 0 10px 10px 0 !important; }
+#plan-modal-overlay .extra-data-table th:last-child { border-radius: 10px 0 0 10px !important; }
+#plan-modal-overlay .extra-data-table tbody tr { border-bottom: 1px solid #edf2f7 !important; }
+#plan-modal-overlay .extra-data-table tbody tr:last-child { border-bottom: none !important; }
+#plan-modal-overlay .extra-data-table td { font-size: 15px !important; color: #2d3748 !important; }
+#plan-modal-overlay .price-cell { font-weight: 700 !important; color: #1a202c !important; }
+
+#plan-modal-overlay .extra-table-footer {
+    display: flex !important; flex-direction: row !important; justify-content: space-between !important;
+    align-items: center !important; width: 100% !important; margin-top: 18px !important;
+    padding-top: 12px !important; font-family: 'Heebo', sans-serif !important; font-size: 14px !important; color: #718096 !important;
+}
+#plan-modal-overlay .extra-placeholder-box { padding: 40px 20px !important; text-align: center !important; font-family: 'Heebo', sans-serif !important; color: #4a5568 !important; }
+
+@media (max-width: 767px) {
+    #plan-modal-overlay .extra-filter-panel { right: 50% !important; transform: translateX(50%) !important; min-width: 90vw !important; }
+    #plan-modal-overlay .extra-table-card { padding: 15px 10px !important; }
+    #plan-modal-overlay .extra-project-main-title { font-size: 22px !important; }
+    #plan-modal-overlay .extra-project-sub-title { font-size: 20px !important; }
+    #plan-modal-overlay .extra-filter-btn { padding: 5px 14px !important; font-size: 13px !important; }
+}

@@ -6,204 +6,285 @@
        📱 1. מובייל (Mobile - עד 767px)
        ========================================= */
 
-    /* 💰 שורת "מחיר רכישה" */
-    --mod-price-size-mob: 18px;    /* גודל הטקסט (של המילים ושל המחיר ביחד) */
-    --mod-price-gap-mob: 20px;     /* המרווח הפנימי בין המילים "מחיר רכישה:" לבין המספר עצמו */
-    --mod-price-mt-mob: 20px;      /* תזוזה למטה: מרחיק את השורה מהכותרת שמעליה */
-    --mod-price-right-mob: 0px;    /* תזוזה ימינה/שמאלה של כל השורה ביחד */
+    --mod-price-size-mob: 18px;    
+    --mod-price-gap-mob: 20px;     
+    --mod-price-mt-mob: 20px;      
+    --mod-price-right-mob: 0px;    
 
-    /* 🥧 שורת "תשואה ברוטו" */
-    --mod-yield-size-mob: 18px;    /* גודל הטקסט (של המילים ושל האחוזים ביחד) */
-    --mod-yield-gap-mob: 0px;     /* המרווח הפנימי בין המילים "תשואה ברוטו:" לבין האחוזים */
-    --mod-yield-mt-mob: 75px;      /* תזוזה למטה: מרחיק את השורה הזו מהשורה שמעליה */
-    --mod-yield-right-mob: -50px;    /* תזוזה ימינה/שמאלה של כל השורה ביחד */
+    --mod-yield-size-mob: 18px;    
+    --mod-yield-gap-mob: 0px;     
+    --mod-yield-mt-mob: 75px;      
+    --mod-yield-right-mob: -50px;    
 
-    /* 🏠 שורת "השכירות כיום" */
-    --mod-rent-size-mob: 18px;     /* גודל הטקסט (של המילים ושל מחיר השכירות ביחד) */
-    --mod-rent-gap-mob: 34px;      /* המרווח הפנימי בין המילים "השכירות כיום:" לבין המספר */
-    --mod-rent-mt-mob: 10px;       /* תזוזה למטה: מרחיק את השורה הזו מהשורה שמעליה */
-    --mod-rent-right-mob: -10.3px;     /* תזוזה ימינה/שמאלה של כל השורה ביחד */
+    --mod-rent-size-mob: 18px;     
+    --mod-rent-gap-mob: 34px;      
+    --mod-rent-mt-mob: 10px;       
+    --mod-rent-right-mob: -10.3px;     
 
-    /* 📍 שורת "שכירות ממוצעת באזור" */
-    --mod-avg-size-mob: 18px;      /* גודל הטקסט (של המילים ושל המחיר הממוצע) */
-    --mod-avg-gap-mob: 15px;       /* המרווח הפנימי בין המילים לבין המספר */
-    --mod-avg-mt-mob: 36px;        /* תזוזה למטה: מרחיק את השורה הזו מהשורה שמעליה */
-    --mod-avg-right-mob: -3px;      /* תזוזה ימינה/שמאלה של כל השורה ביחד */
+    --mod-avg-size-mob: 18px;      
+    --mod-avg-gap-mob: 15px;       
+    --mod-avg-mt-mob: 36px;        
+    --mod-avg-right-mob: -3px;      
 
-    /* 🚀 שורת "צפי עליית ערך" */
-    --mod-appr-size-mob: 18px;     /* גודל הטקסט (של המילים ושל אחוזי עליית הערך) */
-    --mod-appr-gap-mob: 15px;      /* המרווח הפנימי בין המילים לבין האחוזים */
-    --mod-appr-mt-mob: 36px;       /* תזוזה למטה: מרחיק את השורה הזו מהשורה שמעליה */
-    --mod-appr-right-mob: -3px;     /* תזוזה ימינה/שמאלה של כל השורה ביחד */
+    --mod-appr-size-mob: 18px;     
+    --mod-appr-gap-mob: 15px;      
+    --mod-appr-mt-mob: 36px;       
+    --mod-appr-right-mob: -3px;     
 
-    /* 🏙️ שורת "מה צפוי לקום באזור" (התגיות) */
-    --mod-dev-size-mob: 16px;      /* גודל הטקסט בתוך הבועות (פארקים, רכבת וכו') */
-    --mod-dev-gap-mob: 12px;       /* המרווח בין המשפט "מה צפוי לקום" לבין הבועות עצמן */
-    --mod-dev-mt-mob: 41px;        /* תזוזה למטה: מרחיק את השורה הזו מהשורה שמעליה */
-    --mod-dev-right-mob: 0px;      /* תזוזה ימינה/שמאלה של כל השורה ביחד */
+    --mod-dev-size-mob: 18px;      
+    --mod-dev-gap-mob: 18px;        
+    --mod-dev-mt-mob: 36px;        
+    --mod-dev-right-mob: 0px;      
     
-    /* 🔵 תמונת האייקון הקטנה (c.png) שקשורה לתשואה */
-    --mod-c-size-mob: 150px;       /* הגודל של התמונה (רוחב וגובה) */
-    --mod-c-top-mob: -20px;        /* תזוזה למעלה/למטה ביחס לשורת התשואה (מינוס עולה למעלה) */
-    --mod-c-right-mob: 300px;       /* תזוזה שמאלה: מרחיק את התמונה מהאחוזים של התשואה */
+    /* 🖼️ לוגו תחתון (logo-2.png) */
+    --mod-logo-size-mob: 400px;    
+    --mod-logo-mt-mob: -243px;       
+    --mod-logo-right-mob: 0px;     
 
-    /* 🌟 תמונת הרקע הגדולה בתחתית (s.png) */
-    --modal-s-size-mobile: 500px;  /* הגודל של התמונה (רוחב וגובה) */
-    --modal-s-bottom-mobile: -7px; /* תזוזה למטה: דוחף את התמונה מתחת למסך כדי שרק החלק העליון שלה יציץ */
-    --modal-s-right-mobile: -279.3px;  /* תזוזה ימינה: דוחף את התמונה מחוץ למסך מצד ימין */
+    /* ⏳ כיתוב COMING SOON - מובייל */
+    --mod-coming-size-mob: 18px;      
+    --mod-coming-mt-mob: -120px;         
+    --mod-coming-right-mob: 5px;      
+    --mod-coming-space-mob: 8px;      
+
+    /* 📸 שליטה ב-5 התמונות - מובייל */
+    --mod-gallery-mt-mob: 50px;
+
+    /* 📐 תוכנית אדריכלית + סרטון - מובייל */
+    --mod-arch-title-size-mob: 22px;   
+    --mod-arch-title-mt-mob: 0px;      
+    --mod-arch-vid-w-mob: 100%;          
+    --mod-arch-vid-h-mob: auto;         
+    --mod-arch-vid-mt-mob: 15px;        
+    --mod-arch-vid-right-mob: 0px;      
+
+    /* תמונות - מובייל */
+    --mod-img1-w-mob: 100px; --mod-img1-h-mob: 68px; --mod-img1-top-mob: 34px; --mod-img1-left-mob: 5%;
+    --mod-img2-w-mob: 125px; --mod-img2-h-mob: 85px; --mod-img2-top-mob: 10px; --mod-img2-right-mob: 3%;
+    --mod-img3-w-mob: 77px;  --mod-img3-h-mob: 50px; --mod-img3-top-mob: 170px; --mod-img3-left-mob: -1.8%;
+    --mod-img4-w-mob: 100px; --mod-img4-h-mob: 70px; --mod-img4-top-mob: 200px; --mod-img4-right-mob: 0%;
+    --mod-img5-w-mob: 90px;  --mod-img5-h-mob: 60px; --mod-img5-top-mob: 250px; --mod-img5-left-mob: 25%;
+
+    --mod-c-size-mob: 150px;       
+    --mod-c-top-mob: -20px;        
+    --mod-c-right-mob: 300px;       
+
+    --modal-s-size-mobile: 500px;  
+    --modal-s-bottom-mobile: 26px; 
+    --modal-s-right-mobile: -279.3px;  
 
 
     /* =========================================
        💊 2. טאבלט (Tablet - 768px עד 1023px)
        ========================================= */
 
-    /* 💰 מחיר רכישה */
-    --mod-price-size-tab: 20px;    /* גודל הטקסט */
-    --mod-price-gap-tab: 26px;     /* מרווח בין המילים למספר */
-    --mod-price-mt-tab: 25px;      /* תזוזה למטה */
-    --mod-price-right-tab: 0px;    /* תזוזה ימינה/שמאלה */
+    --mod-price-size-tab: 20px;    
+    --mod-price-gap-tab: 26px;     
+    --mod-price-mt-tab: 25px;      
+    --mod-price-right-tab: 0px;    
 
-    /* 🥧 תשואה ברוטו */
-    --mod-yield-size-tab: 20px;    /* גודל הטקסט */
-    --mod-yield-gap-tab: 7px;     /* מרווח בין המילים לאחוזים */
-    --mod-yield-mt-tab: 70px;      /* תזוזה למטה */
-    --mod-yield-right-tab: -55px;    /* תזוזה ימינה/שמאלה */
+    --mod-yield-size-tab: 20px;    
+    --mod-yield-gap-tab: 7px;     
+    --mod-yield-mt-tab: 70px;      
+    --mod-yield-right-tab: -55px;    
 
-    /* 🏠 השכירות כיום */
-    --mod-rent-size-tab: 20px;     /* גודל הטקסט */
-    --mod-rent-gap-tab: 45px;      /* מרווח בין המילים למספר */
-    --mod-rent-mt-tab: 14px;       /* תזוזה למטה */
-    --mod-rent-right-tab: -13.3px;     /* תזוזה ימינה/שמאלה */
+    --mod-rent-size-tab: 20px;     
+    --mod-rent-gap-tab: 45px;      
+    --mod-rent-mt-tab: 14px;       
+    --mod-rent-right-tab: -13.3px;     
 
-    /* 📍 שכירות ממוצעת באזור */
-    --mod-avg-size-tab: 20px;      /* גודל הטקסט */
-    --mod-avg-gap-tab: 18px;       /* מרווח בין המילים למספר הממוצע */
-    --mod-avg-mt-tab: 43.4px;        /* תזוזה למטה */
-    --mod-avg-right-tab: -3px;      /* תזוזה ימינה/שמאלה */
+    --mod-avg-size-tab: 20px;      
+    --mod-avg-gap-tab: 18px;       
+    --mod-avg-mt-tab: 43.4px;        
+    --mod-avg-right-tab: -3px;      
 
-    /* 🚀 צפי עליית ערך */
-    --mod-appr-size-tab: 20px;     /* גודל הטקסט */
-    --mod-appr-gap-tab: 18px;      /* מרווח בין המילים לאחוזים */
-    --mod-appr-mt-tab: 43.4px;       /* תזוזה למטה */
-    --mod-appr-right-tab: -39px;     /* תזוזה ימינה/שמאלה */
+    --mod-appr-size-tab: 20px;     
+    --mod-appr-gap-tab: 18px;      
+    --mod-appr-mt-tab: 43.4px;       
+    --mod-appr-right-tab: -39px;     
 
-    /* 🏙️ מה צפוי לקום באזור (תגיות) */
-    --mod-dev-size-tab: 18px;      /* גודל טקסט בבועות */
-    --mod-dev-gap-tab: 16px;       /* מרווח בין המשפט לבועות */
-    --mod-dev-mt-tab: 43.4px;        /* תזוזה למטה */
-    --mod-dev-right-tab: -5.2px;      /* תזוזה ימינה/שמאלה */
+    --mod-dev-size-tab: 20px;      
+    --mod-dev-gap-tab: 16px;       
+    --mod-dev-mt-tab: 43.4px;        
+    --mod-dev-right-tab: -5.2px;      
     
-    /* 🔵 תמונת האייקון הקטנה (c.png) */
-    --mod-c-size-tab: 300px;       /* גודל התמונה */
-    --mod-c-top-tab: 0px;        /* תזוזה למעלה/למטה מהשורה */
-    --mod-c-right-tab: 624px;       /* תזוזה שמאלה הרחק מהטקסט */
+    /* 🖼️ לוגו תחתון (logo-2.png) */
+    --mod-logo-size-tab: 500px;    
+    --mod-logo-mt-tab: -270px;       
+    --mod-logo-right-tab: 0px;     
 
-    /* 🌟 תמונת הרקע הגדולה בתחתית (s.png) */
-    --modal-s-size-tablet: 555px;  /* גודל התמונה */
-    --modal-s-bottom-tablet: 0px; /* דחיפה מתחת למסך (מינוס) */
-    --modal-s-right-tablet: -139px;  /* דחיפה הצידה (מינוס) */
+    /* ⏳ כיתוב COMING SOON - טאבלט */
+    --mod-coming-size-tab: 18px;      
+    --mod-coming-mt-tab: -150px;        
+    --mod-coming-right-tab: 3px;      
+    --mod-coming-space-tab: 10px;     
+
+    /* 📸 שליטה ב-5 התמונות - טאבלט */
+    --mod-gallery-mt-tab: 80px;
+
+    /* 📐 תוכנית אדריכלית + סרטון - טאבלט */
+    --mod-arch-title-size-tab: 26px;
+    --mod-arch-title-mt-tab: 45px;
+    --mod-arch-vid-w-tab: 100%;
+    --mod-arch-vid-h-tab: auto;
+    --mod-arch-vid-mt-tab: 18px;
+    --mod-arch-vid-right-tab: 0px;
+
+    --mod-img1-w-tab: 130px; --mod-img1-h-tab: 88px;  --mod-img1-top-tab: 0px;   --mod-img1-left-tab: 3%;
+    --mod-img2-w-tab: 160px; --mod-img2-h-tab: 109px; --mod-img2-top-tab: -10px; --mod-img2-right-tab: 4%;
+    --mod-img3-w-tab: 150px; --mod-img3-h-tab: 100px; --mod-img3-top-tab: 150px; --mod-img3-left-tab: 1%;
+    --mod-img4-w-tab: 160px; --mod-img4-h-tab: 108px; --mod-img4-top-tab: 130px; --mod-img4-right-tab: 2%;
+    --mod-img5-w-tab: 132px; --mod-img5-h-tab: 77px;  --mod-img5-top-tab: 280px; --mod-img5-left-tab: 26%;
+
+    --mod-c-size-tab: 300px;       
+    --mod-c-top-tab: 0px;        
+    --mod-c-right-tab: 624px;       
+
+    --modal-s-size-tablet: 555px;  
+    --modal-s-bottom-tablet: 0px; 
+    --modal-s-right-tablet: -139px;  
 
 
     /* =========================================
        💻 3. מחשב נייד (Laptop - 1024px עד 1439px)
        ========================================= */
 
-    /* 💰 מחיר רכישה */
-    --mod-price-size-lap: 22px;    /* גודל הטקסט */
-    --mod-price-gap-lap: 30px;     /* מרווח בין המילים למספר */
-    --mod-price-mt-lap: 30px;      /* תזוזה למטה */
-    --mod-price-right-lap: 0px;    /* תזוזה ימינה/שמאלה */
+    --mod-price-size-lap: 22px;    
+    --mod-price-gap-lap: 30px;     
+    --mod-price-mt-lap: 30px;      
+    --mod-price-right-lap: 0px;    
 
-    /* 🥧 תשואה ברוטו */
-    --mod-yield-size-lap: 22px;    /* גודל הטקסט */
-    --mod-yield-gap-lap: 7px;     /* מרווח בין המילים לאחוזים */
-    --mod-yield-mt-lap: 70px;      /* תזוזה למטה */
-    --mod-yield-right-lap: -62px;    /* תזוזה ימינה/שמאלה */
+    --mod-yield-size-lap: 22px;    
+    --mod-yield-gap-lap: 7px;     
+    --mod-yield-mt-lap: 70px;      
+    --mod-yield-right-lap: -62px;    
 
-    /* 🏠 השכירות כיום */
-    --mod-rent-size-lap: 22px;     /* גודל הטקסט */
-    --mod-rent-gap-lap: 39px;      /* מרווח בין המילים למספר */
-    --mod-rent-mt-lap: 14px;       /* תזוזה למטה */
-    --mod-rent-right-lap: -19.7px;     /* תזוזה ימינה/שמאלה */
+    --mod-rent-size-lap: 22px;     
+    --mod-rent-gap-lap: 39px;      
+    --mod-rent-mt-lap: 14px;       
+    --mod-rent-right-lap: -19.7px;     
 
-    /* 📍 שכירות ממוצעת באזור */
-    --mod-avg-size-lap: 22px;      /* גודל הטקסט */
-    --mod-avg-gap-lap: 22px;       /* מרווח בין המילים למספר הממוצע */
-    --mod-avg-mt-lap: 43px;        /* תזוזה למטה */
-    --mod-avg-right-lap: 24px;      /* תזוזה ימינה/שמאלה */
+    --mod-avg-size-lap: 22px;      
+    --mod-avg-gap-lap: 22px;       
+    --mod-avg-mt-lap: 43px;        
+    --mod-avg-right-lap: 24px;      
 
-    /* 🚀 צפי עליית ערך */
-    --mod-appr-size-lap: 22px;     /* גודל הטקסט */
-    --mod-appr-gap-lap: 22px;      /* מרווח בין המילים לאחוזים */
-    --mod-appr-mt-lap: 35px;       /* תזוזה למטה */
-    --mod-appr-right-lap: 0px;     /* תזוזה ימינה/שמאלה */
+    --mod-appr-size-lap: 22px;     
+    --mod-appr-gap-lap: 22px;      
+    --mod-appr-mt-lap: 35px;       
+    --mod-appr-right-lap: 0px;     
 
-    /* 🏙️ מה צפוי לקום באזור (תגיות) */
-    --mod-dev-size-lap: 20px;      /* גודל טקסט בבועות */
-    --mod-dev-gap-lap: 18px;       /* מרווח בין המשפט לבועות */
-    --mod-dev-mt-lap: 40px;        /* תזוזה למטה */
-    --mod-dev-right-lap: 0px;      /* תזוזה ימינה/שמאלה */
+    --mod-dev-size-lap: 22px;      
+    --mod-dev-gap-lap: 18px;       
+    --mod-dev-mt-lap: 40px;        
+    --mod-dev-right-lap: 0px;      
     
-    /* 🔵 תמונת האייקון הקטנה (c.png) */
-    --mod-c-size-lap: 250px;       /* גודל התמונה */
-    --mod-c-top-lap: 0px;        /* תזוזה למעלה/למטה מהשורה */
-    --mod-c-right-lap: 450px;       /* תזוזה שמאלה הרחק מהטקסט */
+    /* 🖼️ לוגו תחתון (logo-2.png) */
+    --mod-logo-size-lap: 500px;    
+    --mod-logo-mt-lap: -253px;       
+    --mod-logo-right-lap: 0px;     
 
-    /* 🌟 תמונת הרקע הגדולה בתחתית (s.png) */
-    --modal-s-size-laptop: 524px;  /* גודל התמונה */
-    --modal-s-bottom-laptop: -257px; /* דחיפה מתחת למסך (מינוס) */
-    --modal-s-right-laptop: -155px;  /* דחיפה הצידה (מינוס) */
+    /* ⏳ כיתוב COMING SOON - לפטופ */
+    --mod-coming-size-lap: 18px;      
+    --mod-coming-mt-lap: -150px;        
+    --mod-coming-right-lap: 3px;      
+    --mod-coming-space-lap: 12px;     
+
+    /* 📸 שליטה ב-5 התמונות - לפטופ */
+    --mod-gallery-mt-lap: 50px;
+
+    /* 📐 תוכנית אדריכלית + סרטון - לפטופ */
+    --mod-arch-title-size-lap: 26px;
+    --mod-arch-title-mt-lap: 50px;
+    --mod-arch-vid-w-lap: 145%;
+    --mod-arch-vid-h-lap: auto;
+    --mod-arch-vid-mt-lap: 24px;
+    --mod-arch-vid-right-lap: 0px;
+
+    --mod-img1-w-lap: 145px; --mod-img1-h-lap: 105px; --mod-img1-top-lap: 10px;  --mod-img1-left-lap: -3%;
+    --mod-img2-w-lap: 175px; --mod-img2-h-lap: 118px; --mod-img2-top-lap: -7px;  --mod-img2-right-lap: -3%;
+    --mod-img3-w-lap: 115px; --mod-img3-h-lap: 77px;  --mod-img3-top-lap: 155px; --mod-img3-left-lap: -5%;
+    --mod-img4-w-lap: 175px; --mod-img4-h-lap: 118px; --mod-img4-top-lap: 140px; --mod-img4-right-lap: -10.1%;
+    --mod-img5-w-lap: 120px; --mod-img5-h-lap: 82px;  --mod-img5-top-lap: 277px; --mod-img5-left-lap: 26%;
+
+    --mod-c-size-lap: 250px;       
+    --mod-c-top-lap: 0px;        
+    --mod-c-right-lap: 450px;       
+
+    --modal-s-size-laptop: 524px;  
+    --modal-s-bottom-laptop: -257px; 
+    --modal-s-right-laptop: -155px;  
 
 
     /* =========================================
        🖥️ 4. מחשב נייח (Desktop - 1440px ומעלה)
        ========================================= */
 
-    /* 💰 מחיר רכישה */
-    --mod-price-size-desk: 24px;   /* גודל הטקסט */
-    --mod-price-gap-desk: 36px;    /* מרווח בין המילים למספר */
-    --mod-price-mt-desk: 35px;     /* תזוזה למטה */
-    --mod-price-right-desk: 0px;   /* תזוזה ימינה/שמאלה */
+    --mod-price-size-desk: 24px;   
+    --mod-price-gap-desk: 36px;    
+    --mod-price-mt-desk: 35px;     
+    --mod-price-right-desk: 0px;   
 
-    /* 🥧 תשואה ברוטו */
-    --mod-yield-size-desk: 24px;   /* גודל הטקסט */
-    --mod-yield-gap-desk: 14px;    /* מרווח בין המילים לאחוזים */
-    --mod-yield-mt-desk: 75px;     /* תזוזה למטה */
-    --mod-yield-right-desk: -72px;   /* תזוזה ימינה/שמאלה */
+    --mod-yield-size-desk: 24px;   
+    --mod-yield-gap-desk: 14px;    
+    --mod-yield-mt-desk: 75px;     
+    --mod-yield-right-desk: -72px;   
 
-    /* 🏠 השכירות כיום */
-    --mod-rent-size-desk: 24px;    /* גודל הטקסט */
-    --mod-rent-gap-desk: 36px;     /* מרווח בין המילים למספר */
-    --mod-rent-mt-desk: 22px;      /* תזוזה למטה */
-    --mod-rent-right-desk: -24px;    /* תזוזה ימינה/שמאלה */
+    --mod-rent-size-desk: 24px;    
+    --mod-rent-gap-desk: 36px;     
+    --mod-rent-mt-desk: 22px;      
+    --mod-rent-right-desk: -24px;    
 
-    /* 📍 שכירות ממוצעת באזור */
-    --mod-avg-size-desk: 24px;     /* גודל הטקסט */
-    --mod-avg-gap-desk: 26px;      /* מרווח בין המילים למספר הממוצע */
-    --mod-avg-mt-desk: 40px;       /* תזוזה למטה */
-    --mod-avg-right-desk: 0px;     /* תזוזה ימינה/שמאלה */
+    --mod-avg-size-desk: 24px;     
+    --mod-avg-gap-desk: 26px;      
+    --mod-avg-mt-desk: 40px;       
+    --mod-avg-right-desk: 0px;     
 
-    /* 🚀 צפי עליית ערך */
-    --mod-appr-size-desk: 24px;    /* גודל הטקסט */
-    --mod-appr-gap-desk: 26px;     /* מרווח בין המילים לאחוזים */
-    --mod-appr-mt-desk: 40px;      /* תזוזה למטה */
-    --mod-appr-right-desk: 0px;    /* תזוזה ימינה/שמאלה */
+    --mod-appr-size-desk: 24px;    
+    --mod-appr-gap-desk: 26px;     
+    --mod-appr-mt-desk: 40px;      
+    --mod-appr-right-desk: 0px;    
 
-    /* 🏙️ מה צפוי לקום באזור (תגיות) */
-    --mod-dev-size-desk: 22px;     /* גודל טקסט בבועות */
-    --mod-dev-gap-desk: 20px;      /* מרווח בין המשפט לבועות */
-    --mod-dev-mt-desk: 45px;       /* תזוזה למטה */
-    --mod-dev-right-desk: 0px;     /* תזוזה ימינה/שמאלה */
+    --mod-dev-size-desk: 24px;     
+    --mod-dev-gap-desk: 20px;      
+    --mod-dev-mt-desk: 45px;       
+    --mod-dev-right-desk: 0px;     
     
-    /* 🔵 תמונת האייקון הקטנה (c.png) */
-    --mod-c-size-desk: 250px;      /* גודל התמונה */
-    --mod-c-top-desk: 0px;       /* תזוזה למעלה/למטה מהשורה */
-    --mod-c-right-desk: 524px;      /* תזוזה שמאלה הרחק מהטקסט */
+    /* 🖼️ לוגו תחתון (logo-2.png) */
+    --mod-logo-size-desk: 500px;   
+    --mod-logo-mt-desk: -253px;      
+    --mod-logo-right-desk: 0px;    
 
-    /* 🌟 תמונת הרקע הגדולה בתחתית (s.png) */
-    --modal-s-size-desktop: 555px; /* גודל התמונה */
-    --modal-s-bottom-desktop: 7px; /* דחיפה מתחת למסך (מינוס) */
-    --modal-s-right-desktop: -139px;  /* דחיפה הצידה (מינוס) */
+    /* ⏳ כיתוב COMING SOON - דסקטופ */
+    --mod-coming-size-desk: 18px;      
+    --mod-coming-mt-desk: -150px;       
+    --mod-coming-right-desk: 3px;      
+    --mod-coming-space-desk: 16px;     
+
+    /* 📸 שליטה ב-5 התמונות - דסקטופ */
+    --mod-gallery-mt-desk: 60px;
+
+    /* 📐 תוכנית אדריכלית + סרטון - דסקטופ */
+    --mod-arch-title-size-desk: 26px;
+    --mod-arch-title-mt-desk: 55px;
+    --mod-arch-vid-w-desk: 160%;
+    --mod-arch-vid-h-desk: auto;
+    --mod-arch-vid-mt-desk: 24px;
+    --mod-arch-vid-right-desk: 5px;
+
+    --mod-img1-w-desk: 155px; --mod-img1-h-desk: 105px; --mod-img1-top-desk: 0px;   --mod-img1-left-desk: 4%;
+    --mod-img2-w-desk: 190px; --mod-img2-h-desk: 128px; --mod-img2-top-desk: -15px; --mod-img2-right-desk: 8%;
+    --mod-img3-w-desk: 120px; --mod-img3-h-desk: 82px;  --mod-img3-top-desk: 150px; --mod-img3-left-desk: 1%;
+    --mod-img4-w-desk: 180px; --mod-img4-h-desk: 118px; --mod-img4-top-desk: 150px; --mod-img4-right-desk: -3%;
+    --mod-img5-w-desk: 125px; --mod-img5-h-desk: 85px;  --mod-img5-top-desk: 277px; --mod-img5-left-desk: 26%;
+
+    --mod-c-size-desk: 250px;      
+    --mod-c-top-desk: 0px;       
+    --mod-c-right-desk: 524px;      
+
+    --modal-s-size-desktop: 555px; 
+    --modal-s-bottom-desktop: -7px; 
+    --modal-s-right-desktop: -139px;  
 }
 
 /* ==========================================================================
@@ -258,13 +339,47 @@
     z-index: 2 !important; overflow-y: auto !important; scrollbar-width: thin !important; scrollbar-color: rgba(180, 165, 150, 0.45) transparent !important;
 }
 
+/* ✖️ כפתור סגירה GLASS - עם אנימציה */
 .plan-modal-close-btn {
-    position: absolute !important; top: 22px !important; left: 22px !important; width: 44px !important; height: 44px !important;
-    border-radius: 50% !important; background: rgba(255, 255, 255, 0.75) !important; backdrop-filter: blur(20px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.9) !important; display: flex !important; align-items: center !important; justify-content: center !important;
-    cursor: pointer !important; z-index: 1000 !important; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    position: absolute !important; 
+    top: 22px !important; 
+    left: 22px !important; 
+    width: 44px !important; 
+    height: 44px !important;
+    border-radius: 50% !important; 
+    background: rgba(255, 255, 255, 0.8) !important; 
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.95) !important; 
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    cursor: pointer !important; 
+    pointer-events: auto !important;
+    z-index: 99999 !important; 
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                background 0.3s ease, 
+                box-shadow 0.3s ease !important;
 }
-.plan-modal-close-btn svg { width: 20px !important; height: 20px !important; stroke: #3a3530 !important; stroke-width: 1.8 !important; }
+
+.plan-modal-close-btn:hover {
+    transform: scale(1.1) rotate(90deg) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.plan-modal-close-btn:active {
+    transform: scale(0.95) rotate(90deg) !important;
+}
+
+.plan-modal-close-btn svg { 
+    width: 20px !important; 
+    height: 20px !important; 
+    stroke: #1c3749 !important; 
+    stroke-width: 2.2 !important; 
+    pointer-events: none !important;
+}
 
 #plan-modal-overlay .modal-sand-divider {
     width: 100% !important; height: 1px !important;
@@ -290,13 +405,182 @@
 
 /* בידוד תמונות מהטקסט לחלוטין */
 #plan-modal-overlay .yield-3d-image { position: absolute !important; pointer-events: none !important; z-index: 10 !important; transform: translateY(-50%) !important; }
-#plan-modal-overlay .s-3d-image { position: absolute !important; pointer-events: none !important; z-index: 0 !important; }
 #plan-modal-overlay .yield-text-label, #plan-modal-overlay .yield-percentage-value { position: relative !important; z-index: 11 !important; white-space: nowrap !important; }
 #plan-modal-overlay .card-price-label, #plan-modal-overlay .card-price-value,
 #plan-modal-overlay .card-rent-label, #plan-modal-overlay .card-rent-value,
 #plan-modal-overlay .card-avg-rent-label, #plan-modal-overlay .card-avg-rent-value,
 #plan-modal-overlay .card-appreciation-label, #plan-modal-overlay .card-appreciation-value { white-space: nowrap !important; }
 
+/* 🔒 שורת "מה צפוי לקום באזור" */
+#plan-modal-overlay .card-future-dev-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+}
+
+#plan-modal-overlay .future-dev-items-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    white-space: nowrap !important;
+}
+
+/* ==========================================================================
+   🖼️ במת התמונות המרחפות אבסולוטית + אפקטי תזזית/תזוזה באלכסון בהובר!
+   ========================================================================== */
+#plan-modal-overlay .modal-gallery-section {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 750px !important;
+    min-height: 380px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#plan-modal-overlay .gallery-card {
+    position: absolute !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease !important;
+    z-index: 3 !important;
+    cursor: default !important;
+    pointer-events: auto !important;
+}
+
+#plan-modal-overlay .gallery-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    pointer-events: none !important;
+}
+
+/* 🎯 תנועות אבסולוטיות וזזות באלכסון במעבר עכבר לכל תמונה בנפרד! */
+#plan-modal-overlay .card-pos-1 { transform: rotate(-2deg) !important; }
+#plan-modal-overlay .card-pos-1:hover { transform: translate(-12px, -18px) rotate(-3.5deg) scale(1.05) !important; z-index: 30 !important; box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16) !important; }
+
+#plan-modal-overlay .card-pos-2 { transform: rotate(1.5deg) !important; }
+#plan-modal-overlay .card-pos-2:hover { transform: translate(14px, -12px) rotate(3.5deg) scale(1.05) !important; z-index: 30 !important; box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16) !important; }
+
+#plan-modal-overlay .card-pos-3 { transform: rotate(-1deg) !important; }
+#plan-modal-overlay .card-pos-3:hover { transform: translate(-10px, 10px) rotate(-3deg) scale(1.05) !important; z-index: 30 !important; box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16) !important; }
+
+#plan-modal-overlay .card-pos-4 { transform: rotate(2deg) !important; }
+#plan-modal-overlay .card-pos-4:hover { transform: translate(12px, -10px) rotate(4deg) scale(1.05) !important; z-index: 30 !important; box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16) !important; }
+
+#plan-modal-overlay .card-pos-5 { transform: rotate(-2.5deg) !important; }
+#plan-modal-overlay .card-pos-5:hover { transform: translate(8px, 12px) rotate(-4.5deg) scale(1.05) !important; z-index: 30 !important; box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16) !important; }
+
+#plan-modal-overlay .gallery-card:hover img { transform: scale(1.08) !important; }
+
+/* הלוגו והכיתוב יושבים מעל התמונות אבל לא חוסמים עכבר */
+#plan-modal-overlay .modal-bottom-logo-container { position: relative !important; z-index: 20 !important; display: flex !important; justify-content: center !important; align-items: center !important; pointer-events: none !important; }
+#plan-modal-overlay .modal-bottom-logo { object-fit: contain !important; position: relative !important; z-index: 21 !important; pointer-events: none !important; }
+
+#plan-modal-overlay .modal-coming-soon-container { position: relative !important; z-index: 20 !important; display: flex !important; justify-content: center !important; align-items: center !important; pointer-events: none !important; }
+#plan-modal-overlay .coming-soon-text {
+    font-family: 'Heebo', sans-serif !important;
+    font-weight: 200 !important;
+    color: #1c3749 !important;
+    text-shadow: none !important;
+    position: relative !important;
+    z-index: 21 !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    pointer-events: none !important; 
+}
+
+/* ==========================================================================
+   📐 עיצוב אזור תוכנית אדריכלית + סרטון video.mp4
+   ========================================================================== */
+#plan-modal-overlay .modal-arch-section {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+}
+
+#plan-modal-overlay .modal-arch-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-weight: 300 !important; 
+    color: #3a3530 !important; 
+    text-align: center !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 11 !important;
+    letter-spacing: 0.5px !important;
+}
+
+#plan-modal-overlay .modal-arch-video-container {
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 11 !important;
+}
+
+#plan-modal-overlay .modal-arch-video {
+    display: block !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    background: transparent !important;
+    outline: none !important;
+    border: none !important;
+}
+
+/* ==========================================================================
+   🚀 🚀 🚀 עיצוב מוכן לפרויקט החדש שמופיע מתחת לסרטון 🚀 🚀 🚀
+   ========================================================================== */
+#plan-modal-overlay .modal-extra-project-section {
+    position: relative !important;
+    width: 100% !important;
+    margin-top: 40px !important;
+    padding: 25px !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    direction: rtl !important;
+    z-index: 10 !important;
+}
+
+#plan-modal-overlay .modal-extra-project-section .extra-project-title {
+    font-family: 'Heebo', sans-serif !important;
+    font-weight: 700 !important;
+    color: #1c3749 !important;
+    font-size: 22px !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+}
+
+#plan-modal-overlay .modal-extra-project-section .extra-project-text {
+    font-family: 'Heebo', sans-serif !important;
+    font-weight: 400 !important;
+    color: #3a3530 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    text-align: center !important;
+}
 
 /* ==========================================================================
    📱 💻 🖥️ הזרקת המשתנים מלוח הבקרה לפי מסכים
@@ -311,17 +595,44 @@
     .plan-modal-container::after { width: 130px !important; height: 130px !important; bottom: -45px !important; left: -45px !important; }
     .plan-modal-body { width: 100% !important; max-width: 100% !important; }
 
-    /* הזרקה לשורות במובייל */
     #plan-modal-overlay .card-price-container { margin-top: var(--mod-price-mt-mob) !important; gap: var(--mod-price-gap-mob) !important; right: var(--mod-price-right-mob) !important; font-size: var(--mod-price-size-mob) !important; }
     #plan-modal-overlay .card-yield-container { margin-top: var(--mod-yield-mt-mob) !important; gap: var(--mod-yield-gap-mob) !important; right: var(--mod-yield-right-mob) !important; font-size: var(--mod-yield-size-mob) !important; }
     #plan-modal-overlay .card-rent-container  { margin-top: var(--mod-rent-mt-mob) !important;  gap: var(--mod-rent-gap-mob) !important;  right: var(--mod-rent-right-mob) !important;  font-size: var(--mod-rent-size-mob) !important; }
     #plan-modal-overlay .card-avg-rent-container { margin-top: var(--mod-avg-mt-mob) !important; gap: var(--mod-avg-gap-mob) !important; right: var(--mod-avg-right-mob) !important; font-size: var(--mod-avg-size-mob) !important; }
     #plan-modal-overlay .card-appreciation-container { margin-top: var(--mod-appr-mt-mob) !important; gap: var(--mod-appr-gap-mob) !important; right: var(--mod-appr-right-mob) !important; font-size: var(--mod-appr-size-mob) !important; }
-    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-mob) !important; gap: var(--mod-dev-gap-mob) !important; right: var(--mod-dev-right-mob) !important; font-size: var(--mod-dev-size-mob) !important; flex-direction: column !important; }
+    
+    #plan-modal-overlay .card-future-dev-container { 
+        margin-top: var(--mod-dev-mt-mob) !important; 
+        gap: var(--mod-dev-gap-mob) !important; 
+        right: var(--mod-dev-right-mob) !important; 
+        font-size: var(--mod-dev-size-mob) !important; 
+        flex-direction: column !important;
+        align-items: center !important;
+        white-space: normal !important;
+    }
+    #plan-modal-overlay .future-dev-items-row { 
+        gap: 6px !important; 
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        white-space: normal !important;
+    }
 
-    /* תמונות במובייל */
+    #plan-modal-overlay .modal-bottom-logo-container { margin-top: var(--mod-logo-mt-mob) !important; right: var(--mod-logo-right-mob) !important; }
+    #plan-modal-overlay .modal-bottom-logo { width: var(--mod-logo-size-mob) !important; }
+    #plan-modal-overlay .modal-coming-soon-container { margin-top: var(--mod-coming-mt-mob) !important; right: var(--mod-coming-right-mob) !important; }
+    #plan-modal-overlay .coming-soon-text { font-size: var(--mod-coming-size-mob) !important; letter-spacing: var(--mod-coming-space-mob) !important; }
     #plan-modal-overlay .yield-3d-image { width: var(--mod-c-size-mob) !important; height: var(--mod-c-size-mob) !important; top: var(--mod-c-top-mob) !important; right: var(--mod-c-right-mob) !important; }
-    #plan-modal-overlay .s-3d-image { width: var(--modal-s-size-mobile) !important; height: var(--modal-s-size-mobile) !important; bottom: var(--modal-s-bottom-mobile) !important; right: var(--modal-s-right-mobile) !important; }
+    
+    #plan-modal-overlay .modal-gallery-section { margin-top: var(--mod-gallery-mt-mob) !important; }
+    #plan-modal-overlay .card-pos-1 { width: var(--mod-img1-w-mob) !important; height: var(--mod-img1-h-mob) !important; top: var(--mod-img1-top-mob) !important; left: var(--mod-img1-left-mob) !important; }
+    #plan-modal-overlay .card-pos-2 { width: var(--mod-img2-w-mob) !important; height: var(--mod-img2-h-mob) !important; top: var(--mod-img2-top-mob) !important; right: var(--mod-img2-right-mob) !important; }
+    #plan-modal-overlay .card-pos-3 { width: var(--mod-img3-w-mob) !important; height: var(--mod-img3-h-mob) !important; top: var(--mod-img3-top-mob) !important; left: var(--mod-img3-left-mob) !important; }
+    #plan-modal-overlay .card-pos-4 { width: var(--mod-img4-w-mob) !important; height: var(--mod-img4-h-mob) !important; top: var(--mod-img4-top-mob) !important; right: var(--mod-img4-right-mob) !important; }
+    #plan-modal-overlay .card-pos-5 { width: var(--mod-img5-w-mob) !important; height: var(--mod-img5-h-mob) !important; top: var(--mod-img5-top-mob) !important; left: var(--mod-img5-left-mob) !important; }
+
+    #plan-modal-overlay .modal-arch-title { font-size: var(--mod-arch-title-size-mob) !important; margin-top: var(--mod-arch-title-mt-mob) !important; }
+    #plan-modal-overlay .modal-arch-video-container { margin-top: var(--mod-arch-vid-mt-mob) !important; right: var(--mod-arch-vid-right-mob) !important; }
+    #plan-modal-overlay .modal-arch-video { width: var(--mod-arch-vid-w-mob) !important; height: var(--mod-arch-vid-h-mob) !important; }
 }
 
 /* 💊 2. טאבלט */
@@ -333,17 +644,28 @@
     .plan-modal-container::after { width: 150px !important; height: 150px !important; bottom: -55px !important; left: -55px !important; }
     .plan-modal-body { width: 100% !important; max-width: 100% !important; }
 
-    /* הזרקה לשורות בטאבלט */
     #plan-modal-overlay .card-price-container { margin-top: var(--mod-price-mt-tab) !important; gap: var(--mod-price-gap-tab) !important; right: var(--mod-price-right-tab) !important; font-size: var(--mod-price-size-tab) !important; }
     #plan-modal-overlay .card-yield-container { margin-top: var(--mod-yield-mt-tab) !important; gap: var(--mod-yield-gap-tab) !important; right: var(--mod-yield-right-tab) !important; font-size: var(--mod-yield-size-tab) !important; }
     #plan-modal-overlay .card-rent-container  { margin-top: var(--mod-rent-mt-tab) !important;  gap: var(--mod-rent-gap-tab) !important;  right: var(--mod-rent-right-tab) !important;  font-size: var(--mod-rent-size-tab) !important; }
     #plan-modal-overlay .card-avg-rent-container { margin-top: var(--mod-avg-mt-tab) !important; gap: var(--mod-avg-gap-tab) !important; right: var(--mod-avg-right-tab) !important; font-size: var(--mod-avg-size-tab) !important; }
     #plan-modal-overlay .card-appreciation-container { margin-top: var(--mod-appr-mt-tab) !important; gap: var(--mod-appr-gap-tab) !important; right: var(--mod-appr-right-tab) !important; font-size: var(--mod-appr-size-tab) !important; }
-    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-tab) !important; gap: var(--mod-dev-gap-tab) !important; right: var(--mod-dev-right-tab) !important; font-size: var(--mod-dev-size-tab) !important; flex-direction: row !important; }
-
-    /* תמונות בטאבלט */
+    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-tab) !important; gap: var(--mod-dev-gap-tab) !important; right: var(--mod-dev-right-tab) !important; font-size: var(--mod-dev-size-tab) !important; }
+    #plan-modal-overlay .modal-bottom-logo-container { margin-top: var(--mod-logo-mt-tab) !important; right: var(--mod-logo-right-tab) !important; }
+    #plan-modal-overlay .modal-bottom-logo { width: var(--mod-logo-size-tab) !important; }
+    #plan-modal-overlay .modal-coming-soon-container { margin-top: var(--mod-coming-mt-tab) !important; right: var(--mod-coming-right-tab) !important; }
+    #plan-modal-overlay .coming-soon-text { font-size: var(--mod-coming-size-tab) !important; letter-spacing: var(--mod-coming-space-tab) !important; }
     #plan-modal-overlay .yield-3d-image { width: var(--mod-c-size-tab) !important; height: var(--mod-c-size-tab) !important; top: var(--mod-c-top-tab) !important; right: var(--mod-c-right-tab) !important; }
-    #plan-modal-overlay .s-3d-image { width: var(--modal-s-size-tablet) !important; height: var(--modal-s-size-tablet) !important; bottom: var(--modal-s-bottom-tablet) !important; right: var(--modal-s-right-tablet) !important; }
+    
+    #plan-modal-overlay .modal-gallery-section { margin-top: var(--mod-gallery-mt-tab) !important; }
+    #plan-modal-overlay .card-pos-1 { width: var(--mod-img1-w-tab) !important; height: var(--mod-img1-h-tab) !important; top: var(--mod-img1-top-tab) !important; left: var(--mod-img1-left-tab) !important; }
+    #plan-modal-overlay .card-pos-2 { width: var(--mod-img2-w-tab) !important; height: var(--mod-img2-h-tab) !important; top: var(--mod-img2-top-tab) !important; right: var(--mod-img2-right-tab) !important; }
+    #plan-modal-overlay .card-pos-3 { width: var(--mod-img3-w-tab) !important; height: var(--mod-img3-h-tab) !important; top: var(--mod-img3-top-tab) !important; left: var(--mod-img3-left-tab) !important; }
+    #plan-modal-overlay .card-pos-4 { width: var(--mod-img4-w-tab) !important; height: var(--mod-img4-h-tab) !important; top: var(--mod-img4-top-tab) !important; right: var(--mod-img4-right-tab) !important; }
+    #plan-modal-overlay .card-pos-5 { width: var(--mod-img5-w-tab) !important; height: var(--mod-img5-h-tab) !important; top: var(--mod-img5-top-tab) !important; left: var(--mod-img5-left-tab) !important; }
+
+    #plan-modal-overlay .modal-arch-title { font-size: var(--mod-arch-title-size-tab) !important; margin-top: var(--mod-arch-title-mt-tab) !important; }
+    #plan-modal-overlay .modal-arch-video-container { margin-top: var(--mod-arch-vid-mt-tab) !important; right: var(--mod-arch-vid-right-tab) !important; }
+    #plan-modal-overlay .modal-arch-video { width: var(--mod-arch-vid-w-tab) !important; height: var(--mod-arch-vid-h-tab) !important; }
 }
 
 /* 💻 3. מחשב נייד */
@@ -355,17 +677,28 @@
     .plan-modal-container::after { width: 170px !important; height: 170px !important; bottom: -60px !important; left: -60px !important; }
     .plan-modal-body { width: 100% !important; max-width: 580px !important; margin-top: 20px !important; }
 
-    /* הזרקה לשורות בלפטופ */
     #plan-modal-overlay .card-price-container { margin-top: var(--mod-price-mt-lap) !important; gap: var(--mod-price-gap-lap) !important; right: var(--mod-price-right-lap) !important; font-size: var(--mod-price-size-lap) !important; }
     #plan-modal-overlay .card-yield-container { margin-top: var(--mod-yield-mt-lap) !important; gap: var(--mod-yield-gap-lap) !important; right: var(--mod-yield-right-lap) !important; font-size: var(--mod-yield-size-lap) !important; }
     #plan-modal-overlay .card-rent-container  { margin-top: var(--mod-rent-mt-lap) !important;  gap: var(--mod-rent-gap-lap) !important;  right: var(--mod-rent-right-lap) !important;  font-size: var(--mod-rent-size-lap) !important; }
     #plan-modal-overlay .card-avg-rent-container { margin-top: var(--mod-avg-mt-lap) !important; gap: var(--mod-avg-gap-lap) !important; right: var(--mod-avg-right-lap) !important; font-size: var(--mod-avg-size-lap) !important; }
     #plan-modal-overlay .card-appreciation-container { margin-top: var(--mod-appr-mt-lap) !important; gap: var(--mod-appr-gap-lap) !important; right: var(--mod-appr-right-lap) !important; font-size: var(--mod-appr-size-lap) !important; }
-    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-lap) !important; gap: var(--mod-dev-gap-lap) !important; right: var(--mod-dev-right-lap) !important; font-size: var(--mod-dev-size-lap) !important; flex-direction: row !important; }
-
-    /* תמונות בלפטופ */
+    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-lap) !important; gap: var(--mod-dev-gap-lap) !important; right: var(--mod-dev-right-lap) !important; font-size: var(--mod-dev-size-lap) !important; }
+    #plan-modal-overlay .modal-bottom-logo-container { margin-top: var(--mod-logo-mt-lap) !important; right: var(--mod-logo-right-lap) !important; }
+    #plan-modal-overlay .modal-bottom-logo { width: var(--mod-logo-size-lap) !important; }
+    #plan-modal-overlay .modal-coming-soon-container { margin-top: var(--mod-coming-mt-lap) !important; right: var(--mod-coming-right-lap) !important; }
+    #plan-modal-overlay .coming-soon-text { font-size: var(--mod-coming-size-lap) !important; letter-spacing: var(--mod-coming-space-lap) !important; }
     #plan-modal-overlay .yield-3d-image { width: var(--mod-c-size-lap) !important; height: var(--mod-c-size-lap) !important; top: var(--mod-c-top-lap) !important; right: var(--mod-c-right-lap) !important; }
-    #plan-modal-overlay .s-3d-image { width: var(--modal-s-size-laptop) !important; height: var(--modal-s-size-laptop) !important; bottom: var(--modal-s-bottom-laptop) !important; right: var(--modal-s-right-laptop) !important; }
+    
+    #plan-modal-overlay .modal-gallery-section { margin-top: var(--mod-gallery-mt-lap) !important; }
+    #plan-modal-overlay .card-pos-1 { width: var(--mod-img1-w-lap) !important; height: var(--mod-img1-h-lap) !important; top: var(--mod-img1-top-lap) !important; left: var(--mod-img1-left-lap) !important; }
+    #plan-modal-overlay .card-pos-2 { width: var(--mod-img2-w-lap) !important; height: var(--mod-img2-h-lap) !important; top: var(--mod-img2-top-lap) !important; right: var(--mod-img2-right-lap) !important; }
+    #plan-modal-overlay .card-pos-3 { width: var(--mod-img3-w-lap) !important; height: var(--mod-img3-h-lap) !important; top: var(--mod-img3-top-lap) !important; left: var(--mod-img3-left-lap) !important; }
+    #plan-modal-overlay .card-pos-4 { width: var(--mod-img4-w-lap) !important; height: var(--mod-img4-h-lap) !important; top: var(--mod-img4-top-lap) !important; right: var(--mod-img4-right-lap) !important; }
+    #plan-modal-overlay .card-pos-5 { width: var(--mod-img5-w-lap) !important; height: var(--mod-img5-h-lap) !important; top: var(--mod-img5-top-lap) !important; left: var(--mod-img5-left-lap) !important; }
+
+    #plan-modal-overlay .modal-arch-title { font-size: var(--mod-arch-title-size-lap) !important; margin-top: var(--mod-arch-title-mt-lap) !important; }
+    #plan-modal-overlay .modal-arch-video-container { margin-top: var(--mod-arch-vid-mt-lap) !important; right: var(--mod-arch-vid-right-lap) !important; }
+    #plan-modal-overlay .modal-arch-video { width: var(--mod-arch-vid-w-lap) !important; height: var(--mod-arch-vid-h-lap) !important; }
 }
 
 /* 🖥️ 4. מחשב נייח */
@@ -377,17 +710,28 @@
     .plan-modal-container::after { width: 190px !important; height: 190px !important; bottom: -65px !important; left: -65px !important; }
     .plan-modal-body { width: 100% !important; max-width: 700px !important; margin-top: 20px !important; }
 
-    /* הזרקה לשורות בדסקטופ */
     #plan-modal-overlay .card-price-container { margin-top: var(--mod-price-mt-desk) !important; gap: var(--mod-price-gap-desk) !important; right: var(--mod-price-right-desk) !important; font-size: var(--mod-price-size-desk) !important; }
     #plan-modal-overlay .card-yield-container { margin-top: var(--mod-yield-mt-desk) !important; gap: var(--mod-yield-gap-desk) !important; right: var(--mod-yield-right-desk) !important; font-size: var(--mod-yield-size-desk) !important; }
     #plan-modal-overlay .card-rent-container  { margin-top: var(--mod-rent-mt-desk) !important;  gap: var(--mod-rent-gap-desk) !important;  right: var(--mod-rent-right-desk) !important;  font-size: var(--mod-rent-size-desk) !important; }
     #plan-modal-overlay .card-avg-rent-container { margin-top: var(--mod-avg-mt-desk) !important; gap: var(--mod-avg-gap-desk) !important; right: var(--mod-avg-right-desk) !important; font-size: var(--mod-avg-size-desk) !important; }
     #plan-modal-overlay .card-appreciation-container { margin-top: var(--mod-appr-mt-desk) !important; gap: var(--mod-appr-gap-desk) !important; right: var(--mod-appr-right-desk) !important; font-size: var(--mod-appr-size-desk) !important; }
-    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-desk) !important; gap: var(--mod-dev-gap-desk) !important; right: var(--mod-dev-right-desk) !important; font-size: var(--mod-dev-size-desk) !important; flex-direction: row !important; }
-
-    /* תמונות בדסקטופ */
+    #plan-modal-overlay .card-future-dev-container { margin-top: var(--mod-dev-mt-desk) !important; gap: var(--mod-dev-gap-desk) !important; right: var(--mod-dev-right-desk) !important; font-size: var(--mod-dev-size-desk) !important; }
+    #plan-modal-overlay .modal-bottom-logo-container { margin-top: var(--mod-logo-mt-desk) !important; right: var(--mod-logo-right-desk) !important; }
+    #plan-modal-overlay .modal-bottom-logo { width: var(--mod-logo-size-desk) !important; }
+    #plan-modal-overlay .modal-coming-soon-container { margin-top: var(--mod-coming-mt-desk) !important; right: var(--mod-coming-right-desk) !important; }
+    #plan-modal-overlay .coming-soon-text { font-size: var(--mod-coming-size-desk) !important; letter-spacing: var(--mod-coming-space-desk) !important; }
     #plan-modal-overlay .yield-3d-image { width: var(--mod-c-size-desk) !important; height: var(--mod-c-size-desk) !important; top: var(--mod-c-top-desk) !important; right: var(--mod-c-right-desk) !important; }
-    #plan-modal-overlay .s-3d-image { width: var(--modal-s-size-desktop) !important; height: var(--modal-s-size-desktop) !important; bottom: var(--modal-s-bottom-desktop) !important; right: var(--modal-s-right-desktop) !important; }
+    
+    #plan-modal-overlay .modal-gallery-section { margin-top: var(--mod-gallery-mt-desk) !important; }
+    #plan-modal-overlay .card-pos-1 { width: var(--mod-img1-w-desk) !important; height: var(--mod-img1-h-desk) !important; top: var(--mod-img1-top-desk) !important; left: var(--mod-img1-left-desk) !important; }
+    #plan-modal-overlay .card-pos-2 { width: var(--mod-img2-w-desk) !important; height: var(--mod-img2-h-desk) !important; top: var(--mod-img2-top-desk) !important; right: var(--mod-img2-right-desk) !important; }
+    #plan-modal-overlay .card-pos-3 { width: var(--mod-img3-w-desk) !important; height: var(--mod-img3-h-desk) !important; top: var(--mod-img3-top-desk) !important; left: var(--mod-img3-left-desk) !important; }
+    #plan-modal-overlay .card-pos-4 { width: var(--mod-img4-w-desk) !important; height: var(--mod-img4-h-desk) !important; top: var(--mod-img4-top-desk) !important; right: var(--mod-img4-right-desk) !important; }
+    #plan-modal-overlay .card-pos-5 { width: var(--mod-img5-w-desk) !important; height: var(--mod-img5-h-desk) !important; top: var(--mod-img5-top-desk) !important; left: var(--mod-img5-left-desk) !important; }
+
+    #plan-modal-overlay .modal-arch-title { font-size: var(--mod-arch-title-size-desk) !important; margin-top: var(--mod-arch-title-mt-desk) !important; }
+    #plan-modal-overlay .modal-arch-video-container { margin-top: var(--mod-arch-vid-mt-desk) !important; right: var(--mod-arch-vid-right-desk) !important; }
+    #plan-modal-overlay .modal-arch-video { width: var(--mod-arch-vid-w-desk) !important; height: var(--mod-arch-vid-h-desk) !important; }
 }
 
 /* החלת גדלי פונט על הטקסטים בתוך השורות בהתאם למשתנים */

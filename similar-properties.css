@@ -2,24 +2,24 @@
    ⚙️ לוח בקרה ראשי - שליטה עצמאית לחלוטין במיקום וגודל כל אלמנט
    ========================================================================== */
 :root {
-    /* 📐 מידות הכרטיסייה והתמונה (הוחזר בדיוק למקור) */
+    /* 📐 מידות הכרטיסייה והתמונה */
     --sim-card-width: 285px;             /* רוחב הכרטיסייה */
     --sim-card-height: 280px;            /* גובה הכרטיסייה */
     --sim-img-height: 200px;             /* גובה התמונה */
     --sim-fade-start: 41%;               /* נקודת התחלת ה-FADE בתמונה */
 
-    /* 💰 1. מחיר (שליטה עצמאית - הוחזר למקור) */
+    /* 💰 1. מחיר */
     --sim-price-bottom: 70px;            /* ↕️ מרחק המחיר מתחתית הכרטיסייה */
     --sim-price-right: 14px;             /* ↔️ מרחק המחיר מימין */
     --sim-price-size: 20px;              /* 🔤 גודל פונט המחיר */
 
-    /* 📍 2. כתובת ומיקום (שליטה עצמאית - הוחזר למקור) */
+    /* 📍 2. כתובת ומיקום */
     --sim-loc-bottom: 43.2px;            /* ↕️ מרחק הכתובת מתחתית הכרטיסייה */
     --sim-loc-right: 14px;               /* ↔️ מרחק הכתובת מימין */
     --sim-loc-size: 13.5px;              /* 🔤 גודל פונט הכתובת */
     --sim-icon-size: 15px;               /* 📍 גודל אייקון המיקום */
 
-    /* 🏷️ 3. תגיות המפרט (שליטה עצמאית - הוחזר למקור) */
+    /* 🏷️ 3. תגיות המפרט */
     --sim-specs-bottom: 12px;            /* ↕️ מרחק התגיות מתחתית הכרטיסייה */
     --sim-specs-right: 14px;             /* ↔️ מרחק התגיות מימין */
     --sim-specs-size: 12px;              /* 🔤 גודל פונט בתגית */
@@ -29,16 +29,16 @@
     --sim-arrow-top: 85px;               /* ↕️ גובה כפתורי החיצים מלמעלה */
     --sim-arrow-side: 10px;              /* ↔️ מרחק החיצים מהצדדים */
 
-    /* 📞💬 5. שליטה עצמאית בכפתורי הפעולה (ווטסאפ וטלפון - הוחזר למקור) */
+    /* 📞💬 5. שליטה בכפתורי הפעולה */
     --sim-action-btn-bottom: 70px;       /* ↕️ מרחק הכפתורים מתחתית הכרטיסייה */
     --sim-wa-left: 14px;                 /* ↔️ מרחק כפתור ווטסאפ משמאל */
     --sim-phone-left: 56px;              /* ↔️ מרחק כפתור טלפון משמאל */
     --sim-action-btn-size: 36px;         /* 📐 גודל כפתורי הפעולה */
-    --sim-phone-icon-color: #3a3530;     /* 🎨 צבע אייקון הטלפון (אפור תואם למחיר) */
+    --sim-phone-icon-color: #3a3530;     /* 🎨 צבע אייקון הטלפון */
     --sim-phone-icon-size: 16px;         /* 🔤 גודל אייקון הטלפון */
     --sim-wa-icon-size: 18px;            /* 🔤 גודל אייקון הווטסאפ */
 
-    /* ↕️ 6. מרווח עליון ממאפייני הנכס שמעליו (שליטה קלה ונוחה) */
+    /* ↕️ 6. מרווח עליון ממאפייני הנכס שמעליו */
     --sim-section-top-desktop: 77px;     /* 💻 מרווח מלמעלה במחשב */
     --sim-section-top-tablet: 77px;      /* 📱 מרווח מלמעלה בטאבלט */
     --sim-section-top-mobile: 77px;      /* 📱 מרווח מלמעלה במובייל */
@@ -126,6 +126,9 @@
     border-radius: 28px 28px 0 0;
     touch-action: pan-y !important; 
     
+    /* 🛑 ביטול מוחלט של החלקת התמונות עם האצבע (Swipe) 🛑 */
+    pointer-events: none !important; 
+    
     -webkit-mask-image: linear-gradient(
         to bottom, 
         rgba(0, 0, 0, 1) 0%, 
@@ -158,7 +161,7 @@
 }
 
 /* ==========================================================================
-   ↔️ כפתורי גלריה למחשב
+   ↔️ כפתורי גלריה (מעבר תמונות) - פעילים בכל המכשירים וללא גלילת אצבע
    ========================================================================== */
 .carousel-btn {
     position: absolute !important;
@@ -166,11 +169,11 @@
     width: 30px !important;
     height: 30px !important;
     border-radius: 50% !important;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%) !important;
     backdrop-filter: blur(12px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.65) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -193,16 +196,21 @@
     pointer-events: none !important;
 }
 
-@media (hover: hover) {
+/* 📱 📑 במובייל ובטאבלט (מסכי מגע) - החיצים גלויים תמיד! */
+@media (hover: none), (max-width: 1023px) {
+    .carousel-btn {
+        opacity: 0.95 !important;
+        display: flex !important;
+    }
+}
+
+/* 💻 במחשב - החיצים מופיעים ברגע העברת העכבר (Hover) */
+@media (hover: hover) and (min-width: 1024px) {
     .similar-card-template:hover .carousel-btn { opacity: 1 !important; }
     .carousel-btn:hover {
         transform: scale(1.12) translateZ(0) !important;
         background: rgba(255, 255, 255, 0.85) !important;
     }
-}
-
-@media (hover: none), (max-width: 767px) {
-    .carousel-btn { display: none !important; }
 }
 
 /* ==========================================================================
@@ -235,6 +243,7 @@
     touch-action: manipulation !important;
     will-change: transform;
     transform: translateZ(0);
+    pointer-events: auto !important;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
@@ -436,15 +445,16 @@
     .similar-section-wrapper.hide-fade-left::before { opacity: 0 !important; }
     .similar-section-wrapper.hide-fade-right::after { opacity: 0 !important; }
 
-    /* 🎯 תיקון חיתוך הצל במובייל וספארי */
+    /* 🎯 גלילה חופשית לחלוטין ללא קפיצות/הצמדה (Snap) */
     .similar-cards-list {
         flex-wrap: nowrap !important;
         justify-content: flex-start !important;
         overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
+        
+        /* 🛑 ביטול מוחלט של קפיצות ה-Scroll Snap 🛑 */
+        scroll-snap-type: none !important;
         -webkit-overflow-scrolling: touch !important;
         
-        /* 💡 הגדלת ה-padding למטה ובצדדים נותנת לצל שטח לפריסה בלי להיחתך */
         padding: 15px 25px 35px 25px !important; 
         scroll-padding-left: 25px !important;
         
@@ -452,12 +462,12 @@
         -ms-overflow-style: none !important; 
         scrollbar-width: none !important;
     }
-.similar-card-template {
-        scroll-snap-align: start !important;
+
+    .similar-card-template {
+        scroll-snap-align: none !important; /* 👈 ביטול הצמדה ימנית */
         flex: 0 0 var(--sim-card-width) !important;
         display: block !important;
         
-        /* 🍏 תיקון באג הרינדור של הצללים במכשירי Apple / Safari + תאימות מלאה */
         appearance: none !important;
         -webkit-appearance: none !important;
         transform: translateZ(0) !important;

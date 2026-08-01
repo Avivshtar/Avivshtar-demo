@@ -2,13 +2,22 @@
 // 🔮 מודול מודאל תוכנית עסקית (plan-modal.js)
 // ==========================================================================
 
+import { getExtraProjectHTML, initExtraProjectEvents } from './extra-project.js';
+
 export function initPlanModal() {
     if (!document.getElementById('plan-modal-overlay')) {
+
+        let extraHTML = '';
+        try {
+            extraHTML = getExtraProjectHTML();
+        } catch (e) {
+            console.warn("Extra project HTML failed to load:", e);
+        }
+
         const modalHTML = `
             <div id="plan-modal-overlay" class="plan-modal-overlay">
                 <div class="plan-modal-container">
                     
-                    <!-- ✖️ כפתור סגירה GLASS -->
                     <button class="plan-modal-close-btn" id="plan-modal-close" type="button" aria-label="סגור">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -17,26 +26,18 @@ export function initPlanModal() {
                     </button>
                     
                     <div class="plan-modal-glass-layer">
-                        
-                        <!-- 🌟 תמונת s.png מרחפת מחוץ לשורות! -->
-                        <div class="s-3d-image">
-                            <img src="s.png" alt="אייקון 3D" draggable="false">
-                        </div>
 
                         <div class="plan-modal-body" id="plan-modal-body">
                             
                             <h3 class="card-plan-title">תוכנית עסקית עם AI</h3>
                             
-                            <!-- 〰️ הפס החולי המפריד -->
                             <div class="modal-sand-divider"></div>
 
-                            <!-- 💰 1. מחיר רכישה -->
                             <div class="card-price-container modal-safe-row">
                                 <span class="card-price-label">מחיר רכישה:</span>
                                 <span class="card-price-value" id="modal-price-value">--</span>
                             </div>
                             
-                            <!-- 🥧 2. תשואה ברוטו + תמונה מרחפת -->
                             <div class="card-yield-container modal-safe-row">
                                 <span class="yield-text-label">תשואה ברוטו:</span>
                                 <span class="yield-percentage-value" id="modal-yield-value">--</span>
@@ -45,30 +46,65 @@ export function initPlanModal() {
                                 </div>
                             </div>
                             
-                            <!-- 🏠 3. השכירות כיום -->
                             <div class="card-rent-container modal-safe-row">
                                 <span class="card-rent-label">השכירות כיום:</span>
                                 <span class="card-rent-value" id="modal-current-rent-value">--</span>
                             </div>
 
-                            <!-- 📍 4. שכירות ממוצעת באזור -->
                             <div class="card-avg-rent-container modal-safe-row">
                                 <span class="card-avg-rent-label" id="modal-avg-rent-label">שכירות ממוצעת באזור ל-3 חד':</span>
                                 <span class="card-avg-rent-value" id="modal-avg-rent-value">--</span>
                             </div>
 
-                            <!-- 🚀 5. צפי עליית ערך -->
                             <div class="card-appreciation-container modal-safe-row">
                                 <span class="card-appreciation-label" id="modal-appreciation-label">צפי עליית ערך הנכס בשנה הקרובה:</span>
                                 <span class="card-appreciation-value" id="modal-value-increase-value">--</span>
                             </div>
 
-                            <!-- 🏙️ 6. מה צפוי לקום באזור -->
                             <div class="card-future-dev-container modal-safe-row">
                                 <span class="card-future-dev-label">מה צפוי לקום באזור:</span>
-                                <div class="future-dev-items-row" id="modal-future-dev-badges">
-                                    <!-- התגיות יוזרקו לכאן -->
+                                <div class="future-dev-items-row" id="modal-future-dev-badges"></div>
+                            </div>
+
+                            <div class="modal-gallery-section">
+                                <div class="gallery-cards-container">
+                                    <div class="gallery-card card-pos-1">
+                                        <img src="png2.png" alt="תמונה 2" draggable="false">
+                                    </div>
+                                    <div class="gallery-card card-pos-2">
+                                        <img src="png3.gif" alt="תמונה 3" draggable="false">
+                                    </div>
+                                    <div class="gallery-card card-pos-3">
+                                        <img src="png5.jpg" alt="תמונה 5" draggable="false">
+                                    </div>
+                                    <div class="gallery-card card-pos-4">
+                                        <img src="png1.jpg" alt="תמונה 1" draggable="false">
+                                    </div>
+                                    <div class="gallery-card card-pos-5">
+                                        <img src="png4.gif" alt="תמונה 4" draggable="false">
+                                    </div>
                                 </div>
+
+                                <div class="modal-bottom-logo-container modal-safe-row">
+                                    <img src="logo-2.png" alt="לוגו" class="modal-bottom-logo" draggable="false">
+                                </div>
+                                
+                                <div class="modal-coming-soon-container modal-safe-row">
+                                    <span class="coming-soon-text">COMING SOON</span>
+                                </div>
+                            </div>
+
+                            <div class="modal-arch-section">
+                                <h4 class="modal-arch-title">תוכנית אדריכלית</h4>
+                                <div class="modal-arch-video-container">
+                                    <video class="modal-arch-video" autoplay loop muted playsinline preload="auto" draggable="false">
+                                        <source src="video.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                            <div id="modal-extra-project-container" style="width: 100%;">
+                                ${extraHTML}
                             </div>
                             
                             <div style="height: 100px; width: 100%;"></div>
@@ -78,6 +114,8 @@ export function initPlanModal() {
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        initExtraProjectEvents();
     }
 
     const overlay = document.getElementById('plan-modal-overlay');
@@ -116,27 +154,73 @@ export function initPlanModal() {
 
         if (pageAvgRentLabelEl && modalAvgRentLabelEl) modalAvgRentLabelEl.innerText = pageAvgRentLabelEl.innerText;
         if (pageAppreciationLabelEl && modalAppreciationLabelEl) modalAppreciationLabelEl.innerText = pageAppreciationLabelEl.innerText;
+
+        // 🎯 הנה החלק החדש שמושך את הכתובת הדינמית מ-item.js לתוך המודאל!
+        const pageAddressEl = document.querySelector('.prop-address');
+        const extraDynamicAddressEl = document.getElementById('extra-project-dynamic-address');
+
+        if (pageAddressEl && extraDynamicAddressEl) {
+            // שואב רק את הטקסט ומנקה רווחים ו-SVG שיש מסביב
+            let fullAddress = pageAddressEl.textContent.trim();
+            // מפריד רק את שם הרחוב (כדי לשים בטבלה) - לוקח את מה שלפני הפסיק
+            let streetOnly = fullAddress.split(',')[0].trim();
+
+            // מעדכן את הכותרת הראשית במודאל (עסקאות בכתובת X)
+            extraDynamicAddressEl.innerText = `עסקאות בכתובת ${fullAddress}`;
+
+            // מעדכן אוטומטית את כל התאים בטבלה שקיבלו את הקלאס dynamic-table-address
+            document.querySelectorAll('.dynamic-table-address').forEach(el => {
+                el.innerText = streetOnly;
+            });
+        }
     }
 
     window.openPlanModal = function () {
-        if (overlay) {
+        const modalOverlay = document.getElementById('plan-modal-overlay');
+        if (modalOverlay) {
             updateModalData();
-            overlay.classList.add('active');
+            modalOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
             document.documentElement.style.overflow = 'hidden';
+
+            const archVideo = modalOverlay.querySelector('.modal-arch-video');
+            if (archVideo) {
+                archVideo.muted = true;
+                archVideo.defaultMuted = true;
+                archVideo.currentTime = 0;
+
+                setTimeout(() => {
+                    const playPromise = archVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            // מנגן בהצלחה
+                        }).catch(error => {
+                            console.warn("Autoplay error on mobile:", error);
+                            archVideo.controls = true;
+                        });
+                    }
+                }, 100);
+            }
         }
     };
 
     window.closePlanModal = function () {
-        if (overlay) {
-            overlay.classList.remove('active');
+        const modalOverlay = document.getElementById('plan-modal-overlay');
+        if (modalOverlay) {
+            modalOverlay.classList.remove('active');
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
+
+            const archVideo = modalOverlay.querySelector('.modal-arch-video');
+            if (archVideo) {
+                archVideo.pause();
+            }
         }
     };
 
     if (closeBtn) {
         closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             window.closePlanModal();
         });
