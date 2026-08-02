@@ -1158,41 +1158,41 @@
     }
 }
 /* ==========================================================================
-   📱 טאבלט ומסכים בינוניים (769px עד 1439px) - לא פוגע במובייל או במסכי ענק!
+   📱 טאבלט בלבד (769px עד 1024px) - שומר על לפטופים בטוחים ב-100%!
    ========================================================================== */
-@media (min-width: 769px) and (max-width: 1439px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 
     /* 🎛️ פאנל ניהול PRO לטאבלט - שנה רק את הערכים כאן! */
     :root {
         /* 🖼️ תמונה מרכזית (טאבלט) */
-        --tab-photo-width: 750px;        /* 📏 רוחב התמונה */
-        --tab-photo-height: 379px;       /* 📐 גובה התמונה */
-        --tab-photo-right: 250px;        /* ⬅️ מרחק מימין */
-        --tab-photo-top: -15px;          /* ⬆️ מרחק מלמעלה */
+        --tab-photo-width: 777px;        
+        --tab-photo-height: 379px;       
+        --tab-photo-right: 250px;        
+        --tab-photo-top: -15px;          
         --tab-photo-shadow: 0px 12px 30px rgba(0, 0, 0, 0.18); 
         --tab-photo-radius: 0px; 
 
         /* ✍️ כותרת ראשית (טאבלט) */
-        --tab-title-size: 52px;          /* 🔤 גודל טקסט */
-        --tab-title-right: 400px;        /* ⬅️ מרחק מימין */
-        --tab-title-top: 84.5px;           /* ⬆️ מרחק מלמעלה */
+        --tab-title-size: 52px;          
+        --tab-title-right: 400px;        
+        --tab-title-top: 84.5px;           
         --tab-title-color: #ffffff;  
         --tab-title-weight: 800; 
 
         /* ✍️ כותרת משנית (טאבלט) */
-        --tab-subtitle-size: 26px;       /* 🔤 גודל טקסט */
-        --tab-subtitle-right: 504px;     /* ⬅️ מרחק מימין */
-        --tab-subtitle-top: 143px;       /* ⬆️ מרחק מלמעלה */
+        --tab-subtitle-size: 26px;       
+        --tab-subtitle-right: 500px;     
+        --tab-subtitle-top: 143px;       
         --tab-subtitle-color: #ffffff; 
         --tab-subtitle-weight: 700;
 
         /* 🔘 כפתורי זכוכית (טאבלט) */
-        --tab-btn-scale: 1;           /* 🔍 גודל כפתורים (1 = רגיל, 0.95 = קצת יותר קטן) */
-        --tab-btn-right: 450px;          /* ⬅️ מרחק מימין */
-        --tab-buttons-top: 207px;        /* ⬆️ מרחק מלמעלה */
+        --tab-btn-scale: 1;           
+        --tab-btn-right: 450px;          
+        --tab-buttons-top: 207px;        
 
         /* 🔽 אזור תחתון (מתחת לתמונה) - דחיפה אחידה */
-        --tab-bottom-section-shift: 0px; /* 📏 כמה לדחוף למטה? */
+        --tab-bottom-section-shift: 0px; 
 
         /* --- צלליות (כללי) --- */
         --tab-text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6), 0px 4px 12px rgba(0, 0, 0, 0.3);
@@ -1202,7 +1202,6 @@
     /* 🛠️ החלת ההגדרות על האלמנטים בטאבלט */
     /* ======================================================= */
 
-    /* 🖼️ תמונה מרכזית */
     .main-photo {
         top: var(--tab-photo-top) !important;
         right: var(--tab-photo-right) !important;
@@ -1212,7 +1211,6 @@
         box-shadow: var(--tab-photo-shadow) !important;
     }
 
-    /* ✍️ כותרת ראשית */
     .hero-title {
         top: var(--tab-title-top) !important;
         right: var(--tab-title-right) !important;
@@ -1222,7 +1220,6 @@
         text-shadow: var(--tab-text-shadow) !important;
     }
 
-    /* ✍️ כותרת משנית */
     .hero-subtitle {
         top: var(--tab-subtitle-top) !important;
         right: var(--tab-subtitle-right) !important;
@@ -1232,13 +1229,11 @@
         text-shadow: var(--tab-text-shadow) !important;
     }
 
-    /* 🔴 עיגול Zillow */
     .zillow-dot {
         background-color: var(--tab-title-color) !important; 
         box-shadow: var(--tab-text-shadow) !important; 
     }
 
-    /* 🔘 כפתורי זכוכית */
     .hero-buttons-container {
         top: var(--tab-buttons-top) !important;
         right: var(--tab-btn-right) !important;
@@ -1246,7 +1241,6 @@
         transform-origin: right top !important; 
     }
 
-    /* 🖥️ תמונת הבית (דחיפה למטה במידת הצורך) */
     .house-wrapper {
         margin-top: calc(-155px + var(--tab-bottom-section-shift)) !important;
     }
