@@ -14,14 +14,14 @@
     /* 🔝 4. מרחק של המקטע כולו מהפרויקטים שלמעלה */
     --ניהול-מרחק-המקטע-מלמעלה: 60px;       
 
-    /* 📐 5. 🔥 חדש: מרחק הטקסט מלמעלה ב-PX (שולט על גובה הטקסט של כולם בבת אחת!) */
-    --ניהול-גובה-הטקסט-מלמעלה: 134px;       /* תשנה את ה-px הזה כדי להעלות או להוריד את הטקסט */
+    /* 📐 5. 🔥 מרחק הטקסט מלמעלה ב-PX (שולט על גובה הטקסט במחשב!) */
+    --ניהול-גובה-הטקסט-מלמעלה: 134px;       
 
     /* 🔤 6. ניהול סגנון הגופן וההכהיה */
-    --ניהול-גודל-טקסט-קיצור: 21px;         /* גודל הטקסט */
-    --ניהול-עובי-טקסט-קיצור: 270;          /* עובי הגופן (300 קל, 500 בינוני, 700 מודגש) */
-    --ניהול-צבע-טקסט-קיצור: #ffffff;       /* צבע הגופן */
-    --ניהול-כהות-רקע-תמונה: 0.2;          /* רמת כהות הרקע מאחורי הטקסט (מ-0 שקוף עד 1 שחור) */
+    --ניהול-גודל-טקסט-קיצור: 21px;         
+    --ניהול-עובי-טקסט-קיצור: 270;          
+    --ניהול-צבע-טקסט-קיצור: #ffffff;       
+    --ניהול-כהות-רקע-תמונה: 0.2;          
 }
 /* ========================================================================== */
 
@@ -48,7 +48,7 @@
     display: block !important;
 }
 
-/* גריד קשיח ומיושר לרוחב - נועל 4 תמונות בשורה, בדיוק 2 שורות מושלמות! */
+/* גריד קשיח ומיושר לרוחב - נועל 4 תמונות בשורה */
 .shortcuts-grid {
     display: grid !important;
     grid-template-columns: repeat(4, auto) !important; 
@@ -84,33 +84,60 @@
     display: block;
 }
 
-/* שכבת הכהות והחלת גובה הטקסט ב-PX */
+/* ======================================================= */
+/* 🔥 שכבת התוכן והטשטוש (Glassmorphism עדין ושקוף)        */
+/* ======================================================= */
 .shortcut-overlay {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(0, 0, 0, var(--ניהול-כהות-רקע-תמונה)) !important;
+    background: transparent !important; 
     
-    /* שליטה על המיקום: ממורכז אופקית, ונדחף מלמעלה לפי ה-px שקבעת */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
     padding-top: var(--ניהול-גובה-הטקסט-מלמעלה) !important;
-    box-sizing: border-box !important; /* שומר על הגובה המקורי של הקוביה */
-    
-    transition: background 0.2s ease !important;
+    box-sizing: border-box !important; 
     z-index: 2 !important;
 }
 
-/* הכהייה מעט עמוקה יותר בריחוף */
-.shortcut-item:hover .shortcut-overlay {
-    background: rgba(0, 0, 0, calc(var(--ניהול-כהות-רקע-תמונה) + 0.12)) !important;
+.shortcut-overlay::before {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40% !important; 
+    z-index: -1 !important;
+    
+    background: linear-gradient(
+        to bottom, 
+        transparent 0%, 
+        rgba(0, 0, 0, calc(var(--ניהול-כהות-רקע-תמונה) + 0.05)) 40%, 
+        rgba(0, 0, 0, calc(var(--ניהול-כהות-רקע-תמונה) + 0.3)) 100%
+    ) !important;
+    
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    
+    mask-image: linear-gradient(to bottom, transparent 0%, black 50%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 50%) !important;
+    
+    transition: background 0.3s ease !important;
 }
 
-/* עיצוב הטקסט עם צל כפול ומחוזק מסביב לכל האותיות */
+.shortcut-item:hover .shortcut-overlay::before {
+    background: linear-gradient(
+        to bottom, 
+        transparent 0%, 
+        rgba(0, 0, 0, calc(var(--ניהול-כהות-רקע-תמונה) + 0.15)) 40%, 
+        rgba(0, 0, 0, calc(var(--ניהול-כהות-רקע-תמונה) + 0.45)) 100%
+    ) !important;
+}
+
 .shortcut-text {
     font-family: 'Heebo', sans-serif !important;
     font-size: var(--ניהול-גודל-טקסט-קיצור) !important;
@@ -122,53 +149,49 @@
     box-sizing: border-box !important;
     user-select: none !important;
     
-    /* 🔥 צל היקפי מחוזק (360 מעלות) מסביב לטקסט לקריאות מקסימלית */
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 
                  0 0 4px rgba(0, 0, 0, 0.6) !important;
 }
+
 /* ======================================================= */
 /* 📱 התאמה למובייל (טלפון) בלבד - מקטע קיצורי דרך */
 /* ======================================================= */
 @media (max-width: 768px) {
     
-    /* 🎛️ משתני שליטה במובייל - מורחב ומודגש למקסימום! */
+    /* 🎛️ משתני שליטה במובייל */
     :root {
-        --mobile-shortcut-height: 145px;         /* 📏 הגדלנו את הגובה (מ-120px ל-145px) */
-        --mobile-shortcut-text-top: 96px;        /* 🔝 מיקום הטקסט מותאם לגובה החדש */
-        --mobile-shortcut-text-size: 17.5px;     /* 🔤 גודל טקסט מוגדל וברור */
-        --mobile-shortcut-gap: 10px;              /* 📏 רווח נקי בין הקוביות */
-        --mobile-shortcut-margin-top: 60px;       /* 🔝 הגדלנו את הרווח מלמעלה (מ-35px ל-60px) */
+        --mobile-shortcut-height: 145px;         
+        /* 🔥 כאן דחפנו את הטקסט למטה יותר, כמו במחשב! */
+        --mobile-shortcut-text-top: 112px;        
+        --mobile-shortcut-text-size: 17.5px;     
+        --mobile-shortcut-gap: 10px;              
+        --mobile-shortcut-margin-top: 60px;       
     }
 
-    /* מעטפת המקטע במובייל - ניצול מקסימלי של רוחב המסך */
     .shortcuts-wrapper {
         margin-top: var(--mobile-shortcut-margin-top) !important;
         margin-bottom: 50px !important;
-        padding: 0 0px !important;              /* 📐 שוליים צדדיים קטנים לקבלת רוחב מקסימלי */
+        padding: 0 0px !important;              
     }
 
-    /* כותרת המקטע במובייל */
     .shortcuts-title {
         font-size: 20px !important;
-        font-weight: 300 !important;             /* פונט דק ויוקרתי */
+        font-weight: 300 !important;             
         margin-bottom: 24px !important;
     }
 
-    /* 📱 גריד של 2 עמודות ברוחב מקסימלי אפשרי */
     .shortcuts-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: var(--mobile-shortcut-gap) !important;
         width: 103% !important;
     }
 
-    /* קוביית קיצור בודדת - מוגדלת ומורחבת במובייל */
     .shortcut-item {
         width: 100% !important;
         height: var(--mobile-shortcut-height) !important;
-        border-radius: 16px !important;          /* פינות מעוגלות ויוקרתיות */
+        border-radius: 16px !important;          
     }
 
-    /* שכבת ה-Overlay והטקסט במובייל */
     .shortcut-overlay {
         padding-top: var(--mobile-shortcut-text-top) !important;
     }

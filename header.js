@@ -206,7 +206,7 @@ const headerTemplate = `
                 </svg>
             </button>
             
-<!-- 📱 אזור האייקונים במובייל (אחיד ובאמצע) -->
+            <!-- 📱 אזור האייקונים במובייל (אחיד ובאמצע) -->
             <div class="mobile-thick-item">
                 <div class="mobile-icons-flex">
                     <!-- פרופיל -->
@@ -262,7 +262,6 @@ function handleScrollAnimations() {
     const isHomePage = path === '/' || path.endsWith('index.html') || path === '';
 
     if (window.innerWidth <= 768) {
-        // 📱 במובייל: בדף הבית בלבד - נשנה שקיפות לפי גלילה
         if (isHomePage) {
             if (window.scrollY > 243) {
                 document.body.classList.add('header-scrolled');
@@ -271,7 +270,6 @@ function handleScrollAnimations() {
             }
         }
     } else {
-        // 🖥️ במחשב: הקוד נשאר בדיוק אותו דבר!
         if (window.scrollY > 320) {
             document.body.classList.add('scrolled-to-search');
         } else {
@@ -285,12 +283,10 @@ function handleScrollAnimations() {
     }
 }
 
-// ⚡ הפתרון האוטומטי: הזרקת הקלאס לדפים פנימיים בלי לגעת ב-HTML ⚡
 window.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     const isHomePage = path === '/' || path.endsWith('index.html') || path === '';
     
-    // אם זה לא דף הבית, ה-JS יוסיף בעצמו את הקלאס ל-body
     if (!isHomePage) {
         document.body.classList.add('force-white-header');
     }
@@ -334,11 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ⚡ התיקון לקפיצה במחשב הנייד!
     document.addEventListener('click', (e) => {
         const link = e.target.closest('.menu-link');
         if (link && sideMenu) {
-            // מבטל את האנימציה *רק במובייל* בשביל ספארי, במחשב יסגר חלק ויפה!
             if (window.innerWidth <= 768) {
                 sideMenu.style.transition = 'none'; 
             }
@@ -348,7 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// פתרון ספארי 
 window.addEventListener('pagehide', () => {
     const sideMenu = document.getElementById('side-menu');
     if (sideMenu) {

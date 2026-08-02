@@ -987,3 +987,455 @@ body.scrolled-to-search.sidebar-open .menu-close-btn {
         display: none !important;
     }
 }
+/* ==========================================================================
+   🖥️ מחשב נייח (Desktop: 1440px ומעלה) - שליטה מופרדת לכל קו + יישור קווים (הפוך ומתוקן!)
+   ========================================================================== */
+@media (min-width: 1440px) {
+
+    /* 🎯 1. ביטול מגבלות רוחב במעטפת */
+    .site-header .header-container {
+        max-width: 100% !important;
+        position: relative !important;
+    }
+
+    /* 🎛️ 2. פאנל ניהול מרכזי - משתנים נפרדים לכל קו + כיווני יישור מתוקנים */
+    :root {
+        /* 👤 1. מרחק הפרופיל מימין המסך */
+        --desk-profile-right: 77px;
+
+        /* 📐 מרווח קבוע בין האייקונים (פרופיל ⬅️ לב ⬅️ פעמון) */
+        --desk-icons-gap: 55px;
+
+        /* 🍔 2. מרחק ההמבורגר מימין לפרופיל */
+        --desk-hamburger-gap-from-profile: 0px;
+
+        /* 📐 3. עובי נפרד לכל קו בהמבורגר */
+        --desk-line-top-height: 1.8px;        
+        --desk-line-bottom-height: 1.8px;   
+
+        /* 📏 4. אורך כל קו בהמבורגר (מצב סגור/רגיל) */
+        --desk-line-top-width: 24px;        
+        --desk-line-bottom-width: 24px;     
+
+        /* 📌 התיקון פה! 
+           flex-start = דבוק לימין (מתקצר משמאל!)
+           flex-end = דבוק לשמאל (מתקצר מימין!) */
+        --desk-line-top-align: flex-start;      /* 👈 הפכנו: העליון עכשיו דבוק לימין! */
+        --desk-line-bottom-align: flex-end;     /* 👈 הפכנו: התחתון עכשיו דבוק לשמאל! */
+
+        /* 🔄 5. אורך כל קו ב-Hover / כשהתפריט פתוח */
+        --desk-line-top-width-hover: 16px;    
+        --desk-line-bottom-width-hover: 32px; 
+
+        /* 👑 6. מיקום וגודל טקסט "מועדון המשקיעים" בצד שמאל */
+        --desk-club-left: 50px;              
+        --desk-club-bottom: 12px;            
+        --desk-club-font-size: 0.95rem;      
+
+        /* 🔤 גודל פונט בסרגל הצד */
+        --desk-sidebar-font-size: 18px;
+
+        /* 🆕 פאנל ניהול לדפים פנימיים בלבד (מחשב) */
+        --inner-desk-hamburger-gap: 0px;      /* 🍔 מרחק ההמבורגר מהפרופיל בדף פנימי */
+        --inner-desk-logo-width: 150px;       /* 🖼️ גודל לוגו בדף פנימי */
+        --inner-desk-logo-margin: 0px;        /* 📏 הזחת הלוגו ימינה/שמאלה בדף פנימי (מספר חיובי ידחוף שמאלה, מספר שלילי ימשוך ימינה) */
+    }
+
+    /* ==========================================================================
+       🛠️ החלת ההגדרות על האלמנטים
+       ========================================================================== */
+
+    body.scrolled-to-search .profile-click-box,
+    body.scrolled-to-search .profile-icon-1,
+    body.scrolled-to-search .profile-icon-2,
+    body.scrolled-to-search .love-click-box,
+    body.scrolled-to-search .love-icon-1,
+    body.scrolled-to-search .love-icon-2,
+    body.scrolled-to-search .bell-click-box,
+    body.scrolled-to-search .bell-icon-1,
+    body.scrolled-to-search .bell-icon-2 {
+        transform: none !important;
+    }
+
+    /* 👤 פרופיל */
+    .profile-click-box,
+    body.scrolled-to-search .profile-click-box {
+        right: var(--desk-profile-right) !important;
+        top: 16px !important;
+        transform: none !important;
+    }
+    .profile-icon-1,
+    body.scrolled-to-search .profile-icon-1 {
+        right: calc(var(--desk-profile-right) - 35px) !important;
+        top: -10px !important;
+        transform: none !important;
+    }
+    .profile-icon-2,
+    body.scrolled-to-search .profile-icon-2 {
+        right: calc(var(--desk-profile-right) - 33.5px) !important;
+        top: -6.5px !important;
+        transform: none !important;
+    }
+
+    /* 🤍 לבבות */
+    .love-click-box,
+    body.scrolled-to-search .love-click-box {
+        right: calc(var(--desk-profile-right) + var(--desk-icons-gap)) !important;
+        top: 18px !important;
+        transform: none !important;
+    }
+    .love-icon-1,
+    body.scrolled-to-search .love-icon-1 {
+        right: calc(var(--desk-profile-right) + var(--desk-icons-gap) - 54px) !important;
+        top: -32px !important;
+        transform: none !important;
+    }
+    .love-icon-2,
+    body.scrolled-to-search .love-icon-2 {
+        right: calc(var(--desk-profile-right) + var(--desk-icons-gap) - 54px) !important;
+        top: -35.3px !important;
+        transform: none !important;
+    }
+
+    /* 🔔 פעמון */
+    .bell-click-box,
+    body.scrolled-to-search .bell-click-box {
+        right: calc(var(--desk-profile-right) + (var(--desk-icons-gap) * 2)) !important;
+        top: 18.7px !important;
+        transform: none !important;
+    }
+    .bell-icon-1,
+    body.scrolled-to-search .bell-icon-1 {
+        right: calc(var(--desk-profile-right) + (var(--desk-icons-gap) * 2) - 41px) !important;
+        top: -12px !important;
+        transform: none !important;
+    }
+    .bell-icon-2,
+    body.scrolled-to-search .bell-icon-2 {
+        right: calc(var(--desk-profile-right) + (var(--desk-icons-gap) * 2) - 44px) !important;
+        top: -22.5px !important;
+        transform: none !important;
+    }
+
+    /* 🍔 המבורגר - מיקום בסיסי */
+    body.scrolled-to-search .hamburger-btn,
+    .hamburger-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    body.scrolled-to-search .hamburger-btn {
+        opacity: 1 !important;
+        right: calc(var(--desk-profile-right) - var(--desk-hamburger-gap-from-profile)) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* 📏 קו עליון - נצמד לצד שנבחר */
+    .hamburger-btn .line-top {
+        height: var(--desk-line-top-height) !important;
+        width: var(--desk-line-top-width) !important;
+        align-self: var(--desk-line-top-align) !important;
+        transition: width 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    /* 📏 קו תחתון - נצמד לצד שנבחר */
+    .hamburger-btn .line-bottom {
+        height: var(--desk-line-bottom-height) !important;
+        width: var(--desk-line-bottom-width) !important;
+        align-self: var(--desk-line-bottom-align) !important;
+        transition: width 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    /* 🔄 שינוי אורך ב-Hover או פתיחה */
+    .hamburger-btn:hover .line-top,
+    body.sidebar-open .hamburger-btn .line-top,
+    .side-menu.open ~ .hamburger-btn .line-top,
+    body.scrolled-to-search .hamburger-btn:hover .line-top,
+    body.scrolled-to-search.sidebar-open .hamburger-btn .line-top {
+        width: var(--desk-line-top-width-hover) !important;
+    }
+
+    .hamburger-btn:hover .line-bottom,
+    body.sidebar-open .hamburger-btn .line-bottom,
+    .side-menu.open ~ .hamburger-btn .line-bottom,
+    body.scrolled-to-search .hamburger-btn:hover .line-bottom,
+    body.scrolled-to-search.sidebar-open .hamburger-btn .line-bottom {
+        width: var(--desk-line-bottom-width-hover) !important;
+    }
+
+    /* 👑 מועדון המשקיעים (צד שמאל) */
+    .header-left-link {
+        left: var(--desk-club-left) !important;
+        bottom: var(--desk-club-bottom) !important;
+    }
+    .club-link {
+        font-size: var(--desk-club-font-size) !important;
+    }
+
+    /* 📑 סרגל צד */
+    .side-menu,
+    body.scrolled-to-search .side-menu {
+        right: var(--desk-profile-right) !important;
+        transform: none !important;
+    }
+    .menu-link {
+        font-size: var(--desk-sidebar-font-size) !important;
+    }
+
+    /* ==========================================
+       🆕 תוספות לדפים פנימיים בלבד (לא פוגע בדף הבית) 
+       ========================================== */
+    
+    /* תיקון המיקום של ההמבורגר בדפים פנימיים */
+    body:not(.home) .hamburger-btn {
+        position: absolute !important;
+        opacity: 1 !important;
+        right: calc(var(--desk-profile-right) - var(--inner-desk-hamburger-gap)) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* שליטה בלוגו בדפים פנימיים באמצעות Margin (בטוח יותר ל-Flexbox) */
+    body:not(.home) .site-logo, 
+    body:not(.home) .custom-logo-link,
+    body:not(.home) .logo {
+        margin-right: var(--inner-desk-logo-margin) !important;
+        position: relative !important;
+    }
+
+    body:not(.home) .site-logo img, 
+    body:not(.home) .custom-logo-link img,
+    body:not(.home) .logo img {
+        max-width: var(--inner-desk-logo-width) !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+/* ==========================================================================
+   📑 טאבלט (Tablet: 768px עד 1023px) - לוח בקרה מלא ומודולרי
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /* 🎯 1. ביטול מגבלות רוחב במעטפת */
+    .site-header .header-container {
+        max-width: 100% !important;
+        position: relative !important;
+    }
+
+    /* 🎛️ 2. פאנל ניהול מרכזי לטאבלט - שנה רק את הערכים כאן! */
+    :root {
+        /* 👤 1. מרחק הפרופיל מימין המסך */
+        --tab-profile-right: 30px;
+
+        /* 📐 מרווח קבוע בין האייקונים (פרופיל ⬅️ לב ⬅️ פעמון) */
+        --tab-icons-gap: 45px;
+
+        /* 🍔 2. מרחק ההמבורגר מימין לפרופיל */
+        --tab-hamburger-gap-from-profile: 0px;
+
+        /* 📐 3. עובי נפרד לכל קו בהמבורגר */
+        --tab-line-top-height: 1.8px;        
+        --tab-line-bottom-height: 1.8px;   
+
+        /* 📏 4. אורך כל קו בהמבורגר (מצב סגור/רגיל) */
+        --tab-line-top-width: 22px;        
+        --tab-line-bottom-width: 22px;     
+
+        /* 📌 יישור קווים: 
+           flex-start = דבוק לימין (מתקצר משמאל!)
+           flex-end = דבוק לשמאל (מתקצר מימין!) */
+        --tab-line-top-align: flex-start;      /* העליון דבוק לימין */
+        --tab-line-bottom-align: flex-end;     /* התחתון דבוק לשמאל */
+
+        /* 🔄 5. אורך כל קו ב-Hover / כשהתפריט פתוח */
+        --tab-line-top-width-hover: 14px;    
+        --tab-line-bottom-width-hover: 28px; 
+
+        /* 👑 6. מיקום וגודל טקסט "מועדון המשקיעים" בצד שמאל */
+        --tab-club-left: 25px;              
+        --tab-club-bottom: 10px;            
+        --tab-club-font-size: 0.85rem;      
+
+        /* 🔤 גודל פונט בסרגל הצד */
+        --tab-sidebar-font-size: 16px;
+
+        /* 🆕 פאנל ניהול לדפים פנימיים בלבד (טאבלט) */
+        --inner-tab-hamburger-gap: 0px;      /* 🍔 מרחק ההמבורגר מהפרופיל בדף פנימי */
+        --inner-tab-logo-width: 120px;       /* 🖼️ גודל לוגו בדף פנימי */
+        --inner-tab-logo-margin: 0px;        /* 📏 הזחת הלוגו ימינה/שמאלה בדף פנימי */
+    }
+
+    /* ==========================================================================
+       🛠️ החלת ההגדרות על אלמנטי הטאבלט
+       ========================================================================== */
+
+    body.scrolled-to-search .profile-click-box,
+    body.scrolled-to-search .profile-icon-1,
+    body.scrolled-to-search .profile-icon-2,
+    body.scrolled-to-search .love-click-box,
+    body.scrolled-to-search .love-icon-1,
+    body.scrolled-to-search .love-icon-2,
+    body.scrolled-to-search .bell-click-box,
+    body.scrolled-to-search .bell-icon-1,
+    body.scrolled-to-search .bell-icon-2 {
+        transform: none !important;
+    }
+
+    /* 👤 פרופיל */
+    .profile-click-box,
+    body.scrolled-to-search .profile-click-box {
+        right: var(--tab-profile-right) !important;
+        top: 14px !important;
+        transform: none !important;
+    }
+    .profile-icon-1,
+    body.scrolled-to-search .profile-icon-1 {
+        right: calc(var(--tab-profile-right) - 35px) !important;
+        top: -10px !important;
+        transform: none !important;
+    }
+    .profile-icon-2,
+    body.scrolled-to-search .profile-icon-2 {
+        right: calc(var(--tab-profile-right) - 33.5px) !important;
+        top: -6.5px !important;
+        transform: none !important;
+    }
+
+    /* 🤍 לבבות */
+    .love-click-box,
+    body.scrolled-to-search .love-click-box {
+        right: calc(var(--tab-profile-right) + var(--tab-icons-gap)) !important;
+        top: 16px !important;
+        transform: none !important;
+    }
+    .love-icon-1,
+    body.scrolled-to-search .love-icon-1 {
+        right: calc(var(--tab-profile-right) + var(--tab-icons-gap) - 54px) !important;
+        top: -32px !important;
+        transform: none !important;
+    }
+    .love-icon-2,
+    body.scrolled-to-search .love-icon-2 {
+        right: calc(var(--tab-profile-right) + var(--tab-icons-gap) - 54px) !important;
+        top: -35.3px !important;
+        transform: none !important;
+    }
+
+    /* 🔔 פעמון */
+    .bell-click-box,
+    body.scrolled-to-search .bell-click-box {
+        right: calc(var(--tab-profile-right) + (var(--tab-icons-gap) * 2)) !important;
+        top: 16.5px !important;
+        transform: none !important;
+    }
+    .bell-icon-1,
+    body.scrolled-to-search .bell-icon-1 {
+        right: calc(var(--tab-profile-right) + (var(--tab-icons-gap) * 2) - 41px) !important;
+        top: -12px !important;
+        transform: none !important;
+    }
+    .bell-icon-2,
+    body.scrolled-to-search .bell-icon-2 {
+        right: calc(var(--tab-profile-right) + (var(--tab-icons-gap) * 2) - 44px) !important;
+        top: -22.5px !important;
+        transform: none !important;
+    }
+
+    /* 🍔 המבורגר */
+    body.scrolled-to-search .hamburger-btn,
+    .hamburger-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    body.scrolled-to-search .hamburger-btn {
+        opacity: 1 !important;
+        right: calc(var(--tab-profile-right) - var(--tab-hamburger-gap-from-profile)) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* 📏 קו עליון */
+    .hamburger-btn .line-top {
+        height: var(--tab-line-top-height) !important;
+        width: var(--tab-line-top-width) !important;
+        align-self: var(--tab-line-top-align) !important;
+        transition: width 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    /* 📏 קו תחתון */
+    .hamburger-btn .line-bottom {
+        height: var(--tab-line-bottom-height) !important;
+        width: var(--tab-line-bottom-width) !important;
+        align-self: var(--tab-line-bottom-align) !important;
+        transition: width 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    /* 🔄 שינוי אורך ב-Hover או פתיחה בטאבלט */
+    .hamburger-btn:hover .line-top,
+    body.sidebar-open .hamburger-btn .line-top,
+    .side-menu.open ~ .hamburger-btn .line-top,
+    body.scrolled-to-search .hamburger-btn:hover .line-top,
+    body.scrolled-to-search.sidebar-open .hamburger-btn .line-top {
+        width: var(--tab-line-top-width-hover) !important;
+    }
+
+    .hamburger-btn:hover .line-bottom,
+    body.sidebar-open .hamburger-btn .line-bottom,
+    .side-menu.open ~ .hamburger-btn .line-bottom,
+    body.scrolled-to-search .hamburger-btn:hover .line-bottom,
+    body.scrolled-to-search.sidebar-open .hamburger-btn .line-bottom {
+        width: var(--tab-line-bottom-width-hover) !important;
+    }
+
+    /* 👑 מועדון המשקיעים (צד שמאל) */
+    .header-left-link {
+        left: var(--tab-club-left) !important;
+        bottom: var(--tab-club-bottom) !important;
+    }
+    .club-link {
+        font-size: var(--tab-club-font-size) !important;
+    }
+
+    /* 📑 סרגל צד */
+    .side-menu,
+    body.scrolled-to-search .side-menu {
+        right: var(--tab-profile-right) !important;
+        transform: none !important;
+    }
+    .menu-link {
+        font-size: var(--tab-sidebar-font-size) !important;
+    }
+
+    /* ==========================================
+       🆕 תוספות לדפים פנימיים בלבד (לא פוגע בדף הבית) 
+       ========================================== */
+    
+    /* תיקון המיקום של ההמבורגר בדפים פנימיים */
+    body:not(.home) .hamburger-btn {
+        position: absolute !important;
+        opacity: 1 !important;
+        right: calc(var(--tab-profile-right) - var(--inner-tab-hamburger-gap)) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* שליטה בלוגו בדפים פנימיים באמצעות Margin */
+    body:not(.home) .site-logo, 
+    body:not(.home) .custom-logo-link,
+    body:not(.home) .logo {
+        margin-right: var(--inner-tab-logo-margin) !important;
+        position: relative !important;
+    }
+
+    body:not(.home) .site-logo img, 
+    body:not(.home) .custom-logo-link img,
+    body:not(.home) .logo img {
+        max-width: var(--inner-tab-logo-width) !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
